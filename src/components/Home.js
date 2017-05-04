@@ -3,7 +3,7 @@ import '../assets/home.css'
 import Carousel from 'nuka-carousel'
 import 'font-awesome/css/font-awesome.css'
 import {Link} from 'react-router-dom'
-import {getContacts} from '../api/messaging'
+import {getUsers} from '../api/messaging'
 import {connect} from 'react-redux'
 
 
@@ -27,7 +27,7 @@ handleChange = (e) => {
   })
 }
 componentWillMount(){
-  	getContacts()
+  	getUsers()
 }
   render() {
     return (
