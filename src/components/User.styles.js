@@ -72,7 +72,8 @@ const styles ={
     borderRadius: 3,
     background: 'white',
     lineHeight: '40px',
-    display: 'inline-block'
+    display: 'inline-block',
+    overflow: 'hidden'
   },
   ageInput:{
     marginTop: 14,
@@ -176,6 +177,14 @@ const styles ={
     height: 82,
     border: 'solid 1px black',
     borderWidth: '0 0 1px 0'
+  },
+  textDisplay:{
+    padding: 5,
+    width:308,
+    height: 82,
+    border: 'solid 1px black',
+    borderWidth: '0 0 2px 0',
+    background: 'white'
   },
   buttonBar:{
     marginTop: -6,

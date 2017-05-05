@@ -46,13 +46,14 @@ class User extends React.Component {
            
            <div style={styles.right}>
             <div style={styles.activities}>
-              <div style={this.state.editActivities ? styles.displayNone : styles.activitiesDisplay}></div>
+              <div style={this.state.editActivities ? styles.displayNone : styles.activitiesDisplay}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].activities_info}</div>
               <textarea style={this.state.editActivities ? styles.activitiesTextArea : styles.displayNone} name="activities" onChange={this.handleChange} value={this.state.activities}></textarea>
               <div style={styles.buttonBar}><span>User's Activities Info</span><button name="editActivities" onClick={this.handleEdit} style={styles.editInfo}>Edit</button></div>
             </div>
             <div style={styles.infoBlock}>
-              <textarea style={styles.textArea} name="bio" onChange={this.handleChange} value={this.state.bio}></textarea>
-              <div style={styles.buttonBar}><span>User's Bio</span><button style={styles.editInfo}>Edit</button></div>
+              <div style={this.state.editBio ? styles.displayNone : styles.textDisplay}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].bio}</div>
+              <textarea style={this.state.editBio ? styles.textArea : styles.displayNone} name="bio" onChange={this.handleChange} value={this.state.bio}></textarea>
+              <div style={styles.buttonBar}><span>User's Bio</span><button name='editBio' onClick={this.handleEdit} style={styles.editInfo}>Edit</button></div>
             </div>
             <div style={styles.infoBlock}>
               <textarea style={styles.textArea} name="hobbies" onChange={this.handleChange} value={this.state.hobbies}></textarea>
