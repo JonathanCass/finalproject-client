@@ -4,16 +4,16 @@ import axios from 'axios'
 //const socket = io.connect('http://localhost:3001')
 
 var api = axios.create({
-	baseURL: 'http://10.68.0.58:3000'
+	baseURL: 'http://10.68.0.58:3001'
 })
 
 
 export function getUsers() {
 	api.get('/users').then(res=>{
-		console.log('users', res.data)
+		//console.log('users in get call', res.data)
 		store.dispatch({
 			type: 'GET_USERS',
-			users: res.users
+			dbUsers: res.data
 		})
 	})
 }
@@ -31,14 +31,18 @@ export function getUsers() {
 // 	})
 // }
 
-export function addUser(userObj){
-	store.dispatch({
-		type: 'ADD_USER',
-		user: userObj
+// export function addUser(userObj){
+// 	store.dispatch({
+// 		type: '_USER',
+// 		user: userObj
 
+// 	})
+// }
+export function addUser(userObj){
+	api.post('/users', userObj).then(res=>{
+		console.log('users in get call', res.data)
 	})
 }
-
 // export function addMessage(message) {
 //     socket.emit('addMessage', message)
 // }

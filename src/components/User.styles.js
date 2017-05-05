@@ -38,7 +38,14 @@ const styles ={
     height: 300,
     background: 'white',
     border: 'solid 1px black',
-    borderRadius: 3
+    borderRadius: 25,
+    padding: 5
+  },
+  avatar2:{
+    height: 290,
+    width: 300,
+    margin: 0,
+    objectFit: 'contain'
   },
   avatarImg:{
     height: 300,
@@ -50,7 +57,8 @@ const styles ={
     height: 40,
     border: 'solid 1px black',
     textIndent: 5,
-    borderRadius: 3
+    borderRadius: 3,
+    fontSize: 14
   },
   lineInput2:{
     marginTop: 10,
@@ -58,7 +66,21 @@ const styles ={
     height: 40,
     border: 'solid 1px black',
     textIndent: 5,
-    borderRadius: 3
+    borderRadius: 3,
+    fontSize: 14
+  },
+  lineDisplay:{
+    marginTop: 10,
+    marginBottom: -10,
+    width: 250,
+    height: 40,
+    border: 'solid 1px black',
+    textIndent: 8,
+    borderRadius: 3,
+    background: 'white',
+    lineHeight: '40px',
+    display: 'inline-block',
+    overflow: 'hidden'
   },
   ageInput:{
     marginTop: 14,
@@ -68,12 +90,35 @@ const styles ={
     textIndent: 5,
     borderRadius: 3
   },
+  ageDisplay:{
+    marginTop: 14,
+    width: 150,
+    height: 40,
+    border: 'solid 1px black',
+    textIndent: 5,
+    borderRadius: 3,
+    background: 'white',
+    textAlign: 'center',
+    lineHeight: '40px',
+    display: 'inline-block'
+  },
   gender:{
     marginTop: 14,
     marginLeft: 10,
     width: 150,
     height: 40,
     border: 'solid 1px black'
+  },
+  genderDisplay:{
+    marginTop: 14,
+    marginLeft: 10,
+    width: 150,
+    height: 40,
+    border: 'solid 1px black',
+    background: 'white',
+    textAlign: 'center',
+    lineHeight: '40px',
+    display: 'inline-block'
   },
   createUser:{
     marginTop: 10,
@@ -97,6 +142,16 @@ const styles ={
     width: 150,
     height: 38,
     border: 'solid 1px black'
+  },
+  privacyDisplay:{
+    marginTop: 10,
+    width: 310,
+    height: 38,
+    border: 'solid 1px black',
+    background: 'white',
+    textAlign: 'center',
+    lineHeight: '38px',
+    display: 'inline-block'
   },
   select:{
     marginTop: 10,
@@ -139,6 +194,16 @@ const styles ={
     border: 'solid 1px black',
     borderWidth: '0 0 1px 0'
   },
+  activitiesDisplay:{
+    padding: 5,
+    width: 308,
+    height: 102,
+    border: 'solid 1px black',
+    borderWidth: '0 0 1px 0',
+    display: 'inline-block',
+    background: 'white',
+    marginBottom: 4
+  },
   infoBlock:{
     marginTop: 10,
     width: 310,
@@ -153,6 +218,15 @@ const styles ={
     height: 82,
     border: 'solid 1px black',
     borderWidth: '0 0 1px 0'
+  },
+  textDisplay:{
+    padding: 5,
+    width:308,
+    height: 82,
+    border: 'solid 1px black',
+    borderWidth: '0 0 2px 0',
+    background: 'white',
+    marginBottom: 5
   },
   buttonBar:{
     marginTop: -6,
@@ -186,7 +260,6 @@ const styles ={
     borderRadius: 3,
     fontSize: 15,
     lineHeight: '14px',
-    
   },
   availabilityHeader:{
       height: 40,
@@ -207,6 +280,9 @@ const styles ={
       display: 'block',
       border: 'solid 1px black',
       borderRadius: 3
+  },
+  displayNone:{
+    display: 'none'
   }
 }
 export default styles
