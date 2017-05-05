@@ -2,17 +2,9 @@ import React from 'react'
 import styles from './Table.styles'
 
 class Table extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            data: '',
-            start: '',
-            end: '',
-            activities: '',
-            level: ''
-        }
-    }
-
+    // constructor() {
+    //     super()
+   
 render() {
     return(
         <div className='tableAreaContainer' style={styles.tableAreaContainer}>
@@ -22,27 +14,26 @@ render() {
                 <thead>
                     <tr>
                         <th>Date</th>
-                        <th>(From) Start</th>
-                        <th>(To) Stop</th>
+                        <th>From</th>
+                        <th>To</th>
                         <th>Activity</th>
                         <th>Level</th>
                     </tr>
                 </thead>
-                <tbody>
+                {this.props.activityArray.map(event =>(
+                    <tbody key={Math.random()}>
                     <tr>
-                        <td style={styles.tableRow}>{this.state.date}Data Here</td>
-                        <td style={styles.tableRow}>{this.state.start}Data Here</td>
-                        <td style={styles.tableRow}>{this.state.end}Data Here</td>
-                        <td style={styles.tableRow}>{this.state.activities}Data Here</td>
-                        <td style={styles.tableRow}>{this.state.level}Data Here</td>
+                        <td style={styles.tableRow}>{event.date}</td>
+                        <td style={styles.tableRow}>{event.start}</td>
+                        <td style={styles.tableRow}>{event.end}</td>
+                        <td style={styles.tableRow}>{event.activities}</td>
+                        <td style={styles.tableRow}>{event.level}</td>
                     </tr>
                     <tr>
-                        <td style={styles.tableRow}>Cell Block</td>
-                        <td style={styles.tableRow}>Cell Block</td>
-                        <td style={styles.tableRow}>Cell Block</td>
-                        <td style={styles.tableRow}>Cell Block</td>
+                        <td style={styles.secondRow}>{event.notes}</td>
                     </tr>
-                </tbody>
+                    </tbody>
+                ))}
             </table> 
         </div> 
         )

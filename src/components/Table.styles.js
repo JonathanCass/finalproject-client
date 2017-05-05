@@ -2,20 +2,29 @@ const styles = {
     tableAreaContainer: {
         marginLeft: '585px',
         marginTop:'-173px',
-
+        
     },  
     table: {
         width:630,
-        border:'1px solid gray',
         padding:'1em',
-        
+        backgroundColor:'#D7DDE8'
     },
     tableRow: {
-        border:'1px solid gray',
         textAlign:'center',
         padding:'5px',
         height: '50px',
+        backgroundColor:'#f7fffd',
+        fontFamily:'Verdana',
+        color:'#ffa500'
     },
+    // secondRow: {
+    //     backgroundColor:'#f7fffd',
+    //     textAlign:'center',
+    //     padding:'5px',
+    //     height:'50px',
+    //     fontFamily:'Verdana',
+    //     color:'#ffa500',
+    // },
     map: {
         position:'absolute',
         marginTop:-400,

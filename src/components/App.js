@@ -25,14 +25,12 @@ class App extends Component {
   }
   handleClick = (e) => {
     e.preventDefault()
-    // this.props.history.push('/UserHomePage/')
     console.log('clicked')
   }
   handleChange = (e) => {
     console.log('changed')
     this.setState =({
-      [e.target.name]:e.target.value
-      
+      [e.target.name]:e.target.value 
     })
  }
   render() {
