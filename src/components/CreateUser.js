@@ -12,10 +12,10 @@ class User extends React.Component {
   createUser = (e) => {
   	e.preventDefault()
       var profileObj= {
-        avatarUrl: this.state.avatarUrl,
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        activities: this.state.activities,
+        avatar: this.state.avatarUrl,
+        fname: this.state.firstName,
+        lname: this.state.lastName,
+        activities_info: this.state.activities,
         bio: this.state.bio,
         hobbies: this.state.hobbies,
         interests: this.state.interests,
@@ -76,9 +76,9 @@ class User extends React.Component {
             </select>
             <select name="privacy" style={styles.privacy2} onChange={this.handleChange} value={this.state.privacy}>
               <option value="">Privacy Setting</option>
-              <option value="private">Private</option>
-              <option value="friends">Friends Only</option>
-              <option value="public">Public</option>
+              <option value={1}>Private</option>
+              <option value={2}>Friends Only</option>
+              <option value={3}>Public</option>
             </select>
             <button style={styles.createUser} onClick={this.createUser}>Create User</button>
            </div>

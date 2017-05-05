@@ -94,7 +94,7 @@ class Friends extends React.Component {
   render() {
     return (
       <div style={styles.friendsContainer}>
-        <div style={styles.header}>What Friends are Doing</div>
+        <div style={styles.header}>What Your Friends are Up To</div>
         <div style={styles.userMain}>
             <div style={styles.avatar}>Avatar</div>
             <div style={styles.nextBlock}>    

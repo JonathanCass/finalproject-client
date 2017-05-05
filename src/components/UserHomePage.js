@@ -4,11 +4,11 @@ import UserMatches from './UserMatches'
 import Friends from './Friends'
 import 'font-awesome/css/font-awesome.css'
 import {connect} from 'react-redux'
+import {getUsers} from '../api/messaging'
 
 const styles={
     userHomeContainer:{
-        width: 1300,
-        
+        width: 1300,  
         display: 'flex'
     },
     header:{
@@ -31,7 +31,14 @@ const styles={
         background: 'white',
         border: '1px solid black',
         borderRadius: 3,
-        display: 'inline-block'
+        display: 'inline-block',
+        padding: 5
+    },
+    avatarImg:{
+        width: 190,
+        height: 190,
+        objectFit: 'contain',
+        margin: 0
     },
     nextBlock:{
         width: 430,
@@ -109,14 +116,16 @@ class UserHomePage extends React.Component {
  
 //     super(props)
 //    }
-
+  componentWillMount(){
+  	getUsers()
+  }  
   render() {
     return (
       <div style={styles.userHomeContainer}>
         <div style={styles.left}> 
-        <div style={styles.header}>Welcome to Go Vegas! UserName</div>
+        <div style={styles.header}>Welcome to Go Vegas! {this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].fname} </div>
         <div style={styles.userMain}>
-            <div style={styles.avatar}>Avatar</div>
+            <div style={styles.avatar}><img alt="no error" style={styles.avatarImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar} /></div>
             <div style={styles.nextBlock}>    
                 <div style={styles.nextLabel}><button style={styles.arrowButton}><i className="fa fa-arrow-left" aria-hidden="true"></i></button><span>Your Scheduled Activities</span><button style={styles.arrowButton}><i className="fa fa-arrow-right" aria-hidden="true"></i></button></div>
                 <div style={styles.nextGrid}>
@@ -140,7 +149,7 @@ class UserHomePage extends React.Component {
 }
 
 function mapStateToProps(appState){
-	return { user: appState.user}
+	return { dbUsers: appState.dbUsers, currentUserID : appState.currentUserId}
 }
 
 export default connect(mapStateToProps)(UserHomePage)
