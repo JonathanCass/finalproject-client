@@ -31,14 +31,18 @@ export function getUsers() {
 // 	})
 // }
 
-export function addUser(userObj){
-	store.dispatch({
-		type: 'ADD_USER',
-		user: userObj
+// export function addUser(userObj){
+// 	store.dispatch({
+// 		type: '_USER',
+// 		user: userObj
 
+// 	})
+// }
+export function addUser(userObj){
+	api.post('/users', userObj).then(res=>{
+		console.log('users in get call', res.data)
 	})
 }
-
 // export function addMessage(message) {
 //     socket.emit('addMessage', message)
 // }
