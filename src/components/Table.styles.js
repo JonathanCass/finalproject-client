@@ -13,14 +13,17 @@ const styles = {
         textAlign:'center',
         padding:'5px',
         height: '50px',
-        backgroundColor:'#eef2f3'
+        backgroundColor:'#f7fffd',
+        fontFamily:'Verdana',
+        color:'#ffa500'
     },
     // secondRow: {
-    //     border:'1px solid gray',
+    //     backgroundColor:'#f7fffd',
     //     textAlign:'center',
     //     padding:'5px',
     //     height:'50px',
-    //     width:200
+    //     fontFamily:'Verdana',
+    //     color:'#ffa500',
     // },
     map: {
         position:'absolute',

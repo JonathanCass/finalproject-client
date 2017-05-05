@@ -45,14 +45,19 @@ handleChange = (e) => {
   })
 }
 handleButton = (e) => {
-  console.log(this.state)
   this.setState({
     [e.target.name]:e.target.value
   })
 }
+handleLevel = (e) => {
+  console.log(this.state)
+  this.setState({
+    level: e.target.value
+  })
+}
 handleBrowse = (e) => {
   e.preventDefault()
-  // console.log('Browse Activities')
+  console.log('Browse Activities')
 }
   render() {
     // console.log('ParkView this.props', this.props)
@@ -61,18 +66,18 @@ handleBrowse = (e) => {
       <div style={styles.container}>    
           <h2 style={styles.h2}>Type Of Play</h2>
           <div style={styles.radioContainer}>
-            <input type='radio' onChange={this.handleButton} name='play' value={this.state.play}/>
+            <input type='radio' onChange={this.handleButton} name='play' value="Competitive"/>
             <label htmlFor="competitive" style={styles.radio}>Competitive</label>
             <input type='radio'onChange={this.handleButton} name='play' value={this.state.play}/>
             <label htmlFor="leisurely" style={styles.radio}>Leisurely</label>
           <div className='line' style={styles.line}></div>
           </div>
           <div className='level'style={styles.level}>
-            <input type='checkbox' onChange={this.handleButton} name='level' value={this.state.level}/>
+            <input type='checkbox' onChange={this.handleLevel} name='level' value="Beginner"/>
             <label htmlFor='beginner' style={styles.levelBoxes}>Beginner</label>
-            <input type='checkbox' onChange={this.handleButton} name='level' value={this.state.level}/>
+            <input type='checkbox' onChange={this.handleLevel} name='level' value="Experienced"/>
             <label htmlFor='experienced' style={styles.levelBoxes}>Experienced</label>
-            <input type='checkbox'onChange={this.handleButton} name='level' value={this.state.level}/>
+            <input type='checkbox'onChange={this.handleLevel} name='level' value="Advanced"/>
             <label htmlFor='advanced' style={styles.levelBoxes}>Advanced</label>
           </div>
           <select className='activities' onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
