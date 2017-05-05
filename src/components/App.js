@@ -30,8 +30,7 @@ class App extends Component {
   handleChange = (e) => {
     console.log('changed')
     this.setState =({
-      [e.target.name]:e.target.value
-      
+      [e.target.name]:e.target.value 
     })
  }
   render() {

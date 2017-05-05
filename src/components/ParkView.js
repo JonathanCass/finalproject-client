@@ -68,7 +68,7 @@ handleBrowse = (e) => {
           <div style={styles.radioContainer}>
             <input type='radio' onChange={this.handleButton} name='play' value="Competitive"/>
             <label htmlFor="competitive" style={styles.radio}>Competitive</label>
-            <input type='radio'onChange={this.handleButton} name='play' value={this.state.play}/>
+            <input type='radio'onChange={this.handleButton} name='play' value="Leisurely"/>
             <label htmlFor="leisurely" style={styles.radio}>Leisurely</label>
           <div className='line' style={styles.line}></div>
           </div>
@@ -90,7 +90,7 @@ handleBrowse = (e) => {
             <option value='Walking'>Walking</option>
           </select>
           <MuiThemeProvider>
-             <DatePicker hintText="Choose Day" container="inline" mode="landscape" style={styles.calendar}/>
+             <DatePicker hintText="Choose Day" container="inline" name='date' value={this.state.date} mode="landscape" style={styles.calendar}/>
           </MuiThemeProvider>
           <div className='notes'>
             <textarea onChange={this.handleChange} name='notes' value={this.state.notes} style={styles.notes} placeholder="Additional Notes"></textarea>
