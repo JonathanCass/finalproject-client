@@ -40,7 +40,13 @@ export function getUsers() {
 // }
 export function addUser(userObj){
 	api.post('/users', userObj).then(res=>{
-		console.log('users in get call', res.data)
+		console.log('post new User', res.data)
+	})
+}
+export function postAvailability(availabilityObj){
+	console.log("Object being sent", availabilityObj)
+	api.post('/availability', availabilityObj).then(res=>{
+		console.log('post Availability', res.data)
 	})
 }
 // export function addMessage(message) {

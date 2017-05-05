@@ -1,6 +1,8 @@
 import React from 'react'
 import styles from './User.styles.js'
 import UserAvailabilityGrid from './UserAvailabilityGrid'
+import {connect} from 'react-redux'
+import {postAvailability} from '../api/messaging'
 
 class UserAvailability extends React.Component {
     constructor() {
@@ -12,11 +14,16 @@ class UserAvailability extends React.Component {
   addAvailability = (e) => {
   	e.preventDefault()
       var availabilityObj ={
-          area: this.state.area,
-          day: this.state.day,
-          from: this.state.from +" "+ this.state.fromAmPm ,
-          to: this.state.to +" "+ this.state.toAmPm 
+          quadrant: this.state.area,
+          day_of_week: this.state.day,
+          from_num: this.state.from,
+          from_suffix: this.state.fromAmPm ,
+          to_num: this.state.to,
+          to_suffix: this.state.toAmPm,
+          user_id: this.props.currentUserID,
+          id: ''
       }
+      postAvailability(availabilityObj)
     this.setState({
       availabilityArray : [...this.state.availabilityArray, availabilityObj],
       area:'',day:'',from:0,to:0,fromAmPm:'',toAmPm:''
@@ -109,4 +116,8 @@ class UserAvailability extends React.Component {
   }
 }
 
-export default UserAvailability
+function mapStateToProps(appState){
+	return { currentUserID : appState.currentUserId}
+}
+
+export default connect(mapStateToProps)(UserAvailability)

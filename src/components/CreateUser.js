@@ -6,7 +6,7 @@ class User extends React.Component {
   constructor() {
     super()
     this.state = {
-      avatarUrl:'',firstName:'',lastName:'',activities:'',bio:'',hobbies:'',interests:'Movies, Books, Games, Music',email:'',age:'',gender:'',privacy:'', address:'',password:''
+      avatarUrl:'http://www.clker.com/cliparts/F/g/8/N/k/X/black-question-mark-square-icon-md.png',firstName:'',lastName:'',activities:'',bio:'',hobbies:'',interests:'Movies, Books, Games, Music',email:'',age:'',gender:'',privacy:'', address:'',password:''
     }
   }
   createUser = (e) => {
@@ -26,7 +26,6 @@ class User extends React.Component {
         privacy: this.state.privacy,
         password: this.state.password
       }
-      console.log('profileObj', profileObj)
       addUser(profileObj)
       this.props.history.push('/UserProfile/')
   }
@@ -42,7 +41,7 @@ class User extends React.Component {
         <div style={styles.top}>
           
           <div style={styles.left}>
-            <div style={styles.avatar} ></div>
+            <div style={styles.avatar} ><img alt="no error" style={styles.avatar2} src={this.state.avatarUrl} /></div>
             <input type="text" name="firstName" placeholder="First Name" onChange={this.handleChange} style={styles.lineInput2} value={this.state.firstName}></input>
             <input type="text" name="lastName" placeholder="Last Name" onChange={this.handleChange} style={styles.lineInput2} value={this.state.lastName}></input>
             <input type="text" name="avatarUrl" placeholder="Avatar Url" onChange={this.handleChange} style={styles.lineInput2} value={this.state.avatarUrl}></input>
