@@ -18,7 +18,6 @@ class User extends React.Component {
     })
   }
   handleEdit = (e) => {
-    console.log('e.target.name', e.target.name)
     this.setState({
       [e.target.name]: !this.state[e.target.name]
     })
@@ -27,15 +26,13 @@ class User extends React.Component {
   	getUsers()
   }
   render() {
-    console.log('UserProfile this.props', this.props)
-    console.log('this.props.dbUsers.users and this.props.dbUsers.users[this.props.currentUserID].fname', this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].fname)
     return (
       <div style={styles.UserContainer}>
         
         <div style={styles.top}>
           
           <div style={styles.left}>
-            <div style={styles.avatar} ></div>
+            <div style={styles.avatar} ><img alt="no error" style={styles.avatar2} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar} /></div>
             <button style={styles.editInfo2} onClick={this.handleEdit} name="editFirstName">Edit</button><div style={this.state.editFirstName ?  styles.displayNone : styles.lineDisplay } >{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].fname}</div><input type="text" name="firstName" placeholder="First Name" onChange={this.handleChange} style={this.state.editFirstName ? styles.lineInput : styles.displayNone} value={this.state.firstName}></input>
             <button style={styles.editInfo2} onClick={this.handleEdit} name="editLastName">Edit</button><div style={this.state.editLastName ?  styles.displayNone : styles.lineDisplay } >{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].lname}</div><input type="text" name="lastName" placeholder="Last Name" onChange={this.handleChange} style={this.state.editLastName ? styles.lineInput : styles.displayNone} value={this.state.lastName}></input>           
             <button style={styles.editInfo2} onClick={this.handleEdit} name="editAvatarUrl">Edit</button><div style={this.state.editAvatarUrl ?  styles.displayNone : styles.lineDisplay } >{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}</div><input type="text" name="avatarUrl" placeholder="Avatar Url" onChange={this.handleChange} style={this.state.editAvatarUrl ? styles.lineInput : styles.displayNone} value={this.state.avatarUrl}></input>

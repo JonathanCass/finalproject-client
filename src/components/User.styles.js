@@ -38,7 +38,14 @@ const styles ={
     height: 300,
     background: 'white',
     border: 'solid 1px black',
-    borderRadius: 3
+    borderRadius: 25,
+    padding: 5
+  },
+  avatar2:{
+    height: 290,
+    width: 300,
+    margin: 0,
+    objectFit: 'contain'
   },
   avatarImg:{
     height: 300,
@@ -195,7 +202,7 @@ const styles ={
     borderWidth: '0 0 1px 0',
     display: 'inline-block',
     background: 'white',
-    marginBottom: 6
+    marginBottom: 4
   },
   infoBlock:{
     marginTop: 10,
