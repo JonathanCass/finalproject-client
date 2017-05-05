@@ -2,16 +2,16 @@ import React from 'react'
 import '../assets/home.css'
 import Carousel from 'nuka-carousel'
 import 'font-awesome/css/font-awesome.css'
-import {Link} from 'react-router-dom'
-import {getContacts} from '../api/messaging'
+// import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 
 class Home extends React.Component {
-  constructor(props) { 
-    super(props)
+  constructor() { 
+    super()
       this.state = {
-      login:''
+      login:'',
+      match:''
    }
 }
 handleSubmit = (e) => {  // FINISH HANDLE FUNCTIONS
@@ -26,10 +26,17 @@ handleChange = (e) => {
     [e.target.name]:e.target.value
   })
 }
-componentWillMount(){
-  	getContacts()
-}
+// componentWillMount(){
+//     store.dispatch(() => {
+//       const appState = store.getState()
+//       this.setState({
+        
+//       })
+//     })
+//   	getContacts()
+// }
   render() {
+    console.log('Home', this.props)
     return (
       <div className="beginningContainer">
         <section className="carouselContainer">
@@ -43,21 +50,20 @@ componentWillMount(){
        </section>
       
        <h1 className="happening">What's Happening In Your Area</h1>
-          <ul className="matches">
+          <ul className="matches" value={this.state.match}>
             {/*<li id="person"></li> <img alt={data.name.first} src={data.picture.thumbnail}/>{data.activities}*/}
-            <li id="person">Match</li>
-            <li id="person">Match</li>
-            <li id="person">Match</li>
-            <li id="person">Match</li>
+            <li id="person" name='match'>User Match</li>
+            <li id="person" name='match'>User Match</li>
+            <li id="person" name='match'>User Match</li>
+            <li id="person" name='match'>User Match</li>
           </ul>
-          {/*{this.state.dataname}*/}
       </div> //end of container
     )
   }
 }
 
 function mapStateToProps(appState){
-	return {}
+	return {home: appState.home}
 }
 
 export default connect(mapStateToProps)(Home)

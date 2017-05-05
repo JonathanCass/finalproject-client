@@ -25,7 +25,6 @@ class App extends Component {
   }
   handleClick = (e) => {
     e.preventDefault()
-    // this.props.history.push('/UserHomePage/')
     console.log('clicked')
   }
   handleChange = (e) => {
