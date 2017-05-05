@@ -83,12 +83,35 @@ const styles ={
     textIndent: 5,
     borderRadius: 3
   },
+  ageDisplay:{
+    marginTop: 14,
+    width: 150,
+    height: 40,
+    border: 'solid 1px black',
+    textIndent: 5,
+    borderRadius: 3,
+    background: 'white',
+    textAlign: 'center',
+    lineHeight: '40px',
+    display: 'inline-block'
+  },
   gender:{
     marginTop: 14,
     marginLeft: 10,
     width: 150,
     height: 40,
     border: 'solid 1px black'
+  },
+  genderDisplay:{
+    marginTop: 14,
+    marginLeft: 10,
+    width: 150,
+    height: 40,
+    border: 'solid 1px black',
+    background: 'white',
+    textAlign: 'center',
+    lineHeight: '40px',
+    display: 'inline-block'
   },
   createUser:{
     marginTop: 10,
@@ -112,6 +135,16 @@ const styles ={
     width: 150,
     height: 38,
     border: 'solid 1px black'
+  },
+  privacyDisplay:{
+    marginTop: 10,
+    width: 310,
+    height: 38,
+    border: 'solid 1px black',
+    background: 'white',
+    textAlign: 'center',
+    lineHeight: '38px',
+    display: 'inline-block'
   },
   select:{
     marginTop: 10,
@@ -161,7 +194,8 @@ const styles ={
     border: 'solid 1px black',
     borderWidth: '0 0 1px 0',
     display: 'inline-block',
-    background: 'white'
+    background: 'white',
+    marginBottom: 6
   },
   infoBlock:{
     marginTop: 10,
@@ -184,7 +218,8 @@ const styles ={
     height: 82,
     border: 'solid 1px black',
     borderWidth: '0 0 2px 0',
-    background: 'white'
+    background: 'white',
+    marginBottom: 5
   },
   buttonBar:{
     marginTop: -6,

@@ -56,25 +56,18 @@ class User extends React.Component {
               <div style={styles.buttonBar}><span>User's Bio</span><button name='editBio' onClick={this.handleEdit} style={styles.editInfo}>Edit</button></div>
             </div>
             <div style={styles.infoBlock}>
-              <textarea style={styles.textArea} name="hobbies" onChange={this.handleChange} value={this.state.hobbies}></textarea>
-              <div style={styles.buttonBar}><span>Hobbies</span><button style={styles.editInfo}>Edit</button></div>
+              <div style={this.state.editHobbies ? styles.displayNone : styles.textDisplay}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].hobbies}</div>
+              <textarea style={this.state.editHobbies ? styles.textArea : styles.displayNone} name="hobbies" onChange={this.handleChange} value={this.state.hobbies}></textarea>
+              <div style={styles.buttonBar}><span>User's Hobbies</span><button name='editHobbies' onClick={this.handleEdit} style={styles.editInfo}>Edit</button></div>
             </div>
             <div style={styles.infoBlock}>
-              <textarea style={styles.textArea} name="interests" onChange={this.handleChange} value={this.state.interests}></textarea>
-              <div style={styles.buttonBar}><span>Interests</span><button style={styles.editInfo}>Edit</button></div>
+              <div style={this.state.editInterests ? styles.displayNone : styles.textDisplay}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].interests}</div>
+              <textarea style={this.state.editInterests ? styles.textArea : styles.displayNone} name="interests" onChange={this.handleChange} value={this.state.interests}></textarea>
+              <div style={styles.buttonBar}><span>User's Hobbies</span><button name='editInterests' onClick={this.handleEdit} style={styles.editInfo}>Edit</button></div>
             </div>
-            <input type="text" name="age" placeholder="Age" onChange={this.handleChange} style={styles.ageInput} value={this.state.age}></input>
-            <select name="gender" style={styles.gender} onChange={this.handleChange} value={this.state.gender}>
-              <option value="">Select Gender</option>
-              <option value="private">Male</option>
-              <option value="friends">Female</option>
-            </select>
-            <select name="privacy" style={styles.privacy} onChange={this.handleChange} value={this.state.privacy}>
-              <option value="">User Page Privacy Setting</option>
-              <option value="private">Private</option>
-              <option value="friends">Friends Only</option>
-              <option value="public">Public</option>
-            </select>
+            <div style={styles.ageDisplay}>Age : {this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].age}</div>
+            <div style={styles.genderDisplay}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].gender}</div>
+            <div style={styles.privacyDisplay}>Privacy Setting :  {this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].privacy}</div>
            </div>
 
         </div>
