@@ -2,7 +2,6 @@ import React from 'react'
 import '../assets/home.css'
 import Carousel from 'nuka-carousel'
 import 'font-awesome/css/font-awesome.css'
-import {Link} from 'react-router-dom'
 import {getUsers} from '../api/messaging'
 import {connect} from 'react-redux'
 

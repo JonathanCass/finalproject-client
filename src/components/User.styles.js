@@ -50,7 +50,8 @@ const styles ={
     height: 40,
     border: 'solid 1px black',
     textIndent: 5,
-    borderRadius: 3
+    borderRadius: 3,
+    fontSize: 14
   },
   lineInput2:{
     marginTop: 10,
@@ -58,7 +59,19 @@ const styles ={
     height: 40,
     border: 'solid 1px black',
     textIndent: 5,
-    borderRadius: 3
+    borderRadius: 3,
+    fontSize: 14
+  },
+  lineDisplay:{
+    marginTop: 10,
+    width: 250,
+    height: 40,
+    border: 'solid 1px black',
+    textIndent: 8,
+    borderRadius: 3,
+    background: 'white',
+    lineHeight: '40px',
+    display: 'inline-block'
   },
   ageInput:{
     marginTop: 14,
@@ -139,6 +152,15 @@ const styles ={
     border: 'solid 1px black',
     borderWidth: '0 0 1px 0'
   },
+  activitiesDisplay:{
+    padding: 5,
+    width: 308,
+    height: 102,
+    border: 'solid 1px black',
+    borderWidth: '0 0 1px 0',
+    display: 'inline-block',
+    background: 'white'
+  },
   infoBlock:{
     marginTop: 10,
     width: 310,
@@ -207,6 +229,9 @@ const styles ={
       display: 'block',
       border: 'solid 1px black',
       borderRadius: 3
+  },
+  displayNone:{
+    display: 'none'
   }
 }
 export default styles
