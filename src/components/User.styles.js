@@ -64,6 +64,7 @@ const styles ={
   },
   lineDisplay:{
     marginTop: 10,
+    marginBottom: -10,
     width: 250,
     height: 40,
     border: 'solid 1px black',
@@ -208,7 +209,6 @@ const styles ={
     borderRadius: 3,
     fontSize: 15,
     lineHeight: '14px',
-    
   },
   availabilityHeader:{
       height: 40,

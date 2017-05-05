@@ -46,7 +46,7 @@ class User extends React.Component {
            
            <div style={styles.right}>
             <div style={styles.activities}>
-              <div style={this.state.editActivites ? styles.displayNone : styles.activitiesDisplay}></div>
+              <div style={this.state.editActivities ? styles.displayNone : styles.activitiesDisplay}></div>
               <textarea style={this.state.editActivities ? styles.activitiesTextArea : styles.displayNone} name="activities" onChange={this.handleChange} value={this.state.activities}></textarea>
               <div style={styles.buttonBar}><span>User's Activities Info</span><button name="editActivities" onClick={this.handleEdit} style={styles.editInfo}>Edit</button></div>
             </div>
