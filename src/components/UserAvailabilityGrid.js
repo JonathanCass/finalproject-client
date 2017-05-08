@@ -31,7 +31,8 @@ const styles = {
         display: 'inline-block',
         background: '#F2F2F2',
         lineHeight: '42px',
-        textAlign: 'center'
+        textAlign: 'center',
+        textTransform: 'capitalize'
     },
     removeEntry:{
         width: 40,
@@ -53,7 +54,11 @@ const styles = {
         textAlign: 'center',
         display: 'block',
         marginBottom: 10 
-  },
+    },
+    displayNone:{
+        display: 'none'
+    }
+  
 }
 class UserAvailabilityGrid extends React.Component {
 //    constructor(props) {
@@ -63,8 +68,27 @@ class UserAvailabilityGrid extends React.Component {
   componentWillMount(){
   	getAvail()
   }
+  renderGrid(){
+    if(this.props.availabilityArray) {
+        return (
+            this.props.availabilityArray.map(entry=>(
+            <div style={styles.grid} key={Math.random()}>
+                <div style={ this.props.currentUserID === entry.user_id ? styles.gridBox : styles.displayNone}>{entry.quadrant }</div>
+                <div style={ this.props.currentUserID === entry.user_id ? styles.gridBox : styles.displayNone}>{entry.day_of_week}</div>
+                <div style={ this.props.currentUserID === entry.user_id ? styles.gridBox : styles.displayNone}>{entry.from_num + ' ' + entry.from_suffix}</div>
+                <div style={ this.props.currentUserID === entry.user_id ? styles.gridBox : styles.displayNone}>{entry.to_num + ' ' + entry.to_suffix}</div>
+                <div style={ this.props.currentUserID === entry.user_id ? styles.removeEntry : styles.displayNone }>-</div>
+            </div>	
+		))
+        )
+    }else {
+        return (
+            <span> No Availabilities active for this user at this time. </span>
+        )
+    }
+  }
   render() {
-      console.log('userAvailabilityGrid props', this.props)
+      console.log(this.props)
     return (
       <div style={styles.UAGridContainer}>
         <div style={styles.gridHeader}>Currently Available For</div>  
@@ -73,16 +97,7 @@ class UserAvailabilityGrid extends React.Component {
         <div style={styles.gridLabel}>From</div>
         <div style={styles.gridLabel}>To</div>
        
-       {/*{this.props.dbAvail.availability.map(entry=>(
-            <div style={styles.grid} key={Math.random()}>
-                <div style={styles.gridBox}>{entry.quadrant + 'Las Vegas'}</div>
-                <div style={styles.gridBox}>{entry.day_of_week}</div>
-                <div style={styles.gridBox}>{entry.from_num + ' ' + entry.from_suffix}</div>
-                <div style={styles.gridBox}>{entry.to_num + ' ' + entry.to_suffix}</div>
-                <div style={styles.removeEntry}>-</div>
-            </div>	
-		))}*/}
-
+       { this.renderGrid() }
       </div>
     )
   }
