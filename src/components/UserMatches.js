@@ -71,7 +71,7 @@ class UserMatches extends React.Component {
                     else if(this.props.availabilityArray[i].from_suffix === 'pm'){
                         fromTime = this.props.availabilityArray[i].from_num + 12
                     }
-                    console.log('UserMatches adjusted fromTime', fromTime)
+                    //console.log('UserMatches adjusted fromTime', fromTime)
                     if(this.props.availabilityArray[i].to_num === 12 && this.props.availabilityArray[i].to_suffix === 'pm'){
                         toTime = 12
                     }
@@ -84,7 +84,7 @@ class UserMatches extends React.Component {
                     else if(this.props.availabilityArray[i].to_suffix === 'pm'){
                         toTime = this.props.availabilityArray[i].to_num + 12
                     }
-                    console.log('UserMatches adjusted toTime', toTime)
+                    //console.log('UserMatches adjusted toTime', toTime)
                     if(currentUserArray[j].from_num === 12 && currentUserArray[j].from_suffix === 'pm'){
                         cUserFrom = 12
                     }
@@ -97,7 +97,7 @@ class UserMatches extends React.Component {
                     else if(currentUserArray[j].from_suffix === 'pm'){
                         cUserFrom = currentUserArray[j].from_num + 12
                     }
-                    console.log('Current Users Time from adjusted ', cUserFrom)
+                    //console.log('Current Users Time from adjusted ', cUserFrom)
                     if(currentUserArray[j].to_num === 12 && currentUserArray[j].to_suffix === 'pm'){
                         cUserTo = 12
                     }
@@ -110,7 +110,7 @@ class UserMatches extends React.Component {
                     else if(currentUserArray[j].to_suffix === 'pm'){
                         cUserTo = currentUserArray[j].to_num + 12
                     }
-                    console.log('Current Users Time To Adjusted', cUserTo)
+                    //console.log('Current Users Time To Adjusted', cUserTo)
                     if((cUserFrom < toTime) && (cUserTo > fromTime)){
                         console.log("Match found with current user and user id" , this.props.availabilityArray[i].user_id )
                     }
@@ -120,7 +120,7 @@ class UserMatches extends React.Component {
   }
   render() {
       this.handleMatches()
-      console.log('this.state', this.state)
+      //console.log('this.state', this.state)
     return (
       <div style={styles.matchesContainer}>
         <div style={styles.matchBox}>
