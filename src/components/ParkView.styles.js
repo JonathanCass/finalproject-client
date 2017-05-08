@@ -70,6 +70,11 @@ const styles = {
         marginLeft:'28.5em',
         cursor:'pointer'
     },
+     or: {
+        marginTop:'-2em',
+        marginLeft: '32.3em',
+        textDecoration:'underline'
+    },
     browse: {
         height:40,
         width:100,
@@ -77,11 +82,6 @@ const styles = {
         marginTop:'-4.6em',
         marginLeft:'42em',
         cursor:'pointer'
-    },
-    or: {
-        marginTop:'-2em',
-        marginLeft: '32.3em',
-        textDecoration:'underline'
     },
     notes: {
         position:'absolute',

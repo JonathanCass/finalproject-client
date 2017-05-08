@@ -60,7 +60,6 @@ handleBrowse = (e) => {
   console.log('Browse Activities')
 }
   render() {
-    // console.log('ParkView this.props', this.props)
     // console.log(this.state)
     return (
       <div style={styles.container}>    

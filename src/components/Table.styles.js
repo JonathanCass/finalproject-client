@@ -1,14 +1,12 @@
 const styles = {
     tableAreaContainer: {
-        marginLeft: '585px',
-        marginTop:'-173px',      
+        marginLeft: '585px',   
     },  
     table: {
-        width:630,
+        width:1130,
         padding:'1em',
         backgroundColor:'#D7DDE8',
-        marginTop:'5em',
-        position:'absolute',
+        marginLeft: '-585px'
     },
     tableRow: {
         textAlign:'center',
@@ -18,17 +16,12 @@ const styles = {
         fontFamily:'Verdana',
         color:'#ffa500',
     },
-    // secondRow: {
-    //     backgroundColor:'gray',
-    //     textAlign:'center',
-    //     padding:'5px',
-    //     height:'50px',
-    //     fontFamily:'Verdana',
-    //     color:'#ffa500',
-    // },
+    tableHead : {
+        fontFamily:'Verdana'
+    },
     map: {
         position:'absolute',
-        marginTop:-400,
+        marginTop:-560,
         height:350,
     },
     here: {
