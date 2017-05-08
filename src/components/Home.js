@@ -19,7 +19,6 @@ handleSubmit = (e) => {  // FINISH HANDLE FUNCTIONS
 }
 handleClick = (e) => {
   e.preventDefault()
-  console.log('click')
 }
 handleChange = (e) => {
   this.setState({
@@ -42,6 +41,7 @@ handleChange = (e) => {
         <section className="carouselContainer">
           <Carousel>
               <img alt='' src="https://static.pexels.com/photos/305244/pexels-photo-305244.jpeg"/>
+              {/*<p id="texts">Find a Running Buddy</p>*/}
               <img alt='' src="https://static.pexels.com/photos/24306/pexels-photo-24306.jpg"/>
               <img alt='' src="https://static.pexels.com/photos/386024/pexels-photo-386024.jpeg"/>
               <img alt='' src="https://images.pexels.com/photos/798/bench-people-smartphone-sun.jpg?w=940&amp;h=650&amp;auto=compress&amp;cs=tinysrgb"/>

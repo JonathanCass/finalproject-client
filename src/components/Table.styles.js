@@ -18,7 +18,7 @@ const styles = {
         color:'#ffa500'
     },
     // secondRow: {
-    //     backgroundColor:'#f7fffd',
+    //     backgroundColor:'gray',
     //     textAlign:'center',
     //     padding:'5px',
     //     height:'50px',

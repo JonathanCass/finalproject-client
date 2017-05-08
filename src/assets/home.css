@@ -42,13 +42,6 @@ body {
     background-color:#bbeeff;
     color:white;
 }
-.carouselContainer{
-    border:1px solid #d2d9da;
-    width:900px;
-    overflow:hidden;
-    margin-left:15%;
-    margin-top:3%;
-}
 .links {
     padding:15px;
 }
@@ -62,7 +55,13 @@ body {
     background-color: #eae9e9;
     padding:15px;  
 }
-
+.carouselContainer{
+    border:1px solid #d2d9da;
+    width:900px;
+    overflow:hidden;
+    margin-left:15%;
+    margin-top:3%;
+}
 img {  
     width:630px;
     height:auto;
@@ -92,3 +91,12 @@ h3 {
     margin-top:-15%;
     color:white;
 }
+/*#texts {
+    background-image:url("https://static.pexels.com/photos/305244/pexels-photo-305244.jpeg");
+    position: relative;
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    height: 456px;
+    width: 5388px;
+}*/

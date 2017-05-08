@@ -29,9 +29,12 @@ render() {
                         <td style={styles.tableRow}>{event.activities}</td>
                         <td style={styles.tableRow}>{event.level}</td>
                     </tr>
-                    <tr>
+                    {/*<tr>
                         <td style={styles.secondRow}>{event.notes}</td>
-                    </tr>
+                        <td style={styles.secondRow}>{event.gear}</td>
+                        <span></span>
+                        <td style={styles.secondRow}>{event.play}</td>
+                    </tr>*/}
                     </tbody>
                 ))}
             </table> 

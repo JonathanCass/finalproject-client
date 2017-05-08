@@ -18,7 +18,6 @@ export function getUsers() {
 	})
 }
 	
-
 // export function getUsers() {
 // 	console.log('getUSers in Api')
 // 	axios.get('http://10.68.0.58:3000/activities').then(res=>{
