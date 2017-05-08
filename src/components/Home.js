@@ -7,20 +7,27 @@ import {getUsers} from '../api/messaging'
 import {connect} from 'react-redux'
 
 const styles ={
-  matchAv : {
+  matchImg : {
     height:'100px',
     width:'100px',
+    marginTop:'10px'
   },
-  info : {
-    border:'1px solid black'
-  }
+  // info : {
+  //   border:'1px solid black',
+  //   position:'absolute',
+  //   width:'194px',
+  // },
+  p : {
+    border:'1px',
+    height:'10px'
+  }, 
 }
 
 class Home extends React.Component {
   constructor() { 
     super()
       this.state = {
-      match:''
+      // match:''
    }
 }
 handleSubmit = (e) => {  // FINISH HANDLE FUNCTIONS
@@ -53,15 +60,35 @@ componentWillMount() {
        </section>
       
        <h1 className="happening">What's Happening In Your Area</h1>
-          <ul className="matches" value={this.state.match}>
 
-            <li id="person" name='match'><img alt='matched' style={styles.matchAv} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/><div style={styles.info}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].fname}</div></li>
+          <ul className="matches">     
+            <li id="person" name='match'>
+              <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/>
+                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].fname}</p>
+                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].lname}</p> 
+                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].interests}</p>
+            </li>
 
-            <li id="person" name='match'><img alt='matched' style={styles.matchAv} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/></li>
+            <li id="person" name='match'>
+              <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/>
+                {/*<p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].fname}</p>
+                <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].lname}</p>
+                <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].interests}</p>           */}
+            </li>
 
-            <li id="person" name='match'><img alt='matched' style={styles.matchAv} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/></li>
+            <li id="person" name='match'>
+              <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/>
+                {/*<p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].fname}</p>
+                <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].lname}</p>
+                <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].interests}</p>*/}
+            </li>
 
-            <li id="person" name='match'><img alt='matched' style={styles.matchAv} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/></li>
+            <li id="person" name='match'>
+              <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/>
+                {/*<p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].fname}</p>
+                <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].lname}</p>
+                <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].interests}</p>*/}
+            </li>
           </ul>
       </div> //end of container
     )
