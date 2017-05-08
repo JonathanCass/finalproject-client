@@ -18,6 +18,15 @@ export function getUsers() {
 	})
 }
 
+export function getAvail() {
+	api.get('/availability').then(res=>{
+		//console.log('availability get', res.data)
+		store.dispatch({
+			type: 'GET_AVAIL',
+			dbAvail: res.data
+		})
+	})
+}	
 export function getParks() {
     api.get('/parks').then(res=>{
 //         console.log('parks', res.data)
@@ -27,8 +36,6 @@ export function getParks() {
          })
     })
 }
-	
-
 // export function getUsers() {
 // 	console.log('getUSers in Api')
 // 	axios.get('http://10.68.0.58:3000/activities').then(res=>{
@@ -50,7 +57,13 @@ export function getParks() {
 // }
 export function addUser(userObj){
 	api.post('/users', userObj).then(res=>{
-		console.log('users in get call', res.data)
+		console.log('post new User', res.data)
+	})
+}
+export function postAvailability(availabilityObj){
+	console.log("Object being sent", availabilityObj)
+	api.post('/availability', availabilityObj).then(res=>{
+		console.log('post Availability', res.data)
 	})
 }
 // export function addMessage(message) {

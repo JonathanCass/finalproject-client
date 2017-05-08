@@ -26,7 +26,6 @@ class User extends React.Component {
   	getUsers()
   }
   render() {
-    console.log(this.state)
     return (
       <div style={styles.UserContainer}>
         
