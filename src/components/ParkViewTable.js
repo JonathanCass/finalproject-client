@@ -16,7 +16,7 @@ a
     getParks()
   }
 render() {
-    console.log(this.props.parks)
+    // console.log(this.props.parks)
 
      const park_map =  this.props.park_map ||     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1630.1258538673626!2d-115.07165919748192!3d36.029062416416544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8d1c7514648f7%3A0x58b9ffe42cace0c8!2sMountain+View+Park!5e1!3m2!1sen!2sus!4v1494221097861" width="600" height="450" ></iframe>
     return(
