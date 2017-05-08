@@ -70,7 +70,7 @@ componentWillMount() {
               <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/>
                 {/*<p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].fname}</p>
                 <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].lname}</p>
-                <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].interests}</p>           */}
+                <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].interests}</p>*/}
             </li>
 
             <li id="person" name='match'>
@@ -93,8 +93,7 @@ componentWillMount() {
 }
 
 function mapStateToProps(appState){
-	return {home: appState.home},
-         {dbUsers: appState.dbUsers, currentUserID : appState.currentUserId}
+	return {home: appState.home, dbUsers: appState.dbUsers, currentUserID : appState.currentUserId}
 }
 
 export default connect(mapStateToProps)(Home)

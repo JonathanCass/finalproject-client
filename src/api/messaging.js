@@ -55,7 +55,12 @@ export function addUser(userObj){
 // export function addMessage(message) {
 //     socket.emit('addMessage', message)
 // }
-
+export function postCreateActivity(createActivityObj) {
+	console.log(createActivityObj)
+	api.post('/activities', createActivityObj).then(res =>{
+		console.log('New Activity created', res.data)
+	})
+}
 // socket.on('newMessage', function(message){
 //     store.dispatch({
 //         type: 'ADD_MESSAGE',

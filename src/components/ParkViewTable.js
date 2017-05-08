@@ -43,8 +43,7 @@ render() {
                             <td style={styles.tableRow}>{event.activities}</td>
                             <td style={styles.tableRow}>{event.level}</td>
                             <td style={styles.tableRow}>{event.notes}</td>
-                            <td style={styles.tableRow}>{event.gear}</td>
-                            
+                            <td style={styles.tableRow}>{event.gear}</td>   
                         </tr>
                         </tbody>               
                     ))}

@@ -3,6 +3,7 @@ import styles from './ParkView.styles'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import DatePicker from 'material-ui/DatePicker'
 import Table from './ParkViewTable'
+import {postCreateActivity} from '../api/messaging'
 import { connect } from 'react-redux'
 
 class ParkView extends React.Component {
@@ -34,6 +35,8 @@ createActivity = (e) => {
       end:this.state.end,
       gear:this.state.gear
   }
+  postCreateActivity(createActivityObj)
+    console.log('posted')
   this.setState({
     activityArray : [...this.state.activityArray, createActivityObj],
     play:'', level:'', activities:'', notes:'', start:'', end:'', gear:''
@@ -57,7 +60,7 @@ handleLevel = (e) => {
 }
 handleBrowse = (e) => {
   e.preventDefault()
-  console.log('Browse Activities')
+  console.log('map through parks')
 }
   render() {
     // console.log(this.state)
@@ -81,12 +84,12 @@ handleBrowse = (e) => {
           </div>
           <select className='activities' onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
             <option value='type'>Activity Type</option>
-            <option value='Running'>Running</option>
-            <option value='Basketball'>Basketball</option>
-            <option value='Frisbee'>Frisbee Golf</option>
-            <option value='Tennis'>Tennis</option>
-            <option value='Jogging'>Jogging</option>
             <option value='Walking'>Walking</option>
+            <option value='Running'>Running</option>
+            <option value='Tennis'>Tennis</option>
+            <option value='Frisbee Golf'>Frisbee Golf</option>
+            <option value='Basketball'>Basketball</option>
+            <option value='Volleyball'>Volleyball</option>
           </select>
           <MuiThemeProvider>
              <DatePicker hintText="Choose Day" container="inline" name='date' value={this.state.date} mode="landscape" style={styles.calendar}/>
@@ -153,7 +156,9 @@ handleBrowse = (e) => {
               </select>
           </div>
           <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.textarea}></textarea>       
-          <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5><button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
+          <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
+          <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
+          
           <Table activityArray={[...this.state.activityArray]}/>
       </div> // end of container
     )
