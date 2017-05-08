@@ -88,7 +88,6 @@ class UserAvailabilityGrid extends React.Component {
     }
   }
   render() {
-      console.log(this.props)
     return (
       <div style={styles.UAGridContainer}>
         <div style={styles.gridHeader}>Currently Available For</div>  

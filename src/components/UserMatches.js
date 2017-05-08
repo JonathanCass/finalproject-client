@@ -41,7 +41,17 @@ class UserMatches extends React.Component {
 //    super(props)
 //   }
 
+  createCurrentUserArray = () => {
+      
+      if(this.props.availabilityArray){
+      var currentUserArray = this.props.availabilityArray.filter(function(entry){
+        return( entry.user_id === this.props.currentUserID)
+      }.bind(this))
+      console.log('currentUserArray in UserMatches.js', currentUserArray)
+      }
+  }
   render() {
+      this.createCurrentUserArray()
     return (
       <div style={styles.matchesContainer}>
         <div style={styles.matchBox}>
