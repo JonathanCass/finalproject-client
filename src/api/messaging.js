@@ -17,7 +17,16 @@ export function getUsers() {
 		})
 	})
 }
-	
+
+export function getAvail() {
+	api.get('/availability').then(res=>{
+		//console.log('availability get', res.data)
+		store.dispatch({
+			type: 'GET_AVAIL',
+			dbAvail: res.data
+		})
+	})
+}	
 
 // export function getUsers() {
 // 	console.log('getUSers in Api')

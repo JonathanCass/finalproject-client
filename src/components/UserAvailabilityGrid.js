@@ -1,4 +1,6 @@
 import React from 'react'
+import {getAvail} from '../api/messaging'
+import {connect} from 'react-redux'
 
 const styles = {
     UAGridContainer:{
@@ -58,8 +60,11 @@ class UserAvailabilityGrid extends React.Component {
  
 //     super(props)
 //    }
-
+  componentWillMount(){
+  	getAvail()
+  }
   render() {
+      console.log('userAvailabilityGrid props', this.props)
     return (
       <div style={styles.UAGridContainer}>
         <div style={styles.gridHeader}>Currently Available For</div>  
@@ -68,19 +73,23 @@ class UserAvailabilityGrid extends React.Component {
         <div style={styles.gridLabel}>From</div>
         <div style={styles.gridLabel}>To</div>
        
-       {this.props.availabilityArray.map(entry=>(
+       {/*{this.props.dbAvail.availability.map(entry=>(
             <div style={styles.grid} key={Math.random()}>
-                <div style={styles.gridBox}>{entry.area}</div>
-                <div style={styles.gridBox}>{entry.day}</div>
-                <div style={styles.gridBox}>{entry.from}</div>
-                <div style={styles.gridBox}>{entry.to}</div>
+                <div style={styles.gridBox}>{entry.quadrant + 'Las Vegas'}</div>
+                <div style={styles.gridBox}>{entry.day_of_week}</div>
+                <div style={styles.gridBox}>{entry.from_num + ' ' + entry.from_suffix}</div>
+                <div style={styles.gridBox}>{entry.to_num + ' ' + entry.to_suffix}</div>
                 <div style={styles.removeEntry}>-</div>
             </div>	
-		))}
+		))}*/}
 
       </div>
     )
   }
 }
 
-export default UserAvailabilityGrid
+function mapStateToProps(appState){
+	return { currentUserID : appState.currentUserId, dbAvail : appState.dbAvail}
+}
+
+export default connect(mapStateToProps)(UserAvailabilityGrid)

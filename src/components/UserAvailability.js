@@ -3,6 +3,7 @@ import styles from './User.styles.js'
 import UserAvailabilityGrid from './UserAvailabilityGrid'
 import {connect} from 'react-redux'
 import {postAvailability} from '../api/messaging'
+import {getAvail} from '../api/messaging'
 
 class UserAvailability extends React.Component {
     constructor() {
@@ -33,6 +34,9 @@ class UserAvailability extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     })
+  }
+  componentWillMount(){
+  	getAvail()
   }
   render() {
     return (
@@ -109,7 +113,7 @@ class UserAvailability extends React.Component {
       </div>
       <button style={styles.addAvailability} onClick={this.addAvailability}>Add to User Availability</button>
       
-      <UserAvailabilityGrid availabilityArray={[...this.state.availabilityArray]}/>
+      <UserAvailabilityGrid availabilityArray={this.props.dbAvail.availability}/>
 
       </div>
     )
@@ -117,7 +121,7 @@ class UserAvailability extends React.Component {
 }
 
 function mapStateToProps(appState){
-	return { currentUserID : appState.currentUserId}
+	return { currentUserID : appState.currentUserId, dbAvail : appState.dbAvail}
 }
 
 export default connect(mapStateToProps)(UserAvailability)
