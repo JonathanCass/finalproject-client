@@ -49,8 +49,7 @@ class UserMatches extends React.Component {
         var currentUserArray = this.props.availabilityArray.filter(function(entry){
             return( entry.user_id === this.props.currentUserID)
         }.bind(this))
-        // console.log('currentUserArray in UserMatches.js', currentUserArray)
-        // console.log('this.props.availabilityArray', this.props.availabilityArray )
+        // this is creating the currentUserArray, just the users availability blocks to check against the rest of the block
       }
       if(this.props.availabilityArray){
         var fromTime = 0
@@ -121,6 +120,7 @@ class UserMatches extends React.Component {
   }
   render() {
       this.handleMatches()
+      console.log('this.state', this.state)
     return (
       <div style={styles.matchesContainer}>
         <div style={styles.matchBox}>
