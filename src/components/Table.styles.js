@@ -1,13 +1,14 @@
 const styles = {
     tableAreaContainer: {
         marginLeft: '585px',
-        marginTop:'-173px',
-        
+        marginTop:'-173px',      
     },  
     table: {
         width:630,
         padding:'1em',
-        backgroundColor:'#D7DDE8'
+        backgroundColor:'#D7DDE8',
+        marginTop:'5em',
+        position:'absolute',
     },
     tableRow: {
         textAlign:'center',
@@ -15,7 +16,7 @@ const styles = {
         height: '50px',
         backgroundColor:'#f7fffd',
         fontFamily:'Verdana',
-        color:'#ffa500'
+        color:'#ffa500',
     },
     // secondRow: {
     //     backgroundColor:'gray',
@@ -28,7 +29,7 @@ const styles = {
     map: {
         position:'absolute',
         marginTop:-400,
-        height:350
+        height:350,
     },
     here: {
         marginTop:-50,

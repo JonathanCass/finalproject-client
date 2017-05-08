@@ -3,14 +3,23 @@ import '../assets/home.css'
 import Carousel from 'nuka-carousel'
 import 'font-awesome/css/font-awesome.css'
 // import {Link} from 'react-router-dom'
-// import {getUsers} from '../api/messaging'
+import {getUsers} from '../api/messaging'
 import {connect} from 'react-redux'
+
+const styles ={
+  matchAv : {
+    height:'100px',
+    width:'100px',
+  },
+  info : {
+    border:'1px solid black'
+  }
+}
 
 class Home extends React.Component {
   constructor() { 
     super()
       this.state = {
-      login:'',
       match:''
    }
 }
@@ -25,17 +34,11 @@ handleChange = (e) => {
     [e.target.name]:e.target.value
   })
 }
-// componentWillMount(){
-//     store.dispatch(() => {
-//       const appState = store.getState()
-//       this.setState({
-        
-//       })
-//     })
-//   	getContacts()
-// }
+componentWillMount() {
+  getUsers()
+}
   render() {
-    console.log('Home', this.props)
+    // console.log(this.state)
     return (
       <div className="beginningContainer">
         <section className="carouselContainer">
@@ -51,11 +54,14 @@ handleChange = (e) => {
       
        <h1 className="happening">What's Happening In Your Area</h1>
           <ul className="matches" value={this.state.match}>
-            {/*<li id="person" name='match'>{data.avatar}{data.fname}{data.lname}{data.activitiesInfo}</li>*/}
-            <li id="person" name='match'>User Match</li>
-            <li id="person" name='match'>User Match</li>
-            <li id="person" name='match'>User Match</li>
-            <li id="person" name='match'>User Match</li>
+
+            <li id="person" name='match'><img alt='matched' style={styles.matchAv} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/><div style={styles.info}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].fname}</div></li>
+
+            <li id="person" name='match'><img alt='matched' style={styles.matchAv} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/></li>
+
+            <li id="person" name='match'><img alt='matched' style={styles.matchAv} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/></li>
+
+            <li id="person" name='match'><img alt='matched' style={styles.matchAv} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/></li>
           </ul>
       </div> //end of container
     )
@@ -63,7 +69,8 @@ handleChange = (e) => {
 }
 
 function mapStateToProps(appState){
-	return {home: appState.home}
+	return {home: appState.home},
+         {dbUsers: appState.dbUsers, currentUserID : appState.currentUserId}
 }
 
 export default connect(mapStateToProps)(Home)
