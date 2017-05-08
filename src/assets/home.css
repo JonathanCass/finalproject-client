@@ -78,8 +78,10 @@ img {
     margin-top:4em;
 }
 #person {
-    border:1px solid gray;
-    height:auto;
+    border:1px;
+    border-radius:10px;
+    background-image: linear-gradient(to bottom right, #36D1DC, #5B86E5);
+    height:250px;
     width:195px;
     text-align:center;
     margin:20px;

@@ -11,7 +11,6 @@ class Table extends React.Component {
       
     }
   }
-a
   componentWillMount(){
     getParks()
   }

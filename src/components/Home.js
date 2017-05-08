@@ -6,20 +6,17 @@ import 'font-awesome/css/font-awesome.css'
 import {getUsers} from '../api/messaging'
 import {connect} from 'react-redux'
 
-const styles ={
+const styles ={ // avatar match styles
   matchImg : {
     height:'100px',
     width:'100px',
     marginTop:'10px'
   },
-  // info : {
-  //   border:'1px solid black',
-  //   position:'absolute',
-  //   width:'194px',
-  // },
   p : {
     border:'1px',
-    height:'10px'
+    height:'10px',
+    fontFamily:'Verdana',
+    color:'white'
   }, 
 }
 
@@ -66,7 +63,7 @@ componentWillMount() {
               <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/>
                 <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].fname}</p>
                 <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].lname}</p> 
-                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].interests}</p>
+                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].bio}</p>
             </li>
 
             <li id="person" name='match'>
