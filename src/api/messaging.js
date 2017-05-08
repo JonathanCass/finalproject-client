@@ -27,7 +27,15 @@ export function getAvail() {
 		})
 	})
 }	
-
+export function getParks() {
+    api.get('/parks').then(res=>{
+//         console.log('parks', res.data)
+         store.dispatch({
+          type: 'GET_PARKS',
+          parks: res.data
+         })
+    })
+}
 // export function getUsers() {
 // 	console.log('getUSers in Api')
 // 	axios.get('http://10.68.0.58:3000/activities').then(res=>{

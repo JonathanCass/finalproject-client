@@ -2,15 +2,16 @@ import React from 'react'
 import '../assets/home.css'
 import Carousel from 'nuka-carousel'
 import 'font-awesome/css/font-awesome.css'
-import {getUsers} from '../api/messaging'
+// import {Link} from 'react-router-dom'
+// import {getUsers} from '../api/messaging'
 import {connect} from 'react-redux'
 
-
 class Home extends React.Component {
-  constructor(props) { 
-    super(props)
+  constructor() { 
+    super()
       this.state = {
-      login:''
+      login:'',
+      match:''
    }
 }
 handleSubmit = (e) => {  // FINISH HANDLE FUNCTIONS
@@ -25,14 +26,21 @@ handleChange = (e) => {
     [e.target.name]:e.target.value
   })
 }
-componentWillMount(){
-  	getUsers()
-}
+// componentWillMount(){
+//     store.dispatch(() => {
+//       const appState = store.getState()
+//       this.setState({
+        
+//       })
+//     })
+//   	getContacts()
+// }
   render() {
+    console.log('Home', this.props)
     return (
       <div className="beginningContainer">
         <section className="carouselContainer">
-          <Carousel style={{height:380}}>
+          <Carousel>
               <img alt='' src="https://static.pexels.com/photos/305244/pexels-photo-305244.jpeg"/>
               <img alt='' src="https://static.pexels.com/photos/24306/pexels-photo-24306.jpg"/>
               <img alt='' src="https://static.pexels.com/photos/386024/pexels-photo-386024.jpeg"/>
@@ -42,21 +50,20 @@ componentWillMount(){
        </section>
       
        <h1 className="happening">What's Happening In Your Area</h1>
-          <ul className="matches">
-            {/*<li id="person"></li> <img alt={data.name.first} src={data.picture.thumbnail}/>{data.activities}*/}
-            <li id="person">Match</li>
-            <li id="person">Match</li>
-            <li id="person">Match</li>
-            <li id="person">Match</li>
+          <ul className="matches" value={this.state.match}>
+            {/*<li id="person" name='match'>{data.avatar}{data.fname}{data.lname}{data.activitiesInfo}</li>*/}
+            <li id="person" name='match'>User Match</li>
+            <li id="person" name='match'>User Match</li>
+            <li id="person" name='match'>User Match</li>
+            <li id="person" name='match'>User Match</li>
           </ul>
-          {/*{this.state.dataname}*/}
       </div> //end of container
     )
   }
 }
 
 function mapStateToProps(appState){
-	return {}
+	return {home: appState.home}
 }
 
 export default connect(mapStateToProps)(Home)
