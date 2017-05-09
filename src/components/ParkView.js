@@ -143,9 +143,9 @@ componentWillMount() {
                 <option value="11:00 pm">11:00 pm</option>
               </select>
           </div>
-          <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.textarea}></textarea>      
+          <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.textarea}></textarea>      */}
           <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
-          <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>*/}
+          <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
           
           <Table activityArray={[...this.state.activityArray]}/>
       </div> // end of container

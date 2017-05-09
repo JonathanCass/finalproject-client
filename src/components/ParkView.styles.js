@@ -67,26 +67,26 @@ const styles = {
     //     marginTop:45,
     //     textAlign:'center'
     // },
-    // create: {
-    //     height:40,
-    //     width:100,
-    //     marginTop:'2em',
-    //     marginLeft:'28.5em',
-    //     cursor:'pointer'
-    // },
-    //  or: {
-    //     marginTop:'-2em',
-    //     marginLeft: '32.3em',
-    //     textDecoration:'underline'
-    // },
-    // browse: {
-    //     height:40,
-    //     width:100,
-    //     position:'absolute',
-    //     marginTop:'-4.6em',
-    //     marginLeft:'42em',
-    //     cursor:'pointer'
-    // },
+    create: {
+        height:40,
+        width:100,
+        marginTop:'2em',
+        marginLeft:'28.5em',
+        cursor:'pointer'
+    },
+     or: {
+        marginTop:'-2em',
+        marginLeft: '32.3em',
+        textDecoration:'underline'
+    },
+    browse: {
+        height:40,
+        width:100,
+        position:'absolute',
+        marginTop:'-4.6em',
+        marginLeft:'42em',
+        cursor:'pointer'
+    },
     // notes: {
     //     position:'absolute',
     //     width:250,
