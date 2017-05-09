@@ -8,7 +8,6 @@ const styles={
         marginLeft: 10,
         display: 'flex',
         flexWrap: 'wrap',
-        marginBottom: 100
     },
     matchBox:{
         width: 157,
@@ -123,7 +122,7 @@ class UserMatches extends React.Component {
                     }
                     //console.log('Current Users Time To Adjusted', cUserTo)
                     if((cUserFrom < toTime) && (cUserTo > fromTime)){
-                        console.log("Match found with current user and user id" , this.props.availabilityArray[i].user_id )
+                        //console.log("Match found with current user and user id" , this.props.availabilityArray[i].user_id )
                         if(this.props.currentUserMatches.indexOf(this.props.availabilityArray[i].user_id) === -1 ){
                                 addMatch(this.props.availabilityArray[i].user_id )
                         }
