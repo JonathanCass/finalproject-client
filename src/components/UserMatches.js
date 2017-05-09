@@ -1,10 +1,10 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {addMatch} from '../api/messaging'
 
 const styles={
     matchesContainer:{
         width: 629,
-        border: 'solid 1px black',
-        borderWidth: '1px 0 0 1px',
         marginLeft: 10,
         display: 'flex',
         flexWrap: 'wrap',
@@ -33,6 +33,9 @@ const styles={
         textAlign: 'center',
         background: '#53BE16',
         color: 'white'
+    },
+    displayNone:{
+        display: 'none'
     }
 }
 class UserMatches extends React.Component {
@@ -113,6 +116,12 @@ class UserMatches extends React.Component {
                     //console.log('Current Users Time To Adjusted', cUserTo)
                     if((cUserFrom < toTime) && (cUserTo > fromTime)){
                         console.log("Match found with current user and user id" , this.props.availabilityArray[i].user_id )
+                        if(this.props.currentUserMatches.indexOf(this.props.availabilityArray[i].user_id) === -1 ){
+                                addMatch(this.props.availabilityArray[i].user_id )
+                        }
+                        // this.setState({
+                        //     matchIDs : [...this.state.matchIDs , this.props.availabilityArray[i].user_id ]
+                        // })
                     }
                 }
             }
@@ -120,37 +129,24 @@ class UserMatches extends React.Component {
   }
   render() {
       this.handleMatches()
+      console.log('UserMatches.js this.props', this.props)
       //console.log('this.state', this.state)
     return (
       <div style={styles.matchesContainer}>
-        <div style={styles.matchBox}>
-            <div style={styles.matchAvatar}>Avatar</div>
-            <div style={styles.matchLine}>Jeffrey Cartwright</div>
-            <div style={styles.matchLine}>Northwest Las Vegas</div>
-        </div>
-        <div style={styles.matchBox}>
-            <div style={styles.matchAvatar}>Avatar</div>
-            <div style={styles.matchLine}>Debrah Scott</div>
-            <div style={styles.matchLine}>Southeest Las Vegas</div>
-        </div>
-        <div style={styles.matchBox}>
-            <div style={styles.matchAvatar}>Avatar</div>
-            <div style={styles.matchLine}>Peter Griffin</div>
-            <div style={styles.matchLine}>Surrounding Area</div>
-        </div>
-        <div style={styles.matchBox}>
-            <div style={styles.matchAvatar}>Avatar</div>
-            <div style={styles.matchLine}>Juice Box</div>
-            <div style={styles.matchLine}>Northeast Las Vegas</div>
-        </div>
-        <div style={styles.matchBox}>
-            <div style={styles.matchAvatar}>Avatar</div>
-            <div style={styles.matchLine}>Juice Box</div>
-            <div style={styles.matchLine}>Northeast Las Vegas</div>
-        </div>
+        {this.props.dbUsers.users.map(user=>(
+            <div style={ styles.matchBox }>
+                <div style={{width:156, height:156, background: 'white', border: 'solid 1px black', borderWidth: '0 0 1px 0', backgroundImage : user.avatar }}>Avatar</div>
+                <div style={styles.matchLine}>{user.fname} {user.lname}</div>
+                <div style={styles.matchLine}>{user.email}</div>
+            </div>
+		))}
       </div>
     )
   }
 }
 
-export default UserMatches
+function mapStateToProps(appState){
+	return { dbUsers: appState.dbUsers, currentUserMatches: appState.currentUserMatches }
+}
+
+export default connect(mapStateToProps)(UserMatches)
