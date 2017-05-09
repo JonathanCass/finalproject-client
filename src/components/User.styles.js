@@ -2,7 +2,8 @@ const styles ={
   UserContainer:{
     width: 1300,
     display: 'flex',
-    background: 'linear-gradient( to bottom right, #56CCF2 , #2F80ED )'
+    background: 'linear-gradient( to bottom right, #56CCF2 , #2F80ED )',
+    paddingBottom: 100
   },
   AvailabilityContainer:{
     width: 1300,
