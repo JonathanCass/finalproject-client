@@ -10,19 +10,19 @@ const styles={
         width: 430,
         display: 'inline-block',
         padding: 10,
-        marginLeft: 10
+        marginLeft: 100
     },
     nextLabel:{ 
         display: 'flex',
         justifyContent: 'space-between', 
         width: 413,
         height: 50,
-        fontSize: 26,
+        fontSize: 22,
         color: 'white',
         textAlign: 'center',
         marginBottom: 10,
         paddingTop: 5,
-        lineHeight: '40px'
+        lineHeight: '24px'
     },
     arrowButton:{
         height:40,
@@ -68,6 +68,9 @@ const styles={
     displayHidden:{
       visibility: 'hidden'
     },
+    displayUnderline:{
+        color: 'white'
+    },
     time:{
       textTransform: 'uppercase'
     }
@@ -76,7 +79,7 @@ class FriendsSliders extends React.Component {
    constructor(props) {
      super(props)
      this.state={
-       involvedIndex:0, friendsTestArray : [2,7,9]
+       involvedIndex:0, friendsTestArray : [2,7,9, 14]
      }
    }
   componentWillMount(){
@@ -107,7 +110,7 @@ class FriendsSliders extends React.Component {
         return (
           involvedArray.map((event, i) =>(
             <div style={ i === this.state.involvedIndex ? styles.nextBlock : styles.displayNone } key={event.id}>    
-                <div style={styles.nextLabel}><button onClick={this.handlePrevious} style={ this.state.involvedIndex === 0 ? styles.displayHidden : styles.arrowButton}><i className="fa fa-arrow-left" aria-hidden="true"></i></button><span>Your Scheduled Activities</span><button onClick={this.handleNext} style={ this.state.involvedIndex + 1 < involvedArray.length  ? styles.arrowButton : styles.displayHidden}><i className="fa fa-arrow-right" aria-hidden="true"></i></button></div>
+                <div style={styles.nextLabel}><button onClick={this.handlePrevious} style={ this.state.involvedIndex === 0 ? styles.displayHidden : styles.arrowButton}><i className="fa fa-arrow-left" aria-hidden="true"></i></button><span> <span style={ this.state.friendsTestArray.indexOf(event.user_id1) === -1 ?  styles.displayNone : styles.displayUnderline  }>Your Friend {this.props.users[event.user_id1].fname} {this.props.users[event.user_id1].lname}</span> <span style={ this.state.friendsTestArray.indexOf(event.user_id1) !== -1 && this.state.friendsTestArray.indexOf(event.user_id2) !== -1 ?  styles.displayUnderline : styles.displayNone  } >with</span> <span style={ this.state.friendsTestArray.indexOf(event.user_id2) === -1 ?  styles.displayNone : styles.displayUnderline  } >Your Friend {this.props.users[event.user_id2].fname} {this.props.users[event.user_id2].lname} </span> </span><button onClick={this.handleNext} style={ this.state.involvedIndex + 1 < involvedArray.length  ? styles.arrowButton : styles.displayHidden}><i className="fa fa-arrow-right" aria-hidden="true"></i></button></div>
                 <div style={styles.nextGrid}>
                     <div style={styles.gridEntry}>{event.date_month} {event.date_day}</div>
                     <div style={styles.gridEntry}>{this.props.parks[event.park_id].name}</div>
