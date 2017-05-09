@@ -82,9 +82,9 @@ img {
     border-radius:10px;
     background-image: linear-gradient(to bottom right, #36D1DC, #5B86E5);
     height:250px;
-    width:195px;
+    width:212px;
     text-align:center;
-    margin:20px;
+    margin:8px;
     margin-top:-2px;
     list-style: none;
 }
@@ -101,4 +101,6 @@ h3 {
     padding: 0px;
     height: 456px;
     width: 5388px;
+    color:white;
+    font-size:40px;
 }*/

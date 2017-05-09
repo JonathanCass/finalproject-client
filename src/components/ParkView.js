@@ -1,10 +1,11 @@
 import React from 'react'
 import styles from './ParkView.styles'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import DatePicker from 'material-ui/DatePicker'
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+// import DatePicker from 'material-ui/DatePicker'
 import Table from './ParkViewTable'
-import {postCreateActivity} from '../api/messaging'
+// import {postCreateActivity} from '../api/messaging'
 import { connect } from 'react-redux'
+import { getParks } from '../api/messaging'
 
 class ParkView extends React.Component {
   constructor() {
@@ -35,8 +36,7 @@ createActivity = (e) => {
       end:this.state.end,
       gear:this.state.gear
   }
-  postCreateActivity(createActivityObj)
-    console.log('posted')
+  // postCreateActivity(createActivityObj)
   this.setState({
     activityArray : [...this.state.activityArray, createActivityObj],
     play:'', level:'', activities:'', notes:'', start:'', end:'', gear:''
@@ -52,20 +52,27 @@ handleButton = (e) => {
     [e.target.name]:e.target.value
   })
 }
-handleLevel = (e) => {
-  console.log(this.state)
+handleLevel = (e) => { // for Type of Play/Experience
   this.setState({
     level: e.target.value
   })
 }
-handleBrowse = (e) => {
-  e.preventDefault()
-  console.log('map through parks')
+handleFilter = (e) => {
+
 }
+// handleBrowse = (e) => {
+//   e.preventDefault()
+//   console.log('map through parks')
+// }
+componentWillMount() {
+  getParks()
+}
+
   render() {
-    // console.log(this.state)
+  console.log(this.props.parks)
     return (
-      <div style={styles.container}>    
+      <div style={styles.container}>   
+        
           <h2 style={styles.h2}>Type Of Play</h2>
           <div style={styles.radioContainer}>
             <input type='radio' onChange={this.handleButton} name='play' value="Competitive"/>
@@ -82,7 +89,14 @@ handleBrowse = (e) => {
             <input type='checkbox'onChange={this.handleLevel} name='level' value="Advanced"/>
             <label htmlFor='advanced' style={styles.levelBoxes}>Advanced</label>
           </div>
-          <select className='activities' onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
+          <select className='quadrants' onChange={this.handleFilter} style={styles.quads}>
+            <option value='Select Area'>Select Area</option>
+            <option value='Northwest'>Northwest</option>
+            <option value='Southwest'>Southwest</option>
+            <option value='Northeast'>Northeast</option>
+            <option value='Southeast'>Southeast</option>
+          </select>
+          {/*<select className='activities' onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
             <option value='type'>Activity Type</option>
             <option value='Walking'>Walking</option>
             <option value='Running'>Running</option>
@@ -126,38 +140,9 @@ handleBrowse = (e) => {
                 <option value="11:00 pm">11:00 pm</option>
               </select>
           </div>
-          <div style={styles.endTime}>
-              <select className='end' onChange={this.handleChange} name='end' value={this.state.end} style={styles.input}>
-                <option value='end'>End Time</option>
-                <option value="12:00 am">12:00 am</option>
-                <option value="1:00 am">1:00 am</option>
-                <option value="2:00 am">2:00 am</option>
-                <option value="3:00 am">3:00 am</option>
-                <option value="4:00 am">4:00 am</option>
-                <option value="5:00 am">5:00 am</option>
-                <option value="6:00 am">6:00 am</option>
-                <option value="7:00 am">7:00 am</option>
-                <option value="8:00 am">8:00 am</option>
-                <option value="9:00 am">9:00 am</option>
-                <option value="10:00 am">10:00 am</option>
-                <option value="11:00 am">11:00 am</option>
-                <option value="12:00 pm">12:00 pm</option>
-                <option value="1:00 pm">1:00 pm</option>
-                <option value="2:00 pm">2:00 pm</option>
-                <option value="3:00 pm">3:00 pm</option>
-                <option value="4:00 pm">4:00 pm</option>
-                <option value="5:00 pm">5:00 pm</option>
-                <option value="6:00 pm">6:00 pm</option>
-                <option value="7:00 pm">7:00 pm</option>
-                <option value="8:00 pm">8:00 pm</option>
-                <option value="9:00 pm">9:00 pm</option>
-                <option value="10:00 pm">10:00 pm</option>
-                <option value="11:00 pm">11:00 pm</option>
-              </select>
-          </div>
-          <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.textarea}></textarea>       
+          <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.textarea}></textarea>      
           <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
-          <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
+          <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>*/}
           
           <Table activityArray={[...this.state.activityArray]}/>
       </div> // end of container
@@ -166,6 +151,6 @@ handleBrowse = (e) => {
 }
 
 function mapStateToProps(appState) {
-  return {park: appState.park}
+  return { dbUsers: appState.dbUsers, currentUserID : appState.currentUserId, parks: appState.parks}
 }
 export default connect(mapStateToProps)(ParkView)

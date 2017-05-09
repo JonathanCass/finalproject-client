@@ -6,7 +6,7 @@ import 'font-awesome/css/font-awesome.css'
 import {getUsers} from '../api/messaging'
 import {connect} from 'react-redux'
 
-const styles ={ // avatar match styles
+const styles = { // avatar match styles
   matchImg : {
     height:'100px',
     width:'100px',

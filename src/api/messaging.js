@@ -52,15 +52,18 @@ export function addUser(userObj){
 		console.log('users in get call', res.data)
 	})
 }
+
+// export function postCreateActivity(createActivityObj) {
+// 	console.log('Not created yet', createActivityObj)
+// 	api.post('/activities', createActivityObj).then(res =>{
+// 		console.log('New Activity was created', res.data)
+// 	})
+// }
+
 // export function addMessage(message) {
 //     socket.emit('addMessage', message)
 // }
-export function postCreateActivity(createActivityObj) {
-	console.log(createActivityObj)
-	api.post('/activities', createActivityObj).then(res =>{
-		console.log('New Activity created', res.data)
-	})
-}
+
 // socket.on('newMessage', function(message){
 //     store.dispatch({
 //         type: 'ADD_MESSAGE',

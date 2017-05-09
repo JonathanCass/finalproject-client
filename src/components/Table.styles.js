@@ -6,7 +6,10 @@ const styles = {
         width:1130,
         padding:'1em',
         backgroundColor:'#D7DDE8',
-        marginLeft: '-585px'
+        marginTop:'23em',
+        position:'absolute',
+        marginLeft: '-585px',
+        marginBottom: '5em'
     },
     tableRow: {
         textAlign:'center',
@@ -21,7 +24,7 @@ const styles = {
     },
     map: {
         position:'absolute',
-        marginTop:-560,
+        marginTop:-200,
         height:350,
     },
     here: {
