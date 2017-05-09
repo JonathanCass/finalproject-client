@@ -23,6 +23,13 @@ const styles={
         border: 'solid 1px black',
         borderWidth: '0 0 1px 0',
     },
+    matchImage:{
+        width: 156,
+        height: 156,
+        objectFit: 'contain',
+        margin: 0,
+        padding: 5
+    },
     matchLine:{
         width:156,
         height: 40,
@@ -127,19 +134,29 @@ class UserMatches extends React.Component {
             }
       }}
   }
-  render() {
-      this.handleMatches()
-      console.log('UserMatches.js this.props', this.props)
-      //console.log('this.state', this.state)
-    return (
-      <div style={styles.matchesContainer}>
-        {this.props.dbUsers.users.map(user=>(
-            <div style={ styles.matchBox }>
-                <div style={{width:156, height:156, background: 'white', border: 'solid 1px black', borderWidth: '0 0 1px 0', backgroundImage : user.avatar }}>Avatar</div>
+  renderMatches(){
+    if(this.props.dbUsers.users) {
+        return (
+            this.props.dbUsers.users.map(user=>(
+            <div style={ this.props.currentUserMatches.indexOf(user.id) === -1 ? styles.displayNone : styles.matchBox } key={Math.random()}>
+                <div style={styles.matchAvatar}><img style={styles.matchImage} src={user.avatar} alt="no error"/></div>
                 <div style={styles.matchLine}>{user.fname} {user.lname}</div>
                 <div style={styles.matchLine}>{user.email}</div>
             </div>
-		))}
+		))
+        )
+    }else {
+        return (
+            <span> No Matches with other users at this time. </span>
+        )
+    }
+  }
+  render() {
+      this.handleMatches()
+      //console.log('this.state', this.state)
+    return (
+      <div style={styles.matchesContainer}>
+        { this.renderMatches() }
       </div>
     )
   }
