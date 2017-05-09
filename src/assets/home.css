@@ -129,3 +129,11 @@ h3 {
   max-height: 100px;
   overflow: visible;
 }
+.activities {
+  height:40;
+  width:250;  
+  position:absolute;
+  display:flex;
+  margin-top:8em;
+  overflow:hidden;      
+}

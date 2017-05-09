@@ -34,6 +34,7 @@ render() {
                             <th>Level</th>
                             <th>Notes</th>
                             <th>Gear</th>
+                            <th>Park</th>
                         </tr>
                     </thead>
                     {this.props.activityArray.map(event =>(
@@ -46,7 +47,8 @@ render() {
                             <td style={styles.tableRow}>{event.activities}</td>
                             <td style={styles.tableRow}>{event.level}</td>
                             <td style={styles.tableRow}>{event.notes}</td>
-                            <td style={styles.tableRow}>{event.gear}</td>   
+                            <td style={styles.tableRow}>{event.gear}</td>
+                            <td style={styles.tableRow}>{event.park}</td>   
                         </tr>
                         </tbody>               
                     ))}

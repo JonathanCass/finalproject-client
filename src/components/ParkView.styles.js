@@ -43,12 +43,12 @@ const styles = {
         height:40,
         width:250
     },
-    //  activities: {
-    //     height:40,
-    //     width:250,  
-    //     position:'absolute',
-    //     display:'flex', 
-    // },
+    parksBox: {
+        height:40,
+        width:250,
+        marginTop:'3em',
+        position:'absolute'
+    },
     // startTime: {
     //     marginLeft:312,
     //     marginTop: -60,
@@ -70,18 +70,20 @@ const styles = {
         width:100,
         marginTop:'2em',
         marginLeft:'28.5em',
-        cursor:'pointer'
+        cursor:'pointer',
+        position:'absolute'
     },
      or: {
-        marginTop:'-2em',
+        marginTop:'3em',
         marginLeft: '32.3em',
-        textDecoration:'underline'
+        textDecoration:'underline',
+        position:'absolute'
     },
     browse: {
         height:40,
         width:100,
         position:'absolute',
-        marginTop:'-4.6em',
+        marginTop:'23px',
         marginLeft:'42em',
         cursor:'pointer'
     },

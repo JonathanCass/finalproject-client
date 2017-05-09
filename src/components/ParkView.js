@@ -21,6 +21,7 @@ class ParkView extends React.Component {
         start:'',
         end:'',
         gear:'',
+        park:'',
         activityArray:[]
    }
 }
@@ -34,7 +35,8 @@ createActivity = (e) => {
       notes:this.state.notes,
       start:this.state.start,
       end:this.state.end,
-      gear:this.state.gear
+      gear:this.state.gear,
+      park:this.state.park
   }
   // postCreateActivity(createActivityObj)
   this.setState({
@@ -56,9 +58,6 @@ handleLevel = (e) => { // for Type of Play/Experience
   this.setState({
     level: e.target.value
   })
-}
-handleFilter = (e) => {
-  
 }
 // handleBrowse = (e) => {
 //   e.preventDefault()
@@ -89,18 +88,18 @@ componentWillMount() {
             <input type='checkbox'onChange={this.handleLevel} name='level' value="Advanced"/>
             <label htmlFor='advanced' style={styles.levelBoxes}>Advanced</label>
           </div>
-         
-            <input type='radio' id="northwestloc" name='location'/>
+         <div>
+            <input type='radio' id="northwestloc" name='quadrant' value="Northwest"/>
             <label htmlFor='northwest'>Northwest</label>
-            <input type='radio' id="southwestloc" name='location'/>
+            <input type='radio' id="southwestloc" name='quadrant' value="Southwest"/>
             <label htmlFor='southwest'>Southwest</label>
-            <input type='radio' id="northeastloc" name='location'/>
+            <input type='radio' id="northeastloc" name='quadrant' value="Northeast"/>
             <label htmlFor='northeast'>Northeast</label>
-            <input type='radio' id="southeastloc" name="location"/>
+            <input type='radio' id="southeastloc" name="quadrant" value="Southeast"/>
             <label htmlFor='southeast'>Southeast</label>
           
            <div id='northwest'>
-             <select>     
+             <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}>     
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'northwest'
                 }).map(park =>{   
@@ -109,7 +108,7 @@ componentWillMount() {
              </select>
            </div>
            <div id='southwest'>
-             <select>     
+             <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}>     
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'southwest'
                 }).map(park =>{   
@@ -118,7 +117,7 @@ componentWillMount() {
              </select>
            </div>
            <div id='southeast'>
-             <select>     
+             <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}>     
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'southeast'
                 }).map(park =>{   
@@ -127,7 +126,7 @@ componentWillMount() {
              </select>
            </div>
            <div id='northeast'>
-             <select>     
+             <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}>     
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'northeast'
                 }).map(park =>{   
@@ -135,8 +134,9 @@ componentWillMount() {
                 })} 
              </select>
            </div>
-           
-           
+          </div>
+
+          
            
           {/*<select className='activities' onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
             <option value='type'>Activity Type</option>
