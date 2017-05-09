@@ -8,6 +8,7 @@ const styles={
         marginLeft: 10,
         display: 'flex',
         flexWrap: 'wrap',
+        marginTop: 25
     },
     matchBox:{
         width: 157,

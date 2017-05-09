@@ -10,7 +10,7 @@ import {getAvail} from '../api/messaging'
 const styles={
     userHomeContainer:{
         width: 1300,  
-        display: 'flex'
+        display: 'flex',
     },
     header:{
         width: 650,
@@ -109,6 +109,7 @@ const styles={
         width: 650,
         display: 'inline-block',
         background: 'linear-gradient( to bottom right, #56CCF2 , #2F80ED )',
+        paddingBottom: 100
     }
 }
 
@@ -140,7 +141,7 @@ class UserHomePage extends React.Component {
             </div>
         </div>
         <div style={styles.gridHeader}>User's Created Events</div>
-        <UsersEvents/>
+        <UsersEvents />
         <div style={styles.gridHeader} >User's Matches</div>
         <UserMatches availabilityArray={this.props.dbAvail.availability} currentUserID={this.props.currentUserID}/>
         </div>

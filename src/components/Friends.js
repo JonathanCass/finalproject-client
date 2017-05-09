@@ -7,6 +7,7 @@ const styles={
         display: 'inline-block',
         paddingLeft: 5,
         background: 'linear-gradient( to right, #FFD200 , #F7971E  )',
+        paddingBottom: 100
     },
     header:{
         width: 650,
