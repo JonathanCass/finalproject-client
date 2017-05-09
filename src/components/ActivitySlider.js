@@ -62,10 +62,19 @@ const styles={
         background: '#53BE16',
         textTransform: 'capitalize'
     },
+    displayNone:{
+      display:'none'
+    },
+    displayHidden:{
+      visibility: 'hidden'
+    }
 }
 class ActivitySlider extends React.Component {
    constructor(props) {
      super(props)
+     this.state={
+       involvedIndex:0
+     }
    }
   componentWillMount(){
   	getUsers()
@@ -73,19 +82,38 @@ class ActivitySlider extends React.Component {
     getParks()
     getActivityIds()
   }
+  handleNext = (e) => {
+  		e.preventDefault() 
+		  this.setState({
+        involvedIndex : this.state.involvedIndex + 1
+      })
+  }
+  handlePrevious = (e) => {
+    e.preventDefault()
+    this.setState({
+      involvedIndex : this.state.involvedIndex - 1
+    })
+  }
   renderActivity(){
     if(this.props.events && this.props.users && this.props.parks && this.props.activityIds) {
+      
+      var involvedArray = this.props.events.filter(function(event){
+            return( event.user_id1 === this.props.currentUserID || event.user_id2  === this.props.currentUserID )
+        }.bind(this))
+      console.log('involvedArray', involvedArray)
         return (
-            <div style={styles.nextBlock}>    
-                <div style={styles.nextLabel}><button style={styles.arrowButton}><i className="fa fa-arrow-left" aria-hidden="true"></i></button><span>Your Scheduled Activities</span><button style={styles.arrowButton}><i className="fa fa-arrow-right" aria-hidden="true"></i></button></div>
+          involvedArray.map((event, i) =>(
+            <div style={ i === this.state.involvedIndex ? styles.nextBlock : styles.displayNone } key={event.id}>    
+                <div style={styles.nextLabel}><button onClick={this.handlePrevious} style={ this.state.involvedIndex === 0 ? styles.displayHidden : styles.arrowButton}><i className="fa fa-arrow-left" aria-hidden="true"></i></button><span>Your Scheduled Activities</span><button onClick={this.handleNext} style={ this.state.involvedIndex + 1 < involvedArray.length  ? styles.arrowButton : styles.displayHidden}><i className="fa fa-arrow-right" aria-hidden="true"></i></button></div>
                 <div style={styles.nextGrid}>
-                    <div style={styles.gridEntry}>Date</div>
-                    <div style={styles.gridEntry}>{this.props.parks[this.props.events[0].park_id].name}</div>
-                    <div style={styles.gridEntry}>{this.props.events[0].time_start}</div>
-                    <div style={styles.gridEntry}>{this.props.activityIds[this.props.events[0].activity_id -1].name}</div>
-                    <div style={styles.gridWith}>{this.props.users[this.props.events[0].user_id1].fname} {this.props.users[this.props.events[0].user_id1].lname} and {this.props.users[this.props.events[0].user_id2].fname} {this.props.users[this.props.events[0].user_id2].lname} </div>
+                    <div style={styles.gridEntry}>{event.date_month} {event.date_day}</div>
+                    <div style={styles.gridEntry}>{this.props.parks[event.park_id].name}</div>
+                    <div style={styles.gridEntry}>{event.time_start}</div>
+                    <div style={styles.gridEntry}>{this.props.activityIds[event.activity_id -1].name}</div>
+                    <div style={styles.gridWith}>{this.props.users[event.user_id1].fname} {this.props.users[event.user_id1].lname} and {this.props.users[event.user_id2].fname} {this.props.users[event.user_id2].lname} </div>
                 </div>
-        </div>
+          </div>
+          ))
         )
     }else {
         return (
@@ -94,7 +122,7 @@ class ActivitySlider extends React.Component {
     }
   }
   render() {
-    console.log("Activity Slider this.props", this.props)
+    //console.log("Activity Slider this.props", this.props)
     return (
       <div>
         { this.renderActivity() }
