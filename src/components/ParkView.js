@@ -58,7 +58,7 @@ handleLevel = (e) => { // for Type of Play/Experience
   })
 }
 handleFilter = (e) => {
-
+  
 }
 // handleBrowse = (e) => {
 //   e.preventDefault()
@@ -71,8 +71,7 @@ componentWillMount() {
   render() {
   console.log(this.props.parks)
     return (
-      <div style={styles.container}>   
-        
+      <div style={styles.container}>     
           <h2 style={styles.h2}>Type Of Play</h2>
           <div style={styles.radioContainer}>
             <input type='radio' onChange={this.handleButton} name='play' value="Competitive"/>
@@ -95,6 +94,10 @@ componentWillMount() {
             <option value='Southwest'>Southwest</option>
             <option value='Northeast'>Northeast</option>
             <option value='Southeast'>Southeast</option>
+            <option value='Surrounding Area'>Surrounding Area</option>
+          </select>
+          <select>
+            <option value={this.props.parks}>Parks</option>
           </select>
           {/*<select className='activities' onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
             <option value='type'>Activity Type</option>
