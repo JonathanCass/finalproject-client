@@ -60,6 +60,12 @@ export function addUser(userObj){
 		console.log('post new User', res.data)
 	})
 }
+export function addMatch(addUserID){
+	store.dispatch({
+          type: 'ADD_MATCH',
+          addMatch: addUserID
+     })
+}
 export function postAvailability(availabilityObj){
 	console.log("Object being sent", availabilityObj)
 	api.post('/availability', availabilityObj).then(res=>{

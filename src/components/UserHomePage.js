@@ -5,6 +5,7 @@ import Friends from './Friends'
 import 'font-awesome/css/font-awesome.css'
 import {connect} from 'react-redux'
 import {getUsers} from '../api/messaging'
+import {getAvail} from '../api/messaging'
 
 const styles={
     userHomeContainer:{
@@ -118,6 +119,7 @@ class UserHomePage extends React.Component {
 //    }
   componentWillMount(){
   	getUsers()
+    getAvail()
   }  
   render() {
     return (
@@ -139,17 +141,17 @@ class UserHomePage extends React.Component {
         </div>
         <div style={styles.gridHeader}>User's Created Events</div>
         <UsersEvents/>
-        <div style={styles.gridHeader}>User's Matches</div>
-        <UserMatches/>
+        <div style={styles.gridHeader} >User's Matches</div>
+        <UserMatches availabilityArray={this.props.dbAvail.availability} currentUserID={this.props.currentUserID}/>
         </div>
-        <Friends/>
+        <Friends />
       </div>
     )
   }
 }
 
 function mapStateToProps(appState){
-	return { dbUsers: appState.dbUsers, currentUserID : appState.currentUserId}
+	return { dbUsers: appState.dbUsers, currentUserID : appState.currentUserId, dbAvail : appState.dbAvail}
 }
 
 export default connect(mapStateToProps)(UserHomePage)
