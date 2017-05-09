@@ -47,7 +47,8 @@ const styles={
         textAlign: 'center',
         lineHeight: '42px',
         color: 'white',
-        background: '#53BE16'
+        background: '#53BE16',
+        textTransform: 'capitalize'
     },
     gridWith:{
         height: 40,
@@ -58,7 +59,8 @@ const styles={
         textAlign: 'center',
         lineHeight: '42px',
         color: 'white',
-        background: '#53BE16'
+        background: '#53BE16',
+        textTransform: 'capitalize'
     },
 }
 class ActivitySlider extends React.Component {
@@ -71,20 +73,31 @@ class ActivitySlider extends React.Component {
     getParks()
     getActivityIds()
   }
+  renderActivity(){
+    if(this.props.events && this.props.users && this.props.parks && this.props.activityIds) {
+        return (
+            <div style={styles.nextBlock}>    
+                <div style={styles.nextLabel}><button style={styles.arrowButton}><i className="fa fa-arrow-left" aria-hidden="true"></i></button><span>Your Scheduled Activities</span><button style={styles.arrowButton}><i className="fa fa-arrow-right" aria-hidden="true"></i></button></div>
+                <div style={styles.nextGrid}>
+                    <div style={styles.gridEntry}>Date</div>
+                    <div style={styles.gridEntry}>{this.props.parks[this.props.events[0].park_id].name}</div>
+                    <div style={styles.gridEntry}>{this.props.events[0].time_start}</div>
+                    <div style={styles.gridEntry}>{this.props.activityIds[this.props.events[0].activity_id -1].name}</div>
+                    <div style={styles.gridWith}>{this.props.users[this.props.events[0].user_id1].fname} {this.props.users[this.props.events[0].user_id1].lname} and {this.props.users[this.props.events[0].user_id2].fname} {this.props.users[this.props.events[0].user_id2].lname} </div>
+                </div>
+        </div>
+        )
+    }else {
+        return (
+            <span> No current activities, Go to Park View and find some to join or create. </span>
+        )
+    }
+  }
   render() {
     console.log("Activity Slider this.props", this.props)
     return (
       <div>
-        <div style={styles.nextBlock}>    
-                <div style={styles.nextLabel}><button style={styles.arrowButton}><i className="fa fa-arrow-left" aria-hidden="true"></i></button><span>Your Scheduled Activities</span><button style={styles.arrowButton}><i className="fa fa-arrow-right" aria-hidden="true"></i></button></div>
-                <div style={styles.nextGrid}>
-                    <div style={styles.gridEntry}>Date</div>
-                    <div style={styles.gridEntry}>Location</div>
-                    <div style={styles.gridEntry}>Hour AM/PM</div>
-                    <div style={styles.gridEntry}>Activity</div>
-                    <div style={styles.gridWith}>Partner (User Profile Link)</div>
-                </div>
-            </div>
+        { this.renderActivity() }
       </div>
     )
   }
