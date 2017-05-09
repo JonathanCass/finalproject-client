@@ -2,6 +2,7 @@ import React from 'react'
 import UsersEvents from './UsersEvents'
 import UserMatches from './UserMatches'
 import Friends from './Friends'
+import ActivitySlider from './ActivitySlider'
 import 'font-awesome/css/font-awesome.css'
 import {connect} from 'react-redux'
 import {getUsers} from '../api/messaging'
@@ -41,60 +42,6 @@ const styles={
         objectFit: 'contain',
         margin: 0
     },
-    nextBlock:{
-        width: 430,
-        display: 'inline-block',
-        padding: 10,
-        marginLeft: 10
-    },
-    nextLabel:{ 
-        display: 'flex',
-        justifyContent: 'space-between', 
-        width: 413,
-        height: 50,
-        fontSize: 26,
-        color: 'white',
-        textAlign: 'center',
-        marginBottom: 10,
-        paddingTop: 5,
-        lineHeight: '40px'
-    },
-    arrowButton:{
-        height:40,
-        width:40,
-        borderRadius: 5,
-        background: "white",
-        color: '#C81740',
-        fontSize: 24
-    },
-    nextGrid:{
-        border: 'solid 1px black',
-        borderWidth: '1px 0 0 1px',
-        width: 413,
-        height: 120,
-    },
-    gridEntry:{
-        height: 40,
-        width: 206,
-        border: 'solid 1px black',
-        borderWidth: '0 1px 1px 0',
-        display: 'inline-block',
-        textAlign: 'center',
-        lineHeight: '42px',
-        color: 'white',
-        background: '#53BE16'
-    },
-    gridWith:{
-        height: 40,
-        width: 412,
-        border: 'solid 1px black',
-        borderWidth: '0 1px 1px 0',
-        display: 'inline-block',
-        textAlign: 'center',
-        lineHeight: '42px',
-        color: 'white',
-        background: '#53BE16'
-    },
     gridHeader:{
         height: 40,
         paddingTop: 10,
@@ -129,16 +76,7 @@ class UserHomePage extends React.Component {
         <div style={styles.header}>Welcome to Go Vegas! {this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].fname} </div>
         <div style={styles.userMain}>
             <div style={styles.avatar}><img alt="no error" style={styles.avatarImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar} /></div>
-            <div style={styles.nextBlock}>    
-                <div style={styles.nextLabel}><button style={styles.arrowButton}><i className="fa fa-arrow-left" aria-hidden="true"></i></button><span>Your Scheduled Activities</span><button style={styles.arrowButton}><i className="fa fa-arrow-right" aria-hidden="true"></i></button></div>
-                <div style={styles.nextGrid}>
-                    <div style={styles.gridEntry}>Date</div>
-                    <div style={styles.gridEntry}>Location</div>
-                    <div style={styles.gridEntry}>Hour AM/PM</div>
-                    <div style={styles.gridEntry}>Activity</div>
-                    <div style={styles.gridWith}>Partner (User Profile Link)</div>
-                </div>
-            </div>
+            <ActivitySlider/>
         </div>
         <div style={styles.gridHeader}>User's Created Events</div>
         <UsersEvents />

@@ -84,7 +84,7 @@ class UsersEvents extends React.Component {
     }
   }
   render() {
-      console.log('user events component this.props', this.props)
+      //console.log('user events component this.props', this.props)
     return (
       <div style={styles.GridContainer}>      
         <div style={styles.gridLabel}>Park</div>
