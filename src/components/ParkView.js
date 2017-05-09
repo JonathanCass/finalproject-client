@@ -90,16 +90,16 @@ componentWillMount() {
             <label htmlFor='advanced' style={styles.levelBoxes}>Advanced</label>
           </div>
          
-            <input type='radio' name='Southwest'/>
-            <label htmlFor='SW'>Southwest</label>
-            <input type='radio' name='Northwest'/>
-            <label htmlFor='NW'>Northwest</label>
-            <input type='radio' name='Northeast'/>
-            <label htmlFor='NE'>Northeast</label>
-            <input type='radio' name="Southeast"/>
-            <label htmlFor='SE'>Southeast</label>
+            <input type='radio' id="northwestloc" name='location'/>
+            <label htmlFor='northwest'>Northwest</label>
+            <input type='radio' id="southwestloc" name='location'/>
+            <label htmlFor='southwest'>Southwest</label>
+            <input type='radio' id="northeastloc" name='location'/>
+            <label htmlFor='northeast'>Northeast</label>
+            <input type='radio' id="southeastloc" name="location"/>
+            <label htmlFor='southeast'>Southeast</label>
           
-           <div className='northwest'>
+           <div id='northwest'>
              <select>     
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'northwest'
@@ -108,7 +108,7 @@ componentWillMount() {
                 })} 
              </select>
            </div>
-           {/*<div className='southwest'>
+           <div id='southwest'>
              <select>     
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'southwest'
@@ -116,7 +116,26 @@ componentWillMount() {
                    return (<option key={park + park.id}>{park.name}</option>)
                 })} 
              </select>
-           </div> */}
+           </div>
+           <div id='southeast'>
+             <select>     
+                {this.props.parks.filter((park, i)=>{
+                   return park.quadrant === 'southeast'
+                }).map(park =>{   
+                   return (<option key={park + park.id}>{park.name}</option>)
+                })} 
+             </select>
+           </div>
+           <div id='northeast'>
+             <select>     
+                {this.props.parks.filter((park, i)=>{
+                   return park.quadrant === 'northeast'
+                }).map(park =>{   
+                   return (<option key={park + park.id}>{park.name}</option>)
+                })} 
+             </select>
+           </div>
+           
            
            
           {/*<select className='activities' onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
