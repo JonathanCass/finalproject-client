@@ -38,6 +38,21 @@ const styles = {
         overflow: 'hidden',
         textTransform: 'capitalize'
     },
+    time:{
+        width: 148,
+        height: 40,
+        border: 'solid 1px black',
+        borderWidth: '0 1px 0px 0',
+        display: 'inline-block',
+        background: '#F2F2F2',
+        lineHeight: '42px',
+        textAlign: 'center',
+        overflow: 'hidden',
+        textTransform: 'uppercase'
+    },
+    date:{
+        textTransform: 'capitalize'
+    },
     removeEntry:{
         width: 40,
         height: 40,
@@ -70,7 +85,7 @@ class UsersEvents extends React.Component {
             this.props.events.map(event=>(
             <div key={"event id" + event.id} style={ event.user_id1 === this.props.currentUserID  ?  styles.grid : styles.displayNone }>
                 <div style={styles.gridBox}>{this.props.parks[event.park_id].name} </div>
-                <div style={styles.gridBox}>{event.time_start} </div>
+                <div style={styles.gridBox}><span style={styles.time}> {event.time_start_hour} {event.time_start_suffix} <span style={styles.date}>{event.date_month} {event.date_day}</span></span></div>
                 <div style={styles.gridBox}>{this.props.activityIds[event.activity_id-1].name}</div>
                 <div style={styles.gridBox}>{this.props.users[event.user_id2-1].fname} {this.props.users[event.user_id2-1].lname}</div>
                 <div style={styles.removeEntry}>-</div>

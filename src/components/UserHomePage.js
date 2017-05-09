@@ -12,6 +12,7 @@ const styles={
     userHomeContainer:{
         width: 1300,  
         display: 'flex',
+        background: 'linear-gradient( to bottom right, #56CCF2 , #2F80ED )',
     },
     header:{
         width: 650,
@@ -55,7 +56,6 @@ const styles={
     left:{
         width: 650,
         display: 'inline-block',
-        background: 'linear-gradient( to bottom right, #56CCF2 , #2F80ED )',
         paddingBottom: 100
     }
 }

@@ -72,11 +72,11 @@ const styles={
       textTransform: 'uppercase'
     }
 }
-class ActivitySlider extends React.Component {
+class FriendsSliders extends React.Component {
    constructor(props) {
      super(props)
      this.state={
-       involvedIndex:0
+       involvedIndex:0, friendsTestArray : [2,7,9]
      }
    }
   componentWillMount(){
@@ -101,7 +101,7 @@ class ActivitySlider extends React.Component {
     if(this.props.events && this.props.users && this.props.parks && this.props.activityIds) {
       
       var involvedArray = this.props.events.filter(function(event){
-            return( event.user_id1 === this.props.currentUserID || event.user_id2  === this.props.currentUserID )
+            return( this.state.friendsTestArray.indexOf(event.user_id1) !== -1 || this.state.friendsTestArray.indexOf(event.user_id2) !== -1 )
         }.bind(this))
       //console.log('involvedArray', involvedArray)
         return (
@@ -120,7 +120,7 @@ class ActivitySlider extends React.Component {
         )
     }else {
         return (
-            <span> No current activities, Go to Park View and find some to join or create. </span>
+            <span> No Friends with Actitivies, try expanding your availability and adding some new friends. </span>
         )
     }
   }
@@ -138,4 +138,4 @@ function mapStateToProps(appState){
 	return { activityIds: appState.activityIds.activities, parks: appState.parks.parks, users: appState.dbUsers.users, currentUserID : appState.currentUserId, events : appState.events.event}
 }
 
-export default connect(mapStateToProps)(ActivitySlider)
+export default connect(mapStateToProps)(FriendsSliders)
