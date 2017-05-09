@@ -1,6 +1,9 @@
 import React from 'react'
 import styles from './User.styles.js'
 import UserAvailabilityGrid from './UserAvailabilityGrid'
+import {connect} from 'react-redux'
+import {postAvailability} from '../api/messaging'
+import {getAvail} from '../api/messaging'
 
 class UserAvailability extends React.Component {
     constructor() {
@@ -12,11 +15,16 @@ class UserAvailability extends React.Component {
   addAvailability = (e) => {
   	e.preventDefault()
       var availabilityObj ={
-          area: this.state.area,
-          day: this.state.day,
-          from: this.state.from +" "+ this.state.fromAmPm ,
-          to: this.state.to +" "+ this.state.toAmPm 
+          quadrant: this.state.area,
+          day_of_week: this.state.day,
+          from_num: this.state.from,
+          from_suffix: this.state.fromAmPm ,
+          to_num: this.state.to,
+          to_suffix: this.state.toAmPm,
+          user_id: this.props.currentUserID,
       }
+      postAvailability(availabilityObj)
+      console.log('avail', availabilityObj)
     this.setState({
       availabilityArray : [...this.state.availabilityArray, availabilityObj],
       area:'',day:'',from:0,to:0,fromAmPm:'',toAmPm:''
@@ -27,6 +35,9 @@ class UserAvailability extends React.Component {
       [e.target.name]: e.target.value
     })
   }
+  componentWillMount(){
+  	getAvail()
+  }
   render() {
     return (
         <div style={styles.AvailabilityContainer}>
@@ -36,11 +47,11 @@ class UserAvailability extends React.Component {
         <div style={styles.left}>
             <select name="area" style={styles.select} onChange={this.handleChange} value={this.state.area}>
                 <option value="">Select Area of City</option>
-                <option value="Northwest Las Vegas">Northwest Las Vegas</option>
-                <option value="Southwest Las Vegas">Southwest Las Vegas</option>
-                <option value="Northeast Las Vegas">Northeast Las Vegas</option>
-                <option value="Southeast Las Vegas">Southeast Las Vegas</option>
-                <option value="Surrounding Area">Surrounding Area</option>
+                <option value="northwest">Northwest Las Vegas</option>
+                <option value="southwest">Southwest Las Vegas</option>
+                <option value="northeast">Northeast Las Vegas</option>
+                <option value="southeast">Southeast Las Vegas</option>
+                <option value="surrounding">Surrounding Area</option>
             </select>
             <select name="day" style={styles.select} onChange={this.handleChange} value={this.state.day}>
                 <option value="">Select day of week</option>
@@ -102,11 +113,15 @@ class UserAvailability extends React.Component {
       </div>
       <button style={styles.addAvailability} onClick={this.addAvailability}>Add to User Availability</button>
       
-      <UserAvailabilityGrid availabilityArray={[...this.state.availabilityArray]}/>
+      <UserAvailabilityGrid availabilityArray={this.props.dbAvail.availability}/>
 
       </div>
     )
   }
 }
 
-export default UserAvailability
+function mapStateToProps(appState){
+	return { currentUserID : appState.currentUserId, dbAvail : appState.dbAvail}
+}
+
+export default connect(mapStateToProps)(UserAvailability)

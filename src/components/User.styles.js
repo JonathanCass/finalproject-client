@@ -13,6 +13,7 @@ const styles ={
     marginTop: 10,
     background: 'white',
     height: 600,
+    borderRadius: 15
   },
   top:{
     width: 650,
@@ -45,7 +46,8 @@ const styles ={
     height: 290,
     width: 300,
     margin: 0,
-    objectFit: 'contain'
+    objectFit: 'contain',
+    borderRadius: 25,
   },
   avatarImg:{
     height: 300,

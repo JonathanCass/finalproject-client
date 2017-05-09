@@ -37,9 +37,7 @@ const styles = {
         margin: 15
     },
     quads: {
-        height:40,
-        width:250,
-        marginBottom:'2em',
+        margin:'2em'
     },
     input: {
         height:40,
@@ -87,6 +85,7 @@ const styles = {
         marginLeft:'42em',
         cursor:'pointer'
     },
+   
     // notes: {
     //     position:'absolute',
     //     width:250,

@@ -4,6 +4,7 @@ import styles from './ParkView.styles'
 // import DatePicker from 'material-ui/DatePicker'
 import Table from './ParkViewTable'
 // import {postCreateActivity} from '../api/messaging'
+import '../assets/home.css'
 import { connect } from 'react-redux'
 import { getParks } from '../api/messaging'
 
@@ -25,7 +26,6 @@ class ParkView extends React.Component {
 }
 createActivity = (e) => {
   e.preventDefault()
-  // alert('Your Activity Has Been Created')
   var createActivityObj ={
       play:this.state.play,
       level:this.state.level,
@@ -70,6 +70,7 @@ componentWillMount() {
 
   render() {
   console.log(this.props.parks)
+    
     return (
       <div style={styles.container}>     
           <h2 style={styles.h2}>Type Of Play</h2>
@@ -88,17 +89,36 @@ componentWillMount() {
             <input type='checkbox'onChange={this.handleLevel} name='level' value="Advanced"/>
             <label htmlFor='advanced' style={styles.levelBoxes}>Advanced</label>
           </div>
-          <select className='quadrants' onChange={this.handleFilter} style={styles.quads}>
-            <option value='Select Area'>Select Area</option>
-            <option value='Northwest'>Northwest</option>
-            <option value='Southwest'>Southwest</option>
-            <option value='Northeast'>Northeast</option>
-            <option value='Southeast'>Southeast</option>
-            <option value='Surrounding Area'>Surrounding Area</option>
-          </select>
-          <select>
-            <option value={this.props.parks}>Parks</option>
-          </select>
+         
+            <input type='radio' name='Southwest'/>
+            <label htmlFor='SW'>Southwest</label>
+            <input type='radio' name='Northwest'/>
+            <label htmlFor='NW'>Northwest</label>
+            <input type='radio' name='Northeast'/>
+            <label htmlFor='NE'>Northeast</label>
+            <input type='radio' name="Southeast"/>
+            <label htmlFor='SE'>Southeast</label>
+          
+           <div className='northwest'>
+             <select>     
+                {this.props.parks.filter((park, i)=>{
+                   return park.quadrant === 'northwest'
+                }).map(park =>{   
+                   return (<option key={park + park.id}>{park.name}</option>)
+                })} 
+             </select>
+           </div>
+           {/*<div className='southwest'>
+             <select>     
+                {this.props.parks.filter((park, i)=>{
+                   return park.quadrant === 'southwest'
+                }).map(park =>{   
+                   return (<option key={park + park.id}>{park.name}</option>)
+                })} 
+             </select>
+           </div> */}
+           
+           
           {/*<select className='activities' onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
             <option value='type'>Activity Type</option>
             <option value='Walking'>Walking</option>
@@ -108,7 +128,7 @@ componentWillMount() {
             <option value='Basketball'>Basketball</option>
             <option value='Volleyball'>Volleyball</option>
           </select>
-          <MuiThemeProvider>
+          /*<MuiThemeProvider>
              <DatePicker hintText="Choose Day" container="inline" name='date' value={this.state.date} mode="landscape" style={styles.calendar}/>
           </MuiThemeProvider>
           <div className='notes'>

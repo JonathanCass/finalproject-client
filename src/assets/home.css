@@ -104,3 +104,23 @@ h3 {
     color:white;
     font-size:40px;
 }*/
+.northwest {
+    opacity:0;
+    max-height:0;
+    overflow:hidden;
+}
+input[type="radio"]:checked ~ .northwest {
+  opacity: 1;
+  max-height: 100px;
+  overflow: visible;
+}
+/*.southwest {
+    opacity:0;
+    max-height:0;
+    overflow:hidden;
+}
+input[type="radio"]:checked ~ .southwest {
+  opacity: 1;
+  max-height: 100px;
+  overflow: visible;
+}*/
