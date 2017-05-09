@@ -8,6 +8,7 @@ const styles={
         marginLeft: 10,
         display: 'flex',
         flexWrap: 'wrap',
+        marginBottom: 100
     },
     matchBox:{
         width: 157,
@@ -141,7 +142,7 @@ class UserMatches extends React.Component {
             <div style={ this.props.currentUserMatches.indexOf(user.id) === -1 ? styles.displayNone : styles.matchBox } key={Math.random()}>
                 <div style={styles.matchAvatar}><img style={styles.matchImage} src={user.avatar} alt="no error"/></div>
                 <div style={styles.matchLine}>{user.fname} {user.lname}</div>
-                <div style={styles.matchLine}>{user.email}</div>
+                <div style={styles.matchLine}><a  href={"mailto:" + user.email}>{user.email}</a></div>
             </div>
 		))
         )
