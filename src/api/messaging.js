@@ -4,8 +4,8 @@ import axios from 'axios'
 //const socket = io.connect('http://localhost:3001')
 
 var api = axios.create({
-	// baseURL: 'http://10.68.0.58:3001'
-	baseURL:'http://localhost:3001'
+	baseURL: 'http://10.68.0.58:3001'
+	//baseURL:'http://localhost:3001'
 })
 
 
@@ -30,7 +30,7 @@ export function getAvail() {
 }	
 export function getParks() {
     api.get('/parks').then(res=>{
-//         console.log('parks', res.data.parks[0].name)
+        //console.log('parks', res.data.parks)
          store.dispatch({
           type: 'GET_PARKS',
           parks: res.data.parks
