@@ -5,6 +5,7 @@ import axios from 'axios'
 
 var api = axios.create({
 	baseURL: 'http://10.68.0.58:3001'
+	// baseURL:'http://localhost:3001'
 })
 
 
@@ -29,13 +30,14 @@ export function getAvail() {
 }	
 export function getParks() {
     api.get('/parks').then(res=>{
-//         console.log('parks', res.data)
+//         console.log('parks', res.data.parks[0].name)
          store.dispatch({
           type: 'GET_PARKS',
-          parks: res.data
+          parks: res.data.parks
          })
     })
 }
+
 // export function getUsers() {
 // 	console.log('getUSers in Api')
 // 	axios.get('http://10.68.0.58:3000/activities').then(res=>{

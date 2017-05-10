@@ -64,7 +64,8 @@ class UserAvailabilityGrid extends React.Component {
   	getAvail()
   }
   render() {
-      console.log('userAvailabilityGrid props', this.props)
+    //  const currentUserID = this.props.currentUserID !== [] ? this.props.currentUserID:this.props.currentUserID.userId
+
     return (
       <div style={styles.UAGridContainer}>
         <div style={styles.gridHeader}>Currently Available For</div>  

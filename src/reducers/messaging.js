@@ -1,5 +1,5 @@
 const initialState = {
-    messages: [], userToAdd: "", dbUsers:[], dbAvail: [], currentUserId: 1, parks:[]
+    messages: [], userToAdd: "", dbUsers:[], dbAvail: [], currentUserId:1, parks:[]
 }
 
 export default function messageReducer(state=initialState, action) {
