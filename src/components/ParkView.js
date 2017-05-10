@@ -64,8 +64,7 @@ componentWillMount() {
 }
 
   render() {
-  // console.log(this.props.parks.type)
-    
+  console.log(this.props.parks)
     return (
       <div style={styles.container}>     
           <h2 style={styles.h2}>Type Of Play</h2>
@@ -85,14 +84,14 @@ componentWillMount() {
             <label htmlFor='advanced' style={styles.levelBoxes}>Advanced</label>
           </div>
          <div>
-            <input type='radio' id="northwestloc" name='quadrant' value="Northwest"/>
-            <label htmlFor='northwest'>Northwest</label>
-            <input type='radio' id="southwestloc" name='quadrant' value="Southwest"/>
-            <label htmlFor='southwest'>Southwest</label>
-            <input type='radio' id="northeastloc" name='quadrant' value="Northeast"/>
-            <label htmlFor='northeast'>Northeast</label>
-            <input type='radio' id="southeastloc" name="quadrant" value="Southeast"/>
-            <label htmlFor='southeast'>Southeast</label>
+            <input type='radio' style={styles.radioQuad} id="northwestloc" name='quadrant' value="Northwest"/>
+            <label htmlFor='northwest' style={styles.radioLabel}>Northwest</label>
+            <input type='radio' style={styles.radioQuad} id="southwestloc" name='quadrant' value="Southwest"/>
+            <label htmlFor='southwest' style={styles.radioLabel}>Southwest</label>
+            <input type='radio' style={styles.radioQuad} id="northeastloc" name='quadrant' value="Northeast"/>
+            <label htmlFor='northeast' style={styles.radioLabel}>Northeast</label>
+            <input type='radio' style={styles.radioQuad} id="southeastloc" name="quadrant" value="Southeast"/>
+            <label htmlFor='southeast' style={styles.radioLabel}>Southeast</label>
           
            
            <div id='northwest'> 
@@ -104,15 +103,12 @@ componentWillMount() {
                   return <option key={park + park.id}>{park.name}</option>         
                })}
              </select>
-              <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
-                <option value='type'>Activity Type</option>
-                <option value='Walking'>Walking</option>
-                <option value='Running'>Running</option>
-                <option value='Tennis'>Tennis</option>
-                <option value='Frisbee Golf'>Frisbee Golf</option>
-                <option value='Basketball'>Basketball</option>
-                <option value='Volleyball'>Volleyball</option>
-            </select>
+             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+               <option>Activity Type</option>
+               {/*{this.props.parks.type.filter((type, i)=>{
+                
+               })}*/}
+             </select>
            </div>
            <div id='southwest'>
              <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}>     
@@ -120,19 +116,13 @@ componentWillMount() {
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'southwest'
                 }).map(park =>{   
-                  
                    return <option key={park + park.id}>{park.name}</option>
                 })} 
              </select>
-               <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
                 <option value='type'>Activity Type</option>
-                <option value='Walking'>Walking</option>
-                <option value='Running'>Running</option>
-                <option value='Tennis'>Tennis</option>
-                <option value='Frisbee Golf'>Frisbee Golf</option>
-                <option value='Basketball'>Basketball</option>
-                <option value='Volleyball'>Volleyball</option>
-            </select>
+                
+             </select>
            </div>
            <div id='southeast'>
              <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}> 
@@ -143,15 +133,10 @@ componentWillMount() {
                    return <option key={park + park.id}>{park.name}</option>
                 })} 
              </select>
-               <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
                 <option value='type'>Activity Type</option>
-                <option value='Walking'>Walking</option>
-                <option value='Running'>Running</option>
-                <option value='Tennis'>Tennis</option>
-                <option value='Frisbee Golf'>Frisbee Golf</option>
-                <option value='Basketball'>Basketball</option>
-                <option value='Volleyball'>Volleyball</option>
-            </select>
+                
+             </select>
            </div>
            <div id='northeast'>
              <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}> 
@@ -162,21 +147,13 @@ componentWillMount() {
                    return <option onChange={this.handleSelect} key={park + park.id}>{park.name}</option>
                 })} 
              </select>
-               <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
                 <option value='type'>Activity Type</option>
-                <option value='Walking'>Walking</option>
-                <option value='Running'>Running</option>
-                <option value='Tennis'>Tennis</option>
-                <option value='Frisbee Golf'>Frisbee Golf</option>
-                <option value='Basketball'>Basketball</option>
-                <option value='Volleyball'>Volleyball</option>
-            </select>
+              
+             </select>
            </div>
           </div>
     
-           
-
-          
            
           {/*
           /*<MuiThemeProvider>

@@ -20,6 +20,12 @@ const styles = {
     radio: {
         margin:'1em'
     },
+    radioQuad: {
+        margin:'2em',
+    },
+    radioLabel: {
+        fontFamily:'Verdana'
+    },  
     radioContainer: {
         textAlign:'center'
     },

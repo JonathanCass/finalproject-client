@@ -33,8 +33,7 @@ export function getParks() {
 //         console.log('parks', res.data.parks[0].name)
          store.dispatch({
           type: 'GET_PARKS',
-          parks: res.data.parks
-
+          parks: res.data.parks	
          })
     })
 }
