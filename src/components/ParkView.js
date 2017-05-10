@@ -68,7 +68,7 @@ componentWillMount() {
 }
 
   render() {
-  console.log(this.props.parks)
+  //console.log(this.props.parks)
     
     return (
       <div style={styles.container}>     

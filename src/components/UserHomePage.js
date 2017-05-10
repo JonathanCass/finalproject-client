@@ -70,7 +70,6 @@ class UserHomePage extends React.Component {
     getAvail()
   }  
   render() {
-      const userID = this.props.currentUserID !== [] ? this.props.currentUserID:this.props.currentUserID.userId
     return (
       <div style={styles.userHomeContainer}>
         <div style={styles.left}> 
