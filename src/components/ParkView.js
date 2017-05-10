@@ -19,7 +19,6 @@ class ParkView extends React.Component {
         // date:'',
         notes:'',
         start:'',
-        end:'',
         gear:'',
         park:'',
         activityArray:[]
@@ -34,7 +33,6 @@ createActivity = (e) => {
       // date:this.state.date,
       notes:this.state.notes,
       start:this.state.start,
-      end:this.state.end,
       gear:this.state.gear,
       park:this.state.park
   }
@@ -51,24 +49,22 @@ handleChange = (e) => {
 }
 handleButton = (e) => {
   this.setState({
-    [e.target.name]:e.target.value
+    [e.target.name]:e.target.value   
   })
+  console.log(e.target.value)
 }
 handleLevel = (e) => { // for Type of Play/Experience
   this.setState({
     level: e.target.value
   })
 }
-// handleBrowse = (e) => {
-//   e.preventDefault()
-//   console.log('map through parks')
-// }
+
 componentWillMount() {
   getParks()
 }
 
   render() {
-  console.log(this.props.parks)
+  // console.log(this.props.parks.type)
     
     return (
       <div style={styles.container}>     
@@ -99,17 +95,24 @@ componentWillMount() {
             <label htmlFor='southeast'>Southeast</label>
           
            
-           <div id='northwest'>
-             <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}>  
+           <div id='northwest'> 
+             <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}>
+               <option>North West Parks</option>  
                {this.props.parks.filter((park, i)=>{
                   return park.quadrant === 'northwest'
                }).map(park =>{   
-                 {/*console.log('nw', park)*/}
-                  return <option key={park + park.id}>{park.name}</option>
-               
-                            
+                  return <option key={park + park.id}>{park.name}</option>         
                })}
              </select>
+              <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+                <option value='type'>Activity Type</option>
+                <option value='Walking'>Walking</option>
+                <option value='Running'>Running</option>
+                <option value='Tennis'>Tennis</option>
+                <option value='Frisbee Golf'>Frisbee Golf</option>
+                <option value='Basketball'>Basketball</option>
+                <option value='Volleyball'>Volleyball</option>
+            </select>
            </div>
            <div id='southwest'>
              <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}>     
@@ -117,10 +120,19 @@ componentWillMount() {
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'southwest'
                 }).map(park =>{   
-                  console.log('sw', park)
+                  
                    return <option key={park + park.id}>{park.name}</option>
                 })} 
              </select>
+               <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+                <option value='type'>Activity Type</option>
+                <option value='Walking'>Walking</option>
+                <option value='Running'>Running</option>
+                <option value='Tennis'>Tennis</option>
+                <option value='Frisbee Golf'>Frisbee Golf</option>
+                <option value='Basketball'>Basketball</option>
+                <option value='Volleyball'>Volleyball</option>
+            </select>
            </div>
            <div id='southeast'>
              <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}> 
@@ -131,6 +143,15 @@ componentWillMount() {
                    return <option key={park + park.id}>{park.name}</option>
                 })} 
              </select>
+               <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+                <option value='type'>Activity Type</option>
+                <option value='Walking'>Walking</option>
+                <option value='Running'>Running</option>
+                <option value='Tennis'>Tennis</option>
+                <option value='Frisbee Golf'>Frisbee Golf</option>
+                <option value='Basketball'>Basketball</option>
+                <option value='Volleyball'>Volleyball</option>
+            </select>
            </div>
            <div id='northeast'>
              <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}> 
@@ -138,24 +159,26 @@ componentWillMount() {
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'northeast'
                 }).map(park =>{  
-                   return <option  key={park + park.id}>{park.name}</option>
+                   return <option onChange={this.handleSelect} key={park + park.id}>{park.name}</option>
                 })} 
              </select>
+               <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+                <option value='type'>Activity Type</option>
+                <option value='Walking'>Walking</option>
+                <option value='Running'>Running</option>
+                <option value='Tennis'>Tennis</option>
+                <option value='Frisbee Golf'>Frisbee Golf</option>
+                <option value='Basketball'>Basketball</option>
+                <option value='Volleyball'>Volleyball</option>
+            </select>
            </div>
           </div>
+    
+           
 
-       
           
            
-          {/*<select className='activities' onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
-            <option value='type'>Activity Type</option>
-            <option value='Walking'>Walking</option>
-            <option value='Running'>Running</option>
-            <option value='Tennis'>Tennis</option>
-            <option value='Frisbee Golf'>Frisbee Golf</option>
-            <option value='Basketball'>Basketball</option>
-            <option value='Volleyball'>Volleyball</option>
-          </select>
+          {/*
           /*<MuiThemeProvider>
              <DatePicker hintText="Choose Day" container="inline" name='date' value={this.state.date} mode="landscape" style={styles.calendar}/>
           </MuiThemeProvider>
