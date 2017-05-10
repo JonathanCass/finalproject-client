@@ -4,6 +4,7 @@ import {getEvents} from '../api/messaging'
 import {getUsers} from '../api/messaging'
 import {getParks} from '../api/messaging'
 import {getActivityIds} from '../api/messaging'
+import {Link} from 'react-router-dom'
 
 const styles={
     nextBlock:{
@@ -69,11 +70,16 @@ const styles={
       visibility: 'hidden'
     },
     displayUnderline:{
-        color: 'white'
+        color: '#151517'
     },
     time:{
       textTransform: 'uppercase'
-    }
+    },
+    link:{
+        textDecoration: 'none',
+        color: '#C81740',
+        fontWeight: 'bold'
+    },
 }
 class FriendsSliders extends React.Component {
    constructor(props) {
@@ -110,7 +116,7 @@ class FriendsSliders extends React.Component {
         return (
           involvedArray.map((event, i) =>(
             <div style={ i === this.state.involvedIndex ? styles.nextBlock : styles.displayNone } key={event.id}>    
-                <div style={styles.nextLabel}><button onClick={this.handlePrevious} style={ this.state.involvedIndex === 0 ? styles.displayHidden : styles.arrowButton}><i className="fa fa-arrow-left" aria-hidden="true"></i></button><span> <span style={ this.state.friendsTestArray.indexOf(event.user_id1) === -1 ?  styles.displayNone : styles.displayUnderline  }>Your Friend {this.props.users[event.user_id1].fname} {this.props.users[event.user_id1].lname}</span> <span style={ this.state.friendsTestArray.indexOf(event.user_id1) !== -1 && this.state.friendsTestArray.indexOf(event.user_id2) !== -1 ?  styles.displayUnderline : styles.displayNone  } >with</span> <span style={ this.state.friendsTestArray.indexOf(event.user_id2) === -1 ?  styles.displayNone : styles.displayUnderline  } >Your Friend {this.props.users[event.user_id2].fname} {this.props.users[event.user_id2].lname} </span> </span><button onClick={this.handleNext} style={ this.state.involvedIndex + 1 < involvedArray.length  ? styles.arrowButton : styles.displayHidden}><i className="fa fa-arrow-right" aria-hidden="true"></i></button></div>
+                <div style={styles.nextLabel}><button onClick={this.handlePrevious} style={ this.state.involvedIndex === 0 ? styles.displayHidden : styles.arrowButton}><i className="fa fa-arrow-left" aria-hidden="true"></i></button><span> <span style={ this.state.friendsTestArray.indexOf(event.user_id1) === -1 ?  styles.displayNone : styles.displayUnderline  }>Your Friend <Link style={styles.link} to={'/UserProfile/' + event.user_id1} >{this.props.users[event.user_id1].fname} {this.props.users[event.user_id1].lname}</Link></span> <span style={ this.state.friendsTestArray.indexOf(event.user_id1) !== -1 && this.state.friendsTestArray.indexOf(event.user_id2) !== -1 ?  styles.displayUnderline : styles.displayNone  } >with</span> <span style={ this.state.friendsTestArray.indexOf(event.user_id2) === -1 ?  styles.displayNone : styles.displayUnderline  } >Your Friend <Link style={styles.link} to={'/UserProfile/' + event.user_id2} >{this.props.users[event.user_id2].fname} {this.props.users[event.user_id2].lname}</Link> </span> </span><button onClick={this.handleNext} style={ this.state.involvedIndex + 1 < involvedArray.length  ? styles.arrowButton : styles.displayHidden}><i className="fa fa-arrow-right" aria-hidden="true"></i></button></div>
                 <div style={styles.nextGrid}>
                     <div style={styles.gridEntry}>{event.date_month} {event.date_day}</div>
                     <div style={styles.gridEntry}>{this.props.parks[event.park_id].name}</div>
@@ -138,7 +144,7 @@ class FriendsSliders extends React.Component {
 }
 
 function mapStateToProps(appState){
-	return { activityIds: appState.activityIds.activities, parks: appState.parks.parks, users: appState.dbUsers.users, currentUserID : appState.currentUserId, events : appState.events.event}
+	return { activityIds: appState.activityIds.activities, parks: appState.parks, users: appState.dbUsers.users, currentUserID : appState.currentUserId, events : appState.events.event}
 }
 
 export default connect(mapStateToProps)(FriendsSliders)

@@ -135,7 +135,7 @@ class ActivitySlider extends React.Component {
 }
 
 function mapStateToProps(appState){
-	return { activityIds: appState.activityIds.activities, parks: appState.parks.parks, users: appState.dbUsers.users, currentUserID : appState.currentUserId, events : appState.events.event}
+	return { activityIds: appState.activityIds.activities, parks: appState.parks, users: appState.dbUsers.users, currentUserID : appState.currentUserId, events : appState.events.event}
 }
 
 export default connect(mapStateToProps)(ActivitySlider)
