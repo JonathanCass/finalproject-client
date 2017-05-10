@@ -39,6 +39,7 @@ class UserAvailability extends React.Component {
   	getAvail()
   }
   render() {
+
     return (
         <div style={styles.AvailabilityContainer}>
         <div style={ Number(this.props.userid) === Number(this.props.currentUserID) ? styles.displayNormal : styles.displayNone} >

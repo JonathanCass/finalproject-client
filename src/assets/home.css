@@ -42,13 +42,6 @@ body {
     background-color:#bbeeff;
     color:white;
 }
-.carouselContainer{
-    border:1px solid #d2d9da;
-    width:900px;
-    overflow:hidden;
-    margin-left:15%;
-    margin-top:3%;
-}
 .links {
     padding:15px;
 }
@@ -62,7 +55,13 @@ body {
     background-color: #eae9e9;
     padding:15px;  
 }
-
+.carouselContainer{
+    border:1px solid #d2d9da;
+    width:900px;
+    overflow:hidden;
+    margin-left:15%;
+    margin-top:3%;
+}
 img {  
     width:630px;
     height:auto;
@@ -76,19 +75,90 @@ img {
 .matches {
     display:flex;
     margin-left:11%;
+    margin-top:4em;
 }
 #person {
-    border:1px solid gray;
-    border-radius:50%;
-    height:190px;
-    width:190px;
+    border:1px;
+    border-radius:10px;
+    background-image: linear-gradient(to bottom right, #36D1DC, #5B86E5);
+    height:250px;
+    width:212px;
     text-align:center;
-    line-height:190px;
-    margin:20px;
+    margin:8px;
+    margin-top:-2px;
     list-style: none;
 }
 h3 {
     position:absolute;
     margin-top:-15%;
     color:white;
+}
+/*#texts {
+    background-image:url("https://static.pexels.com/photos/305244/pexels-photo-305244.jpeg");
+    position: relative;
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    height: 456px;
+    width: 5388px;
+    color:white;
+    font-size:40px;
+}*/
+/*#northwest, #northeast, #southwest, #southeast {
+    opacity:0;
+    max-height:0;
+    overflow:hidden;
+}*/
+#northwestloc:checked ~ #northwest  {
+  opacity: 1;
+  max-height: 100px;
+  overflow: visible;
+
+}
+
+#northwestloc:not(:checked) ~  #northwest {
+ display: none;
+
+}
+
+#southwestloc:checked ~ #southwest {
+  opacity: 1;
+  max-height: 100px;
+  overflow: visible;
+}
+
+#southwestloc:not(:checked) ~ #southwest {
+ display: none;
+}
+
+#southeastloc:checked ~ #southeast {
+  opacity: 1;
+  max-height: 100px;
+  overflow: visible;
+}
+#southeastloc:not(:checked) ~ #southeast {
+ display: none;
+}
+
+#northeastloc:checked ~ #northeast  {
+  opacity: 1;
+  max-height: 100px;
+  overflow: visible;
+}
+
+#northeastloc:not(:checked) ~  #northeast {
+  
+  display: none;
+}
+
+
+
+.activities {
+  height:40;
+  width:250;  
+  position:absolute;
+  display:flex;
+  margin-top:8em;
+  overflow:hidden; 
+  background: green;     
 }

@@ -10,9 +10,6 @@ import ParkView from './ParkView'
 import Home from './Home'
 import UserHomePage from './UserHomePage'
 
-
-
-
 class App extends Component {
   constructor() {
     super()

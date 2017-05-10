@@ -22,16 +22,22 @@ class User extends React.Component {
       [e.target.name]: !this.state[e.target.name]
     })
   }
+
   componentWillMount(){
   	getUsers()
+   
   }
+  
   render() {
+      
     return (
+      
       <div style={styles.UserContainer}>
-        
+
         <div style={styles.top}>
           
           <div style={styles.left}>
+
             <div style={styles.avatar} ><img alt="no error" style={styles.avatar2} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.match.params.userid].avatar} /></div>
             <button style={styles.editInfo2} onClick={this.handleEdit} name="editFirstName">Edit</button><div style={this.state.editFirstName ?  styles.displayNone : styles.lineDisplay } >{this.props.dbUsers.users && this.props.dbUsers.users[this.props.match.params.userid].fname}</div><input type="text" name="firstName" placeholder="First Name" onChange={this.handleChange} style={this.state.editFirstName ? styles.lineInput : styles.displayNone} value={this.state.firstName}></input>
             <button style={styles.editInfo2} onClick={this.handleEdit} name="editLastName">Edit</button><div style={this.state.editLastName ?  styles.displayNone : styles.lineDisplay } >{this.props.dbUsers.users && this.props.dbUsers.users[this.props.match.params.userid].lname}</div><input type="text" name="lastName" placeholder="Last Name" onChange={this.handleChange} style={this.state.editLastName ? styles.lineInput : styles.displayNone} value={this.state.lastName}></input>           
