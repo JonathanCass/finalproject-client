@@ -12,6 +12,7 @@ import UserHomePage from './UserHomePage'
 
 
 
+
 class App extends Component {
   constructor() {
     super()
@@ -50,12 +51,12 @@ class App extends Component {
           <div className="links">
             <Link to={'/'} id='home'>Home</Link>
             <Link to={'/CreateUser/'} id='createUser'>Create User</Link>
-            <Link to={'/UserProfile/'} id='userProfile'>UserProfile</Link>
+            <Link to={'/UserProfile/' + this.props.currentUserID} id='userProfile'>UserProfile</Link>  
             <Link to={'/UserHomePage/'} id='userHomePage'>UserHomePage</Link>
             <Link to={'/ParkView/'} id='parkView'>ParkView</Link>
           </div>      
                 <Route exact={true} path='/' component={Home} /> {/*Greeting Page with Logo and Login / Sign Up*/}
-                <Route path='/UserProfile/' component={UserProfile} />        {/*Where Availability results are displayed, User info and availability settings are made here as well*/}
+                <Route path='/UserProfile/:userid' component={UserProfile} />        {/*Where Availability results are displayed, User info and availability settings are made here as well*/}
                 <Route path='/CreateUser/' component={CreateUser} />      {/*Initial Profile Construction*/}
                 <Route path='/ParkView/' component={ParkView} />   {/*Create Event Listings here*/}
                 <Route path='/UserHomePage/' component={UserHomePage} /> 
@@ -67,7 +68,7 @@ class App extends Component {
 
 const mapStateToProps = function(appState) {
   return {
-    messages: appState.messages
+    messages: appState.messages, currentUserID : appState.currentUserId
   }
 }
 

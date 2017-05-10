@@ -36,7 +36,6 @@ handleChange = (e) => {
 //   	getContacts()
 // }
   render() {
-    console.log('Home', this.props)
     return (
       <div className="beginningContainer">
         <section className="carouselContainer">

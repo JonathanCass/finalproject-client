@@ -4,6 +4,7 @@ import {getEvents} from '../api/messaging'
 import {getUsers} from '../api/messaging'
 import {getParks} from '../api/messaging'
 import {getActivityIds} from '../api/messaging'
+import {Link} from 'react-router-dom'
 
 const styles = {
     GridContainer:{
@@ -36,7 +37,12 @@ const styles = {
         lineHeight: '42px',
         textAlign: 'center',
         overflow: 'hidden',
-        textTransform: 'capitalize'
+        textTransform: 'capitalize',
+    },
+    link:{
+        textDecoration: 'none',
+        color: '#C81740',
+        fontWeight: 'bold'
     },
     time:{
         width: 148,
@@ -87,7 +93,7 @@ class UsersEvents extends React.Component {
                 <div style={styles.gridBox}>{this.props.parks[event.park_id].name} </div>
                 <div style={styles.gridBox}><span style={styles.time}> {event.time_start_hour} {event.time_start_suffix} <span style={styles.date}>{event.date_month} {event.date_day}</span></span></div>
                 <div style={styles.gridBox}>{this.props.activityIds[event.activity_id-1].name}</div>
-                <div style={styles.gridBox}>{this.props.users[event.user_id2-1].fname} {this.props.users[event.user_id2-1].lname}</div>
+                <div style={styles.gridBox}><Link style={styles.link} to={'/UserProfile/' + event.user_id2} >{this.props.users[event.user_id2].fname} {this.props.users[event.user_id2].lname}</Link></div>     
                 <div style={styles.removeEntry}>-</div>
             </div>
 		))
