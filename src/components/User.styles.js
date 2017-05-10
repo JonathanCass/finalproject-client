@@ -289,6 +289,16 @@ const styles ={
   },
   displayNormal:{
     visibility: 'visible'
+  },
+  addFriend:{
+    width: 310,
+    height: 40,
+    background: '#C81740',
+    color: 'white',
+    borderRadius: 10,
+    fontSize: 20,
+    marginTop: 15,
+    marginLeft: 149
   }
 }
 export default styles

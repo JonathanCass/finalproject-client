@@ -39,7 +39,7 @@ class UserAvailability extends React.Component {
   	getAvail()
   }
   render() {
-
+    console.log('user availability this.props', this.props)
     return (
         <div style={styles.AvailabilityContainer}>
         <div style={ Number(this.props.userid) === Number(this.props.currentUserID) ? styles.displayNormal : styles.displayNone} >
@@ -119,6 +119,9 @@ class UserAvailability extends React.Component {
 
       <UserAvailabilityGrid availabilityArray={this.props.dbAvail.availability}/>
 
+      <div style={ Number(this.props.userid) === Number(this.props.currentUserID) ? styles.displayNone : styles.displayNormal} >
+        <button style={styles.addFriend}> Add {this.props.dbUsers.users && this.props.dbUsers.users[Number(this.props.userid)].fname} To Friends </button>
+      </div>
       </div>
     )
   }
