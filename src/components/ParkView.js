@@ -39,7 +39,7 @@ createActivity = (e) => {
   // postCreateActivity(createActivityObj)
   this.setState({
     activityArray : [...this.state.activityArray, createActivityObj],
-    play:'', level:'', activities:'', notes:'', start:'', gear:''
+    play:'', level:'', activities:'', notes:'', start:'', daynight:'', gear:''
   })
 }
 handleChange = (e) => {
@@ -51,7 +51,6 @@ handleButton = (e) => {
   this.setState({
     [e.target.name]:e.target.value   
   })
-  console.log(e.target.value)
 }
 handleLevel = (e) => { // for Type of Play/Experience
   this.setState({
@@ -64,11 +63,10 @@ componentWillMount() {
 }
 
   render() {
-  console.log(this.props.parks)
     return (
       <div style={styles.container}>     
           <h2 style={styles.h2}>Type Of Play</h2>
-          <div style={styles.radioContainer}>
+          <div style={styles.radioPlay}>
             <input type='radio' onChange={this.handleButton} name='play' value="Competitive"/>
             <label htmlFor="competitive" style={styles.radio}>Competitive</label>
             <input type='radio'onChange={this.handleButton} name='play' value="Leisurely"/>
@@ -108,7 +106,12 @@ componentWillMount() {
                {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'northwest'
                }).map(park =>{
+                console.log(park.type)
                     return <option key={park + park.id}>{park.type}</option>
+                {/*if (park.type === 'yes'){
+                  
+                   return <option>{park.type}</option> 
+                }*/}
                })}            
              </select>
              <MuiThemeProvider>
@@ -141,6 +144,8 @@ componentWillMount() {
              <div className='notes'>
                 <textarea onChange={this.handleChange} name='notes' value={this.state.notes} style={styles.notes} placeholder="Additional Notes"></textarea>
              </div>
+             <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
+             <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
            </div>
 
            <div id='southwest'>
@@ -190,6 +195,8 @@ componentWillMount() {
              <div className='notes'>
                 <textarea onChange={this.handleChange} name='notes' value={this.state.notes} style={styles.notes} placeholder="Additional Notes"></textarea>
              </div>
+             <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
+             <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
            </div>
 
            <div id='southeast'>
@@ -239,6 +246,8 @@ componentWillMount() {
              <div className='notes'>
                 <textarea onChange={this.handleChange} name='notes' value={this.state.notes} style={styles.notes} placeholder="Additional Notes"></textarea>
              </div>
+             <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
+             <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
            </div>
 
            <div id='northeast'>
@@ -279,7 +288,7 @@ componentWillMount() {
                 <option value={11}>11</option>
                 <option value={12}>12</option>
               </select>
-              <select style={styles.daynight}>
+              <select onChange={this.handleChange} name='start' value={this.state.start} style={styles.daynight}>
                 <option value=''>AM/PM</option>
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>
@@ -288,18 +297,10 @@ componentWillMount() {
              <div className='notes'>
                 <textarea onChange={this.handleChange} name='notes' value={this.state.notes} style={styles.notes} placeholder="Additional Notes"></textarea>
              </div>
+             <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
+             <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
            </div>
-          </div>
-    
-           
-          {/*
-          /*
-          
-          
-                */}
-          {/*<button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
-          <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>*/}
-          
+          </div>       
           <Table activityArray={[...this.state.activityArray]}/>
       </div> // end of container
     )

@@ -26,8 +26,9 @@ const styles = {
     radioLabel: {
         fontFamily:'Verdana'
     },  
-    radioContainer: {
-        textAlign:'center'
+    radioPlay: {
+        textAlign:'center',
+        fontFamily:'Verdana'
     },
     line: {
         border:'1px solid gray',
@@ -80,34 +81,34 @@ const styles = {
         width:50,
         height:40
     },
-    // create: {
-    //     height:40,
-    //     width:100,
-    //     marginTop:'2em',
-    //     marginLeft:'28.5em',
-    //     cursor:'pointer',
-    //     position:'absolute'
-    // },
-    //  or: {
-    //     marginTop:'3em',
-    //     marginLeft: '32.3em',
-    //     textDecoration:'underline',
-    //     position:'absolute'
-    // },
-    // browse: {
-    //     height:40,
-    //     width:100,
-    //     position:'absolute',
-    //     marginTop:'23px',
-    //     marginLeft:'42em',
-    //     cursor:'pointer'
-    // },
     notes: {
         position:'absolute',
         width:250,
         height:120,
         marginTop:'15em',
         marginLeft:312
+    },
+    create: {
+        height:40,
+        width:100,
+        marginTop:'27em',
+        marginLeft:'28.5em',
+        cursor:'pointer',
+        position:'absolute'
+    },
+     or: {
+        marginTop:'23.5em',
+        marginLeft: '32.3em',
+        textDecoration:'underline',
+        position:'absolute'
+    },
+    browse: {
+        height:40,
+        width:100,
+        position:'absolute',
+        marginTop:'27em',
+        marginLeft:'42em',
+        cursor:'pointer'
     }
 }
 
