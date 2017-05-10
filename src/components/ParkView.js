@@ -51,10 +51,14 @@ handleButton = (e) => {
   this.setState({
     [e.target.name]:e.target.value   
   })
+  console.log(e.target.value)
+  if(e.target.value) {
+
+  }
 }
 handleLevel = (e) => { // for Type of Play/Experience
   this.setState({
-    level: e.target.value
+    level: e.target.value,
   })
 }
 
@@ -108,10 +112,6 @@ componentWillMount() {
                }).map(park =>{
                 console.log(park.type)
                     return <option key={park + park.id}>{park.type}</option>
-                {/*if (park.type === 'yes'){
-                  
-                   return <option>{park.type}</option> 
-                }*/}
                })}            
              </select>
              <MuiThemeProvider>

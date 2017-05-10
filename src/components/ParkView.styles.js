@@ -86,7 +86,8 @@ const styles = {
         width:250,
         height:120,
         marginTop:'15em',
-        marginLeft:312
+        marginLeft:312,
+        flexWrap:'wrap'
     },
     create: {
         height:40,
