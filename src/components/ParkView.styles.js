@@ -40,7 +40,8 @@ const styles = {
         marginLeft:120
     },
     levelBoxes: {
-        margin: 15
+        margin: 7,
+        fontFamily:'Verdana'
     },
     quads: {
         margin:'2em'
@@ -55,51 +56,59 @@ const styles = {
         marginTop:'3em',
         position:'absolute'
     },
-    // startTime: {
-    //     marginLeft:312,
-    //     marginTop: -60,
+    calendar: {
+        position:'absolute',
+        marginTop:170,
+        textAlign:'center'
+    },
+    gear: {
+        marginLeft:312,
+        marginTop:'2.9em',
+        height:120,
+        width:250,
+        position:'absolute'
+    },
+    startTime: {
+        marginTop: 245,
+        position:'absolute'
+    }, 
+    start: {
+        width:200,
+        height:40
+    },
+    daynight: {
+        width:50,
+        height:40
+    },
+    // create: {
+    //     height:40,
+    //     width:100,
+    //     marginTop:'2em',
+    //     marginLeft:'28.5em',
+    //     cursor:'pointer',
     //     position:'absolute'
     // },
-    // textarea: {
-    //     marginLeft:312,
-    //     marginTop:'10.4em',
-    //     height:150,
-    //     width:250
+    //  or: {
+    //     marginTop:'3em',
+    //     marginLeft: '32.3em',
+    //     textDecoration:'underline',
+    //     position:'absolute'
     // },
-    // calendar: {
+    // browse: {
+    //     height:40,
+    //     width:100,
     //     position:'absolute',
-    //     marginTop:45,
-    //     textAlign:'center'
+    //     marginTop:'23px',
+    //     marginLeft:'42em',
+    //     cursor:'pointer'
     // },
-    create: {
-        height:40,
-        width:100,
-        marginTop:'2em',
-        marginLeft:'28.5em',
-        cursor:'pointer',
-        position:'absolute'
-    },
-     or: {
-        marginTop:'3em',
-        marginLeft: '32.3em',
-        textDecoration:'underline',
-        position:'absolute'
-    },
-    browse: {
-        height:40,
-        width:100,
+    notes: {
         position:'absolute',
-        marginTop:'23px',
-        marginLeft:'42em',
-        cursor:'pointer'
-    },
-   
-    // notes: {
-    //     position:'absolute',
-    //     width:250,
-    //     height:150,
-    //     marginTop:'10.3em'
-    // }
+        width:250,
+        height:120,
+        marginTop:'15em',
+        marginLeft:312
+    }
 }
 
 export default styles

@@ -25,6 +25,7 @@ const styles = {
     map: {
         position:'absolute',
         marginTop:-200,
+        marginLeft:'1em',
         height:350,
     },
     here: {
