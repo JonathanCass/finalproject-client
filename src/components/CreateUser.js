@@ -75,9 +75,9 @@ class User extends React.Component {
             </select>
             <select name="privacy" style={styles.privacy2} onChange={this.handleChange} value={this.state.privacy}>
               <option value="">Privacy Setting</option>
-              <option value={1}>Private</option>
-              <option value={2}>Friends Only</option>
-              <option value={3}>Public</option>
+              <option value="private">Private</option>
+              <option value="friends">Friends Only</option>
+              <option value="public">Public</option>
             </select>
             <button style={styles.createUser} onClick={this.createUser}>Create User</button>
            </div>
