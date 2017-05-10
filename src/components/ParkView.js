@@ -104,7 +104,6 @@ componentWillMount() {
                {this.props.parks.filter((park, i)=>{
                   return park.quadrant === 'northwest'
                }).map(park =>{   
-                 {/*console.log('nw', park)*/}
                   return <option key={park + park.id}>{park.name}</option>
                
                             
