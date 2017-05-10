@@ -74,7 +74,7 @@ class UserHomePage extends React.Component {
     return (
       <div style={styles.userHomeContainer}>
         <div style={styles.left}> 
-        <div style={styles.header}>Welcome to Go Vegas! {this.props.dbUsers.users && this.props.dbUsers.users[userID].fname} </div>
+        <div style={styles.header}>Welcome to Go Vegas! {this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].fname} </div>
         <div style={styles.userMain}>
             <div style={styles.avatar}><img alt="no error" style={styles.avatarImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar} /></div>
             <ActivitySlider/>
