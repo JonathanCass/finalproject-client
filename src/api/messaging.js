@@ -32,7 +32,7 @@ export function getParks() {
 //         console.log('parks', res.data)
          store.dispatch({
           type: 'GET_PARKS',
-          parks: res.data
+          parks: res.data.parks
          })
     })
 }
@@ -90,6 +90,14 @@ export function postAvailability(availabilityObj){
 		console.log('post Availability', res.data)
 	})
 }
+
+// export function postCreateActivity(createActivityObj) {
+// 	console.log('Not created yet', createActivityObj)
+// 	api.post('/activities', createActivityObj).then(res =>{
+// 		console.log('New Activity was created', res.data)
+// 	})
+// }
+
 // export function addMessage(message) {
 //     socket.emit('addMessage', message)
 // }
