@@ -114,20 +114,32 @@ h3 {
   max-height: 100px;
   overflow: visible;
 }
+#northwestloc:not(checked) ~ #northwest {
+  display:none;
+}
 #southwestloc:checked ~ #southwest {
   opacity: 1;
   max-height: 100px;
   overflow: visible;
+}
+#southwestloc:not(checked) ~ #southwest {
+  display:none;
 }
 #southeastloc:checked ~ #southeast {
   opacity: 1;
   max-height: 100px;
   overflow: visible;
 }
+#southeastloc:not(checked) ~ #southeast {
+  display:none;
+}
 #northeastloc:checked ~ #northeast {
   opacity: 1;
   max-height: 100px;
   overflow: visible;
+}
+#northeastloc:not(checked) ~ #northeast {
+  display:none;
 }
 .activities {
   height:40;
