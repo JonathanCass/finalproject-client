@@ -1,5 +1,6 @@
 import React from 'react'
 import 'font-awesome/css/font-awesome.css'
+import FriendsSliders from './FriendsSliders'
 
 const styles={
     friendsContainer:{
@@ -7,6 +8,7 @@ const styles={
         display: 'inline-block',
         paddingLeft: 5,
         background: 'linear-gradient( to right, #FFD200 , #F7971E  )',
+        paddingBottom: 100
     },
     header:{
         width: 650,
@@ -96,17 +98,7 @@ class Friends extends React.Component {
       <div style={styles.friendsContainer}>
         <div style={styles.header}>What Your Friends are Up To</div>
         <div style={styles.userMain}>
-            <div style={styles.avatar}>Avatar</div>
-            <div style={styles.nextBlock}>    
-                <div style={styles.nextLabel}><button style={styles.arrowButton}><i className="fa fa-arrow-left" aria-hidden="true"></i></button><span>Friends Name</span><button style={styles.arrowButton}><i className="fa fa-arrow-right" aria-hidden="true"></i></button></div>
-                <div style={styles.nextGrid}>
-                    <div style={styles.gridEntry}>Date</div>
-                    <div style={styles.gridEntry}>Location</div>
-                    <div style={styles.gridEntry}>Hour AM/PM</div>
-                    <div style={styles.gridEntry}>Activity</div>
-                    <div style={styles.gridWith}>No Partner Yet, Click to Join!</div>
-                </div>
-            </div>
+            < FriendsSliders />
         </div>
       </div>
     )

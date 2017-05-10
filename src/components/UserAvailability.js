@@ -49,11 +49,11 @@ class UserAvailability extends React.Component {
         <div style={styles.left}>
             <select name="area" style={styles.select} onChange={this.handleChange} value={this.state.area}>
                 <option value="">Select Area of City</option>
-                <option value="Northwest Las Vegas">Northwest Las Vegas</option>
-                <option value="Southwest Las Vegas">Southwest Las Vegas</option>
-                <option value="Northeast Las Vegas">Northeast Las Vegas</option>
-                <option value="Southeast Las Vegas">Southeast Las Vegas</option>
-                <option value="Surrounding Area">Surrounding Area</option>
+                <option value="northwest">Northwest Las Vegas</option>
+                <option value="southwest">Southwest Las Vegas</option>
+                <option value="northeast">Northeast Las Vegas</option>
+                <option value="southeast">Southeast Las Vegas</option>
+                <option value="surrounding">Surrounding Area</option>
             </select>
             <select name="day" style={styles.select} onChange={this.handleChange} value={this.state.day}>
                 <option value="">Select day of week</option>

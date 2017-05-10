@@ -34,6 +34,25 @@ export function getParks() {
          store.dispatch({
           type: 'GET_PARKS',
           parks: res.data.parks
+
+         })
+    })
+}
+export function getEvents() {
+    api.get('/event').then(res=>{
+//         console.log('parks', res.data)
+         store.dispatch({
+          type: 'GET_EVENTS',
+          events: res.data
+         })
+    })
+}
+export function getActivityIds() {
+    api.get('/activities').then(res=>{
+//         console.log('parks', res.data)
+         store.dispatch({
+          type: 'GET_ACTIVITYIDS',
+          activityIds: res.data
          })
     })
 }
@@ -62,12 +81,26 @@ export function addUser(userObj){
 		console.log('post new User', res.data)
 	})
 }
+export function addMatch(addUserID){
+	store.dispatch({
+          type: 'ADD_MATCH',
+          addMatch: addUserID
+     })
+}
 export function postAvailability(availabilityObj){
 	console.log("Object being sent", availabilityObj)
 	api.post('/availability', availabilityObj).then(res=>{
 		console.log('post Availability', res.data)
 	})
 }
+
+// export function postCreateActivity(createActivityObj) {
+// 	console.log('Not created yet', createActivityObj)
+// 	api.post('/activities', createActivityObj).then(res =>{
+// 		console.log('New Activity was created', res.data)
+// 	})
+// }
+
 // export function addMessage(message) {
 //     socket.emit('addMessage', message)
 // }

@@ -3,15 +3,28 @@ import '../assets/home.css'
 import Carousel from 'nuka-carousel'
 import 'font-awesome/css/font-awesome.css'
 // import {Link} from 'react-router-dom'
-// import {getUsers} from '../api/messaging'
+import {getUsers} from '../api/messaging'
 import {connect} from 'react-redux'
+
+const styles = { // avatar match styles
+  matchImg : {
+    height:'100px',
+    width:'100px',
+    marginTop:'10px'
+  },
+  p : {
+    border:'1px',
+    height:'10px',
+    fontFamily:'Verdana',
+    color:'white'
+  }, 
+}
 
 class Home extends React.Component {
   constructor() { 
     super()
       this.state = {
-      login:'',
-      match:''
+      // match:''
    }
 }
 handleSubmit = (e) => {  // FINISH HANDLE FUNCTIONS
@@ -19,29 +32,23 @@ handleSubmit = (e) => {  // FINISH HANDLE FUNCTIONS
 }
 handleClick = (e) => {
   e.preventDefault()
-  console.log('click')
 }
 handleChange = (e) => {
   this.setState({
     [e.target.name]:e.target.value
   })
 }
-// componentWillMount(){
-//     store.dispatch(() => {
-//       const appState = store.getState()
-//       this.setState({
-        
-//       })
-//     })
-//   	getContacts()
-// }
+componentWillMount() {
+  getUsers()
+}
   render() {
-    console.log('Home', this.props)
+    // console.log(this.state)
     return (
       <div className="beginningContainer">
         <section className="carouselContainer">
           <Carousel>
               <img alt='' src="https://static.pexels.com/photos/305244/pexels-photo-305244.jpeg"/>
+              {/*<p id="texts">Find a Running Buddy</p>*/}
               <img alt='' src="https://static.pexels.com/photos/24306/pexels-photo-24306.jpg"/>
               <img alt='' src="https://static.pexels.com/photos/386024/pexels-photo-386024.jpeg"/>
               <img alt='' src="https://images.pexels.com/photos/798/bench-people-smartphone-sun.jpg?w=940&amp;h=650&amp;auto=compress&amp;cs=tinysrgb"/>
@@ -50,12 +57,35 @@ handleChange = (e) => {
        </section>
       
        <h1 className="happening">What's Happening In Your Area</h1>
-          <ul className="matches" value={this.state.match}>
-            {/*<li id="person" name='match'>{data.avatar}{data.fname}{data.lname}{data.activitiesInfo}</li>*/}
-            <li id="person" name='match'>User Match</li>
-            <li id="person" name='match'>User Match</li>
-            <li id="person" name='match'>User Match</li>
-            <li id="person" name='match'>User Match</li>
+
+          <ul className="matches">     
+            <li id="person" name='match'>
+              <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/>
+                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].fname}</p>
+                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].lname}</p> 
+                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].bio}</p>
+            </li>
+
+            <li id="person" name='match'>
+              <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/>
+                {/*<p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].fname}</p>
+                <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].lname}</p>
+                <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].interests}</p>*/}
+            </li>
+
+            <li id="person" name='match'>
+              <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/>
+                {/*<p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].fname}</p>
+                <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].lname}</p>
+                <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].interests}</p>*/}
+            </li>
+
+            <li id="person" name='match'>
+              <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/>
+                {/*<p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].fname}</p>
+                <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].lname}</p>
+                <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].interests}</p>*/}
+            </li>
           </ul>
       </div> //end of container
     )
@@ -63,7 +93,7 @@ handleChange = (e) => {
 }
 
 function mapStateToProps(appState){
-	return {home: appState.home}
+	return {home: appState.home, dbUsers: appState.dbUsers, currentUserID : appState.currentUserId}
 }
 
 export default connect(mapStateToProps)(Home)
