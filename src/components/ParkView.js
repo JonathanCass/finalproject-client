@@ -48,12 +48,17 @@ handleChange = (e) => {
   this.setState({
     [e.target.name]:e.target.value
   })
+
 }
 handleButton = (e) => {
   this.setState({
-    [e.target.name]:e.target.value
+   [e.target.name]:e.target.value
+  
   })
 }
+
+
+
 handleLevel = (e) => { // for Type of Play/Experience
   this.setState({
     level: e.target.value
@@ -68,7 +73,7 @@ componentWillMount() {
 }
 
   render() {
-  console.log(this.props.parks)
+  
     
     return (
       <div style={styles.container}>     
@@ -100,14 +105,15 @@ componentWillMount() {
           
            
            <div id='northwest'>
-             <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}>  
+            
+             <select onChange={this.handleButton} name="park" value={this.state.parks}style={styles.parksBox} >  
                {this.props.parks.filter((park, i)=>{
                   return park.quadrant === 'northwest'
                }).map(park =>{   
-                 {/*console.log('nw', park)*/}
-                  return <option key={park + park.id}>{park.name}</option>
-               
-                            
+                 console.log(this.props.handleChange)
+                 
+                 console.log('nw', this.state.park)
+                  return <option key={park + park.id} ref="park" >{park.name}</option>       
                })}
              </select>
            </div>
@@ -116,14 +122,15 @@ componentWillMount() {
                <option>South West Parks</option>
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'southwest'
-                }).map(park =>{   
-                  console.log('sw', park)
-                   return <option key={park + park.id}>{park.name}</option>
+                }).map(park =>{ 
+                  {/*console.log('park name',this.value)*/}
+                  {/*console.log('sw', park)*/}
+                   return <option  key={park + park.id} ref="park" >{park.name}</option>
                 })} 
              </select>
            </div>
            <div id='southeast'>
-             <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}> 
+             <select onChange={this.handleButton} name="park" value={this.state.parks}style={styles.parksBox}> 
                <option>South East Parks</option>    
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'southeast'
@@ -138,15 +145,12 @@ componentWillMount() {
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'northeast'
                 }).map(park =>{  
-                   return <option  key={park + park.id}>{park.name}</option>
+                   return <option name=""  key={park + park.id}>{park.name}</option>
                 })} 
              </select>
            </div>
           </div>
 
-       
-          
-           
           {/*<select className='activities' onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
             <option value='type'>Activity Type</option>
             <option value='Walking'>Walking</option>
