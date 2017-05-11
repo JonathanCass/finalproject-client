@@ -64,17 +64,10 @@ handleLevel = (e) => { // for Type of Play/Experience
   })
 }
 
-
-
-
 componentWillMount() {
   getParks()
 
 }
-
-
-
-
   render() {
 
     return (
@@ -121,8 +114,10 @@ componentWillMount() {
                {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'northwest'
                }).map(park =>{
-          
-                    return <option key={park + park.id}>{park.type}</option>
+                  if(park.basketball === 'yes'){
+                    console.log(park.name, 'has basketball')
+                  }
+                    {/*return <option key={park + park.id}>{park.type}</option>*/}
 
                })}            
              </select>
@@ -177,6 +172,14 @@ componentWillMount() {
                    return <option key={park + park.id}>{park.type}</option>
                 })}
              </select>
+             {/*<select onChange={this.handleChange} name='activities' value={this.state.activities}>
+               <option value="Walking">Walking</option>
+               <option value="Running">Running</option>
+               <option value="Tennis">Tennis</option>
+               <option value="Frisbee Golf">Frisbee Golf</option>
+               <option value="Basketball">Basketball</option>
+               <option value="Volleyball">Volleyball</option>
+             </select>*/}
              <MuiThemeProvider>
                 <DatePicker hintText="Choose Day" container="inline" mode="landscape" style={styles.calendar}/>
              </MuiThemeProvider>

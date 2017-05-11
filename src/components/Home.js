@@ -2,7 +2,6 @@ import React from 'react'
 import '../assets/home.css'
 import AutoCarousel from './Carousel'
 import 'font-awesome/css/font-awesome.css'
-// import {Link} from 'react-router-dom'
 import {getUsers} from '../api/messaging'
 import {connect} from 'react-redux'
 
@@ -68,7 +67,7 @@ componentWillMount() {
               <img alt='' src={require('../assets/images/bike.jpeg')} style={styles.images}/>
               <img alt='' src="https://images.pexels.com/photos/798/bench-people-smartphone-sun.jpg?w=940&amp;h=650&amp;auto=compress&amp;cs=tinysrgb"/>    
           </AutoCarousel>  
-       </section>
+        </section>
       
        <h1 className="happening">What's Happening In Your Area</h1>
 
@@ -81,23 +80,17 @@ componentWillMount() {
 
             <li id="person" name='match'>
               <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/>
-                {/*<p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].fname}</p>
-                <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].lname}</p>
-                <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].interests}</p>*/}
+        
             </li>
 
             <li id="person" name='match'>
               <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/>
-                {/*<p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].fname}</p>
-                <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].lname}</p>
-                <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].interests}</p>*/}
+                
             </li>
 
             <li id="person" name='match'>
               <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/>
-                {/*<p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].fname}</p>
-                <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].lname}</p>
-                <p>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentID].interests}</p>*/}
+                
             </li>
           </ul>
       </div> //end of container
