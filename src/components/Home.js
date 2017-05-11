@@ -18,6 +18,16 @@ const styles = { // avatar match styles
     fontFamily:'Verdana',
     color:'white'
   }, 
+  homeContainer:{
+    background: 'linear-gradient( to bottom , #FFD200 , #F7971E )',
+    width: 1300,
+    border: 'solid 2px black',
+    borderRadius: 5
+  },
+  carousel:{
+    border: 'solid 2px black',
+    borderRadius: 5
+  }
 }
 
 class Home extends React.Component {
@@ -44,8 +54,8 @@ componentWillMount() {
   render() {
 
     return (
-      <div className="beginningContainer">
-        <section className="carouselContainer">
+      <div style={styles.homeContainer} className="beginningContainer">
+        <section style={styles.carousel} className="carouselContainer">
           <Carousel>
               <img alt='' src="https://static.pexels.com/photos/305244/pexels-photo-305244.jpeg"/>
               {/*<p id="texts">Find a Running Buddy</p>*/}

@@ -112,6 +112,7 @@ class Header extends React.Component {
     render() {
         return (
             <div style={styles.header}>
+                <div style={styles.logo} className="logoPic"></div>
                 <div style={styles.topBar}>
                     <div style={styles.imageBox} className="headerImage">
                         <div style={styles.loginBar}>      

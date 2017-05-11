@@ -10,5 +10,13 @@ body {
 .headerImage {
 	background-image: url("squishedHeader.jpeg");
 	object-fit: contain ;
-	border:' solid 2px black'
+}
+.logoPic {
+	background-image: url("logoPic.png");
+	height: 150px;
+	width: 354px;
+	float: left;
+	position: relative;
+	right: -20px;
+	top: -5px;
 }
