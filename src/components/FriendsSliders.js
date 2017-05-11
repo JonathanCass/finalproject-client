@@ -69,6 +69,9 @@ const styles={
     displayHidden:{
       visibility: 'hidden'
     },
+    displayNormal:{
+    visibility: 'visible'
+   },
     displayUnderline:{
         color: '#151517'
     },
@@ -80,12 +83,16 @@ const styles={
         color: '#C81740',
         fontWeight: 'bold'
     },
+    needsPartner:{
+      fontSize: 20,
+      color: 'red'
+    }
 }
 class FriendsSliders extends React.Component {
    constructor(props) {
      super(props)
      this.state={
-       involvedIndex:0, friendsTestArray : [2,7,9, 14]
+       involvedIndex:0, friendsTestArray : [2,7,8,9, 14]
      }
    }
   componentWillMount(){
@@ -122,7 +129,7 @@ class FriendsSliders extends React.Component {
                     <div style={styles.gridEntry}>{this.props.parks[event.park_id].name}</div>
                     <div style={styles.gridEntry}><span style={styles.time} > {event.time_start_hour} { event.time_start_suffix} </span></div>
                     <div style={styles.gridEntry}>{this.props.activityIds[event.activity_id -1].name}</div>
-                    <div style={styles.gridWith}>{this.props.users[event.user_id1].fname} {this.props.users[event.user_id1].lname} and {this.props.users[event.user_id2].fname} {this.props.users[event.user_id2].lname} </div>
+                    <div style={styles.gridWith}>{this.props.users[event.user_id1].fname} {this.props.users[event.user_id1].lname}<span style={ event.user_id2 === 0 ? styles.displayNone : styles.displayNormal }> and {this.props.users[event.user_id2].fname} {this.props.users[event.user_id2].lname} </span><span style={ event.user_id2 === 0 ? styles.needsPartner : styles.displayNone } > needs a partner click for info!</span> </div>
                 </div>
           </div>
           ))

@@ -3,7 +3,10 @@ const styles ={
     width: 1300,
     display: 'flex',
     background: 'linear-gradient( to bottom right, #56CCF2 , #2F80ED )',
-    paddingBottom: 100
+    paddingBottom: 100,
+    border:' 2px solid black',
+    borderRadius: 5,
+    borderTop: 0
   },
   AvailabilityContainer:{
     width: 1300,
@@ -289,6 +292,16 @@ const styles ={
   },
   displayNormal:{
     visibility: 'visible'
+  },
+  addFriend:{
+    width: 310,
+    height: 40,
+    background: '#C81740',
+    color: 'white',
+    borderRadius: 10,
+    fontSize: 20,
+    marginTop: 15,
+    marginLeft: 149
   }
 }
 export default styles

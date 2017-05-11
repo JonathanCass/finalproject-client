@@ -37,24 +37,25 @@ export function getParks() {
          })
     })
 }
+
+
 export function getEvents() {
     api.get('/event').then(res=>{
-//         console.log('parks', res.data)
          store.dispatch({
           type: 'GET_EVENTS',
           events: res.data
          })
     })
 }
-// export function getActivityIds() {
-//     api.get('/activities').then(res=>{
-// //         console.log('parks', res.data)
-//          store.dispatch({
-//           type: 'GET_ACTIVITYIDS',
-//           activityIds: res.data
-//          })
-//     })
-// }
+
+export function getActivityIds() {
+    api.get('/activities').then(res=>{
+         store.dispatch({
+          type: 'GET_ACTIVITYIDS',
+          activityIds: res.data
+         })
+    })
+}
 
 // export function getUsers() {
 // 	console.log('getUSers in Api')
@@ -80,6 +81,16 @@ export function addUser(userObj){
 		console.log('post new User', res.data)
 	})
 }
+//This function modeled after User wants to just replace a user's ( specified by id ) friend string
+
+export function addFriend(friendObj){
+	api.post('/friends', friendObj).then(res=>{
+		console.log('add new Friend', res.data)
+	})
+}
+//req.body.id    is a number the users id
+//req.body.friends  is the new string
+
 export function addMatch(addUserID){
 	store.dispatch({
           type: 'ADD_MATCH',
