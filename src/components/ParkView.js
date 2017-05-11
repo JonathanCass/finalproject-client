@@ -40,7 +40,7 @@ createActivity = (e) => {
   // postCreateActivity(createActivityObj)
   this.setState({
     activityArray : [...this.state.activityArray, createActivityObj],
-    play:'', level:'', activities:'', notes:'', start:'', daynight:'', gear:'', park:''
+    play:'', level:'', activities:'', notes:'', start:'', gear:'', park:''
   })
 }
 handleChange = (e) => {
@@ -48,12 +48,10 @@ handleChange = (e) => {
     [e.target.name]:e.target.value
   })    
 }
-handleButton = (e) => {
+handleButton = (e) => { // handle for quadrants/parks
   this.setState({
     [e.target.name]:e.target.value   
   })
-  console.log(e.target.value)
-
 }
 handleLevel = (e) => { // for Type of Play/Experience
   this.setState({
@@ -110,8 +108,8 @@ componentWillMount() {
                   return park.quadrant === 'northwest'
                }).map(park =>{  
                   if(park.basketball === 'yes'){
-                  console.log(park.name, 'has basketball') }
-                {/*} if(park.volleyball === 'yes'){
+                  console.log(park.name, 'has basketball') 
+                } if(park.volleyball === 'yes'){
                   console.log(park.name, 'has volleyball')
                 } if(park.walking === 'yes') {
                   console.log(park.name, 'has walking')
@@ -121,7 +119,7 @@ componentWillMount() {
                   console.log(park.name, 'has tennis')
                 } if(park.frisbee_gold === 'yes'){
                   console.log(park.name, 'has frisbee golf')
-                }*/}
+                }
                })}            
              </select>
              <MuiThemeProvider>
@@ -298,7 +296,7 @@ componentWillMount() {
                 <option value={11}>11</option>
                 <option value={12}>12</option>
               </select>
-              <select onChange={this.handleChange} name='start' value={this.state.start} style={styles.daynight}>
+              <select style={styles.daynight}>
                 <option value=''>AM/PM</option>
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>

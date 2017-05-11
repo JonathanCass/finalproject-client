@@ -70,7 +70,8 @@ img {
 .happening {
     margin-left:33%;
     margin-top:5%;
-    font-family: 'Lobster', cursive; /*SAMPLE FONT FOR NOW*/
+    font-family: 'Lobster', cursive; /*SAMPLE FONT FOR NOW*/;
+    color:#033e7b;
 }
 .matches {
     display:flex;
@@ -93,17 +94,6 @@ h3 {
     margin-top:-15%;
     color:white;
 }
-/*#texts {
-    background-image:url("https://static.pexels.com/photos/305244/pexels-photo-305244.jpeg");
-    position: relative;
-    display: block;
-    margin: 0px;
-    padding: 0px;
-    height: 456px;
-    width: 5388px;
-    color:white;
-    font-size:40px;
-}*/
 #northwest, #northeast, #southwest, #southeast {
     opacity:0;
     max-height:0;

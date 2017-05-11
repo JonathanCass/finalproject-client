@@ -20,17 +20,14 @@ class App extends Component {
   handleSubmit = (e) => {
     e.preventDefault()   
     console.log('here')
+    this.setState=({
+      [e.target.name]:e.target.value
+    })
   }
   handleClick = (e) => {
     e.preventDefault()
     console.log('clicked')
   }
-  handleChange = (e) => {
-    console.log('changed')
-    this.setState =({
-      [e.target.name]:e.target.value 
-    })
- }
   render() {
     return (
         <Router>
@@ -38,7 +35,7 @@ class App extends Component {
             <img alt='' id="logo" src={require('../assets/Logo.png')}/>
             <form onSubmit={this.handleSubmit} className="user">
               <button id='signup' onClick={this.handleClick}><Link to={'/CreateUser/'} style={{textDecoration:'none'}}>Sign Up</Link></button>
-              <input type='text' onChange={this.handleChange} name='login' placeholder='Login' />
+              <input type='text' onSubmit={this.handleSubmit} name='login' placeholder='Login' />
             </form>
           <div id='social'>
             <i className="fa fa-facebook-square" aria-hidden="true"></i>
