@@ -1,6 +1,6 @@
 import React from 'react'
 import '../assets/home.css'
-import Carousel from 'nuka-carousel'
+import AutoCarousel from './Carousel'
 import 'font-awesome/css/font-awesome.css'
 // import {Link} from 'react-router-dom'
 import {getUsers} from '../api/messaging'
@@ -61,13 +61,13 @@ componentWillMount() {
     return (
       <div style={styles.homeContainer} className="beginningContainer">
         <section style={styles.carousel} className="carouselContainer">
-          <Carousel>
+          <AutoCarousel slidesToShow={1}  dragging={true} autoTime={6000}>
               <img alt='' src={require('../assets/images/volleyball.jpg')} style={styles.images}/>
               <img alt='' src={require('../assets/images/basketball.jpeg')} style={styles.images}/>
               <img alt='' src={require('../assets/images/running.jpg')} style={styles.images}/>
               <img alt='' src={require('../assets/images/bike.jpeg')} style={styles.images}/>
               <img alt='' src="https://images.pexels.com/photos/798/bench-people-smartphone-sun.jpg?w=940&amp;h=650&amp;auto=compress&amp;cs=tinysrgb"/>    
-          </Carousel>  
+          </AutoCarousel>  
        </section>
       
        <h1 className="happening">What's Happening In Your Area</h1>
