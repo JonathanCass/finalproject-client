@@ -60,7 +60,8 @@ const styles = {
     calendar: {
         position:'absolute',
         marginTop:170,
-        textAlign:'center'
+        textAlign:'center',
+        fontWeight:'bold'
     },
     gear: {
         marginLeft:312,

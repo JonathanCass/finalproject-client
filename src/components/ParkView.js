@@ -25,6 +25,7 @@ class ParkView extends React.Component {
    }
 }
 createActivity = (e) => {
+  // console.log(createActivityObj)
   e.preventDefault()
   var createActivityObj ={
       play:this.state.play,
@@ -53,7 +54,7 @@ handleButton = (e) => {
   })
   console.log(e.target.value)
   if(e.target.value) {
-
+    
   }
 }
 handleLevel = (e) => { // for Type of Play/Experience
@@ -107,14 +108,25 @@ componentWillMount() {
              </select>
              <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
                <option>Activity Type</option>
-               {this.props.parks.filter((park, i)=>{
-                   return park.quadrant === 'northwest'
-               }).map(park =>{
-                console.log(park.type)
-                    return <option key={park + park.id}>{park.type}</option>
+                  {this.props.parks.filter((park, i)=>{
+                  return park.quadrant ==='northwest'
+               }).map(park =>{  
+                  if(park.basketball === 'yes'){
+                    console.log(park.name, 'basketball')
+                  } if(park.volleyball === 'yes'){
+                    console.log(park.name, 'volleyball')
+                  } if(park.walking === 'yes') {
+                    console.log(park.name, 'walking')
+                  } if(park.running === 'yes'){
+                    console.log(park.name, 'running')
+                  } if(park.tennis === 'yes'){
+                    console.log(park.name, 'tennis')
+                  } if(park.frisbee_gold === 'yes'){
+                    console.log(park.name, 'frisbee golf')
+                  }
                })}            
              </select>
-             <MuiThemeProvider>
+             <MuiThemeProvider onChange={this.handleChange} name='date' value={this.state.date}>
                 <DatePicker hintText="Choose Day" container="inline" name='date' value={this.state.date} mode="landscape" style={styles.calendar}/>
              </MuiThemeProvider>
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
@@ -162,7 +174,19 @@ componentWillMount() {
                 {this.props.parks.filter((park, i)=>{
                   return park.quadrant === 'southwest'
                 }).map(park => {
-                    return <option key={park + park.id}>{park.type}</option>
+                    if(park.basketball === 'yes'){
+                    console.log(park.name, 'basketball')
+                  } if(park.volleyball === 'yes'){
+                    console.log(park.name, 'volleyball')
+                  } if(park.walking === 'yes') {
+                    console.log(park.name, 'walking')
+                  } if(park.running === 'yes'){
+                    console.log(park.name, 'running')
+                  } if(park.tennis === 'yes'){
+                    console.log(park.name, 'tennis')
+                  } if(park.frisbee_gold === 'yes'){
+                    console.log(park.name, 'frisbee golf')
+                  }
                 })}
              </select>
              <MuiThemeProvider>
