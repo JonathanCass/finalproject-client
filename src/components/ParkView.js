@@ -8,6 +8,7 @@ import '../assets/home.css'
 import { connect } from 'react-redux'
 import { getParks } from '../api/messaging'
 
+
 class ParkView extends React.Component {
   constructor() {
    super()
@@ -34,14 +35,16 @@ createActivity = (e) => {
       notes:this.state.notes,
       start:this.state.start,
       gear:this.state.gear,
-      park:this.state.park
+      park:this.state.park,
+    
   }
-  // postCreateActivity(createActivityObj)
+  // add(createActivityObj)
   this.setState({
     activityArray : [...this.state.activityArray, createActivityObj],
     play:'', level:'', activities:'', notes:'', start:'', daynight:'', gear:''
   })
 }
+
 handleChange = (e) => {
   this.setState({
     [e.target.name]:e.target.value
@@ -49,12 +52,10 @@ handleChange = (e) => {
 }
 handleButton = (e) => {
   this.setState({
-    [e.target.name]:e.target.value   
+    [e.target.name]:e.target.value,
+    
   })
-  console.log(e.target.value)
-  if(e.target.value) {
 
-  }
 }
 handleLevel = (e) => { // for Type of Play/Experience
   this.setState({
@@ -62,11 +63,19 @@ handleLevel = (e) => { // for Type of Play/Experience
   })
 }
 
+
+
+
 componentWillMount() {
   getParks()
+
 }
 
+
+
+
   render() {
+
     return (
       <div style={styles.container}>     
           <h2 style={styles.h2}>Type Of Play</h2>
@@ -102,15 +111,16 @@ componentWillMount() {
                {this.props.parks.filter((park, i)=>{
                   return park.quadrant === 'northwest'
                }).map(park =>{   
-                    return <option key={park + park.id}>{park.name}</option>         
+                    return <option key={park.id}>{park.name}</option>         
                })}
+
              </select>
              <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
                <option>Activity Type</option>
                {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'northwest'
                }).map(park =>{
-                console.log(park.type)
+          
                     return <option key={park + park.id}>{park.type}</option>
                })}            
              </select>

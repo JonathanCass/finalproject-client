@@ -1,6 +1,6 @@
 const initialState = {
 
-    messages: [], userToAdd: "", dbUsers:[], dbAvail: [], currentUserId: 1, parks:[], currentUserMatches: [], events:[], activityIds:[]
+    messages: [], userToAdd: "", dbUsers:[], dbAvail: [], currentUserId: 1, parks:[], currentUserMatches: [], events:[], activityIds:[], activities:[]
 
 }
 
@@ -18,11 +18,17 @@ export default function messageReducer(state=initialState, action) {
             return{...state, events: action.events}
         case 'GET_ACTIVITYIDS':
             return{...state, activityIds: action.activityIds}
+        case 'GET_PARK_ACTIVITIES':
+            return{...state, activities: action.activities}
         case 'ADD_USER':
             return {...state, userToAdd: action.user}
         case 'ADD_MATCH':
             return {...state, currentUserMatches: [...state.currentUserMatches, action.addMatch] }
         default:
+        //  case 'ADD_AVAILABILITY':
+        //     return {...state, currentUserMatches: [...state.currentUserMatches, action.addMatch] }
+        // default:
+        
             return state
     }
 }
