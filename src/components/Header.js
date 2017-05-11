@@ -10,8 +10,9 @@ const styles ={
     },
     topBar:{
         width: 1300,
-        height: 150,
-        padding: 10
+        height: 160,
+        padding: 10,
+        paddingTop: 20
     },
     imageBox:{
         width: 1280,

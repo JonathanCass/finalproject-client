@@ -85,14 +85,20 @@ const styles={
     },
     needsPartner:{
       fontSize: 20,
-      color: 'red'
+      color: 'red',
+      background: 'white',
+      borderRadius: 15,
+      textDecoration: 'none',
+      marginLeft: 5,
+      paddingRight: 5,
+      border: 'solid .5px black'
     }
 }
 class FriendsSliders extends React.Component {
    constructor(props) {
      super(props)
      this.state={
-       involvedIndex:0, friendsTestArray : [2,7,8,9, 14]
+       involvedIndex:0, friendsTestArray : [2,7,8,9,14]
      }
    }
   componentWillMount(){
@@ -129,7 +135,7 @@ class FriendsSliders extends React.Component {
                     <div style={styles.gridEntry}>{this.props.parks[event.park_id].name}</div>
                     <div style={styles.gridEntry}><span style={styles.time} > {event.time_start_hour} { event.time_start_suffix} </span></div>
                     <div style={styles.gridEntry}>{this.props.activityIds[event.activity_id -1].name}</div>
-                    <div style={styles.gridWith}>{this.props.users[event.user_id1].fname} {this.props.users[event.user_id1].lname}<span style={ event.user_id2 === 0 ? styles.displayNone : styles.displayNormal }> and {this.props.users[event.user_id2].fname} {this.props.users[event.user_id2].lname} </span><span style={ event.user_id2 === 0 ? styles.needsPartner : styles.displayNone } > needs a partner click for info!</span> </div>
+                    <div style={styles.gridWith}>{this.props.users[event.user_id1].fname} {this.props.users[event.user_id1].lname}<span style={ event.user_id2 === 0 ? styles.displayNone : styles.displayNormal }> and {this.props.users[event.user_id2].fname} {this.props.users[event.user_id2].lname} </span><Link to='/ParkView/' style={ event.user_id2 === 0 ? styles.needsPartner : styles.displayNone } > needs a partner click for info</Link> </div>
                 </div>
           </div>
           ))
