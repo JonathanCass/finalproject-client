@@ -5,7 +5,7 @@ import axios from 'axios'
 
 var api = axios.create({
 	baseURL: 'http://10.68.0.58:3001'
-	//baseURL:'http://localhost:3001'
+	// baseURL:'http://localhost:3001'
 })
 
 
@@ -34,7 +34,6 @@ export function getParks() {
          store.dispatch({
           type: 'GET_PARKS',
           parks: res.data.parks
-
          })
     })
 }

@@ -104,29 +104,25 @@ h3 {
     color:white;
     font-size:40px;
 }*/
-/*#northwest, #northeast, #southwest, #southeast {
+#northwest, #northeast, #southwest, #southeast {
     opacity:0;
     max-height:0;
     overflow:hidden;
-}*/
-#northwestloc:checked ~ #northwest  {
+}
+#northwestloc:checked ~ #northwest {
   opacity: 1;
   max-height: 100px;
   overflow: visible;
-
 }
-
 #northwestloc:not(:checked) ~  #northwest {
  display: none;
 
 }
-
 #southwestloc:checked ~ #southwest {
   opacity: 1;
   max-height: 100px;
   overflow: visible;
 }
-
 #southwestloc:not(:checked) ~ #southwest {
  display: none;
 }
@@ -139,26 +135,21 @@ h3 {
 #southeastloc:not(:checked) ~ #southeast {
  display: none;
 }
-
 #northeastloc:checked ~ #northeast  {
   opacity: 1;
   max-height: 100px;
   overflow: visible;
 }
-
-#northeastloc:not(:checked) ~  #northeast {
-  
+#northeastloc:not(:checked) ~  #northeast {  
   display: none;
 }
-
-
-
-.activities {
-  height:40;
-  width:250;  
+#activities {
+  height:40px;
+  width:250px;  
   position:absolute;
   display:flex;
-  margin-top:8em;
-  overflow:hidden; 
-  background: green;     
+  margin-top:10em;    
+}
+#activities:disabled {
+    color:blue;
 }
