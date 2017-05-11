@@ -57,10 +57,6 @@ handleButton = (e) => { // handle for quadrants/parks
     [e.target.name]:e.target.value,
     
   })
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 }
 handleLevel = (e) => { // for Type of Play/Experience
   this.setState({
