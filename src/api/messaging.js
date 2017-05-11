@@ -56,6 +56,18 @@ export function getActivityIds() {
     })
 }
 
+export function getParkActivities() {
+    api.get('/parks_activities').then(res=>{
+//         console.log('parks', res.data.parks_activities)
+         store.dispatch({
+          type: 'GET_PARK_ACTIVITIES',
+         	activities: res.data.parks_activities
+         })
+    })
+}
+
+
+
 // export function getUsers() {
 // 	console.log('getUSers in Api')
 // 	axios.get('http://10.68.0.58:3000/activities').then(res=>{
@@ -103,12 +115,12 @@ export function postAvailability(availabilityObj){
 	})
 }
 
-// export function postCreateActivity(createActivityObj) {
-// 	console.log('Not created yet', createActivityObj)
-// 	api.post('/activities', createActivityObj).then(res =>{
-// 		console.log('New Activity was created', res.data)
-// 	})
-// }
+export function postCreateActivity(createActivityObj) {
+	console.log('Not created yet', createActivityObj)
+	api.post('/activities', createActivityObj).then(res =>{
+		console.log('New Activity was created', res.data)
+	})
+}
 
 // export function addMessage(message) {
 //     socket.emit('addMessage', message)
