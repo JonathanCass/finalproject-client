@@ -28,7 +28,7 @@ const styles = { // avatar match styles
     border: 'solid 2px black',
     borderRadius: 5
   },
-  bball: {
+  images: {
     height:'600px',
     width:'900px',
     marginTop:'-16%'
@@ -62,11 +62,11 @@ componentWillMount() {
       <div style={styles.homeContainer} className="beginningContainer">
         <section style={styles.carousel} className="carouselContainer">
           <Carousel>
-              <img alt='' src={require('../assets/images/basketball.jpeg')} style={styles.bball}/>
-              <img alt='' src={require('../assets/images/running.jpg')} style={styles.bball}/>
-              <img alt='' src={require('../assets/images/bike.jpeg')}/>
-              <img alt='' src="https://images.pexels.com/photos/798/bench-people-smartphone-sun.jpg?w=940&amp;h=650&amp;auto=compress&amp;cs=tinysrgb"/>
-              <img alt='' src={require('../assets/images/volleyball.jpg')} style={styles.volleyball}/>
+              <img alt='' src={require('../assets/images/volleyball.jpg')} style={styles.images}/>
+              <img alt='' src={require('../assets/images/basketball.jpeg')} style={styles.images}/>
+              <img alt='' src={require('../assets/images/running.jpg')} style={styles.images}/>
+              <img alt='' src={require('../assets/images/bike.jpeg')} style={styles.images}/>
+              <img alt='' src="https://images.pexels.com/photos/798/bench-people-smartphone-sun.jpg?w=940&amp;h=650&amp;auto=compress&amp;cs=tinysrgb"/>    
           </Carousel>  
        </section>
       
