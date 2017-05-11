@@ -28,7 +28,6 @@ render() {
                             <th>Play</th>
                             <th>Date</th>
                             <th>From</th>
-                            <th>To</th>
                             <th>Activity</th>
                             <th>Level</th>
                             <th>Notes</th>
@@ -42,7 +41,6 @@ render() {
                             <td style={styles.tableRow}>{event.play}</td>
                             <td style={styles.tableRow}>{event.date}</td>
                             <td style={styles.tableRow}>{event.start}</td>
-                            <td style={styles.tableRow}>{event.end}</td>
                             <td style={styles.tableRow}>{event.activities}</td>
                             <td style={styles.tableRow}>{event.level}</td>
                             <td style={styles.tableRow}>{event.notes}</td>

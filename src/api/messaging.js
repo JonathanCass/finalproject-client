@@ -30,11 +30,10 @@ export function getAvail() {
 }	
 export function getParks() {
     api.get('/parks').then(res=>{
-        console.log('parks', res.data)
+        //console.log('parks', res.data.parks)
          store.dispatch({
           type: 'GET_PARKS',
           parks: res.data.parks
-
          })
     })
 }

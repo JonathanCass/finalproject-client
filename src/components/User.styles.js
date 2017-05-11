@@ -286,6 +286,9 @@ const styles ={
   },
   displayNone:{
     display: 'none'
+  },
+  displayNormal:{
+    visibility: 'visible'
   }
 }
 export default styles

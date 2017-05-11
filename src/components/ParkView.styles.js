@@ -20,8 +20,15 @@ const styles = {
     radio: {
         margin:'1em'
     },
-    radioContainer: {
-        textAlign:'center'
+    radioQuad: {
+        margin:'2em',
+    },
+    radioLabel: {
+        fontFamily:'Verdana'
+    },  
+    radioPlay: {
+        textAlign:'center',
+        fontFamily:'Verdana'
     },
     line: {
         border:'1px solid gray',
@@ -34,7 +41,8 @@ const styles = {
         marginLeft:120
     },
     levelBoxes: {
-        margin: 15
+        margin: 7,
+        fontFamily:'Verdana'
     },
     quads: {
         margin:'2em'
@@ -50,35 +58,48 @@ const styles = {
         position:'absolute'
     },
 
-    
-
-
-    // startTime: {
-    //     marginLeft:312,
-    //     marginTop: -60,
-    //     position:'absolute'
-    // },
-    // textarea: {
-    //     marginLeft:312,
-    //     marginTop:'10.4em',
-    //     height:150,
-    //     width:250
-    // },
-    // calendar: {
-    //     position:'absolute',
-    //     marginTop:45,
-    //     textAlign:'center'
-    // },
+    calendar: {
+        position:'absolute',
+        marginTop:170,
+        textAlign:'center'
+    },
+    gear: {
+        marginLeft:312,
+        marginTop:'2.9em',
+        height:120,
+        width:250,
+        position:'absolute'
+    },
+    startTime: {
+        marginTop: 245,
+        position:'absolute'
+    }, 
+    start: {
+        width:200,
+        height:40
+    },
+    daynight: {
+        width:50,
+        height:40
+    },
+    notes: {
+        position:'absolute',
+        width:250,
+        height:120,
+        marginTop:'15em',
+        marginLeft:312,
+        flexWrap:'wrap'
+    },
     create: {
         height:40,
         width:100,
-        marginTop:'2em',
+        marginTop:'27em',
         marginLeft:'28.5em',
         cursor:'pointer',
         position:'absolute'
     },
      or: {
-        marginTop:'3em',
+        marginTop:'23.5em',
         marginLeft: '32.3em',
         textDecoration:'underline',
         position:'absolute'
@@ -87,17 +108,10 @@ const styles = {
         height:40,
         width:100,
         position:'absolute',
-        marginTop:'23px',
+        marginTop:'27em',
         marginLeft:'42em',
         cursor:'pointer'
-    },
-   
-    // notes: {
-    //     position:'absolute',
-    //     width:250,
-    //     height:150,
-    //     marginTop:'10.3em'
-    // }
+    }
 }
 
 export default styles

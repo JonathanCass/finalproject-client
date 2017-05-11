@@ -42,7 +42,7 @@ componentWillMount() {
   getUsers()
 }
   render() {
-    // console.log(this.state)
+
     return (
       <div className="beginningContainer">
         <section className="carouselContainer">

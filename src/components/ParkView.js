@@ -1,7 +1,8 @@
+
 import React from 'react'
 import styles from './ParkView.styles'
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-// import DatePicker from 'material-ui/DatePicker'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import DatePicker from 'material-ui/DatePicker'
 import Table from './ParkViewTable'
 // import {postCreateActivity} from '../api/messaging'
 import '../assets/home.css'
@@ -19,7 +20,6 @@ class ParkView extends React.Component {
         // date:'',
         notes:'',
         start:'',
-        end:'',
         gear:'',
         park:'',
         activityArray:[]
@@ -34,51 +34,44 @@ createActivity = (e) => {
       // date:this.state.date,
       notes:this.state.notes,
       start:this.state.start,
-      end:this.state.end,
       gear:this.state.gear,
       park:this.state.park
   }
   // postCreateActivity(createActivityObj)
   this.setState({
     activityArray : [...this.state.activityArray, createActivityObj],
-    play:'', level:'', activities:'', notes:'', start:'', end:'', gear:''
+    play:'', level:'', activities:'', notes:'', start:'', daynight:'', gear:''
   })
 }
 handleChange = (e) => {
   this.setState({
     [e.target.name]:e.target.value
   })
-
 }
 handleButton = (e) => {
   this.setState({
-   [e.target.name]:e.target.value
-  
+    [e.target.name]:e.target.value   
   })
+  console.log(e.target.value)
+  if(e.target.value) {
+
+  }
 }
-
-
-
 handleLevel = (e) => { // for Type of Play/Experience
   this.setState({
-    level: e.target.value
+    level: e.target.value,
   })
 }
-// handleBrowse = (e) => {
-//   e.preventDefault()
-//   console.log('map through parks')
-// }
+
 componentWillMount() {
   getParks()
 }
 
   render() {
-  
-    
     return (
       <div style={styles.container}>     
           <h2 style={styles.h2}>Type Of Play</h2>
-          <div style={styles.radioContainer}>
+          <div style={styles.radioPlay}>
             <input type='radio' onChange={this.handleButton} name='play' value="Competitive"/>
             <label htmlFor="competitive" style={styles.radio}>Competitive</label>
             <input type='radio'onChange={this.handleButton} name='play' value="Leisurely"/>
@@ -94,111 +87,221 @@ componentWillMount() {
             <label htmlFor='advanced' style={styles.levelBoxes}>Advanced</label>
           </div>
          <div>
-            <input type='radio' id="northwestloc" name='quadrant' value="Northwest"/>
-            <label htmlFor='northwest'>Northwest</label>
-            <input type='radio' id="southwestloc" name='quadrant' value="Southwest"/>
-            <label htmlFor='southwest'>Southwest</label>
-            <input type='radio' id="northeastloc" name='quadrant' value="Northeast"/>
-            <label htmlFor='northeast'>Northeast</label>
-            <input type='radio' id="southeastloc" name="quadrant" value="Southeast"/>
-            <label htmlFor='southeast'>Southeast</label>
+            <input type='radio' style={styles.radioQuad} id="northwestloc" name='quadrant' value="Northwest"/>
+            <label htmlFor='northwest' style={styles.radioLabel}>Northwest</label>
+            <input type='radio' style={styles.radioQuad} id="southwestloc" name='quadrant' value="Southwest"/>
+            <label htmlFor='southwest' style={styles.radioLabel}>Southwest</label>
+            <input type='radio' style={styles.radioQuad} id="northeastloc" name='quadrant' value="Northeast"/>
+            <label htmlFor='northeast' style={styles.radioLabel}>Northeast</label>
+            <input type='radio' style={styles.radioQuad} id="southeastloc" name="quadrant" value="Southeast"/>
+            <label htmlFor='southeast' style={styles.radioLabel}>Southeast</label>
           
            
-           <div id='northwest'>
-            
-             <select onChange={this.handleButton} name="park" value={this.state.parks}style={styles.parksBox} >  
+           <div id='northwest'> 
+             <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}>
+               <option>North West Parks</option>  
                {this.props.parks.filter((park, i)=>{
                   return park.quadrant === 'northwest'
                }).map(park =>{   
-                 console.log(this.props.handleChange)
-                 
-                 console.log('nw', this.state.park)
-                  return <option key={park + park.id} ref="park" >{park.name}</option>       
+                    return <option key={park + park.id}>{park.name}</option>         
                })}
              </select>
+             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+               <option>Activity Type</option>
+               {this.props.parks.filter((park, i)=>{
+                   return park.quadrant === 'northwest'
+               }).map(park =>{
+                console.log(park.type)
+                    return <option key={park + park.id}>{park.type}</option>
+               })}            
+             </select>
+             <MuiThemeProvider>
+                <DatePicker hintText="Choose Day" container="inline" name='date' value={this.state.date} mode="landscape" style={styles.calendar}/>
+             </MuiThemeProvider>
+             <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
+             <div style={styles.startTime}>
+              <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.start}>
+                <option value='start'>Start Time</option>
+                <option value={0}></option>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+                <option value={6}>6</option>
+                <option value={7}>7</option>
+                <option value={8}>8</option>
+                <option value={9}>9</option>
+                <option value={10}>10</option>
+                <option value={11}>11</option>
+                <option value={12}>12</option>
+              </select>
+              <select style={styles.daynight}>
+                <option value=''>AM/PM</option>
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+             </div>
+             <div className='notes'>
+                <textarea onChange={this.handleChange} name='notes' value={this.state.notes} style={styles.notes} placeholder="Additional Notes"></textarea>
+             </div>
+             <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
+             <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
            </div>
+
            <div id='southwest'>
              <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}>     
                <option>South West Parks</option>
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'southwest'
-                }).map(park =>{ 
-                  {/*console.log('park name',this.value)*/}
-                  {/*console.log('sw', park)*/}
-                   return <option  key={park + park.id} ref="park" >{park.name}</option>
+                }).map(park =>{   
+                    return <option key={park + park.id}>{park.name}</option>
                 })} 
              </select>
+             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+                <option value='type'>Activity Type</option>
+                {this.props.parks.filter((park, i)=>{
+                  return park.quadrant === 'southwest'
+                }).map(park => {
+                    return <option key={park + park.id}>{park.type}</option>
+                })}
+             </select>
+             <MuiThemeProvider>
+                <DatePicker hintText="Choose Day" container="inline" name='date' value={this.state.date} mode="landscape" style={styles.calendar}/>
+             </MuiThemeProvider>
+             <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
+             <div style={styles.startTime}>
+              <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.start}>
+                <option value='start'>Start Time</option>
+                <option value={0}></option>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+                <option value={6}>6</option>
+                <option value={7}>7</option>
+                <option value={8}>8</option>
+                <option value={9}>9</option>
+                <option value={10}>10</option>
+                <option value={11}>11</option>
+                <option value={12}>12</option>
+              </select>
+              <select style={styles.daynight}>
+                <option value=''>AM/PM</option>
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+             </div>
+             <div className='notes'>
+                <textarea onChange={this.handleChange} name='notes' value={this.state.notes} style={styles.notes} placeholder="Additional Notes"></textarea>
+             </div>
+             <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
+             <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
            </div>
+
            <div id='southeast'>
-             <select onChange={this.handleButton} name="park" value={this.state.parks}style={styles.parksBox}> 
+             <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}> 
                <option>South East Parks</option>    
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'southeast'
                 }).map(park =>{   
-                   return <option key={park + park.id}>{park.name}</option>
+                    return <option key={park + park.id}>{park.name}</option>
                 })} 
              </select>
+             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+                <option value='type'>Activity Type</option>
+                {this.props.parks.filter((park,i)=>{
+                  return park.quadrant === 'souteast'
+                }).map(park => {
+                    return <option key={park + park.id}>{park.type}</option>
+                })}
+             </select>
+             <MuiThemeProvider>
+                <DatePicker hintText="Choose Day" container="inline" name='date' value={this.state.date} mode="landscape" style={styles.calendar}/>
+             </MuiThemeProvider>
+             <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
+             <div style={styles.startTime}>
+              <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.start}>
+                <option value='start'>Start Time</option>
+                <option value={0}></option>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+                <option value={6}>6</option>
+                <option value={7}>7</option>
+                <option value={8}>8</option>
+                <option value={9}>9</option>
+                <option value={10}>10</option>
+                <option value={11}>11</option>
+                <option value={12}>12</option>
+              </select>
+              <select style={styles.daynight}>
+                <option value=''>AM/PM</option>
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+             </div>
+             <div className='notes'>
+                <textarea onChange={this.handleChange} name='notes' value={this.state.notes} style={styles.notes} placeholder="Additional Notes"></textarea>
+             </div>
+             <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
+             <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
            </div>
+
            <div id='northeast'>
              <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}> 
                 <option>North East Parks</option>    
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'northeast'
                 }).map(park =>{  
-                   return <option name=""  key={park + park.id}>{park.name}</option>
+                    return <option key={park + park.id}>{park.name}</option>
                 })} 
              </select>
-           </div>
-          </div>
-
-          {/*<select className='activities' onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
-            <option value='type'>Activity Type</option>
-            <option value='Walking'>Walking</option>
-            <option value='Running'>Running</option>
-            <option value='Tennis'>Tennis</option>
-            <option value='Frisbee Golf'>Frisbee Golf</option>
-            <option value='Basketball'>Basketball</option>
-            <option value='Volleyball'>Volleyball</option>
-          </select>
-          /*<MuiThemeProvider>
-             <DatePicker hintText="Choose Day" container="inline" name='date' value={this.state.date} mode="landscape" style={styles.calendar}/>
-          </MuiThemeProvider>
-          <div className='notes'>
-            <textarea onChange={this.handleChange} name='notes' value={this.state.notes} style={styles.notes} placeholder="Additional Notes"></textarea>
-          </div>
-          <div style={styles.startTime}>
-              <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.input}>
+             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+                <option value='type'>Activity Type</option>
+                {this.props.parks.filter((park, i)=>{
+                  return park.quadrant === 'northeast'
+                }).map(park => {
+                    return <option key={park + park.id}>{park.type}</option>
+                })}
+             </select>
+             <MuiThemeProvider>
+                <DatePicker hintText="Choose Day" container="inline" name='date' value={this.state.date} mode="landscape" style={styles.calendar}/>
+             </MuiThemeProvider>
+             <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
+             <div style={styles.startTime}>
+              <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.start}>
                 <option value='start'>Start Time</option>
-                <option value="12:00 am">12:00 am</option>
-                <option value="1:00 am">1:00 am</option>
-                <option value="2:00 am">2:00 am</option>
-                <option value="3:00 am">3:00 am</option>
-                <option value="4:00 am">4:00 am</option>
-                <option value="5:00 am">5:00 am</option>
-                <option value="6:00 am">6:00 am</option>
-                <option value="7:00 am">7:00 am</option>
-                <option value="8:00 am">8:00 am</option>
-                <option value="9:00 am">9:00 am</option>
-                <option value="10:00 am">10:00 am</option>
-                <option value="11:00 am">11:00 am</option>
-                <option value="12:00 pm">12:00 pm</option>
-                <option value="1:00 pm">1:00 pm</option>
-                <option value="2:00 pm">2:00 pm</option>
-                <option value="3:00 pm">3:00 pm</option>
-                <option value="4:00 pm">4:00 pm</option>
-                <option value="5:00 pm">5:00 pm</option>
-                <option value="6:00 pm">6:00 pm</option>
-                <option value="7:00 pm">7:00 pm</option>
-                <option value="8:00 pm">8:00 pm</option>
-                <option value="9:00 pm">9:00 pm</option>
-                <option value="10:00 pm">10:00 pm</option>
-                <option value="11:00 pm">11:00 pm</option>
+                <option value={0}></option>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+                <option value={6}>6</option>
+                <option value={7}>7</option>
+                <option value={8}>8</option>
+                <option value={9}>9</option>
+                <option value={10}>10</option>
+                <option value={11}>11</option>
+                <option value={12}>12</option>
               </select>
-          </div>
-          <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.textarea}></textarea>      */}
-          <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
-          <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
-          
+              <select onChange={this.handleChange} name='start' value={this.state.start} style={styles.daynight}>
+                <option value=''>AM/PM</option>
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+             </div>
+             <div className='notes'>
+                <textarea onChange={this.handleChange} name='notes' value={this.state.notes} style={styles.notes} placeholder="Additional Notes"></textarea>
+             </div>
+             <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
+             <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
+           </div>
+          </div>       
           <Table activityArray={[...this.state.activityArray]}/>
       </div> // end of container
     )

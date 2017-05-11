@@ -4,6 +4,7 @@ import {getEvents} from '../api/messaging'
 import {getUsers} from '../api/messaging'
 import {getParks} from '../api/messaging'
 import {getActivityIds} from '../api/messaging'
+import {Link} from 'react-router-dom'
 
 const styles = {
     GridContainer:{
@@ -36,7 +37,12 @@ const styles = {
         lineHeight: '42px',
         textAlign: 'center',
         overflow: 'hidden',
-        textTransform: 'capitalize'
+        textTransform: 'capitalize',
+    },
+    link:{
+        textDecoration: 'none',
+        color: '#C81740',
+        fontWeight: 'bold'
     },
     time:{
         width: 148,
@@ -83,11 +89,11 @@ class UsersEvents extends React.Component {
     if(this.props.events && this.props.users && this.props.parks && this.props.activityIds) {
         return (
             this.props.events.map(event=>(
-            <div key={"event id" + event.id} style={ event.user_id1 === this.props.currentUserID  ?  styles.grid : styles.displayNone }>
+            <div key={"event id" + event.id} style={ Number(event.user_id1) === Number(this.props.currentUserID)  ?  styles.grid : styles.displayNone }>
                 <div style={styles.gridBox}>{this.props.parks[event.park_id].name} </div>
                 <div style={styles.gridBox}><span style={styles.time}> {event.time_start_hour} {event.time_start_suffix} <span style={styles.date}>{event.date_month} {event.date_day}</span></span></div>
                 <div style={styles.gridBox}>{this.props.activityIds[event.activity_id-1].name}</div>
-                <div style={styles.gridBox}>{this.props.users[event.user_id2-1].fname} {this.props.users[event.user_id2-1].lname}</div>
+                <div style={styles.gridBox}><Link style={styles.link} to={'/UserProfile/' + event.user_id2} >{this.props.users[event.user_id2].fname} {this.props.users[event.user_id2].lname}</Link></div>     
                 <div style={styles.removeEntry}>-</div>
             </div>
 		))
@@ -113,7 +119,7 @@ class UsersEvents extends React.Component {
 }
 
 function mapStateToProps(appState){
-	return { activityIds: appState.activityIds.activities, parks: appState.parks.parks, users: appState.dbUsers.users, currentUserID : appState.currentUserId, events : appState.events.event}
+	return { activityIds: appState.activityIds.activities, parks: appState.parks, users: appState.dbUsers.users, currentUserID : appState.currentUserId, events : appState.events.event}
 }
 
 export default connect(mapStateToProps)(UsersEvents)

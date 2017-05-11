@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {addMatch} from '../api/messaging'
+import {Link} from 'react-router-dom'
 
 const styles={
     matchesContainer:{
@@ -44,6 +45,15 @@ const styles={
     },
     displayNone:{
         display: 'none'
+    },
+    link:{
+        textDecoration: 'none',
+        color: '#C81740',
+        fontWeight: 'bold'
+    },
+    anchor:{
+        textDecoration: 'none',
+        color: '#FFFF00'
     }
 }
 class UserMatches extends React.Component {
@@ -140,9 +150,12 @@ class UserMatches extends React.Component {
         return (
             this.props.dbUsers.users.map(user=>(
             <div style={ this.props.currentUserMatches.indexOf(user.id) === -1 ? styles.displayNone : styles.matchBox } key={Math.random()}>
-                <div style={styles.matchAvatar}><img style={styles.matchImage} src={user.avatar} alt="no error"/></div>
+                <Link style={styles.link} to={'/UserProfile/' + user.id} >
+                    <div style={styles.matchAvatar}><img style={styles.matchImage} src={user.avatar} alt="no error"/></div>
+                
                 <div style={styles.matchLine}>{user.fname} {user.lname}</div>
-                <div style={styles.matchLine}><a  href={"mailto:" + user.email}>{user.email}</a></div>
+                </Link>
+                <div style={styles.matchLine}><a style={styles.anchor} href={"mailto:" + user.email}>{user.email}</a></div>
             </div>
 		))
         )
