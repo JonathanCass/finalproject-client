@@ -10,19 +10,29 @@ import Home from './Home'
 import UserHomePage from './UserHomePage'
 import Header from './Header'
 
-
+const styles={
+  container1300:{
+    width: 1300,
+    margin: 'auto'
+  },
+  width100:{
+    width: '100%',
+  }
+}
 class App extends Component {
 
   render() {
     return (
         <Router>
-          <div>
+          <div styles={styles.width100}>
+          <div style={styles.container1300}>
           <Header cuserid={this.props.currentUserID} />    
                 <Route exact={true} path='/' component={Home} /> {/*Greeting Page with Logo and Login / Sign Up*/}
                 <Route path='/UserProfile/:userid' component={UserProfile} />        {/*Where Availability results are displayed, User info and availability settings are made here as well*/}
                 <Route path='/CreateUser/' component={CreateUser} />      {/*Initial Profile Construction*/}
                 <Route path='/ParkView/' component={ParkView} />   {/*Create Event Listings here*/}
                 <Route path='/UserHomePage/' component={UserHomePage} /> 
+          </div>
           </div>
       </Router>
     )
