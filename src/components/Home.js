@@ -7,9 +7,10 @@ import {connect} from 'react-redux'
 
 const styles = { // avatar match styles
   matchImg : {
-    height:'100px',
-    width:'100px',
-    marginTop:'10px'
+    height:'120px',
+    width:'120px',
+    marginTop:'10px',
+    borderRadius: 5,
   },
   p : {
     border:'1px',
@@ -56,7 +57,6 @@ componentWillMount() {
   getUsers()
 }
   render() {
-
     return (
       <div style={styles.homeContainer} className="beginningContainer">
         <section style={styles.carousel} className="carouselContainer">
@@ -79,18 +79,24 @@ componentWillMount() {
             </li>
 
             <li id="person" name='match'>
-              <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/>
-        
+              <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[4].avatar}/>
+                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[4].fname}</p>
+                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[4].lname}</p>
+                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[4].interests}</p>
             </li>
 
             <li id="person" name='match'>
-              <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/>
-                
+              <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[7].avatar}/>
+                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[7].fname}</p>
+                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[7].lname}</p>
+                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[7].interests}</p>
             </li>
 
             <li id="person" name='match'>
-              <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/>
-                
+              <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[12].avatar}/>
+                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[12].fname}</p>
+                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[12].lname}</p>
+                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[12].interests}</p>
             </li>
           </ul>
       </div> //end of container
