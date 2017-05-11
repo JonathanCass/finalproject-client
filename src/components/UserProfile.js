@@ -74,7 +74,7 @@ class User extends React.Component {
            </div>
 
         </div>
-        <UserAvailability userid={this.props.match.params.userid} />
+        <UserAvailability userid={this.props.match.params.userid} dbUsers={this.props.dbUsers} />
       </div>
     )
   }

@@ -80,6 +80,16 @@ export function addUser(userObj){
 		console.log('post new User', res.data)
 	})
 }
+//This function modeled after User wants to just replace a user's ( specified by id ) friend string
+
+export function addFriend(friendObj){
+	api.post('/friends', friendObj).then(res=>{
+		console.log('add new Friend', res.data)
+	})
+}
+//req.body.id    is a number the users id
+//req.body.friends  is the new string
+
 export function addMatch(addUserID){
 	store.dispatch({
           type: 'ADD_MATCH',

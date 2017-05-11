@@ -8,7 +8,10 @@ const styles={
         display: 'inline-block',
         paddingLeft: 5,
         background: 'linear-gradient( to right, #FFD200 , #F7971E  )',
-        paddingBottom: 100
+        paddingBottom: 100,
+        border:' 2px solid black',
+        borderRadius: 5,
+        borderTop: 0
     },
     header:{
         width: 650,

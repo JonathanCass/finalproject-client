@@ -98,7 +98,7 @@ class ActivitySlider extends React.Component {
     })
   }
   renderActivity(){
-    if(this.props.events && this.props.users && this.props.parks && this.props.activityIds) {
+    if((this.props.parks) && (this.props.events) && (this.props.users) && (this.props.activityIds)) {
       
       var involvedArray = this.props.events.filter(function(event){
             return( event.user_id1 === this.props.currentUserID || event.user_id2  === this.props.currentUserID )
