@@ -47,6 +47,7 @@ export function getEvents() {
          })
     })
 }
+
 export function getActivityIds() {
     api.get('/activities').then(res=>{
          store.dispatch({

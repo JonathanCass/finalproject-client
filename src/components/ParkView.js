@@ -27,6 +27,7 @@ class ParkView extends React.Component {
    }
 }
 createActivity = (e) => {
+  // console.log(createActivityObj)
   e.preventDefault()
   var createActivityObj ={
       play:this.state.play,
@@ -42,21 +43,20 @@ createActivity = (e) => {
   // add(createActivityObj)
   this.setState({
     activityArray : [...this.state.activityArray, createActivityObj],
-    play:'', level:'', activities:'', notes:'', start:'', daynight:'', gear:''
+    play:'', level:'', activities:'', notes:'', start:'', gear:'', park:''
   })
 }
 
 handleChange = (e) => {
   this.setState({
     [e.target.name]:e.target.value
-  })
+  })    
 }
-handleButton = (e) => {
+handleButton = (e) => { // handle for quadrants/parks
   this.setState({
     [e.target.name]:e.target.value,
     
   })
-
 }
 handleLevel = (e) => { // for Type of Play/Experience
   this.setState({
@@ -123,10 +123,11 @@ componentWillMount() {
                }).map(park =>{
           
                     return <option key={park + park.id}>{park.type}</option>
+
                })}            
              </select>
              <MuiThemeProvider>
-                <DatePicker hintText="Choose Day" container="inline" name='date' value={this.state.date} mode="landscape" style={styles.calendar}/>
+                <DatePicker hintText="Choose Day" container="inline" mode="landscape" style={styles.calendar}/>
              </MuiThemeProvider>
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>
@@ -173,11 +174,11 @@ componentWillMount() {
                 {this.props.parks.filter((park, i)=>{
                   return park.quadrant === 'southwest'
                 }).map(park => {
-                    return <option key={park + park.id}>{park.type}</option>
+                   return <option key={park + park.id}>{park.type}</option>
                 })}
              </select>
              <MuiThemeProvider>
-                <DatePicker hintText="Choose Day" container="inline" name='date' value={this.state.date} mode="landscape" style={styles.calendar}/>
+                <DatePicker hintText="Choose Day" container="inline" mode="landscape" style={styles.calendar}/>
              </MuiThemeProvider>
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>
@@ -228,7 +229,7 @@ componentWillMount() {
                 })}
              </select>
              <MuiThemeProvider>
-                <DatePicker hintText="Choose Day" container="inline" name='date' value={this.state.date} mode="landscape" style={styles.calendar}/>
+                <DatePicker hintText="Choose Day" container="inline" mode="landscape" style={styles.calendar}/>
              </MuiThemeProvider>
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>
@@ -279,7 +280,7 @@ componentWillMount() {
                 })}
              </select>
              <MuiThemeProvider>
-                <DatePicker hintText="Choose Day" container="inline" name='date' value={this.state.date} mode="landscape" style={styles.calendar}/>
+                <DatePicker hintText="Choose Day" container="inline" mode="landscape" style={styles.calendar}/>
              </MuiThemeProvider>
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>
@@ -299,7 +300,7 @@ componentWillMount() {
                 <option value={11}>11</option>
                 <option value={12}>12</option>
               </select>
-              <select onChange={this.handleChange} name='start' value={this.state.start} style={styles.daynight}>
+              <select style={styles.daynight}>
                 <option value=''>AM/PM</option>
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>

@@ -11,7 +11,8 @@ const styles = {
         padding:'1em',
         paddingLeft: '2em',
         paddingRight:'2em',
-        position:'absolute'
+        position:'absolute',
+        color:'#033e7b'
     },
     h2: {
         textAlign: 'center',
@@ -61,7 +62,8 @@ const styles = {
     calendar: {
         position:'absolute',
         marginTop:170,
-        textAlign:'center'
+        textAlign:'center',
+        fontWeight:'bold'
     },
     gear: {
         marginLeft:312,
@@ -75,11 +77,11 @@ const styles = {
         position:'absolute'
     }, 
     start: {
-        width:200,
+        width:190,
         height:40
     },
     daynight: {
-        width:50,
+        width:60,
         height:40
     },
     notes: {
@@ -88,7 +90,7 @@ const styles = {
         height:120,
         marginTop:'15em',
         marginLeft:312,
-        flexWrap:'wrap'
+        flexWrap:'wrap',
     },
     create: {
         height:40,

@@ -27,6 +27,11 @@ const styles = { // avatar match styles
   carousel:{
     border: 'solid 2px black',
     borderRadius: 5
+  },
+  images: {
+    height:'600px',
+    width:'900px',
+    marginTop:'-16%'
   }
 }
 
@@ -54,21 +59,14 @@ componentWillMount() {
   render() {
 
     return (
-<<<<<<< HEAD
-      <div className="beginningContainer">
-        <section className="carouselContainer">
-          <AutoCarousel slidesToShow={1}  dragging={true} autoTime={6000}>
-=======
       <div style={styles.homeContainer} className="beginningContainer">
         <section style={styles.carousel} className="carouselContainer">
-          <Carousel>
->>>>>>> master
-              <img alt='' src="https://static.pexels.com/photos/305244/pexels-photo-305244.jpeg"/>
-              {/*<p id="texts">Find a Running Buddy</p>*/}
-              <img alt='' src="https://static.pexels.com/photos/24306/pexels-photo-24306.jpg"/>
-              <img alt='' src="https://static.pexels.com/photos/386024/pexels-photo-386024.jpeg"/>
-              <img alt='' src="https://images.pexels.com/photos/798/bench-people-smartphone-sun.jpg?w=940&amp;h=650&amp;auto=compress&amp;cs=tinysrgb"/>
-              <img alt='' src="http://latina.lu/wp-content/uploads/2017/04/tenis-003.jpg"/>
+          <AutoCarousel slidesToShow={1}  dragging={true} autoTime={6000}>
+              <img alt='' src={require('../assets/images/volleyball.jpg')} style={styles.images}/>
+              <img alt='' src={require('../assets/images/basketball.jpeg')} style={styles.images}/>
+              <img alt='' src={require('../assets/images/running.jpg')} style={styles.images}/>
+              <img alt='' src={require('../assets/images/bike.jpeg')} style={styles.images}/>
+              <img alt='' src="https://images.pexels.com/photos/798/bench-people-smartphone-sun.jpg?w=940&amp;h=650&amp;auto=compress&amp;cs=tinysrgb"/>    
           </AutoCarousel>  
        </section>
       
@@ -78,8 +76,7 @@ componentWillMount() {
             <li id="person" name='match'>
               <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/>
                 <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].fname}</p>
-                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].lname}</p> 
-                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].bio}</p>
+                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].activities_info}</p>
             </li>
 
             <li id="person" name='match'>
