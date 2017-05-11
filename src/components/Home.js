@@ -27,6 +27,11 @@ const styles = { // avatar match styles
   carousel:{
     border: 'solid 2px black',
     borderRadius: 5
+  },
+  bball: {
+    height:'600px',
+    width:'900px',
+    marginTop:'-16%'
   }
 }
 
@@ -57,11 +62,11 @@ componentWillMount() {
       <div style={styles.homeContainer} className="beginningContainer">
         <section style={styles.carousel} className="carouselContainer">
           <Carousel>
-              <img alt='' src="https://static.pexels.com/photos/305244/pexels-photo-305244.jpeg"/>
-              <img alt='' src="https://static.pexels.com/photos/24306/pexels-photo-24306.jpg"/>
-              <img alt='' src="https://static.pexels.com/photos/386024/pexels-photo-386024.jpeg"/>
+              <img alt='' src={require('../assets/images/basketball.jpeg')} style={styles.bball}/>
+              <img alt='' src={require('../assets/images/running.jpg')} style={styles.bball}/>
+              <img alt='' src={require('../assets/images/bike.jpeg')}/>
               <img alt='' src="https://images.pexels.com/photos/798/bench-people-smartphone-sun.jpg?w=940&amp;h=650&amp;auto=compress&amp;cs=tinysrgb"/>
-              <img alt='' src="http://latina.lu/wp-content/uploads/2017/04/tenis-003.jpg"/>
+              <img alt='' src={require('../assets/images/volleyball.jpg')} style={styles.volleyball}/>
           </Carousel>  
        </section>
       

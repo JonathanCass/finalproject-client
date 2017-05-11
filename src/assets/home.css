@@ -51,10 +51,6 @@ body {
     margin:50px;
     padding:5px;
 }
-#home:hover, #parkView:hover, #userProfile:hover, #createUser:hover, #userHomePage:hover {
-    background-color: #eae9e9;
-    padding:15px;  
-}
 .carouselContainer{
     border:1px solid #d2d9da;
     width:900px;
@@ -63,7 +59,7 @@ body {
     margin-top:3%;
 }
 img {  
-    width:630px;
+    width:900px;
     height:auto;
     margin-top:-16%;
 }

@@ -108,7 +108,8 @@ componentWillMount() {
                   {this.props.parks.filter((park, i)=>{
                   return park.quadrant === 'northwest'
                }).map(park =>{  
-                  if(park.basketball === 'yes'){
+                 return <option key={park + park.id}>{park.type}</option>
+                  {/*if(park.basketball === 'yes'){
                   console.log(park.name, 'has basketball') 
                 } if(park.volleyball === 'yes'){
                   console.log(park.name, 'has volleyball')
@@ -120,7 +121,7 @@ componentWillMount() {
                   console.log(park.name, 'has tennis')
                 } if(park.frisbee_gold === 'yes'){
                   console.log(park.name, 'has frisbee golf')
-                }
+                }*/}
                })}            
              </select>
              <MuiThemeProvider>

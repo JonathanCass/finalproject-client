@@ -90,7 +90,7 @@ const styles = {
         height:120,
         marginTop:'15em',
         marginLeft:312,
-        flexWrap:'wrap'
+        flexWrap:'wrap',
     },
     create: {
         height:40,

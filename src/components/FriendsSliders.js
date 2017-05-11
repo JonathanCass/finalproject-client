@@ -136,7 +136,7 @@ class FriendsSliders extends React.Component {
         )
     }else {
         return (
-            <span> No Friends with Actitivies, try expanding your availability and adding some new friends. </span>
+            <span> No Friends with Actitivies. Try expanding your availability and adding some new friends. </span>
         )
     }
   }
