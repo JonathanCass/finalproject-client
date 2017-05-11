@@ -4,6 +4,7 @@ import UserAvailabilityGrid from './UserAvailabilityGrid'
 import {connect} from 'react-redux'
 import {postAvailability} from '../api/messaging'
 import {getAvail} from '../api/messaging'
+import {addFriend} from '../api/messaging'
 
 class UserAvailability extends React.Component {
     constructor() {
@@ -35,11 +36,22 @@ class UserAvailability extends React.Component {
       [e.target.name]: e.target.value
     })
   }
+  addFriends = (e) => {
+    e.preventDefault()
+    //var newFriends = (this.props.dbUsers.users[Number(this.props.userid)].friends).split(" ")
+    //newFriends.push(this.props.userid)
+    //var newFriendsJoined = newFriends.join(" ")
+    var friendObj = {userid: 1, friend: this.props.userid }
+    console.log(friendObj)
+    addFriend(friendObj)
+
+    //console.log('this.props.dbUsers.users[Number(this.props.userid)].friends', this.props.dbUsers.users[Number(this.props.userid)].friends )
+  }
   componentWillMount(){
   	getAvail()
   }
   render() {
-    console.log('user availability this.props', this.props)
+    //console.log('user availability this.props', this.props)
     return (
         <div style={styles.AvailabilityContainer}>
         <div style={ Number(this.props.userid) === Number(this.props.currentUserID) ? styles.displayNormal : styles.displayNone} >
@@ -120,7 +132,7 @@ class UserAvailability extends React.Component {
       <UserAvailabilityGrid availabilityArray={this.props.dbAvail.availability}/>
 
       <div style={ Number(this.props.userid) === Number(this.props.currentUserID) ? styles.displayNone : styles.displayNormal} >
-        <button style={styles.addFriend}> Add {this.props.dbUsers.users && this.props.dbUsers.users[Number(this.props.userid)].fname} To Friends </button>
+        <button style={styles.addFriend} name={this.props.userid} onClick={this.addFriends} > Add {this.props.dbUsers.users && this.props.dbUsers.users[Number(this.props.userid)].fname} To Friends </button>
       </div>
       </div>
     )
