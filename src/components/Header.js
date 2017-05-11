@@ -129,9 +129,9 @@ class Header extends React.Component {
                     <Link style={styles.link} to={'/UserHomePage/'} >UserHomePage</Link>
                     <Link style={styles.link} to={'/ParkView/'} >ParkView</Link>
                     <div style={styles.social}>
-                        <i style={styles.facebook} className="fa fa-facebook" aria-hidden="true"></i>
-                        <i style={styles.twitter} className="fa fa-twitter" aria-hidden="true"></i>
-                        <i style={styles.rss} className="fa fa-rss" aria-hidden="true"></i>
+                        <a href="https://www.facebook.com/profile.php?id=100017026063125"><i style={styles.facebook} className="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="https://twitter.com/GoActiveVegas?lang=en"> <i style={styles.twitter} className="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="https://www.rss.com/" ><i style={styles.rss} className="fa fa-rss" aria-hidden="true"></i></a>
                     </div>
                 </div>
 
