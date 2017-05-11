@@ -37,9 +37,10 @@ export function getParks() {
          })
     })
 }
+
+
 export function getEvents() {
     api.get('/event').then(res=>{
-//         console.log('parks', res.data)
          store.dispatch({
           type: 'GET_EVENTS',
           events: res.data
@@ -48,7 +49,6 @@ export function getEvents() {
 }
 export function getActivityIds() {
     api.get('/activities').then(res=>{
-//         console.log('parks', res.data)
          store.dispatch({
           type: 'GET_ACTIVITYIDS',
           activityIds: res.data
