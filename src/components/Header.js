@@ -4,17 +4,29 @@ import { Link } from 'react-router-dom'
 const styles ={
     header:{
         width: 1300,
-         background: 'linear-gradient( to left, #56CCF2 , #2F80ED )',
+         background: 'linear-gradient( to right, #00C9FF , #92FE9D )',
+         border:' 2px solid black',
+         borderRadius: 5
     },
     topBar:{
-        marginLeft : 1020,
-        marginBottom: 10
+        width: 1300,
+        height: 150,
+        padding: 10
+    },
+    imageBox:{
+        width: 1280,
+        height: 130,
+        margin: 0,
+        borderRadius: 10,
+        border: ' solid 2px black'
+    },
+    loginBar:{
+        float: 'right'
     },
     bottomBar:{
         display: 'flex',
         height: 50,
-        justifyContent: 'space-between',
-       
+        justifyContent: 'space-between',  
     },
     social:{
         height: 50,
@@ -100,10 +112,14 @@ class Header extends React.Component {
     render() {
         return (
             <div style={styles.header}>
-                <div style={styles.topBar}>      
-                        <button style={styles.login} onClick={this.handleClick}><Link style={styles.white} to={'/CreateUser/'}>Sign Up</Link></button>
-                        <button style={styles.login}> Login</button>  
-                        {/*Button above Needs to Link to a Login Page */}
+                <div style={styles.topBar}>
+                    <div style={styles.imageBox} className="headerImage">
+                        <div style={styles.loginBar}>      
+                                <button style={styles.login} onClick={this.handleClick}><Link style={styles.white} to={'/CreateUser/'}>Sign Up</Link></button>
+                                <button style={styles.login}> Login</button>  
+                                {/*Button above Needs to Link to a Login Page */}
+                        </div>
+                    </div>
                 </div>
                 <div style={styles.bottomBar}>
                     <Link style={styles.link} to={'/'} >Home</Link>

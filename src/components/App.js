@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
 import {connect} from 'react-redux'
-import { Link } from 'react-router-dom'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import 'font-awesome/css/font-awesome.css'
 import UserProfile from './UserProfile'
@@ -10,6 +9,7 @@ import ParkView from './ParkView'
 import Home from './Home'
 import UserHomePage from './UserHomePage'
 import Header from './Header'
+
 
 class App extends Component {
 

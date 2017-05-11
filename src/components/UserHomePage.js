@@ -56,7 +56,10 @@ const styles={
     left:{
         width: 650,
         display: 'inline-block',
-        paddingBottom: 100
+        paddingBottom: 100,
+        border:' 2px solid black',
+        borderRadius: 5,
+        borderTop: 0
     }
 }
 
