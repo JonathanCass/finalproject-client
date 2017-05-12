@@ -7,9 +7,12 @@ const styles={
         width: 650,
         display: 'inline-block',
         paddingLeft: 5,
+        borderRadius:'5px',
+        border:'7px solid black',
         background: 'linear-gradient( to right, #FFD200 , #F7971E  )',
+        // background: 'linear-gradient( to bottom right, #F7971E, rgba(0,0,0, 0.1 )),
         paddingBottom: 100,
-        border:' 2px solid black',
+        
         borderRadius: 5,
         borderTop: 0
     },
@@ -20,7 +23,8 @@ const styles={
         textAlign: 'center',
         height: 40,
         paddingTop: 10,
-        marginBottom: 20
+        marginBottom: 20,
+        fontFamily:'Verdana'
     },
     userMain:{
         width: 650,

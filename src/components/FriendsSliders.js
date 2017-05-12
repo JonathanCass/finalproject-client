@@ -31,7 +31,8 @@ const styles={
         borderRadius: 5,
         background: "white",
         color: '#C81740',
-        fontSize: 24
+        fontSize: 24,
+        cursor:'pointer'
     },
     nextGrid:{
         border: 'solid 1px black',

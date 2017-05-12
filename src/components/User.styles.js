@@ -2,10 +2,9 @@ const styles ={
   UserContainer:{
     width: 1300,
     display: 'flex',
-    background: 'linear-gradient( to bottom right, #56CCF2 , #2F80ED )',
-    // background:'linear-gradient(to bottom right, rgb(86, 204, 242), rgba(0, 0, 0, 1))',
-    paddingBottom: 100,
-    
+    // background: 'linear-gradient( to bottom right, #56CCF2 , #2F80ED )',
+    // background:'rgb(249, 247, 246)',
+    paddingBottom: 100,  
     borderRadius: 5,
     borderTop: 0
   },
@@ -42,8 +41,6 @@ const styles ={
   avatar:{
     width: 310,
     height: 300,
-    background: 'white',
-    border: 'solid 1px black',
     borderRadius: 25,
     padding: 5
   },
@@ -70,8 +67,7 @@ const styles ={
   lineInput2:{
     marginTop: 10,
     width: 310,
-    height: 40,
-    border: 'solid 1px black',
+    height: 40,  
     textIndent: 5,
     borderRadius: 3,
     fontSize: 14
@@ -80,8 +76,7 @@ const styles ={
     marginTop: 10,
     marginBottom: -10,
     width: 250,
-    height: 40,
-    border: 'solid 1px black',
+    height: 40,  
     textIndent: 8,
     borderRadius: 3,
     background: 'white',
@@ -92,16 +87,14 @@ const styles ={
   ageInput:{
     marginTop: 14,
     width: 150,
-    height: 40,
-    border: 'solid 1px black',
+    height: 40, 
     textIndent: 5,
     borderRadius: 3
   },
   ageDisplay:{
     marginTop: 14,
     width: 150,
-    height: 40,
-    border: 'solid 1px black',
+    height: 40,   
     textIndent: 5,
     borderRadius: 3,
     background: 'white',
@@ -114,14 +107,13 @@ const styles ={
     marginLeft: 10,
     width: 150,
     height: 40,
-    border: 'solid 1px black'
+    
   },
   genderDisplay:{
     marginTop: 14,
     marginLeft: 10,
     width: 150,
-    height: 40,
-    border: 'solid 1px black',
+    height: 40,   
     background: 'white',
     textAlign: 'center',
     lineHeight: '40px',
@@ -132,8 +124,7 @@ const styles ={
     marginLeft: 10,
     width: 150,
     height: 38,
-    borderRadius: 5,
-    border: 'solid 1px black',
+    borderRadius: 5,   
     background: '#53BE16',
     color: 'white',
     fontSize: 16
@@ -142,19 +133,18 @@ const styles ={
     marginTop: 10,
     width: 310,
     height: 38,
-    border: 'solid 1px black'
+    
   },
   privacy2:{
     marginTop: 10,
     width: 150,
     height: 38,
-    border: 'solid 1px black'
+    
   },
   privacyDisplay:{
     marginTop: 10,
     width: 310,
-    height: 38,
-    border: 'solid 1px black',
+    height: 38, 
     background: 'white',
     textAlign: 'center',
     lineHeight: '38px',
@@ -164,7 +154,7 @@ const styles ={
     marginTop: 10,
     width: 310,
     height: 38,
-    border: 'solid 1px black'
+    
   },
   timeLabel:{
     width: 60,
@@ -173,13 +163,15 @@ const styles ={
     color: 'white',
     padding: '0 2px 0 0 ',
     textAlign: 'right',
-    display: 'inline-block'
+    display: 'inline-block',
+    fontFamily:'Verdana'
   },
   time:{
     marginTop: 10,
     width: 180,
     height: 38,
-    border: 'solid 1px black'
+    border: 'solid 1px black',
+    fontFamily:'Verdana'
   },
   AmPm:{
     marginTop: 10,
@@ -189,23 +181,20 @@ const styles ={
   },
   activities:{
     width: 310,
-    height: 132,
-    border: 'solid 1px black',
+    height: 132,  
     borderRadius: 3,
     overflow: 'hidden',
   },
   activitiesTextArea:{
     padding: 5,
     width: 308,
-    height: 102,
-    border: 'solid 1px black',
+    height: 102, 
     borderWidth: '0 0 1px 0'
   },
   activitiesDisplay:{
     padding: 5,
     width: 308,
-    height: 102,
-    border: 'solid 1px black',
+    height: 102,   
     borderWidth: '0 0 1px 0',
     display: 'inline-block',
     background: 'white',
@@ -214,8 +203,7 @@ const styles ={
   infoBlock:{
     marginTop: 10,
     width: 310,
-    height: 112,
-    border: 'solid 1px black',
+    height: 112,   
     overflow: 'hidden',
     borderRadius: 3
   },
@@ -252,7 +240,6 @@ const styles ={
     color: 'white',
     marginTop: 6,
     marginRight: 6,
-    border: 'solid 1px black',
     borderRadius: 3,
     fontSize: 15,
     lineHeight: '14px'
@@ -263,7 +250,6 @@ const styles ={
     background: '#53BE16',
     color: 'white',
     marginRight: 10,
-    border: 'solid 1px black',
     borderRadius: 3,
     fontSize: 15,
     lineHeight: '14px',
@@ -276,6 +262,7 @@ const styles ={
       color: '#FFFF00',
       textAlign: 'center',
       display: 'block', 
+      fontFamily:'Verdana'
   },
   addAvailability:{
       margin: 'auto',
@@ -303,6 +290,9 @@ const styles ={
     fontSize: 20,
     marginTop: 15,
     marginLeft: 149
+  },
+  font: {
+    fontFamily:'Verdana'
   }
 }
 export default styles

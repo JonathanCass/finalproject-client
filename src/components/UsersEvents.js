@@ -18,7 +18,8 @@ const styles = {
         fontSize: 20,
         display: 'inline-block',
         lineHeight: '40px',
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily:'Verdana'
     },
     grid:{
         width:630,
@@ -38,6 +39,7 @@ const styles = {
         textAlign: 'center',
         overflow: 'hidden',
         textTransform: 'capitalize',
+        fontFamily:'Verdana'
     },
     link:{
         textDecoration: 'none',

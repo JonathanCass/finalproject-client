@@ -32,7 +32,7 @@ const styles = {
         background: '#F2F2F2',
         lineHeight: '42px',
         textAlign: 'center',
-        textTransform: 'capitalize'
+             textTransform: 'capitalize'
     },
     removeEntry:{
         width: 40,
@@ -53,7 +53,8 @@ const styles = {
         color: '#FFFF00',
         textAlign: 'center',
         display: 'block',
-        marginBottom: 10 
+        marginBottom: 10,
+        fontFamily:'Verdana'
     },
     displayNone:{
         display: 'none'

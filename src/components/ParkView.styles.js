@@ -8,13 +8,15 @@ const styles = {
     },
     h2: {
         textAlign: 'center',
-        fontFamily:'Lobster'
+        fontFamily:'Verdana'
     },
     radio: {
-        margin:'1em'
+        margin:'1em',
     },
     radioQuad: {
         margin:'2em',
+        height:'20px',
+        cursor:'pointer'
     },
     radioLabel: {
         fontFamily:'Verdana'
@@ -25,13 +27,16 @@ const styles = {
     },
     line: {
         border:'1px solid gray',
-        width:260,
+        width:320,
         marginLeft:149,
         marginTop:'1em'
     },
     level: {
         margin:'1em',
-        marginLeft:120
+        marginLeft:120,
+    },
+    cursor: {
+        cursor:'pointer'
     },
     levelBoxes: {
         margin: 7,
@@ -105,7 +110,7 @@ const styles = {
         marginTop:'27em',
         marginLeft:'42em',
         cursor:'pointer'
-    }
+    },
 }
 
 export default styles

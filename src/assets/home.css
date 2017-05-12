@@ -53,6 +53,7 @@
     overflow:hidden;
     margin-left:15%;
     margin-top:3%;
+    border-radius:15px;
 }
 img {  
     width:900px;
@@ -60,9 +61,9 @@ img {
     margin-top:-16%;
 }
 .happening {
-    margin-left:33%;
+    margin-left:28%;
     margin-top:5%;
-    font-family: 'Lobster', cursive; /*SAMPLE FONT FOR NOW*/;
+    font-family: 'Verdana';
     color:white;
 }
 .matches {
@@ -130,7 +131,4 @@ h3 {
   position:absolute;
   display:flex;
   margin-top:10em;    
-}
-#activities:disabled {
-    color:blue;
 }
