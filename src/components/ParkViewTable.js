@@ -13,9 +13,9 @@ class Table extends React.Component {
     }
   }
 
-//   componentWillMount(){
-//     getParks()
-//   }
+  componentWillMount(){
+    getParks()
+  }
 
 render() {
     let parkName1 = this.props.activityArray[0] ? this.props.activityArray[0].park: ''

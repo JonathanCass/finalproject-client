@@ -15,7 +15,7 @@ import Header from './Header'
 const styles={
   container1300:{
     width: 1300,
-    margin: 'auto'
+    margin: 'auto',
   },
   width100:{
     width: '100%',
@@ -26,7 +26,7 @@ class App extends Component {
   render() {
     return (
         <Router>
-          <div styles={styles.width100}>
+          <div style={styles.width100}>
           <div style={styles.container1300}>
           <Header cuserid={this.props.currentUserID} />    
                 <Route exact={true} path='/' component={Home} /> {/*Greeting Page with Logo and Login / Sign Up*/}

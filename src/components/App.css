@@ -6,11 +6,16 @@ html {
 }
 body {
 	margin: 0;
+	/*background-color:#eeeeee;*/
+	background-image: url('http://vegashelicam.us/wp-content/uploads/2013/11/007131129193b_Craig_Ranch_Regional_Park-Panorama.jpg');
+	background-size: 115%;
+	
 }
-.headerImage {
+/*.headerImage {
 	background-image: url("squishedHeader.jpeg");
 	object-fit: contain ;
-}
+	
+}*/
 .logoPic {
 	background-image: url("logoPic.png");
 	height: 150px;

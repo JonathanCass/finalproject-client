@@ -53,19 +53,19 @@ class User extends React.Component {
            <div style={styles.right}>
             <div style={styles.activities}>
               <textarea style={styles.activitiesTextArea} name="activities" onChange={this.handleChange} value={this.state.activities}></textarea>
-              <div style={styles.buttonBar}><span>User's Activities Info</span></div>
+              <div style={styles.buttonBar}><span style={styles.font}>User's Activities Info</span></div>
             </div>
             <div style={styles.infoBlock}>
               <textarea style={styles.textArea} name="bio" onChange={this.handleChange} value={this.state.bio}></textarea>
-              <div style={styles.buttonBar}><span>User's Bio</span></div>
+              <div style={styles.buttonBar}><span style={styles.font}>User's Bio</span></div>
             </div>
             <div style={styles.infoBlock}>
               <textarea style={styles.textArea} name="hobbies" onChange={this.handleChange} value={this.state.hobbies}></textarea>
-              <div style={styles.buttonBar}><span>Hobbies</span></div>
+              <div style={styles.buttonBar}><span style={styles.font}>Hobbies</span></div>
             </div>
             <div style={styles.infoBlock}>
               <textarea style={styles.textArea} name="interests" onChange={this.handleChange} value={this.state.interests}></textarea>
-              <div style={styles.buttonBar}><span>Interests</span></div>
+              <div style={styles.buttonBar}><span style={styles.font}>Interests</span></div>
             </div>
             <input type="text" name="age" placeholder="Age" onChange={this.handleChange} style={styles.ageInput} value={this.state.age}></input>
             <select name="gender" style={styles.gender} onChange={this.handleChange} value={this.state.gender}>
