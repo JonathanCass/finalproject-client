@@ -2,25 +2,35 @@ import React from 'react'
 import styles from './Table.styles'
 // import { getParks } from '../api/messaging'
 import {connect} from 'react-redux'
+import { getParks } from '../api/messaging'
+
 
 
 class Table extends React.Component {
     constructor() {
     super()
     this.state = {
-      
     }
   }
+
 //   componentWillMount(){
 //     getParks()
 //   }
+
 render() {
-    const park_map =  this.props.park_map ||  <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d104204.53054904708!2d-115.15573192602163!3d36.12222981772679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sLas+Vegas%2C+NV+parks!5e1!3m2!1sen!2sus!4v1494390847446" width="600" height="450"></iframe>
-    // console.log(this.props.parks)
+    let parkName1 = this.props.activityArray[0] ? this.props.activityArray[0].park: ''
+    var parkName = parkName1.split(' ').join('+');
+    // let parkName = parkName1.replace(/\s/g, '%20')
 
     return(
         <div className='tableAreaContainer' style={styles.tableAreaContainer}>  
-            <div style={styles.map}>{park_map}</div>
+         {this.props.activityArray.filter(park=>{
+              return park.park
+         }).map(park=>{
+             return <div style={styles.map}>{<iframe width="600" height="450" 
+            src={"https://www.google.com/maps/embed/v1/search?key=AIzaSyAc0yrVazEG4l-Hz05xlttBMVm-LgsXync&zoom=16&q=" + park.park} allowFullScreen></iframe>}</div>
+         })}
+           
             <div>
                 <table style={styles.table}>
                     <thead style={styles.tableHead}>
