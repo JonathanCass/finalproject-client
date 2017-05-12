@@ -7,7 +7,7 @@ const styles={
         width: 650,
         display: 'inline-block',
         paddingLeft: 5,
-        borderRadius:'5px',
+
         border:'7px solid black',
         background: 'linear-gradient( to right, #FFD200 , #F7971E  )',
         // background: 'linear-gradient( to bottom right, #F7971E, rgba(0,0,0, 0.1 )),

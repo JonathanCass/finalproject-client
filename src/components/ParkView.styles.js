@@ -3,15 +3,17 @@ const styles = {
     container: {
         height:'auto',
         width:630,
-        color:'#fdfdff',
-        textShadow: '2px 2px #262626',
+        color:'black',
+        
     },
     h2: {
         textAlign: 'center',
         fontFamily:'Verdana'
     },
     radio: {
-        margin:'1em',
+        margin:'2px',
+        fontSize:'20px',
+        fontWeight:'bold'
     },
     radioQuad: {
         margin:'2em',
@@ -27,8 +29,8 @@ const styles = {
     },
     line: {
         border:'1px solid gray',
-        width:320,
-        marginLeft:149,
+        width:300,
+        marginLeft:165,
         marginTop:'1em'
     },
     level: {
