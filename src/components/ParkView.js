@@ -8,6 +8,8 @@ import Table from './ParkViewTable'
 import '../assets/home.css'
 import { connect } from 'react-redux'
 import { getParks } from '../api/messaging'
+import { getParkActivities } from '../api/messaging'
+
 
 
 class ParkView extends React.Component {
@@ -23,7 +25,9 @@ class ParkView extends React.Component {
         start:'',
         gear:'',
         park:'',
-        activityArray:[]
+        activityArray:[], 
+        parkMapArray:[]
+       
    }
 }
 createActivity = (e) => {
@@ -47,17 +51,19 @@ createActivity = (e) => {
   })
 }
 
+
 handleChange = (e) => {
   this.setState({
     [e.target.name]:e.target.value
   })    
+  
 }
 handleButton = (e) => { // handle for quadrants/parks
   this.setState({
-    [e.target.name]:e.target.value,
-    
+    park:e.target.value,
   })
 }
+
 handleLevel = (e) => { // for Type of Play/Experience
   this.setState({
     level: e.target.value,
@@ -66,15 +72,18 @@ handleLevel = (e) => { // for Type of Play/Experience
 
 componentWillMount() {
   getParks()
+  getParkActivities()
 
 }
-  render() {
 
+  render() {
+    //  console.log(this.props.activities)
     return (
-      <div style={styles.container}>     
+      <div style={styles.container}>  
+
           <h2 style={styles.h2}>Type Of Play</h2>
           <div style={styles.radioPlay}>
-            <input type='radio' onChange={this.handleButton} name='play' value="Competitive" style={styles.cursor}/>
+            <input type='radio' onClick={this.addParkName} onChange={this.handleButton} name='play' value="Competitive"/>
             <label htmlFor="competitive" style={styles.radio}>Competitive</label>
             <input type='radio'onChange={this.handleButton} name='play' value="Leisurely" style={styles.cursor}/>
             <label htmlFor="leisurely" style={styles.radio}>Leisurely</label>
@@ -99,7 +108,7 @@ componentWillMount() {
             <label htmlFor='southeast' style={styles.radioLabel}>Southeast</label>
 
            <div id='northwest'> 
-             <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}>
+             <select  onChange={this.handleButton} name="park" value={this.state.parkName} style={styles.parksBox}>
                <option>North West Parks</option>  
                {this.props.parks.filter((park, i)=>{
                   return park.quadrant === 'northwest'
@@ -108,15 +117,14 @@ componentWillMount() {
                })}
 
              </select>
+             
              <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
                <option>Activity Type</option>
-               {this.props.parks.filter((park, i)=>{
-                   return park.quadrant === 'northwest'
-               }).map(park =>{
-                  if(park.basketball === 'yes'){
-                    console.log(park.name, 'has basketball')
-                  }
-                    return <option key={park + park.id}>{park.type}</option>
+               {this.props.activities.filter((activity, i)=>{
+                   return activity.park_name === this.state.park
+               }).map(activity =>{
+          
+                    return <option key={activity.activity_id}>{activity.activity_name}</option>
 
                })}            
              </select>
@@ -315,13 +323,14 @@ componentWillMount() {
              <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
            </div>
           </div>       
-          <Table activityArray={[...this.state.activityArray]}/>
+          <Table activityArray={[...this.state.activityArray] }/>
       </div> // end of container
+      
     )
   }
 }
 
 function mapStateToProps(appState) {
-  return { dbUsers: appState.dbUsers, currentUserID : appState.currentUserId, parks: appState.parks}
+  return { dbUsers: appState.dbUsers, currentUserID : appState.currentUserId, parks: appState.parks, activities:appState.activities}
 }
 export default connect(mapStateToProps)(ParkView)

@@ -10,6 +10,8 @@ import Home from './Home'
 import UserHomePage from './UserHomePage'
 import Header from './Header'
 
+
+
 const styles={
   container1300:{
     width: 1300,
@@ -33,6 +35,7 @@ class App extends Component {
                 <Route path='/ParkView/' component={ParkView} />   {/*Create Event Listings here*/}
                 <Route path='/UserHomePage/' component={UserHomePage} /> 
           </div>
+           
           </div>
       </Router>
     )
