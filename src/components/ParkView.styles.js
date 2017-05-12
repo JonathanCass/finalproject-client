@@ -1,18 +1,10 @@
 
 const styles = {
-    // body: {
-    //     width: 1300,
-    //     padding: 10,
-    //     background: '#53BE16'
-    // },
     container: {
         height:'auto',
         width:630,
-        padding:'1em',
-        paddingLeft: '2em',
-        paddingRight:'2em',
-        position:'absolute',
-        color:'#033e7b'
+        color:'#fdfdff',
+        textShadow: '2px 2px #262626',
     },
     h2: {
         textAlign: 'center',

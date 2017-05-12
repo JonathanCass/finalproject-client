@@ -3,8 +3,9 @@ const styles ={
     width: 1300,
     display: 'flex',
     background: 'linear-gradient( to bottom right, #56CCF2 , #2F80ED )',
+    // background:'linear-gradient(to bottom right, rgb(86, 204, 242), rgba(0, 0, 0, 1))',
     paddingBottom: 100,
-    border:' 2px solid black',
+    
     borderRadius: 5,
     borderTop: 0
   },

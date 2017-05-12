@@ -5,7 +5,6 @@ const styles = {
     table: {
         width:1130,
         padding:'1em',
-        backgroundColor:'#D7DDE8',
         marginTop:'23em',
         position:'absolute',
         marginLeft: '-585px',
@@ -15,7 +14,7 @@ const styles = {
         textAlign:'center',
         padding:'5px',
         height: '50px',
-        backgroundColor:'#f7fffd',
+        backgroundColor:'rgba(0,0,0,0.2)',
         fontFamily:'Verdana',
         color:'#ffa500',
     },

@@ -13,7 +13,7 @@ import Header from './Header'
 const styles={
   container1300:{
     width: 1300,
-    margin: 'auto'
+    margin: 'auto',
   },
   width100:{
     width: '100%',

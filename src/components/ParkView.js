@@ -117,7 +117,7 @@ componentWillMount() {
                   if(park.basketball === 'yes'){
                     console.log(park.name, 'has basketball')
                   }
-                    {/*return <option key={park + park.id}>{park.type}</option>*/}
+                    return <option key={park + park.id}>{park.type}</option>
 
                })}            
              </select>
