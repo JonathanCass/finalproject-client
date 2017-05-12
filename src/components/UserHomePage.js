@@ -12,6 +12,7 @@ const styles={
     userHomeContainer:{
         width: 1300,  
         display: 'flex',
+        borderRadius:'5px',
         background: 'linear-gradient( to bottom right, #56CCF2 , #2F80ED )',
     },
     header:{
@@ -21,7 +22,8 @@ const styles={
         textAlign: 'center',
         height: 40,
         paddingTop: 10,
-        marginBottom: 20
+        marginBottom: 20,
+        fontFamily:'Verdana'
     },
     userMain:{
         width: 650,
@@ -52,12 +54,12 @@ const styles={
         textAlign: 'center',
         display: 'block',
         marginBottom: 10, 
+        fontFamily:'Verdana'
     },
     left:{
         width: 650,
         display: 'inline-block',
         paddingBottom: 100,
-        border:' 2px solid black',
         borderRadius: 5,
         borderTop: 0
     }

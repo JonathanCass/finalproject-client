@@ -64,19 +64,17 @@ handleButton = (e) => { // handle for quadrants/parks
   })
 }
 
-handleRadButton = (e) => { // handle for play
-  this.setState({
-     play:e.target.value
-  })
-}
-
 handleLevel = (e) => { // for Type of Play/Experience
   this.setState({
     level: e.target.value,
   })
 }
 
-
+handleRadButton = (e) => { // handle for play
+ this.setState({
+    play:e.target.value
+ })
+}
 
 componentWillMount() {
   getParks()
@@ -91,18 +89,19 @@ componentWillMount() {
 
           <h2 style={styles.h2}>Type Of Play</h2>
           <div style={styles.radioPlay}>
-            <input type='radio' onChange={this.handleRadButton} name='play' value="Competitive"/>
+
+            <input type='radio' onChange={this.handleRadButton} name='play' value="Competitive" style={styles.cursor}/>
             <label htmlFor="competitive" style={styles.radio}>Competitive</label>
-            <input type='radio'onChange={this.handleRadButton} name='play' value="Leisurely"/>
+            <input type='radio'onChange={this.handleRadButton} name='play' value="Leisurely" style={styles.cursor}/>
             <label htmlFor="leisurely" style={styles.radio}>Leisurely</label>
           <div className='line' style={styles.line}></div>
           </div>
           <div className='level'style={styles.level}>
-            <input type='checkbox' onChange={this.handleLevel} name='level' value="Beginner"/>
+            <input type='checkbox' onChange={this.handleLevel} name='level' value="Beginner" style={styles.cursor}/>
             <label htmlFor='beginner' style={styles.levelBoxes}>Beginner</label>
-            <input type='checkbox' onChange={this.handleLevel} name='level' value="Experienced"/>
+            <input type='checkbox' onChange={this.handleLevel} name='level' value="Experienced" style={styles.cursor}/>
             <label htmlFor='experienced' style={styles.levelBoxes}>Experienced</label>
-            <input type='checkbox'onChange={this.handleLevel} name='level' value="Advanced"/>
+            <input type='checkbox'onChange={this.handleLevel} name='level' value="Advanced" style={styles.cursor}/>
             <label htmlFor='advanced' style={styles.levelBoxes}>Advanced</label>
           </div>
          <div>
@@ -114,8 +113,7 @@ componentWillMount() {
             <label htmlFor='northeast' style={styles.radioLabel}>Northeast</label>
             <input type='radio' style={styles.radioQuad} id="southeastloc" name="quadrant" value="Southeast"/>
             <label htmlFor='southeast' style={styles.radioLabel}>Southeast</label>
-          
-           
+
            <div id='northwest'> 
              <select  onChange={this.handleButton} name="park" value={this.state.parkName} style={styles.parksBox}>
                <option>North West Parks</option>  
@@ -124,15 +122,14 @@ componentWillMount() {
                }).map(park =>{   
                     return <option key={park.id}>{park.name}</option>         
                })}
-
              </select>
-             
              <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
                <option>Activity Type</option>
                {this.props.activities.filter((activity, i)=>{
                    return activity.park_name === this.state.park
                }).map(activity =>{
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
+
                })}            
              </select>
              <MuiThemeProvider>
@@ -184,6 +181,7 @@ componentWillMount() {
                    return activity.park_name === this.state.park
                }).map(activity =>{
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
+
                })}            
              </select>
              <MuiThemeProvider>
@@ -235,6 +233,7 @@ componentWillMount() {
                    return activity.park_name === this.state.park
                }).map(activity =>{
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
+
                })}            
              </select>
              <MuiThemeProvider>
@@ -280,12 +279,14 @@ componentWillMount() {
                     return <option key={park + park.id}>{park.name}</option>
                 })} 
              </select>
-            <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+
+             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
                <option>Activity Type</option>
                {this.props.activities.filter((activity, i)=>{
                    return activity.park_name === this.state.park
                }).map(activity =>{
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
+
                })}            
              </select>
              <MuiThemeProvider>
