@@ -64,11 +64,18 @@ handleButton = (e) => { // handle for quadrants/parks
   })
 }
 
+handleRadButton = (e) => { // handle for play
+  this.setState({
+     play:e.target.value
+  })
+}
+
 handleLevel = (e) => { // for Type of Play/Experience
   this.setState({
     level: e.target.value,
   })
 }
+
 
 
 componentWillMount() {
@@ -84,9 +91,9 @@ componentWillMount() {
 
           <h2 style={styles.h2}>Type Of Play</h2>
           <div style={styles.radioPlay}>
-            <input type='radio' onClick={this.addParkName} onChange={this.handleButton} name='play' value="Competitive"/>
+            <input type='radio' onChange={this.handleRadButton} name='play' value="Competitive"/>
             <label htmlFor="competitive" style={styles.radio}>Competitive</label>
-            <input type='radio'onChange={this.handleButton} name='play' value="Leisurely"/>
+            <input type='radio'onChange={this.handleRadButton} name='play' value="Leisurely"/>
             <label htmlFor="leisurely" style={styles.radio}>Leisurely</label>
           <div className='line' style={styles.line}></div>
           </div>
@@ -125,9 +132,7 @@ componentWillMount() {
                {this.props.activities.filter((activity, i)=>{
                    return activity.park_name === this.state.park
                }).map(activity =>{
-          
-                    return <option key={activity.activity_id}>{activity.activity_name}</option>
-
+                    return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
                })}            
              </select>
              <MuiThemeProvider>
@@ -165,7 +170,7 @@ componentWillMount() {
            </div>
 
            <div id='southwest'>
-             <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}>     
+             <select onChange={this.handleButton} name="park" value={this.state.parkName} style={styles.parksBox}>     
                <option>South West Parks</option>
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'southwest'
@@ -174,12 +179,12 @@ componentWillMount() {
                 })} 
              </select>
              <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
-                <option value='type'>Activity Type</option>
-                {this.props.parks.filter((park, i)=>{
-                  return park.quadrant === 'southwest'
-                }).map(park => {
-                   return <option key={park + park.id}>{park.type}</option>
-                })}
+               <option>Activity Type</option>
+               {this.props.activities.filter((activity, i)=>{
+                   return activity.park_name === this.state.park
+               }).map(activity =>{
+                    return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
+               })}            
              </select>
              <MuiThemeProvider>
                 <DatePicker hintText="Choose Day" container="inline" mode="landscape" style={styles.calendar}/>
@@ -216,7 +221,7 @@ componentWillMount() {
            </div>
 
            <div id='southeast'>
-             <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}> 
+             <select onChange={this.handleButton} name="park" value={this.state.parkName} style={styles.parksBox}> 
                <option>South East Parks</option>    
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'southeast'
@@ -225,12 +230,12 @@ componentWillMount() {
                 })} 
              </select>
              <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
-                <option value='type'>Activity Type</option>
-                {this.props.parks.filter((park,i)=>{
-                  return park.quadrant === 'souteast'
-                }).map(park => {
-                    return <option key={park + park.id}>{park.type}</option>
-                })}
+               <option>Activity Type</option>
+               {this.props.activities.filter((activity, i)=>{
+                   return activity.park_name === this.state.park
+               }).map(activity =>{
+                    return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
+               })}            
              </select>
              <MuiThemeProvider>
                 <DatePicker hintText="Choose Day" container="inline" mode="landscape" style={styles.calendar}/>
@@ -267,7 +272,7 @@ componentWillMount() {
            </div>
 
            <div id='northeast'>
-             <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}> 
+             <select onChange={this.handleButton} name="park" value={this.state.parkName} style={styles.parksBox}> 
                 <option>North East Parks</option>    
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'northeast'
@@ -275,13 +280,13 @@ componentWillMount() {
                     return <option key={park + park.id}>{park.name}</option>
                 })} 
              </select>
-             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
-                <option value='type'>Activity Type</option>
-                {this.props.parks.filter((park, i)=>{
-                  return park.quadrant === 'northeast'
-                }).map(park => {
-                    return <option key={park + park.id}>{park.type}</option>
-                })}
+            <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+               <option>Activity Type</option>
+               {this.props.activities.filter((activity, i)=>{
+                   return activity.park_name === this.state.park
+               }).map(activity =>{
+                    return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
+               })}            
              </select>
              <MuiThemeProvider>
                 <DatePicker hintText="Choose Day" container="inline" mode="landscape" style={styles.calendar}/>

@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Table.styles'
 // import { getParks } from '../api/messaging'
 import {connect} from 'react-redux'
-import { getParks } from '../api/messaging'
+
 
 
 
@@ -18,16 +18,13 @@ class Table extends React.Component {
 //   }
 
 render() {
-    let parkName1 = this.props.activityArray[0] ? this.props.activityArray[0].park: ''
-    var parkName = parkName1.split(' ').join('+');
-    // let parkName = parkName1.replace(/\s/g, '%20')
 
     return(
         <div className='tableAreaContainer' style={styles.tableAreaContainer}>  
          {this.props.activityArray.filter(park=>{
               return park.park
          }).map(park=>{
-             return <div style={styles.map}>{<iframe width="600" height="450" 
+             return <div key={'park' + Math.random()} style={styles.map}>{<iframe width="600" height="450" 
             src={"https://www.google.com/maps/embed/v1/search?key=AIzaSyAc0yrVazEG4l-Hz05xlttBMVm-LgsXync&zoom=16&q=" + park.park} allowFullScreen></iframe>}</div>
          })}
            
