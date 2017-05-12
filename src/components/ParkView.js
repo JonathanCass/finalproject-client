@@ -9,7 +9,6 @@ import '../assets/home.css'
 import { connect } from 'react-redux'
 import { getParks } from '../api/messaging'
 import { getParkActivities } from '../api/messaging'
-import { addParkName } from '../api/messaging'
 
 
 
@@ -70,13 +69,6 @@ handleLevel = (e) => { // for Type of Play/Experience
     level: e.target.value,
   })
 }
-
-// addParkName = (e) => { 
-//   e.preventDefault()
-//   var parkName = this.state.park
-//   addParkName(parkName)
-// console.log(parkName, 'addpark')
-// }
 
 
 componentWillMount() {
@@ -321,7 +313,7 @@ componentWillMount() {
              <div className='notes'>
                 <textarea onChange={this.handleChange} name='notes' value={this.state.notes} style={styles.notes} placeholder="Additional Notes"></textarea>
              </div>
-             <button onClick={addParkName} onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
+             <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
              <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
            </div>
           </div>       
