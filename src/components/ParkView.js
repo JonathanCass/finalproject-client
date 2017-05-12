@@ -8,6 +8,9 @@ import Table from './ParkViewTable'
 import '../assets/home.css'
 import { connect } from 'react-redux'
 import { getParks } from '../api/messaging'
+import { getParkActivities } from '../api/messaging'
+import { addParkName } from '../api/messaging'
+
 
 
 class ParkView extends React.Component {
@@ -23,7 +26,9 @@ class ParkView extends React.Component {
         start:'',
         gear:'',
         park:'',
-        activityArray:[]
+        activityArray:[], 
+        parkMapArray:[]
+       
    }
 }
 createActivity = (e) => {
@@ -47,41 +52,47 @@ createActivity = (e) => {
   })
 }
 
+
 handleChange = (e) => {
   this.setState({
     [e.target.name]:e.target.value
   })    
+  
 }
 handleButton = (e) => { // handle for quadrants/parks
   this.setState({
-    [e.target.name]:e.target.value,
-    
+    park:e.target.value,
   })
 }
+
 handleLevel = (e) => { // for Type of Play/Experience
   this.setState({
     level: e.target.value,
   })
 }
 
-
+// addParkName = (e) => { 
+//   e.preventDefault()
+//   var parkName = this.state.park
+//   addParkName(parkName)
+// console.log(parkName, 'addpark')
+// }
 
 
 componentWillMount() {
   getParks()
+  getParkActivities()
 
 }
 
-
-
-
   render() {
-
+    //  console.log(this.props.activities)
     return (
-      <div style={styles.container}>     
+      <div style={styles.container}>  
+
           <h2 style={styles.h2}>Type Of Play</h2>
           <div style={styles.radioPlay}>
-            <input type='radio' onChange={this.handleButton} name='play' value="Competitive"/>
+            <input type='radio' onClick={this.addParkName} onChange={this.handleButton} name='play' value="Competitive"/>
             <label htmlFor="competitive" style={styles.radio}>Competitive</label>
             <input type='radio'onChange={this.handleButton} name='play' value="Leisurely"/>
             <label htmlFor="leisurely" style={styles.radio}>Leisurely</label>
@@ -107,7 +118,7 @@ componentWillMount() {
           
            
            <div id='northwest'> 
-             <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}>
+             <select  onChange={this.handleButton} name="park" value={this.state.parkName} style={styles.parksBox}>
                <option>North West Parks</option>  
                {this.props.parks.filter((park, i)=>{
                   return park.quadrant === 'northwest'
@@ -116,13 +127,14 @@ componentWillMount() {
                })}
 
              </select>
+             
              <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
                <option>Activity Type</option>
-               {this.props.parks.filter((park, i)=>{
-                   return park.quadrant === 'northwest'
-               }).map(park =>{
+               {this.props.activities.filter((activity, i)=>{
+                   return activity.park_name === this.state.park
+               }).map(activity =>{
           
-                    return <option key={park + park.id}>{park.type}</option>
+                    return <option key={activity.activity_id}>{activity.activity_name}</option>
 
                })}            
              </select>
@@ -309,17 +321,18 @@ componentWillMount() {
              <div className='notes'>
                 <textarea onChange={this.handleChange} name='notes' value={this.state.notes} style={styles.notes} placeholder="Additional Notes"></textarea>
              </div>
-             <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
+             <button onClick={addParkName} onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
              <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
            </div>
           </div>       
-          <Table activityArray={[...this.state.activityArray]}/>
+          <Table activityArray={[...this.state.activityArray] }/>
       </div> // end of container
+      
     )
   }
 }
 
 function mapStateToProps(appState) {
-  return { dbUsers: appState.dbUsers, currentUserID : appState.currentUserId, parks: appState.parks}
+  return { dbUsers: appState.dbUsers, currentUserID : appState.currentUserId, parks: appState.parks, activities:appState.activities}
 }
 export default connect(mapStateToProps)(ParkView)

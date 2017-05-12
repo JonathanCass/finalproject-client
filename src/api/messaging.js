@@ -67,6 +67,16 @@ export function getParkActivities() {
     })
 }
 
+export function getFriends() {
+    api.get('/friends').then(res=>{
+			console.log('friends', res.data)
+         store.dispatch({
+          type: 'GET_FRIENDS',
+         friends: res.data
+         })
+    })
+}
+
 
 
 // export function getUsers() {
@@ -88,6 +98,7 @@ export function getParkActivities() {
 
 // 	})
 // }
+
 export function addUser(userObj){
 	api.post('/users', userObj).then(res=>{
 		console.log('post new User', res.data)
@@ -109,6 +120,7 @@ export function addMatch(addUserID){
           addMatch: addUserID
      })
 }
+
 export function postAvailability(availabilityObj){
 	console.log("Object being sent", availabilityObj)
 	api.post('/availability', availabilityObj).then(res=>{
