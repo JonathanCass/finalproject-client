@@ -25,8 +25,8 @@ class ParkView extends React.Component {
         start:'',
         gear:'',
         park:'',
+        date:'',
         activityArray:[], 
-        parkMapArray:[]
        
    }
 }
@@ -42,6 +42,7 @@ createActivity = (e) => {
       start:this.state.start,
       gear:this.state.gear,
       park:this.state.park,
+      date:this.state.date
     
   }
   // add(createActivityObj)
@@ -70,6 +71,12 @@ handleLevel = (e) => { // for Type of Play/Experience
   })
 }
 
+handleDate = (e, date) =>{ //MUI Cal
+  this.setState({
+   [e.target.name]:e.target.value
+  })
+}
+
 handleRadButton = (e) => { // handle for play
  this.setState({
     play:e.target.value
@@ -84,6 +91,7 @@ componentWillMount() {
 
   render() {
     //  console.log(this.props.activities)
+    console.log(this.state.date)
     return (
       <div style={styles.container}>  
 
@@ -133,8 +141,10 @@ componentWillMount() {
                })}            
              </select>
              <MuiThemeProvider>
-                <DatePicker hintText="Choose Day" container="inline" mode="landscape" style={styles.calendar}/>
+                <DatePicker hintText="Choose Day" container="inline" mode="landscape" value={this.state.date} style={styles.calendar}/>
              </MuiThemeProvider>
+
+             
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>
               <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.start}>
@@ -290,7 +300,7 @@ componentWillMount() {
                })}            
              </select>
              <MuiThemeProvider>
-                <DatePicker hintText="Choose Day" container="inline" mode="landscape" style={styles.calendar}/>
+                <DatePicker hintText="Choose Day" container="inline" mode="landscape" name='date' style={styles.calendar}/>
              </MuiThemeProvider>
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>

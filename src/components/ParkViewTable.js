@@ -3,9 +3,6 @@ import styles from './Table.styles'
 // import { getParks } from '../api/messaging'
 import {connect} from 'react-redux'
 
-
-
-
 class Table extends React.Component {
     constructor() {
     super()
@@ -13,12 +10,11 @@ class Table extends React.Component {
     }
   }
 
-  componentWillMount(){
-    getParks()
-  }
+//   componentWillMount(){
+//     getParks()
+//   }
 
 render() {
-
     return(
         <div className='tableAreaContainer' style={styles.tableAreaContainer}>  
          {this.props.activityArray.filter(park=>{
@@ -30,6 +26,7 @@ render() {
            
             <div>
                 <table style={styles.table}>
+                   
                     <thead style={styles.tableHead}>
                         <tr>
                             <th>Play</th>
@@ -42,6 +39,7 @@ render() {
                             <th>Park</th>
                         </tr>
                     </thead>
+                    
                     {this.props.activityArray.map(event =>(
                         <tbody key={Math.random()}>
                         <tr>

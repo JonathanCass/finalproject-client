@@ -4,8 +4,8 @@ import axios from 'axios'
 //const socket = io.connect('http://localhost:3001')
 
 var api = axios.create({
-	baseURL: 'http://10.68.0.58:3001'
-	// baseURL:'http://localhost:3001'
+	// baseURL: 'http://10.68.0.58:3001'
+	baseURL:'http://localhost:3001'
 })
 
 
@@ -111,6 +111,13 @@ export function addFriend(friendObj){
 		console.log('add new Friend', res.data)
 	})
 }
+
+export function addLogin(loginObj){
+	api.post('/Login', loginObj).then(res=>{
+		console.log('login succsess', res.data)
+	})
+}
+
 //req.body.id    is a number the users id
 //req.body.friends  is the new string
 
@@ -120,6 +127,8 @@ export function addMatch(addUserID){
           addMatch: addUserID
      })
 }
+
+
 
 export function postAvailability(availabilityObj){
 	console.log("Object being sent", availabilityObj)
@@ -134,6 +143,8 @@ export function postCreateActivity(createActivityObj) {
 		console.log('New Activity was created', res.data)
 	})
 }
+
+
 
 // export function addMessage(message) {
 //     socket.emit('addMessage', message)
