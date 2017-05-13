@@ -121,7 +121,7 @@ class Header extends React.Component {
                     <div style={styles.imageBox} className="headerImage">
                         <div style={styles.loginBar}>      
                                 <button style={styles.login} onClick={this.handleClick}><Link style={styles.white} to={'/CreateUser/'}>Sign Up</Link></button>
-                                <button style={styles.login}> Login</button>  
+                                <button style={styles.login} onClick={this.handleClick}><Link to={'/Login/'}>Login</Link></button>  
                                 {/*Button above Needs to Link to a Login Page */}
                         </div>
                     </div>
