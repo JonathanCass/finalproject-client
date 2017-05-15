@@ -119,11 +119,5 @@ h3 {
 #northeastloc:not(:checked) ~  #northeast {  
   display: none;
 }
-#activities {
-  height:40px;
-  width:250px;  
-  position:absolute;
-  display:flex;
-  margin-top:10em;    
-}
+
 

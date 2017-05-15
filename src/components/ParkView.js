@@ -120,7 +120,7 @@ componentWillMount() {
                     return <option key={park.id}>{park.name}</option>         
                })}
              </select>
-             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+             <select  onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
                <option>Activity Type</option>
                {this.props.activities.filter((activity, i)=>{
                    return activity.park_name === this.state.park
@@ -172,7 +172,7 @@ componentWillMount() {
                     return <option key={park + park.id}>{park.name}</option>
                 })} 
              </select>
-             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+             <select onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
                <option>Activity Type</option>
                {this.props.activities.filter((activity, i)=>{
                    return activity.park_name === this.state.park
@@ -224,7 +224,7 @@ componentWillMount() {
                     return <option key={park + park.id}>{park.name}</option>
                 })} 
              </select>
-             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+             <select  onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
                <option>Activity Type</option>
                {this.props.activities.filter((activity, i)=>{
                    return activity.park_name === this.state.park
@@ -276,7 +276,7 @@ componentWillMount() {
                     return <option key={park + park.id}>{park.name}</option>
                 })} 
              </select>
-             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+             <select  onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
                <option>Activity Type</option>
                {this.props.activities.filter((activity, i)=>{
                    return activity.park_name === this.state.park

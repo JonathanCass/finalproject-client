@@ -7,7 +7,7 @@ const styles = {
         padding:'1em',
         marginTop:'50em',
         position:'absolute',
-        marginLeft: '-585px',
+        marginLeft: '-435px',
         marginBottom: '5em'
     },
     tableRow: {
