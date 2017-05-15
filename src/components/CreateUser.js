@@ -6,12 +6,12 @@ class User extends React.Component {
   constructor() {
     super()
     this.state = {
-      avatarUrl:'http://www.clker.com/cliparts/F/g/8/N/k/X/black-question-mark-square-icon-md.png',firstName:'',lastName:'',activities:'',bio:'',hobbies:'',interests:'Movies, Books, Games, Music',email:'',age:'',gender:'',privacy:'', address:'',password:''
+      avatarUrl:'http://www.clker.com/cliparts/F/g/8/N/k/X/black-question-mark-square-icon-md.png',firstName:'',lastName:'',activities:'',bio:'',hobbies:'',interests:'Movies, Books, Games, Music',email:'',age:'',gender:'',privacy:'', username:'',password:''
     }
   }
   createUser = (e) => {
   	e.preventDefault()
-      var profileObj= {
+      var userObj= {
         avatar: this.state.avatarUrl,
         fname: this.state.firstName,
         lname: this.state.lastName,
@@ -22,12 +22,13 @@ class User extends React.Component {
         email: this.state.email,
         age: this.state.age,
         gender: this.state.gender,
-        address: this.state.address,
+        username: this.state.username,
         privacy: this.state.privacy,
         password: this.state.password
       }
-      addUser(profileObj)
-      this.props.history.push('/UserProfile/')
+      // console.log(userObj)
+      addUser(userObj)
+      this.props.history.push('/UserProfile/1')
   }
   handleChange = (e) => {
     this.setState({
@@ -46,26 +47,26 @@ class User extends React.Component {
             <input type="text" name="lastName" placeholder="Last Name" onChange={this.handleChange} style={styles.lineInput2} value={this.state.lastName}></input>
             <input type="text" name="avatarUrl" placeholder="Avatar Url" onChange={this.handleChange} style={styles.lineInput2} value={this.state.avatarUrl}></input>
             <input type="email" name="email" placeholder="Email" onChange={this.handleChange} style={styles.lineInput2} value={this.state.email}></input>   
-            <input type="text" name="address" placeholder="Address" onChange={this.handleChange} style={styles.lineInput2} value={this.state.address}></input>
+            <input type="text" name="username" placeholder="Username" onChange={this.handleChange} style={styles.lineInput2} value={this.state.address}></input>
             <input type="password" name="password" placeholder="Password" onChange={this.handleChange} style={styles.lineInput2} value={this.state.password}></input>
            </div>
            
            <div style={styles.right}>
             <div style={styles.activities}>
               <textarea style={styles.activitiesTextArea} name="activities" onChange={this.handleChange} value={this.state.activities}></textarea>
-              <div style={styles.buttonBar}><span>User's Activities Info</span></div>
+              <div style={styles.buttonBar}><span style={styles.font}>User's Activities Info</span></div>
             </div>
             <div style={styles.infoBlock}>
               <textarea style={styles.textArea} name="bio" onChange={this.handleChange} value={this.state.bio}></textarea>
-              <div style={styles.buttonBar}><span>User's Bio</span></div>
+              <div style={styles.buttonBar}><span style={styles.font}>User's Bio</span></div>
             </div>
             <div style={styles.infoBlock}>
               <textarea style={styles.textArea} name="hobbies" onChange={this.handleChange} value={this.state.hobbies}></textarea>
-              <div style={styles.buttonBar}><span>Hobbies</span></div>
+              <div style={styles.buttonBar}><span style={styles.font}>Hobbies</span></div>
             </div>
             <div style={styles.infoBlock}>
               <textarea style={styles.textArea} name="interests" onChange={this.handleChange} value={this.state.interests}></textarea>
-              <div style={styles.buttonBar}><span>Interests</span></div>
+              <div style={styles.buttonBar}><span style={styles.font}>Interests</span></div>
             </div>
             <input type="text" name="age" placeholder="Age" onChange={this.handleChange} style={styles.ageInput} value={this.state.age}></input>
             <select name="gender" style={styles.gender} onChange={this.handleChange} value={this.state.gender}>

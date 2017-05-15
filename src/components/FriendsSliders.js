@@ -32,7 +32,8 @@ const styles={
         borderRadius: 5,
         background: "white",
         color: '#C81740',
-        fontSize: 24
+        fontSize: 24,
+        cursor:'pointer'
     },
     nextGrid:{
         border: 'solid 1px black',
@@ -42,7 +43,7 @@ const styles={
     },
     gridEntry:{
         height: 40,
-        width: 206,
+        width: 205,
         border: 'solid 1px black',
         borderWidth: '0 1px 1px 0',
         display: 'inline-block',

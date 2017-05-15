@@ -30,7 +30,8 @@ const styles={
         borderRadius: 5,
         background: "white",
         color: '#C81740',
-        fontSize: 24
+        fontSize: 24,
+        cursor:'pointer'
     },
     nextGrid:{
         border: 'solid 1px black',
@@ -40,7 +41,7 @@ const styles={
     },
     gridEntry:{
         height: 40,
-        width: 206,
+        width: 205,
         border: 'solid 1px black',
         borderWidth: '0 1px 1px 0',
         display: 'inline-block',
@@ -70,6 +71,9 @@ const styles={
     },
     time:{
       textTransform: 'uppercase'
+    },
+    span: {
+      fontFamily:'Verdana'
     }
 }
 class ActivitySlider extends React.Component {
@@ -107,7 +111,7 @@ class ActivitySlider extends React.Component {
         return (
           involvedArray.map((event, i) =>(
             <div style={ i === this.state.involvedIndex ? styles.nextBlock : styles.displayNone } key={event.id}>    
-                <div style={styles.nextLabel}><button onClick={this.handlePrevious} style={ this.state.involvedIndex === 0 ? styles.displayHidden : styles.arrowButton}><i className="fa fa-arrow-left" aria-hidden="true"></i></button><span>Your Scheduled Activities</span><button onClick={this.handleNext} style={ this.state.involvedIndex + 1 < involvedArray.length  ? styles.arrowButton : styles.displayHidden}><i className="fa fa-arrow-right" aria-hidden="true"></i></button></div>
+                <div style={styles.nextLabel}><button onClick={this.handlePrevious} style={ this.state.involvedIndex === 0 ? styles.displayHidden : styles.arrowButton}><i className="fa fa-arrow-left" aria-hidden="true"></i></button><span style={styles.span}>Your Scheduled Activities</span><button onClick={this.handleNext} style={ this.state.involvedIndex + 1 < involvedArray.length  ? styles.arrowButton : styles.displayHidden}><i className="fa fa-arrow-right" aria-hidden="true"></i></button></div>
                 <div style={styles.nextGrid}>
                     <div style={styles.gridEntry}>{event.date_month} {event.date_day}</div>
                     <div style={styles.gridEntry}>{this.props.parks[event.park_id].name}</div>

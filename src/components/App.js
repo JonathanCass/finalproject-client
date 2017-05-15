@@ -9,11 +9,14 @@ import ParkView from './ParkView'
 import Home from './Home'
 import UserHomePage from './UserHomePage'
 import Header from './Header'
+import Login from './Login'
+
+
 
 const styles={
   container1300:{
     width: 1300,
-    margin: 'auto'
+    margin: 'auto',
   },
   width100:{
     width: '100%',
@@ -32,7 +35,9 @@ class App extends Component {
                 <Route path='/CreateUser/' component={CreateUser} />      {/*Initial Profile Construction*/}
                 <Route path='/ParkView/' component={ParkView} />   {/*Create Event Listings here*/}
                 <Route path='/UserHomePage/' component={UserHomePage} /> 
+                 <Route path='/Login/' component={Login} /> 
           </div>
+           
           </div>
       </Router>
     )
@@ -41,7 +46,7 @@ class App extends Component {
 
 const mapStateToProps = function(appState) {
   return {
-    messages: appState.messages, currentUserID : appState.currentUserId
+    messages: appState.messages, currentUserID : appState.currentUserId, 
   }
 }
 

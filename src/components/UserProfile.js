@@ -3,6 +3,7 @@ import styles from './User.styles.js'
 import UserAvailability from './UserAvailability'
 import {connect} from 'react-redux'
 import {getUsers} from '../api/messaging'
+import {getFriends} from '../api/messaging'
 
 class User extends React.Component {
   constructor() {
@@ -25,11 +26,13 @@ class User extends React.Component {
 
   componentWillMount(){
   	getUsers()
+    getFriends()
+    
    
   }
   
   render() {
-      
+      console.log('this.props.friends')
     return (
       
       <div style={styles.UserContainer}>
@@ -81,7 +84,7 @@ class User extends React.Component {
 }
 
 function mapStateToProps(appState){
-	return { dbUsers: appState.dbUsers, currentUserID : appState.currentUserId}
+	return { dbUsers: appState.dbUsers, currentUserID : appState.currentUserId, friends: appState.friends}
 }
 
 export default connect(mapStateToProps)(User)
