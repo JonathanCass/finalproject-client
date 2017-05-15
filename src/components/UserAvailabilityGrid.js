@@ -74,16 +74,17 @@ class UserAvailabilityGrid extends React.Component {
   	getAvail()
   }
   renderGrid(){
+    //   console.log(' uaGrid this.props',this.props)
       console.log( ' this.props.availabilityArray ',this.props.availabilityArray )
     if(this.props.availabilityArray) {
         return (
             this.props.availabilityArray.map(entry=>(
             <div style={styles.grid} key={Math.random()}>
-                <div style={ this.props.currentUserID === entry.user_id ? styles.gridBox : styles.displayNone}>{entry.quadrant }</div>
-                <div style={ this.props.currentUserID === entry.user_id ? styles.gridBox : styles.displayNone}>{entry.day_of_week}</div>
-                <div style={ this.props.currentUserID === entry.user_id ? styles.gridBox : styles.displayNone}>{entry.from_num + ' ' + entry.from_suffix}</div>
-                <div style={ this.props.currentUserID === entry.user_id ? styles.gridBox : styles.displayNone}>{entry.to_num + ' ' + entry.to_suffix}</div>
-                <div style={ Number(this.props.currentUserID) === Number(entry.user_id) ? styles.removeEntry : styles.displayNone }><img alt="no error" style={styles.delete} src='http://www.freeiconspng.com/uploads/red-delete-button-png-5.png'/></div>
+                <div style={ Number(this.props.userid) === Number(entry.user_id) ? styles.gridBox : styles.displayNone}>{entry.quadrant }</div>
+                <div style={ Number(this.props.userid) === Number(entry.user_id) ? styles.gridBox : styles.displayNone}>{entry.day_of_week}</div>
+                <div style={ Number(this.props.userid) === Number(entry.user_id) ? styles.gridBox : styles.displayNone}>{entry.from_num + ' ' + entry.from_suffix}</div>
+                <div style={ Number(this.props.userid) === Number(entry.user_id) ? styles.gridBox : styles.displayNone}>{entry.to_num + ' ' + entry.to_suffix}</div>
+                <div style={ Number(this.props.userid) === Number(entry.user_id) && Number(this.props.userid) === Number(this.props.currentUserID) ? styles.removeEntry : styles.displayNone }><img alt={"no error"} style={styles.delete} src='http://www.freeiconspng.com/uploads/red-delete-button-png-5.png'/></div>
             </div>	
 		))
         )
