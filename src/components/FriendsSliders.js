@@ -5,6 +5,7 @@ import {getUsers} from '../api/messaging'
 import {getParks} from '../api/messaging'
 import {getActivityIds} from '../api/messaging'
 import {Link} from 'react-router-dom'
+import {getFriends} from '../api/messaging'
 
 const styles={
     nextBlock:{
@@ -106,6 +107,7 @@ class FriendsSliders extends React.Component {
     getEvents()
     getParks()
     getActivityIds()
+    getFriends()
   }
   handleNext = (e) => {
   		e.preventDefault() 
@@ -120,8 +122,18 @@ class FriendsSliders extends React.Component {
     })
   }
   renderActivity(){
+    
+    //console.log('Friends Slider this.props', this.props)
     if(this.props.events && this.props.users && this.props.parks && this.props.activityIds) {
       
+      var friendsArray = [0]
+        for( let i = 0; i < this.props.friends.length ; i++){
+          if( Number(this.props.friends[i].userid) === Number(this.props.currentUserID) ){
+          friendsArray = [...friendsArray, this.props.friends[i].friend ]
+        }
+      }
+      console.log('Friends Slider friends array', friendsArray)
+
       var involvedArray = this.props.events.filter(function(event){
             return( this.state.friendsTestArray.indexOf(event.user_id1) !== -1 || this.state.friendsTestArray.indexOf(event.user_id2) !== -1 )
         }.bind(this))
@@ -157,7 +169,7 @@ class FriendsSliders extends React.Component {
 }
 
 function mapStateToProps(appState){
-	return { activityIds: appState.activityIds.activities, parks: appState.parks, users: appState.dbUsers.users, currentUserID : appState.currentUserId, events : appState.events.event}
+	return { activityIds: appState.activityIds.activities, parks: appState.parks, users: appState.dbUsers.users, currentUserID : appState.currentUserId, friends: appState.friends.friends, events : appState.events.event}
 }
 
 export default connect(mapStateToProps)(FriendsSliders)

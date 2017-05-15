@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import {postAvailability} from '../api/messaging'
 import {getAvail} from '../api/messaging'
 import {addFriend} from '../api/messaging'
+import {getFriends} from '../api/messaging'
 
 class UserAvailability extends React.Component {
     constructor() {
@@ -38,20 +39,18 @@ class UserAvailability extends React.Component {
   }
   addFriends = (e) => {
     e.preventDefault()
-    //var newFriends = (this.props.dbUsers.users[Number(this.props.userid)].friends).split(" ")
-    //newFriends.push(this.props.userid)
-    //var newFriendsJoined = newFriends.join(" ")
-    var friendObj = {userid: 1, friend: this.props.userid }
-    console.log(friendObj)
-    addFriend(friendObj)
-
-    //console.log('this.props.dbUsers.users[Number(this.props.userid)].friends', this.props.dbUsers.users[Number(this.props.userid)].friends )
+   // if statement checking array for presence of friend        
+        var friendObj = {userid: 1, friend: this.props.userid }
+        console.log(friendObj)
+        addFriend(friendObj)
+    // afterwards grab friends array again so they can not spam the button  
   }
   componentWillMount(){
   	getAvail()
+    getFriends()
   }
   render() {
-    //console.log('user availability this.props', this.props)
+    // console.log('user availability this.props', this.props)
     return (
         <div style={styles.AvailabilityContainer}>
         <div style={ Number(this.props.userid) === Number(this.props.currentUserID) ? styles.displayNormal : styles.displayNone} >
@@ -140,7 +139,7 @@ class UserAvailability extends React.Component {
 }
 
 function mapStateToProps(appState){
-	return { currentUserID : appState.currentUserId, dbAvail : appState.dbAvail}
+	return { currentUserID : appState.currentUserId, dbAvail : appState.dbAvail , friends : appState.friends}
 }
 
 export default connect(mapStateToProps)(UserAvailability)

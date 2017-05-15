@@ -72,6 +72,12 @@ const styles = {
     },
     displayNone:{
         display: 'none'
+    },
+    delete:{
+        width:36,
+        height:36,
+        position: 'relative',
+        top: 9
     }
 }
 class UsersEvents extends React.Component {
@@ -94,7 +100,7 @@ class UsersEvents extends React.Component {
                 <div style={styles.gridBox}><span style={styles.time}> {event.time_start_hour} {event.time_start_suffix} <span style={styles.date}>{event.date_month} {event.date_day}</span></span></div>
                 <div style={styles.gridBox}>{this.props.activityIds[event.activity_id-1].name}</div>
                 <div style={styles.gridBox}><Link style={styles.link} to={'/UserProfile/' + event.user_id2} >{this.props.users[event.user_id2].fname} {this.props.users[event.user_id2].lname}</Link></div>     
-                <div style={styles.removeEntry}>-</div>
+                <div style={styles.removeEntry}><img style={styles.delete} alt="no error" src='http://www.freeiconspng.com/uploads/red-delete-button-png-5.png'/></div>
             </div>
 		))
         )

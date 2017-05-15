@@ -40,10 +40,10 @@ const styles = {
         border: 'solid 1px black',
         borderWidth: '0 1px 1px 0',
         display: 'inline-block',
-        background: '#1DA2CF',
+        background: 'transparent',
         color: 'white',
         textAlign: 'center',
-        fontSize: 30
+        fontSize: 30,
     },
     gridHeader:{
         height: 40,
@@ -57,6 +57,12 @@ const styles = {
     },
     displayNone:{
         display: 'none'
+    },
+    delete:{
+        width:36,
+        height:36,
+        position: 'relative',
+        top: 8
     }
   
 }
@@ -77,7 +83,7 @@ class UserAvailabilityGrid extends React.Component {
                 <div style={ this.props.currentUserID === entry.user_id ? styles.gridBox : styles.displayNone}>{entry.day_of_week}</div>
                 <div style={ this.props.currentUserID === entry.user_id ? styles.gridBox : styles.displayNone}>{entry.from_num + ' ' + entry.from_suffix}</div>
                 <div style={ this.props.currentUserID === entry.user_id ? styles.gridBox : styles.displayNone}>{entry.to_num + ' ' + entry.to_suffix}</div>
-                <div style={ this.props.currentUserID === entry.user_id ? styles.removeEntry : styles.displayNone }>-</div>
+                <div style={ this.props.currentUserID === entry.user_id ? styles.removeEntry : styles.displayNone }><img alt="no error" style={styles.delete} src='http://www.freeiconspng.com/uploads/red-delete-button-png-5.png'/></div>
             </div>	
 		))
         )

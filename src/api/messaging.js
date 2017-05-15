@@ -37,7 +37,15 @@ export function getParks() {
          })
     })
 }
-
+export function getFriends() {
+    api.get('/friends').then(res=>{
+        //console.log('friends get res.data ', res.data)
+         store.dispatch({
+          type: 'GET_FRIENDS',
+          friends: res.data
+         })
+    })
+}
 
 export function getEvents() {
     api.get('/event').then(res=>{
