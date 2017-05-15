@@ -142,10 +142,8 @@ componentWillMount() {
                })}            
              </select>
              <MuiThemeProvider>
-                <DatePicker hintText="Choose Day" container="inline" mode="landscape" value={this.state.date} style={styles.calendar}/>
+                <DatePicker hintText="Choose Day" container="inline" mode="landscape" style={styles.calendar}/>
              </MuiThemeProvider>
-
-             
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>
               <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.start}>
