@@ -50,7 +50,18 @@ class UserAvailability extends React.Component {
     getFriends()
   }
   render() {
-    // console.log('user availability this.props', this.props)
+     //console.log('user availability this.props', this.props)
+     if(this.props.friends){
+        var friendsCheck = false
+            for( let i = 0; i < this.props.friends.length ; i++){
+                // console.log('this.props.friends[i].userid', this.props.friends[i].userid, 'this.props.currentUserID', this.props.currentUserID, 'must equal' )
+                // console.log('this.props.friends[i].friend', this.props.friends[i].friend , 'this.props.userid', this.props.userid, 'must equal')
+            if( Number(this.props.friends[i].userid) === Number(this.props.currentUserID) && Number(this.props.friends[i].friend) === Number(this.props.userid) ){
+            friendsCheck = true
+            }
+        }
+     }
+    //console.log('user availability friends check', friendsCheck)
     return (
         <div style={styles.AvailabilityContainer}>
         <div style={ Number(this.props.userid) === Number(this.props.currentUserID) ? styles.displayNormal : styles.displayNone} >
@@ -131,7 +142,8 @@ class UserAvailability extends React.Component {
       <UserAvailabilityGrid availabilityArray={this.props.dbAvail.availability}/>
 
       <div style={ Number(this.props.userid) === Number(this.props.currentUserID) ? styles.displayNone : styles.displayNormal} >
-        <button style={styles.addFriend} name={this.props.userid} onClick={this.addFriends} > Add {this.props.dbUsers.users && this.props.dbUsers.users[Number(this.props.userid)].fname} To Friends </button>
+        <button style={ friendsCheck === false ? styles.addFriend : styles.displayNone} name={this.props.userid} onClick={this.addFriends} > Add {this.props.dbUsers.users && this.props.dbUsers.users[Number(this.props.userid)].fname} To Friends </button>
+        <button style={ friendsCheck === true ? styles.addFriend : styles.displayNone} > Remove {this.props.dbUsers.users && this.props.dbUsers.users[Number(this.props.userid)].fname} from Friends.</button>
       </div>
       </div>
     )
@@ -139,7 +151,7 @@ class UserAvailability extends React.Component {
 }
 
 function mapStateToProps(appState){
-	return { currentUserID : appState.currentUserId, dbAvail : appState.dbAvail , friends : appState.friends}
+	return { currentUserID : appState.currentUserId, dbAvail : appState.dbAvail , friends : appState.friends.friends}
 }
 
 export default connect(mapStateToProps)(UserAvailability)
