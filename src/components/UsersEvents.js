@@ -102,7 +102,7 @@ class UsersEvents extends React.Component {
         )
     }else {
         return (
-            <span> No currently created activities, Go to Park View and make some if desired. </span>
+            <span> No currently created activities. Go to Park View and make some if desired. </span>
         )
     }
   }

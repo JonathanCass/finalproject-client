@@ -1,6 +1,7 @@
 const styles = {
     container: {
         position:'absolute',
+        marginTop:'11.5%'
     },
     homeDiv: {
         width:'1300px',
@@ -9,7 +10,7 @@ const styles = {
         marginBottom:'2em',
         paddingTop:'15em',
         borderRadius:'5px',
-        backgroundColor:'rgb(252,193,1)'
+        backgroundColor:'rgb(0,185,136)'
         // backgroundColor:'rgb(47,209,173)'
     },
     homeLink: {
@@ -23,18 +24,18 @@ const styles = {
     },
      homeText: {
         position:'absolute',
-        marginLeft:'16em',
+        marginLeft:'21em',
         marginTop:'-5em',
         color:'white',
         fontFamily:'Verdana'
     },
     homeSubText: {
         marginTop:'-4em',
-        marginLeft:'18em',
+        marginLeft:'22em',
         fontFamily:'Tahoma',
         padding:'15px',
-        backgroundColor:'rgb(29,161,242)',
-        opacity:0.7
+        backgroundColor:'rgb(125,171,177)',
+        opacity:0.9
     },
     profileLink: {
         textDecoration:'none',

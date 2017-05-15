@@ -29,8 +29,8 @@ class App extends Component {
         <Router>
           <div style={styles.width100}>
           <div style={styles.container1300}>
+            <Route exact={true} path='/' component={NewHome}/>
           <Header cuserid={this.props.currentUserID} />  
-                <Route exact={true} path='/' component={NewHome}/>
                 <Route path='/Home/' component={Home} /> {/*Greeting Page with Logo and Login / Sign Up*/}
                 <Route path='/UserProfile/:userid' component={UserProfile} />        {/*Where Availability results are displayed, User info and availability settings are made here as well*/}
                 <Route path='/CreateUser/' component={CreateUser} />      {/*Initial Profile Construction*/}

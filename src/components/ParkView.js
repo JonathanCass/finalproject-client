@@ -23,6 +23,7 @@ class ParkView extends React.Component {
         // date:'',
         notes:'',
         start:'',
+        daynight:'',
         gear:'',
         park:'',
         activityArray:[], 
@@ -40,6 +41,7 @@ createActivity = (e) => {
       // date:this.state.date,
       notes:this.state.notes,
       start:this.state.start,
+      daynight:this.state.daynight,
       gear:this.state.gear,
       park:this.state.park,
     
@@ -47,7 +49,7 @@ createActivity = (e) => {
   // add(createActivityObj)
   this.setState({
     activityArray : [...this.state.activityArray, createActivityObj],
-    play:'', level:'', activities:'', notes:'', start:'', gear:'', park:''
+    play:'', level:'', activities:'', notes:'', start:'', daynight:'', gear:'', park:''
   })
 }
 
@@ -149,7 +151,7 @@ componentWillMount() {
                 <option value={11}>11</option>
                 <option value={12}>12</option>
               </select>
-              <select style={styles.daynight}>
+              <select onChange={this.handleChange} name='daynight' value={this.state.daynight} style={styles.daynight}>
                 <option value=''>AM/PM</option>
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>
@@ -201,7 +203,7 @@ componentWillMount() {
                 <option value={11}>11</option>
                 <option value={12}>12</option>
               </select>
-              <select style={styles.daynight}>
+              <select onChange={this.handleChange} name='daynight' value={this.state.daynight} style={styles.daynight}>
                 <option value=''>AM/PM</option>
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>
@@ -253,7 +255,7 @@ componentWillMount() {
                 <option value={11}>11</option>
                 <option value={12}>12</option>
               </select>
-              <select style={styles.daynight}>
+              <select onChange={this.handleChange} name='daynight' value={this.state.daynight} style={styles.daynight}>
                 <option value=''>AM/PM</option>
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>
@@ -305,7 +307,7 @@ componentWillMount() {
                 <option value={11}>11</option>
                 <option value={12}>12</option>
               </select>
-              <select style={styles.daynight}>
+              <select onChange={this.handleChange} name='daynight' value={this.state.daynight} style={styles.daynight}>
                 <option value=''>AM/PM</option>
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>

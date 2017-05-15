@@ -8,10 +8,6 @@ html {
 body {
 	margin: 0;
 	background-color:#333333;
-	/*background:linear-gradient(to bottom right, #E6DADA, #274046 );
-	background-size:cover;
-	background-repeat:no-repeat;*/
-	
 }
 /*.headerImage {
 	background-image: url("squishedHeader.jpeg");
