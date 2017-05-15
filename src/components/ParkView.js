@@ -125,7 +125,7 @@ componentWillMount() {
                {this.props.activities.filter((activity, i)=>{
                    return activity.park_name === this.state.park
                }).map(activity =>{
-                    return <option key={activity.activity_id}>{activity.activity_name}</option>
+                    return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
                })}            
              </select>
              <MuiThemeProvider>
@@ -160,6 +160,7 @@ componentWillMount() {
              </div>
              <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
              <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
+             <Table activityArray={[...this.state.activityArray] }/> 
            </div>
 
            <div id='southwest'>
@@ -176,7 +177,7 @@ componentWillMount() {
                {this.props.activities.filter((activity, i)=>{
                    return activity.park_name === this.state.park
                }).map(activity =>{
-                    return <option key={activity.activity_id}>{activity.activity_name}</option>
+                    return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
                })}            
              </select>
              <MuiThemeProvider>
@@ -211,6 +212,7 @@ componentWillMount() {
              </div>
              <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
              <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
+             <Table activityArray={[...this.state.activityArray] }/> 
            </div>
 
            <div id='southeast'>
@@ -227,7 +229,7 @@ componentWillMount() {
                {this.props.activities.filter((activity, i)=>{
                    return activity.park_name === this.state.park
                }).map(activity =>{
-                    return <option key={activity.activity_id}>{activity.activity_name}</option>
+                    return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
                })}            
              </select>
              <MuiThemeProvider>
@@ -262,6 +264,7 @@ componentWillMount() {
              </div>
              <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
              <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
+              <Table activityArray={[...this.state.activityArray] }/> 
            </div>
 
            <div id='northeast'>
@@ -278,7 +281,7 @@ componentWillMount() {
                {this.props.activities.filter((activity, i)=>{
                    return activity.park_name === this.state.park
                }).map(activity =>{
-                    return <option key={activity.activity_id}>{activity.activity_name}</option>
+                    return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
                })}            
              </select>
              <MuiThemeProvider>
@@ -313,9 +316,11 @@ componentWillMount() {
              </div>
              <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
              <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
+             <Table activityArray={[...this.state.activityArray] }/> 
            </div>
-          </div>       
-          <Table activityArray={[...this.state.activityArray] }/>
+            
+          </div>    
+           
       </div> // end of container
       
     )

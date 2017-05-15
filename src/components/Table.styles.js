@@ -1,11 +1,11 @@
 const styles = {
     tableAreaContainer: {
-        marginLeft: '585px',   
+        marginLeft: '180px',   
     },  
     table: {
         width:1130,
         padding:'1em',
-        marginTop:'23em',
+        marginTop:'50em',
         position:'absolute',
         marginLeft: '-585px',
         marginBottom: '5em'
@@ -23,9 +23,10 @@ const styles = {
     },
     map: {
         position:'absolute',
-        marginTop:-200,
-        marginLeft:'1em',
+        marginTop:350,
+        marginLeft:'-20em',
         height:350,
+        width:'100em'
     },
     here: {
         marginTop:-50,

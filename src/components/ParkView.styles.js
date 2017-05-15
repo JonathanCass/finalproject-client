@@ -1,10 +1,11 @@
 
 const styles = {
     container: {
-        height:'auto',
-        width:630,
-        color:'black',
         
+        width:630,
+        marginLeft:'20em',
+        padding:'1em',
+        color:'white',
     },
     h2: {
         textAlign: 'center',
@@ -21,7 +22,8 @@ const styles = {
         cursor:'pointer'
     },
     radioLabel: {
-        fontFamily:'Verdana'
+        fontFamily:'Verdana',
+        fontWeight:'bold'
     },  
     radioPlay: {
         textAlign:'center',
@@ -42,7 +44,8 @@ const styles = {
     },
     levelBoxes: {
         margin: 7,
-        fontFamily:'Verdana'
+        fontFamily:'Verdana',
+        fontWeight:'bold'
     },
     quads: {
         margin:'2em'

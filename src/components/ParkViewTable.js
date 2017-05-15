@@ -27,7 +27,7 @@ render() {
          {this.props.activityArray.filter(park=>{
               return park.park
          }).map(park=>{
-             return <div style={styles.map}>{<iframe width="600" height="450" 
+             return <div style={styles.map}>{<iframe width="900" height="450" 
             src={"https://www.google.com/maps/embed/v1/search?key=AIzaSyAc0yrVazEG4l-Hz05xlttBMVm-LgsXync&zoom=16&q=" + park.park} allowFullScreen></iframe>}</div>
          })}
            

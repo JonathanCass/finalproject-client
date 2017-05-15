@@ -22,8 +22,8 @@ const styles = { // avatar match styles
     width: 1300,
   },
   images: {
-    height:'600px',
-    width:'900px',
+    height:'800px',
+    width:'1300px',
     marginTop:'-16%'
   }
 }
@@ -62,7 +62,7 @@ componentWillMount() {
           </AutoCarousel>  
         </section>
       
-       <h1 className="happening">What's Happening In Your Area</h1>
+       <h1 className="happening">Your Matches</h1>
 
           <ul className="matches">     
             <li id="person" name='match'>

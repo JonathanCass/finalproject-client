@@ -1,10 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Lobster);
 
-#logo {
-    height:150px;
-    width:290px;
-    margin-left:3%;
-}
 #social {
     float:right;
     margin-right:7%;
@@ -49,22 +43,22 @@
     padding:5px;
 }
 .carouselContainer{
-    width:900px;
+    width:1300px;
     overflow:hidden;
-    margin-left:15%;
+    /*margin-left:15%;*/
     margin-top:3%;
     border-radius:15px;
 }
 img {  
-    width:900px;
+    width:1300px;
     height:auto;
     margin-top:-16%;
 }
 .happening {
-    margin-left:28%;
-    margin-top:5%;
-    font-family: 'Verdana';
-    color:white;
+        margin-left:40%;
+        margin-top:5%;
+        font-family:"Verdana";
+        color:white;
 }
 .matches {
     display:flex;
@@ -132,3 +126,4 @@ h3 {
   display:flex;
   margin-top:10em;    
 }
+
