@@ -26,8 +26,8 @@ class ParkView extends React.Component {
         daynight:'',
         gear:'',
         park:'',
+        date:'',
         activityArray:[], 
-        parkMapArray:[]
        
    }
 }
@@ -44,6 +44,7 @@ createActivity = (e) => {
       daynight:this.state.daynight,
       gear:this.state.gear,
       park:this.state.park,
+      date:this.state.date
     
   }
   // add(createActivityObj)
@@ -71,11 +72,19 @@ handleLevel = (e) => { // for Type of Play/Experience
     level: e.target.value,
   })
 }
+
+handleDate = (e, date) =>{ //MUI Cal
+  this.setState({
+   [e.target.name]:e.target.value
+  })
+}
+
 handleRadButton = (e) => { // handle for play
  this.setState({
     play:e.target.value
  })
 }
+
 componentWillMount() {
   getParks()
   getParkActivities()
@@ -84,11 +93,13 @@ componentWillMount() {
 
   render() {
     //  console.log(this.props.activities)
+    console.log(this.state.date)
     return (
       <div style={styles.container}>  
 
           <h2 style={styles.h2}>Type Of Play</h2>
           <div style={styles.radioPlay}>
+
             <input type='radio' onChange={this.handleRadButton} name='play' value="Competitive" style={styles.cursor}/>
             <label htmlFor="competitive" style={styles.radio}>Competitive</label>
             <input type='radio'onChange={this.handleRadButton} name='play' value="Leisurely" style={styles.cursor}/>
@@ -131,8 +142,10 @@ componentWillMount() {
                })}            
              </select>
              <MuiThemeProvider>
-                <DatePicker hintText="Choose Day" container="inline" mode="landscape" style={styles.calendar}/>
+                <DatePicker hintText="Choose Day" container="inline" mode="landscape" value={this.state.date} style={styles.calendar}/>
              </MuiThemeProvider>
+
+             
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>
               <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.start}>
@@ -166,7 +179,7 @@ componentWillMount() {
            </div>
 
            <div id='southwest'>
-             <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}>     
+             <select onChange={this.handleButton} name="park" value={this.state.parkName} style={styles.parksBox}>     
                <option>South West Parks</option>
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'southwest'
@@ -218,7 +231,7 @@ componentWillMount() {
            </div>
 
            <div id='southeast'>
-             <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}> 
+             <select onChange={this.handleButton} name="park" value={this.state.parkName} style={styles.parksBox}> 
                <option>South East Parks</option>    
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'southeast'
@@ -270,7 +283,7 @@ componentWillMount() {
            </div>
 
            <div id='northeast'>
-             <select onChange={this.handleButton} name="park" value={this.state.parks} style={styles.parksBox}> 
+             <select onChange={this.handleButton} name="park" value={this.state.parkName} style={styles.parksBox}> 
                 <option>North East Parks</option>    
                 {this.props.parks.filter((park, i)=>{
                    return park.quadrant === 'northeast'
@@ -278,6 +291,7 @@ componentWillMount() {
                     return <option key={park + park.id}>{park.name}</option>
                 })} 
              </select>
+
              <select  onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
                <option>Activity Type</option>
                {this.props.activities.filter((activity, i)=>{
@@ -287,7 +301,7 @@ componentWillMount() {
                })}            
              </select>
              <MuiThemeProvider>
-                <DatePicker hintText="Choose Day" container="inline" mode="landscape" style={styles.calendar}/>
+                <DatePicker hintText="Choose Day" container="inline" mode="landscape" name='date' style={styles.calendar}/>
              </MuiThemeProvider>
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>

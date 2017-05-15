@@ -10,6 +10,7 @@ import Home from './Home'
 import NewHome from './NewHome'
 import UserHomePage from './UserHomePage'
 import Header from './Header'
+import Login from './Login'
 
 
 
@@ -36,6 +37,7 @@ class App extends Component {
                 <Route path='/CreateUser/' component={CreateUser} />      {/*Initial Profile Construction*/}
                 <Route path='/ParkView/' component={ParkView} />   {/*Create Event Listings here*/}
                 <Route path='/UserHomePage/' component={UserHomePage} /> 
+                 <Route path='/Login/' component={Login} /> 
           </div>
            
           </div>
@@ -46,7 +48,7 @@ class App extends Component {
 
 const mapStateToProps = function(appState) {
   return {
-    messages: appState.messages, currentUserID : appState.currentUserId
+    messages: appState.messages, currentUserID : appState.currentUserId, 
   }
 }
 

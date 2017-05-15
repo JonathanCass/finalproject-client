@@ -5,7 +5,7 @@ import axios from 'axios'
 
 var api = axios.create({
 	baseURL: 'http://10.68.0.58:3001'
-	// baseURL:'http://localhost:3001'
+	//baseURL:'http://localhost:3001'
 })
 
 
@@ -37,8 +37,6 @@ export function getParks() {
          })
     })
 }
-
-
 export function getEvents() {
     api.get('/event').then(res=>{
          store.dispatch({
@@ -66,18 +64,15 @@ export function getParkActivities() {
          })
     })
 }
-
 export function getFriends() {
     api.get('/friends').then(res=>{
-			console.log('friends', res.data)
+        //console.log('friends get res.data ', res.data)
          store.dispatch({
           type: 'GET_FRIENDS',
-         friends: res.data
+          friends: res.data
          })
     })
 }
-
-
 
 // export function getUsers() {
 // 	console.log('getUSers in Api')
@@ -111,6 +106,13 @@ export function addFriend(friendObj){
 		console.log('add new Friend', res.data)
 	})
 }
+
+export function addLogin(loginObj){
+	api.post('/Login', loginObj).then(res=>{
+		console.log('login succsess', res.data)
+	})
+}
+
 //req.body.id    is a number the users id
 //req.body.friends  is the new string
 
@@ -120,6 +122,8 @@ export function addMatch(addUserID){
           addMatch: addUserID
      })
 }
+
+
 
 export function postAvailability(availabilityObj){
 	console.log("Object being sent", availabilityObj)
@@ -134,6 +138,8 @@ export function postCreateActivity(createActivityObj) {
 		console.log('New Activity was created', res.data)
 	})
 }
+
+
 
 // export function addMessage(message) {
 //     socket.emit('addMessage', message)
