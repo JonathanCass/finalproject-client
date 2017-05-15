@@ -4,8 +4,8 @@ import axios from 'axios'
 //const socket = io.connect('http://localhost:3001')
 
 var api = axios.create({
-	// baseURL: 'http://10.68.0.58:3001'
-	baseURL:'http://localhost:3001'
+	baseURL: 'http://10.68.0.58:3001'
+	//baseURL:'http://localhost:3001'
 })
 
 
@@ -37,8 +37,6 @@ export function getParks() {
          })
     })
 }
-
-
 export function getEvents() {
     api.get('/event').then(res=>{
          store.dispatch({
@@ -66,18 +64,15 @@ export function getParkActivities() {
          })
     })
 }
-
 export function getFriends() {
     api.get('/friends').then(res=>{
-			console.log('friends', res.data)
+        //console.log('friends get res.data ', res.data)
          store.dispatch({
           type: 'GET_FRIENDS',
-         friends: res.data
+          friends: res.data
          })
     })
 }
-
-
 
 // export function getUsers() {
 // 	console.log('getUSers in Api')

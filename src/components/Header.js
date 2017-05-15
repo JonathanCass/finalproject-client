@@ -19,7 +19,8 @@ const styles ={
        
     },
     loginBar:{
-        float: 'right'
+        float: 'right',
+        marginRight: 20
     },
     bottomBar:{
         display: 'flex',
@@ -90,6 +91,20 @@ const styles ={
     white:{
         color: 'white',
         textDecoration: 'none'
+    },
+    inputLogin:{
+        marginTop: 10,
+    },
+    displayNone:{
+        display: 'none'
+    },
+    input: {
+        height: 30,
+        width: 120,
+        fontSize: 14,
+        marginLeft: 10,
+        borderRadius: 5,
+        textIndent: 5
     }
 }
 
@@ -97,7 +112,7 @@ class Header extends React.Component {
     constructor() {
         super()
         this.state = {
-            login: ''
+            login: '',loginShow: 0
         }
     }
 
@@ -107,12 +122,17 @@ class Header extends React.Component {
     handleClick = (e) => {
         e.preventDefault()
     }
-        handleChange = (e) => {
-        this.setState =({
-            [e.target.name]:e.target.value 
+    showLogin = (e) => {
+        e.preventDefault()
+        this.setState({
+            loginShow: 1 
         })
     }
-
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
     render() {
         return (
             <div style={styles.header}>
@@ -123,6 +143,9 @@ class Header extends React.Component {
                                 <button style={styles.login} onClick={this.handleClick}><Link style={styles.white} to={'/CreateUser/'}>Sign Up</Link></button>
                                 <button style={styles.login} onClick={this.handleClick}><Link to={'/Login/'}>Login</Link></button>  
                                 {/*Button above Needs to Link to a Login Page */}
+                                <div style={this.state.loginShow === 1 ? styles.inputLogin : styles.displayNone}>
+                                    <input style={styles.input} type='text' name='login' placeholder='Username' /><input style={styles.input} type='password' name='password' placeholder='Password'/>
+                                </div>
                         </div>
                     </div>
                 </div>
