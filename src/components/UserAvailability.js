@@ -78,7 +78,7 @@ class UserAvailability extends React.Component {
                 <option value="surrounding">Surrounding Area</option>
             </select>
             <select name="day" style={styles.select} onChange={this.handleChange} value={this.state.day}>
-                <option value="">Select day of week</option>
+                <option value="">Select Day of Week</option>
                 <option value="Monday">Monday</option>
                 <option value="Tuesday">Tuesday</option>
                 <option value="Wednesday">Wednesday</option>

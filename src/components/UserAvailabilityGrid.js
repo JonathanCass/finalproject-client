@@ -18,7 +18,7 @@ const styles = {
     },
     grid:{
         width:630,
-        border: 'solid 1px black',
+        border: 'solid 1px transparent',
         borderWidth: '1px 0 0 1px',
         display: 'flex',
         marginTop: -1
@@ -37,8 +37,6 @@ const styles = {
     removeEntry:{
         width: 40,
         height: 40,
-        border: 'solid 1px black',
-        borderWidth: '0 1px 1px 0',
         display: 'inline-block',
         background: 'transparent',
         color: 'white',
@@ -76,6 +74,7 @@ class UserAvailabilityGrid extends React.Component {
   	getAvail()
   }
   renderGrid(){
+      console.log( ' this.props.availabilityArray ',this.props.availabilityArray )
     if(this.props.availabilityArray) {
         return (
             this.props.availabilityArray.map(entry=>(
@@ -84,13 +83,13 @@ class UserAvailabilityGrid extends React.Component {
                 <div style={ this.props.currentUserID === entry.user_id ? styles.gridBox : styles.displayNone}>{entry.day_of_week}</div>
                 <div style={ this.props.currentUserID === entry.user_id ? styles.gridBox : styles.displayNone}>{entry.from_num + ' ' + entry.from_suffix}</div>
                 <div style={ this.props.currentUserID === entry.user_id ? styles.gridBox : styles.displayNone}>{entry.to_num + ' ' + entry.to_suffix}</div>
-                <div style={ this.props.currentUserID === entry.user_id ? styles.removeEntry : styles.displayNone }><img alt="no error" style={styles.delete} src='http://www.freeiconspng.com/uploads/red-delete-button-png-5.png'/></div>
+                <div style={ Number(this.props.currentUserID) === Number(entry.user_id) ? styles.removeEntry : styles.displayNone }><img alt="no error" style={styles.delete} src='http://www.freeiconspng.com/uploads/red-delete-button-png-5.png'/></div>
             </div>	
 		))
         )
     }else {
         return (
-            <span> No Availabilities active for this user at this time. </span>
+            <span> Loading Props. </span>
         )
     }
   }
