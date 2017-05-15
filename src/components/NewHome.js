@@ -22,14 +22,17 @@ render() {
                     <h3 style={styles.homeSubText}>Stay updated with users that match your criteria and go!</h3>
                     <Link to={'/Home'} style={styles.homeLink}><i className="fa fa-home" aria-hidden="true" style={styles.fontAwesome}></i>Home</Link>
                 </div>
-                <div style={styles.createDiv}>
+                {/*<div style={styles.createDiv}>
                     <h2 style={styles.createText}>Sign up, personalize your account, and get matched</h2>
                     <Link to={'/CreateUser'} style={styles.createLink}><i className="fa fa-user-plus" aria-hidden="true" style={styles.fontAwesome}></i>Create User</Link>
-                </div>
+                </div>*/}
                 <div style={styles.profileDiv}>
                     <img alt='matched' src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar} style={styles.profileAvatar}/>
                     <Link to={'/UserProfile/' + this.props.cuserid} style={styles.profileLink}><i className="fa fa-user" aria-hidden="true" style={styles.fontAwesome}></i>User Profile</Link>
-                    <Link to={'UserHomePage/'} style={styles.userLink}>User Home Page</Link>
+                    <h3 style={styles.profileText}>Personalize your account and find a match</h3>
+                    <div style={styles.profileSubDiv}>
+                        <Link to={'UserHomePage/'} style={styles.userLink}>User Page</Link>
+                    </div>
                 </div>
                 <div style={styles.parkDiv}>
                     <h2 style={styles.parkText}>Create an activity for others to join</h2>

@@ -128,7 +128,6 @@ class Header extends React.Component {
                 </div>
                 <div style={styles.bottomBar}>
                     <Link style={styles.link} to={'/Home'}>Home</Link>
-                    <Link style={styles.link} to={'/CreateUser/'} >Create User</Link>
                     <Link style={styles.link} to={'/UserProfile/' + this.props.cuserid} >User Profile</Link>  
                     <Link style={styles.link} to={'/UserHomePage/'} >UserHomePage</Link>
                     <Link style={styles.link} to={'/ParkView/'} >Park View</Link>
