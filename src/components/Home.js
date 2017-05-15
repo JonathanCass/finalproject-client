@@ -2,9 +2,8 @@ import React from 'react'
 import '../assets/home.css'
 import AutoCarousel from './Carousel'
 import 'font-awesome/css/font-awesome.css'
-import {getUsers} from '../api/messaging'
-// import {getEvents} from '../api/messaging'
 import { Link } from 'react-router-dom'
+import {getUsers} from '../api/messaging'
 import {connect} from 'react-redux'
 
 const styles = { // avatar match styles
@@ -50,7 +49,6 @@ handleChange = (e) => {
 }
 componentWillMount() {
   getUsers()
-  // getEvents()
 }
   render() {
     return (
@@ -68,14 +66,14 @@ componentWillMount() {
        <h1 className="happening">Your Matches</h1>
 
           <ul className="matches">     
-            <Link to={'/UserProfile/'}><li id="person" name='match'>
-              <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[20].avatar}/>
-                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[20].fname}</p>
-                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[20].lname}</p>
-                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[20].interests}</p>
+            <Link to={'/UserProfile/ + user.id'}><li id="person" name='match'>
+              <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar}/>
+                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].fname}</p>
+                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].lname}</p>
+                <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].interests}</p>
             </li></Link>
 
-            <Link to={'UserProfile/'}><li id="person" name='match'>
+            <Link to={'/UserProfile/'}><li id="person" name='match'>
               <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[4].avatar}/>
                 <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[4].fname}</p>
                 <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[4].lname}</p>

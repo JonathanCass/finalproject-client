@@ -44,7 +44,7 @@ render() {
                         <tbody key={Math.random()}>
                         <tr>
                             <td style={styles.tableRow}>{event.play}</td>
-                            <td style={styles.tableRow}>{event.date}</td>
+                            <td style={styles.tableRow}>{event.controlledDate}</td>
                             <td style={styles.tableRow}>{event.start} {event.daynight}</td>
                             <td style={styles.tableRow}>{event.activities}</td>
                             <td style={styles.tableRow}>{event.level}</td>

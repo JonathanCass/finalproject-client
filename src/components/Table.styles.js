@@ -5,7 +5,7 @@ const styles = {
     table: {
         width:1130,
         padding:'1em',
-        marginTop:'50em',
+        marginTop:'55em',
         position:'absolute',
         marginLeft: '-435px',
         marginBottom: '5em'
@@ -23,7 +23,7 @@ const styles = {
     },
     map: {
         position:'absolute',
-        marginTop:350,
+        marginTop:415,
         marginLeft:'-20em',
         height:350,
         width:'100em'

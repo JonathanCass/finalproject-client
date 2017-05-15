@@ -1,8 +1,6 @@
 
 import React from 'react'
 import styles from './ParkView.styles'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import DatePicker from 'material-ui/DatePicker'
 import Table from './ParkViewTable'
 // import {postCreateActivity} from '../api/messaging'
 import '../assets/home.css'
@@ -13,22 +11,20 @@ import { getParkActivities } from '../api/messaging'
 
 
 class ParkView extends React.Component {
-  constructor() {
-   super()
+  constructor(props) {
+   super(props)
    this.state = {
         id:'',
         play:'',
         level:'',
         activities:'',
-        // date:'',
+        controlledDate:'',
         notes:'',
         start:'',
         daynight:'',
         gear:'',
         park:'',
-        date:'',
-        activityArray:[], 
-       
+        activityArray:[]   
    }
 }
 createActivity = (e) => {
@@ -38,19 +34,17 @@ createActivity = (e) => {
       play:this.state.play,
       level:this.state.level,
       activities:this.state.activities,
-      // date:this.state.date,
+      controlledDate:this.state.controlledDate,
       notes:this.state.notes,
       start:this.state.start,
       daynight:this.state.daynight,
       gear:this.state.gear,
       park:this.state.park,
-      date:this.state.date
-    
   }
   // add(createActivityObj)
   this.setState({
     activityArray : [...this.state.activityArray, createActivityObj],
-    play:'', level:'', activities:'', notes:'', start:'', daynight:'', gear:'', park:''
+    play:'', level:'', activities:'', controlledDate:'', notes:'', start:'', daynight:'', gear:'', park:''
   })
 }
 
@@ -73,18 +67,16 @@ handleLevel = (e) => { // for Type of Play/Experience
   })
 }
 
-handleDate = (e, date) =>{ //MUI Cal
-  this.setState({
-   [e.target.name]:e.target.value
-  })
-}
-
+handleChange = (e) => {
+    this.setState({
+      controlledDate: e.target.value,
+    })
+  }
 handleRadButton = (e) => { // handle for play
  this.setState({
     play:e.target.value
  })
 }
-
 componentWillMount() {
   getParks()
   getParkActivities()
@@ -93,7 +85,7 @@ componentWillMount() {
 
   render() {
     //  console.log(this.props.activities)
-    console.log(this.state.date)
+    console.log('date here', this.props.controlledDate)
     return (
       <div style={styles.container}>  
 
@@ -141,9 +133,7 @@ componentWillMount() {
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
                })}            
              </select>
-             <MuiThemeProvider>
-                <DatePicker hintText="Choose Day" container="inline" mode="landscape" style={styles.calendar}/>
-             </MuiThemeProvider>
+             <inpyt type="date" onChange={this.handleChange} name="controlledDate" value={this.state.controlledDate} style={styles.calendar}/>
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>
               <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.start}>
@@ -193,9 +183,7 @@ componentWillMount() {
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
                })}            
              </select>
-             <MuiThemeProvider>
-                <DatePicker hintText="Choose Day" container="inline" mode="landscape" style={styles.calendar}/>
-             </MuiThemeProvider>
+             <input type="date" onChange={this.handleChange} name="controlledDate" value={this.state.controlledDate} style={styles.calendar}/>
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>
               <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.start}>
@@ -245,9 +233,7 @@ componentWillMount() {
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
                })}            
              </select>
-             <MuiThemeProvider>
-                <DatePicker hintText="Choose Day" container="inline" mode="landscape" style={styles.calendar}/>
-             </MuiThemeProvider>
+             <input type="date" onChange={this.handleChange} name="controlledDate" value={this.state.controlledDate} style={styles.calendar}/>
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>
               <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.start}>
@@ -298,9 +284,7 @@ componentWillMount() {
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
                })}            
              </select>
-             <MuiThemeProvider>
-                <DatePicker hintText="Choose Day" container="inline" mode="landscape" name='date' style={styles.calendar}/>
-             </MuiThemeProvider>
+             <input type="date" onChange={this.handleChange} name="controlledDate" value={this.state.controlledDate} style={styles.calendar}/>
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>
               <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.start}>

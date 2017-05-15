@@ -55,15 +55,15 @@ const styles = {
         width:250
     },
     parksBox: {
-        height:40,
-        width:250,
+        height:50,
+        width:300,
         marginTop:'3em',
         marginLeft:'-12em',
         position:'absolute'
     },
     activities: {
-        height:40,
-        width:250,
+        height:50,
+        width:300,
         position:'absolute',
         marginTop:'10em',
         marginLeft:'-12em'
@@ -72,13 +72,12 @@ const styles = {
         position:'absolute',
         marginTop:170,
         marginLeft:'-8.5em',
-        textAlign:'center',
-        fontWeight:'bold'
+        
     },
     gear: {
         marginLeft:'42em',
         marginTop:'2.9em',
-        height:120,
+        height:140,
         width:285,
         position:'absolute'
     },
@@ -88,32 +87,32 @@ const styles = {
         position:'absolute'
     }, 
     start: {
-        width:190,
-        height:40
+        width:200,
+        height:50
     },
     daynight: {
         width:60,
-        height:40
+        height:50
     },
     notes: {
         position:'absolute',
         width:285,
-        height:120,
-        marginTop:'15em',
+        height:140,
+        marginTop:'17em',
         marginLeft:'42em',
-        flexWrap:'wrap',
+        flexWrap:'wrap'
     },
     create: {
         height:40,
         width:100,
-        marginTop:'27em',
+        marginTop:'32em',
         marginLeft:'43.5em',
         cursor:'pointer',
         position:'absolute'
     },
      or: {
-        marginTop:'23.5em',
-        marginLeft: '45.5em',
+        marginTop:'27.5em',
+        marginLeft: '45.6em',
         textDecoration:'underline',
         position:'absolute'
     },
@@ -121,7 +120,7 @@ const styles = {
         height:40,
         width:100,
         position:'absolute',
-        marginTop:'27em',
+        marginTop:'32em',
         marginLeft:'59em',
         cursor:'pointer'
     },
