@@ -7,6 +7,7 @@ import UserProfile from './UserProfile'
 import CreateUser from './CreateUser'
 import ParkView from './ParkView'
 import Home from './Home'
+import NewHome from './NewHome'
 import UserHomePage from './UserHomePage'
 import Header from './Header'
 import Login from './Login'
@@ -29,8 +30,9 @@ class App extends Component {
         <Router>
           <div style={styles.width100}>
           <div style={styles.container1300}>
-          <Header cuserid={this.props.currentUserID} />    
-                <Route exact={true} path='/' component={Home} /> {/*Greeting Page with Logo and Login / Sign Up*/}
+            <Route exact={true} path='/' component={NewHome}/>
+          <Header cuserid={this.props.currentUserID} />  
+                <Route path='/Home/' component={Home} /> {/*Greeting Page with Logo and Login / Sign Up*/}
                 <Route path='/UserProfile/:userid' component={UserProfile} />        {/*Where Availability results are displayed, User info and availability settings are made here as well*/}
                 <Route path='/CreateUser/' component={CreateUser} />      {/*Initial Profile Construction*/}
                 <Route path='/ParkView/' component={ParkView} />   {/*Create Event Listings here*/}

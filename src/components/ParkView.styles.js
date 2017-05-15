@@ -1,10 +1,11 @@
 
 const styles = {
     container: {
-        height:'auto',
-        width:630,
-        color:'black',
         
+        width:630,
+        marginLeft:'20em',
+        padding:'1em',
+        color:'white',
     },
     h2: {
         textAlign: 'center',
@@ -21,7 +22,8 @@ const styles = {
         cursor:'pointer'
     },
     radioLabel: {
-        fontFamily:'Verdana'
+        fontFamily:'Verdana',
+        fontWeight:'bold'
     },  
     radioPlay: {
         textAlign:'center',
@@ -42,7 +44,8 @@ const styles = {
     },
     levelBoxes: {
         margin: 7,
-        fontFamily:'Verdana'
+        fontFamily:'Verdana',
+        fontWeight:'bold'
     },
     quads: {
         margin:'2em'
@@ -55,24 +58,33 @@ const styles = {
         height:40,
         width:250,
         marginTop:'3em',
+        marginLeft:'-12em',
         position:'absolute'
     },
-
+    activities: {
+        height:40,
+        width:250,
+        position:'absolute',
+        marginTop:'10em',
+        marginLeft:'-12em'
+    },
     calendar: {
         position:'absolute',
         marginTop:170,
+        marginLeft:'-8.5em',
         textAlign:'center',
         fontWeight:'bold'
     },
     gear: {
-        marginLeft:312,
+        marginLeft:'42em',
         marginTop:'2.9em',
         height:120,
-        width:250,
+        width:285,
         position:'absolute'
     },
     startTime: {
         marginTop: 245,
+        marginLeft:'-8.5em',
         position:'absolute'
     }, 
     start: {
@@ -85,23 +97,23 @@ const styles = {
     },
     notes: {
         position:'absolute',
-        width:250,
+        width:285,
         height:120,
         marginTop:'15em',
-        marginLeft:312,
+        marginLeft:'42em',
         flexWrap:'wrap',
     },
     create: {
         height:40,
         width:100,
         marginTop:'27em',
-        marginLeft:'28.5em',
+        marginLeft:'43.5em',
         cursor:'pointer',
         position:'absolute'
     },
      or: {
         marginTop:'23.5em',
-        marginLeft: '32.3em',
+        marginLeft: '45.5em',
         textDecoration:'underline',
         position:'absolute'
     },
@@ -110,7 +122,7 @@ const styles = {
         width:100,
         position:'absolute',
         marginTop:'27em',
-        marginLeft:'42em',
+        marginLeft:'59em',
         cursor:'pointer'
     },
 }

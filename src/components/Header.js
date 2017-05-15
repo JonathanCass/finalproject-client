@@ -26,7 +26,7 @@ const styles ={
         display: 'flex',
         height: 50,
         justifyContent: 'space-between',  
-        // marginLeft:'10em'
+        marginLeft:'-2em'
     },
     social:{
         height: 50,
@@ -85,11 +85,11 @@ const styles ={
         borderRadius: 5,
         background:'transparent',
         // background: '#E50914',
-        color: 'white',
+        color:'rgb(222,0,222)',
         fontSize: 20
     },
     white:{
-        color: 'white',
+        color: 'rgb(222,0,222)',
         textDecoration: 'none'
     },
     inputLogin:{
@@ -136,7 +136,7 @@ class Header extends React.Component {
     render() {
         return (
             <div style={styles.header}>
-                <div style={styles.logo} className="logoPic"></div>
+                <Link style={styles.logo} to={'/'}  className="logoPic"></Link>
                 <div style={styles.topBar}>
                     <div style={styles.imageBox} className="headerImage">
                         <div style={styles.loginBar}>      
@@ -150,8 +150,7 @@ class Header extends React.Component {
                     </div>
                 </div>
                 <div style={styles.bottomBar}>
-                    <Link style={styles.link} to={'/'} >Home</Link>
-                    <Link style={styles.link} to={'/CreateUser/'} >Create User</Link>
+                    <Link style={styles.link} to={'/Home'}>Home</Link>
                     <Link style={styles.link} to={'/UserProfile/' + this.props.cuserid} >User Profile</Link>  
                     <Link style={styles.link} to={'/UserHomePage/'} >UserHomePage</Link>
                     <Link style={styles.link} to={'/ParkView/'} >Park View</Link>

@@ -45,7 +45,7 @@ render() {
                         <tr>
                             <td style={styles.tableRow}>{event.play}</td>
                             <td style={styles.tableRow}>{event.date}</td>
-                            <td style={styles.tableRow}>{event.start}</td>
+                            <td style={styles.tableRow}>{event.start} {event.daynight}</td>
                             <td style={styles.tableRow}>{event.activities}</td>
                             <td style={styles.tableRow}>{event.level}</td>
                             <td style={styles.tableRow}>{event.notes}</td>

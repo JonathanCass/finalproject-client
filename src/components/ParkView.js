@@ -23,6 +23,7 @@ class ParkView extends React.Component {
         // date:'',
         notes:'',
         start:'',
+        daynight:'',
         gear:'',
         park:'',
         date:'',
@@ -40,6 +41,7 @@ createActivity = (e) => {
       // date:this.state.date,
       notes:this.state.notes,
       start:this.state.start,
+      daynight:this.state.daynight,
       gear:this.state.gear,
       park:this.state.park,
       date:this.state.date
@@ -48,7 +50,7 @@ createActivity = (e) => {
   // add(createActivityObj)
   this.setState({
     activityArray : [...this.state.activityArray, createActivityObj],
-    play:'', level:'', activities:'', notes:'', start:'', gear:'', park:''
+    play:'', level:'', activities:'', notes:'', start:'', daynight:'', gear:'', park:''
   })
 }
 
@@ -131,13 +133,12 @@ componentWillMount() {
                     return <option key={park.id}>{park.name}</option>         
                })}
              </select>
-             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+             <select  onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
                <option>Activity Type</option>
                {this.props.activities.filter((activity, i)=>{
                    return activity.park_name === this.state.park
                }).map(activity =>{
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
-
                })}            
              </select>
              <MuiThemeProvider>
@@ -163,7 +164,7 @@ componentWillMount() {
                 <option value={11}>11</option>
                 <option value={12}>12</option>
               </select>
-              <select style={styles.daynight}>
+              <select onChange={this.handleChange} name='daynight' value={this.state.daynight} style={styles.daynight}>
                 <option value=''>AM/PM</option>
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>
@@ -174,6 +175,7 @@ componentWillMount() {
              </div>
              <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
              <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
+             <Table activityArray={[...this.state.activityArray] }/> 
            </div>
 
            <div id='southwest'>
@@ -185,13 +187,12 @@ componentWillMount() {
                     return <option key={park + park.id}>{park.name}</option>
                 })} 
              </select>
-             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+             <select onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
                <option>Activity Type</option>
                {this.props.activities.filter((activity, i)=>{
                    return activity.park_name === this.state.park
                }).map(activity =>{
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
-
                })}            
              </select>
              <MuiThemeProvider>
@@ -215,7 +216,7 @@ componentWillMount() {
                 <option value={11}>11</option>
                 <option value={12}>12</option>
               </select>
-              <select style={styles.daynight}>
+              <select onChange={this.handleChange} name='daynight' value={this.state.daynight} style={styles.daynight}>
                 <option value=''>AM/PM</option>
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>
@@ -226,6 +227,7 @@ componentWillMount() {
              </div>
              <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
              <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
+             <Table activityArray={[...this.state.activityArray] }/> 
            </div>
 
            <div id='southeast'>
@@ -237,13 +239,12 @@ componentWillMount() {
                     return <option key={park + park.id}>{park.name}</option>
                 })} 
              </select>
-             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+             <select  onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
                <option>Activity Type</option>
                {this.props.activities.filter((activity, i)=>{
                    return activity.park_name === this.state.park
                }).map(activity =>{
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
-
                })}            
              </select>
              <MuiThemeProvider>
@@ -267,7 +268,7 @@ componentWillMount() {
                 <option value={11}>11</option>
                 <option value={12}>12</option>
               </select>
-              <select style={styles.daynight}>
+              <select onChange={this.handleChange} name='daynight' value={this.state.daynight} style={styles.daynight}>
                 <option value=''>AM/PM</option>
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>
@@ -278,6 +279,7 @@ componentWillMount() {
              </div>
              <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
              <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
+              <Table activityArray={[...this.state.activityArray] }/> 
            </div>
 
            <div id='northeast'>
@@ -290,13 +292,12 @@ componentWillMount() {
                 })} 
              </select>
 
-             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+             <select  onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
                <option>Activity Type</option>
                {this.props.activities.filter((activity, i)=>{
                    return activity.park_name === this.state.park
                }).map(activity =>{
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
-
                })}            
              </select>
              <MuiThemeProvider>
@@ -320,7 +321,7 @@ componentWillMount() {
                 <option value={11}>11</option>
                 <option value={12}>12</option>
               </select>
-              <select style={styles.daynight}>
+              <select onChange={this.handleChange} name='daynight' value={this.state.daynight} style={styles.daynight}>
                 <option value=''>AM/PM</option>
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>
@@ -331,9 +332,11 @@ componentWillMount() {
              </div>
              <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
              <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
+             <Table activityArray={[...this.state.activityArray] }/> 
            </div>
-          </div>       
-          <Table activityArray={[...this.state.activityArray] }/>
+            
+          </div>    
+           
       </div> // end of container
       
     )
