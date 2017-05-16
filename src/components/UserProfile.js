@@ -69,7 +69,7 @@ class User extends React.Component {
             <div style={styles.infoBlock}>
               <div style={this.state.editInterests ? styles.displayNone : styles.textDisplay}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.match.params.userid].interests}</div>
               <textarea style={this.state.editInterests ? styles.textArea : styles.displayNone} name="interests" onChange={this.handleChange} value={this.state.interests}></textarea>
-              <div style={styles.buttonBar}><span>User's Hobbies</span><button name='editInterests' onClick={this.handleEdit} style={Number(this.props.match.params.userid) === Number(this.props.currentUserID) ? styles.editInfo : styles.displayNone }>Edit</button></div>
+              <div style={styles.buttonBar}><span>User's (Media) Interests</span><button name='editInterests' onClick={this.handleEdit} style={Number(this.props.match.params.userid) === Number(this.props.currentUserID) ? styles.editInfo : styles.displayNone }>Edit</button></div>
             </div>
             <div style={styles.ageDisplay}>Age : {this.props.dbUsers.users && this.props.dbUsers.users[this.props.match.params.userid].age}</div>
             <div style={styles.genderDisplay}>{this.props.dbUsers.users && this.props.dbUsers.users[this.props.match.params.userid].gender}</div>

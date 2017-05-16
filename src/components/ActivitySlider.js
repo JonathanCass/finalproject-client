@@ -114,9 +114,9 @@ class ActivitySlider extends React.Component {
                 <div style={styles.nextLabel}><button onClick={this.handlePrevious} style={ this.state.involvedIndex === 0 ? styles.displayHidden : styles.arrowButton}><i className="fa fa-arrow-left" aria-hidden="true"></i></button><span style={styles.span}>Your Scheduled Activities</span><button onClick={this.handleNext} style={ this.state.involvedIndex + 1 < involvedArray.length  ? styles.arrowButton : styles.displayHidden}><i className="fa fa-arrow-right" aria-hidden="true"></i></button></div>
                 <div style={styles.nextGrid}>
                     <div style={styles.gridEntry}>{event.date_month} {event.date_day}</div>
-                    <div style={styles.gridEntry}>{this.props.parks[event.park_id].name}</div>
+                    <div style={styles.gridEntry}>{event.park}</div>
                     <div style={styles.gridEntry}><span style={styles.time} > {event.time_start_hour} { event.time_start_suffix} </span></div>
-                    <div style={styles.gridEntry}>{this.props.activityIds[event.activity_id -1].name}</div>
+                    <div style={styles.gridEntry}>{event.activity}</div>
                     <div style={styles.gridWith}>{this.props.users[event.user_id1].fname} {this.props.users[event.user_id1].lname} and {this.props.users[event.user_id2].fname} {this.props.users[event.user_id2].lname} </div>
                 </div>
           </div>

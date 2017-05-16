@@ -144,9 +144,9 @@ class FriendsSliders extends React.Component {
                 <div style={styles.nextLabel}><button onClick={this.handlePrevious} style={ this.state.involvedIndex === 0 ? styles.displayHidden : styles.arrowButton}><i className="fa fa-arrow-left" aria-hidden="true"></i></button><span> <span style={ friendsArray.indexOf(event.user_id1) === -1 ?  styles.displayNone : styles.displayUnderline  }>Your Friend <Link style={styles.link} to={'/UserProfile/' + event.user_id1} >{this.props.users[event.user_id1].fname} {this.props.users[event.user_id1].lname}</Link></span> <span style={ friendsArray.indexOf(event.user_id1) !== -1 && friendsArray.indexOf(event.user_id2) !== -1 ?  styles.displayUnderline : styles.displayNone  } >with</span> <span style={ friendsArray.indexOf(event.user_id2) === -1 ?  styles.displayNone : styles.displayUnderline  } >Your Friend <Link style={styles.link} to={'/UserProfile/' + event.user_id2} >{this.props.users[event.user_id2].fname} {this.props.users[event.user_id2].lname}</Link> </span> </span><button onClick={this.handleNext} style={ this.state.involvedIndex + 1 < involvedArray.length  ? styles.arrowButton : styles.displayHidden}><i className="fa fa-arrow-right" aria-hidden="true"></i></button></div>
                 <div style={styles.nextGrid}>
                     <div style={styles.gridEntry}>{event.date_month} {event.date_day}</div>
-                    <div style={styles.gridEntry}>{this.props.parks[event.park_id].name}</div>
+                    <div style={styles.gridEntry}>{event.park}</div>
                     <div style={styles.gridEntry}><span style={styles.time} > {event.time_start_hour} { event.time_start_suffix} </span></div>
-                    <div style={styles.gridEntry}>{this.props.activityIds[event.activity_id -1].name}</div>
+                    <div style={styles.gridEntry}>{event.activity}</div>
                     <div style={styles.gridWith}>{this.props.users[event.user_id1].fname} {this.props.users[event.user_id1].lname}<span style={ event.user_id2 === 0 ? styles.displayNone : styles.displayNormal }> and {this.props.users[event.user_id2].fname} {this.props.users[event.user_id2].lname} </span><Link to='/ParkView/' style={ event.user_id2 === 0 ? styles.needsPartner : styles.displayNone } > needs a partner click for info</Link> </div>
                 </div>
           </div>
