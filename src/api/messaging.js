@@ -99,6 +99,8 @@ export function addUser(userObj){
 		console.log('post new User', res.data)
 	})
 }
+
+
 //This function modeled after User wants to just replace a user's ( specified by id ) friend string
 
 export function addFriend(friendObj){
@@ -134,7 +136,7 @@ export function postAvailability(availabilityObj){
 
 export function postCreateActivity(createActivityObj) {
 	console.log('Not created yet', createActivityObj)
-	api.post('/activities', createActivityObj).then(res =>{
+	api.post('/event', createActivityObj).then(res =>{
 		console.log('New Activity was created', res.data)
 	})
 }
