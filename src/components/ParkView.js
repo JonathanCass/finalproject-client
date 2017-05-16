@@ -8,7 +8,6 @@ import { getParks } from '../api/messaging'
 import { getParkActivities } from '../api/messaging'
 import { postCreateActivity } from '../api/messaging'
 
-
 class ParkView extends React.Component {
   constructor(props) {
    super(props)
