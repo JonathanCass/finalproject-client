@@ -1,7 +1,7 @@
 const initialState = {
 
     messages: [], userToAdd: "", dbUsers:[], dbAvail: [], currentUserId: 1, parks:[], currentUserMatches: [], events:[], activityIds:[], activities:[],
-    friends:[], 
+    friends:[],
 
 }
 

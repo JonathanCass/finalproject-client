@@ -18,14 +18,12 @@ render() {
     return(
             <div className="container" style={styles.container}>
                 <div style={styles.homeDiv}>
+                    <img alt='' src={require('../assets/images/avatar1.svg')} style={styles.avt1}/>
+                    <img alt='' src={require('../assets/images/avatar2.svg')} style={styles.avt2}/>
                     <h2 style={styles.homeText}>See what's happening</h2>
                     <h3 style={styles.homeSubText}>Stay updated with users in your area and go !</h3>
-                    <Link to={'/Home'} style={styles.homeLink}><i className="fa fa-home" aria-hidden="true" style={styles.fontAwesome}></i>Home</Link>
+                    <Link to={'/Home'} style={styles.homeLink}><i className="fa fa-home" aria-hidden="true" style={styles.fontAwesome}></i>Activities</Link>
                 </div>
-                {/*<div style={styles.createDiv}>
-                    <h2 style={styles.createText}>Sign up, personalize your account, and get matched</h2>
-                    <Link to={'/CreateUser'} style={styles.createLink}><i className="fa fa-user-plus" aria-hidden="true" style={styles.fontAwesome}></i>Create User</Link>
-                </div>*/}
                 <div style={styles.profileDiv}>
                     <img alt='matched' src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar} style={styles.profileAvatar}/>
                     <Link to={'/UserProfile/' + this.props.cuserid} style={styles.profileLink}><i className="fa fa-user" aria-hidden="true" style={styles.fontAwesome}></i>User Profile</Link>

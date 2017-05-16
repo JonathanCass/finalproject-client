@@ -38,6 +38,19 @@ const styles = {
         backgroundColor:'rgb(125,171,177)',
         opacity:0.9
     },
+    avt1: {
+        borderRadius:'180px',
+        width:'80px',
+        position:'absolute',
+        marginLeft:'10%',
+        opacity:0.7
+    },
+    avt2: {
+        borderRadius:'180px',
+        width:'80px',
+        position:'absolute',
+        opacity:0.7
+    },
     profileLink: {
         textDecoration:'none',
         fontSize:'1.5em',

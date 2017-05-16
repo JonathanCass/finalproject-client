@@ -1,4 +1,3 @@
-
 import React from 'react'
 import styles from './ParkView.styles'
 import Table from './ParkViewTable'
@@ -7,8 +6,6 @@ import '../assets/home.css'
 import { connect } from 'react-redux'
 import { getParks } from '../api/messaging'
 import { getParkActivities } from '../api/messaging'
-
-
 
 class ParkView extends React.Component {
   constructor(props) {
@@ -28,7 +25,7 @@ class ParkView extends React.Component {
    }
 }
 createActivity = (e) => {
-  // console.log(createActivityObj)
+  console.log(createActivityObj)
   e.preventDefault()
   var createActivityObj ={
       play:this.state.play,
@@ -61,13 +58,13 @@ handleButton = (e) => { // handle for quadrants/parks
   })
 }
 
-handleLevel = (e) => { // for Type of Play/Experience
+handleLevel = (e) => { // for Type of Experience
   this.setState({
     level: e.target.value,
   })
 }
 
-handleChange = (e) => {
+handleChangeDate = (e) => {
     this.setState({
       controlledDate: e.target.value,
     })
@@ -84,8 +81,7 @@ componentWillMount() {
 }
 
   render() {
-    //  console.log(this.props.activities)
-    console.log('date here', this.props.controlledDate)
+     console.log(this.createActivityObj)
     return (
       <div style={styles.container}>  
 
@@ -133,7 +129,7 @@ componentWillMount() {
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
                })}            
              </select>
-             <inpyt type="date" onChange={this.handleChange} name="controlledDate" value={this.state.controlledDate} style={styles.calendar}/>
+             <input type="date" onChange={this.handleChangeDate} name="controlledDate" value={this.state.controlledDate} style={styles.calendar}/>
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>
               <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.start}>
@@ -183,7 +179,7 @@ componentWillMount() {
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
                })}            
              </select>
-             <input type="date" onChange={this.handleChange} name="controlledDate" value={this.state.controlledDate} style={styles.calendar}/>
+             <input type="date" onChange={this.handleChangeDate} name="controlledDate" value={this.state.controlledDate} style={styles.calendar}/>
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>
               <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.start}>
@@ -233,7 +229,7 @@ componentWillMount() {
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
                })}            
              </select>
-             <input type="date" onChange={this.handleChange} name="controlledDate" value={this.state.controlledDate} style={styles.calendar}/>
+             <input type="date" onChange={this.handleChangeDate} name="controlledDate" value={this.state.controlledDate} style={styles.calendar}/>
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>
               <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.start}>
@@ -284,7 +280,7 @@ componentWillMount() {
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
                })}            
              </select>
-             <input type="date" onChange={this.handleChange} name="controlledDate" value={this.state.controlledDate} style={styles.calendar}/>
+             <input type="date" onChange={this.handleChangeDate} name="controlledDate" value={this.state.controlledDate} style={styles.calendar}/>
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>
               <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.start}>

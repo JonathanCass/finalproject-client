@@ -15,6 +15,7 @@ class Table extends React.Component {
 //   }
 
 render() {
+    console.log(this.props.activityArray)
     return(
         <div className='tableAreaContainer' style={styles.tableAreaContainer}>  
          {this.props.activityArray.filter(park=>{

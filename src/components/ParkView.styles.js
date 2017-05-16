@@ -70,9 +70,11 @@ const styles = {
     },
     calendar: {
         position:'absolute',
-        marginTop:170,
-        marginLeft:'-8.5em',
-        
+        marginTop:183,
+        marginLeft:'-7.3em',
+        height:'40px',
+        width:'256px',
+        fontSize:'18px'
     },
     gear: {
         marginLeft:'42em',
@@ -83,7 +85,7 @@ const styles = {
     },
     startTime: {
         marginTop: 245,
-        marginLeft:'-8.5em',
+        marginLeft:'-8.3em',
         position:'absolute'
     }, 
     start: {
