@@ -9,6 +9,7 @@ import '../assets/home.css'
 import { connect } from 'react-redux'
 import { getParks } from '../api/messaging'
 import { getParkActivities } from '../api/messaging'
+import moment from 'moment';
 
 
 
@@ -20,19 +21,18 @@ class ParkView extends React.Component {
         play:'',
         level:'',
         activities:'',
-        // date:'',
         notes:'',
         start:'',
         daynight:'',
         gear:'',
         park:'',
-        date:'',
+        controlledDate:'',
         activityArray:[], 
        
    }
 }
 createActivity = (e) => {
-  // console.log(createActivityObj)
+  console.log(createActivityObj)
   e.preventDefault()
   var createActivityObj ={
       play:this.state.play,
@@ -44,7 +44,8 @@ createActivity = (e) => {
       daynight:this.state.daynight,
       gear:this.state.gear,
       park:this.state.park,
-      date:this.state.date
+      controlledDate:this.state.controlledDate
+
     
   }
   // add(createActivityObj)
@@ -75,7 +76,7 @@ handleLevel = (e) => { // for Type of Play/Experience
 
 handleDate = (e, date) =>{ //MUI Cal
   this.setState({
-   [e.target.name]:e.target.value
+   controlledDate: date
   })
 }
 
@@ -83,6 +84,10 @@ handleRadButton = (e) => { // handle for play
  this.setState({
     play:e.target.value
  })
+}
+
+formatDate(date){
+  return  moment(new Date()).format('YYYY-MM-DD')
 }
 
 componentWillMount() {
@@ -93,7 +98,7 @@ componentWillMount() {
 
   render() {
     //  console.log(this.props.activities)
-    console.log(this.state.date)
+    console.log(this.state.controlledDate, 'parkview')
     return (
       <div style={styles.container}>  
 
@@ -142,7 +147,7 @@ componentWillMount() {
                })}            
              </select>
              <MuiThemeProvider>
-                <DatePicker hintText="Choose Day" container="inline" mode="landscape" value={this.state.date} style={styles.calendar}/>
+                <DatePicker hintText="Choose Day" container="inline" mode="landscape" formatDate={this.formatDate}  value={this.state.controlledDate} onChange={this.handleDate} style={styles.calendar}/>
              </MuiThemeProvider>
 
              

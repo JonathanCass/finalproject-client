@@ -27,7 +27,6 @@ class Login extends React.Component {
         if(this.props.dbUsers.users) {
             return (this.props.dbUsers.users.map(user=>{
                 if(user.username === this.state.username && user.password === this.state.password){
-                    alert("Hello, " + user.username + " you are logged In")
                     this.props.history.push('/UserHomePage/')
                 }             
             }))
