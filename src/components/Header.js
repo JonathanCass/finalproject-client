@@ -84,13 +84,14 @@ const styles ={
         border:'1px solid white',
         borderRadius: 5,
         background:'transparent',
-        // background: '#E50914',
         color:'rgb(222,0,222)',
-        fontSize: 20
+        fontSize: 20,
+        fontFamily:'Verdana'
     },
     white:{
-        color: 'rgb(222,0,222)',
-        textDecoration: 'none'
+        color:'rgb(222,0,222)',
+        textDecoration: 'none',
+        fontFamily:'Verdana'
     },
     inputLogin:{
         marginTop: 10,
@@ -153,7 +154,7 @@ class Header extends React.Component {
                     <Link style={styles.link} to={'/Home'}>Activities</Link>
                     <Link style={styles.link} to={'/UserProfile/' + this.props.cuserid} >User Profile</Link>  
                     <Link style={styles.link} to={'/UserHomePage/'} >UserHomePage</Link>
-                    <Link style={styles.link} to={'/ParkView/'} >Park View</Link>
+                    <Link style={styles.link} to={'/ParkView/'} >Parks</Link>
                     <div style={styles.social}>
                         <a href="https://www.facebook.com/profile.php?id=100017026063125"><i style={styles.facebook} className="fa fa-facebook" aria-hidden="true"></i></a>
                         <a href="https://twitter.com/GoActiveVegas?lang=en"> <i style={styles.twitter} className="fa fa-twitter" aria-hidden="true"></i></a>

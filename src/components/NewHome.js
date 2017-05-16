@@ -47,7 +47,7 @@ render() {
                 <div style={styles.parkDiv}>
                     <h2 style={styles.parkText}>Create an activity for others to join</h2>
                     <h3 style={styles.parkSubText}>Set your own type of activity, time, and park location</h3>
-                    <Link to={'/ParkView/'} style={styles.parkLink}><i className="fa fa-map-marker" aria-hidden="true" style={styles.fontAwesome}></i>Park View</Link>
+                    <Link to={'/ParkView/'} style={styles.parkLink}><i className="fa fa-map-marker" aria-hidden="true" style={styles.fontAwesome}></i>Parks</Link>
                 </div>
             </div>
         )

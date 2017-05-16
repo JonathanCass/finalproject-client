@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import { getParks } from '../api/messaging'
 import { getParkActivities } from '../api/messaging'
 import { postCreateActivity } from '../api/messaging'
-import moment from 'moment';
+
 
 class ParkView extends React.Component {
   constructor(props) {
@@ -26,12 +26,8 @@ class ParkView extends React.Component {
 
    }
 }
-<<<<<<< HEAD
-createActivity = (e) => {
-  // console.log(createActivityObj)
-=======
+
 createActivity = (e) => { 
->>>>>>> master
   e.preventDefault()
   var createActivityObj ={
       user_id1:this.props.currentUserID,
@@ -95,13 +91,7 @@ componentWillMount() {
 }
 
   render() {
-<<<<<<< HEAD
-    //  console.log(this.createActivityObj)
-=======
     console.log(this.state.controlledDate,'controlled date')
-    //  console.log(this.createActivityObj)
-
->>>>>>> master
     return (
       <div style={styles.container}>  
 
