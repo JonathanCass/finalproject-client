@@ -230,6 +230,7 @@ const styles ={
     justifyContent: 'space-between',
     height:30,
     width:308,
+    fontFamily:'Verdana',
     background: '#F2F2F2',
     lineHeight: '32px',
     textIndent: 6

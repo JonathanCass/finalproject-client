@@ -84,13 +84,14 @@ const styles ={
         border:'1px solid white',
         borderRadius: 5,
         background:'transparent',
-        // background: '#E50914',
         color:'rgb(222,0,222)',
-        fontSize: 20
+        fontSize: 20,
+        fontFamily:'Verdana'
     },
     white:{
-        color: 'rgb(222,0,222)',
-        textDecoration: 'none'
+        color:'rgb(222,0,222)',
+        textDecoration: 'none',
+        fontFamily:'Verdana'
     },
     inputLogin:{
         marginTop: 10,
