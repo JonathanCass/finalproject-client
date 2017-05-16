@@ -55,10 +55,10 @@ img {
     margin-top:-16%;
 }
 .happening {
-        margin-left:40%;
-        margin-top:5%;
-        font-family:"Verdana";
-        color:white;
+    margin-left:25%;
+    margin-top:5%;
+    font-family:"Verdana";
+    color:white;
 }
 .matches {
     display:flex;

@@ -25,17 +25,31 @@ const styles = {
      homeText: {
         position:'absolute',
         marginLeft:'21em',
-        marginTop:'-5em',
+        marginTop:'-6em',
         color:'white',
         fontFamily:'Verdana'
     },
     homeSubText: {
-        marginTop:'-4em',
-        marginLeft:'22em',
-        fontFamily:'Tahoma',
+        marginTop:'-3em',
+        marginLeft:'14em',
+        fontFamily:'Open Sans Condensed',
+        fontSize:'30px',
         padding:'15px',
         backgroundColor:'rgb(125,171,177)',
         opacity:0.9
+    },
+    avt1: {
+        borderRadius:'180px',
+        width:'80px',
+        position:'absolute',
+        marginLeft:'10%',
+        opacity:0.7
+    },
+    avt2: {
+        borderRadius:'180px',
+        width:'80px',
+        position:'absolute',
+        opacity:0.7
     },
     profileLink: {
         textDecoration:'none',
@@ -68,9 +82,9 @@ const styles = {
         position:'absolute',
         marginLeft:'16em',
         padding:'20px',
-        fontFamily:'Verdana',
-        fontSize:'32px',
-        width:'250px',
+        fontFamily:'Open Sans Condensed',
+        fontSize:'35px',
+        width:'200px',
         opacity:0.9
     },
     profileSubDiv: {
@@ -114,14 +128,15 @@ const styles = {
     parkText: {
         position:'absolute',
         marginLeft:'17em',
-        marginTop:'-5em',
+        marginTop:'-6em',
         color:'white',
         fontFamily:'Verdana'
     },
     parkSubText: {
-        marginTop:'-4em',
-        marginLeft:'20.5em',
-        fontFamily:'Tahoma',
+        marginTop:'-3em',
+        marginLeft:'12.6em',
+        fontFamily:'Open Sans Condensed',
+        fontSize:'30px',
         padding:'15px',
         backgroundColor:'rgb(229,211,139)',
         opacity:0.9
