@@ -7,7 +7,6 @@ import { connect } from 'react-redux'
 import { getParks } from '../api/messaging'
 import { getParkActivities } from '../api/messaging'
 import { postCreateActivity } from '../api/messaging'
-//import moment from 'moment';
 
 class ParkView extends React.Component {
   constructor(props) {
@@ -26,6 +25,7 @@ class ParkView extends React.Component {
 
    }
 }
+
 createActivity = (e) => { 
   e.preventDefault()
   var createActivityObj ={
@@ -92,8 +92,6 @@ componentWillMount() {
 
   render() {
     console.log(this.state.controlledDate,'controlled date')
-    //  console.log(this.createActivityObj)
-
     return (
       <div style={styles.container}>  
 
@@ -235,7 +233,7 @@ componentWillMount() {
                     return <option key={park + park.id}>{park.name}</option>
                 })} 
              </select>
-             <select  onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
+             <select onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
                <option>Activity Type</option>
                {this.props.activities.filter((activity, i)=>{
                    return activity.park_name === this.state.park
