@@ -43,7 +43,7 @@ render() {
                     
                     {this.props.activityArray.map(event =>(
                         <tbody key={Math.random()}>
-                        <tr>
+                        <tr style={styles.row}>
                             <td style={styles.tableRow}>{event.play}</td>
                             <td style={styles.tableRow}>{event.controlledDate}</td>
                             <td style={styles.tableRow}>{event.start} {event.daynight}</td>

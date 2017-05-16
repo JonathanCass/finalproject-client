@@ -16,6 +16,7 @@ componentWillMount() {
 
 render() {
     return(
+        
             <div className="container" style={styles.container}>
                 <div style={styles.homeDiv}>
                     <img alt='' src={require('../assets/images/avatar1.svg')} style={styles.avt1}/>
@@ -29,14 +30,15 @@ render() {
                     <Link to={'/Home'} style={styles.homeLink}><i className="fa fa-bicycle" aria-hidden="true" style={styles.fontAwesome}></i>Activities</Link>
                 </div>
                 <div style={styles.profileDiv}>
-                    <img alt='matched' src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar} style={styles.profileAvatar}/>
-                    <Link to={'/UserProfile/' + this.props.cuserid} style={styles.profileLink}><i className="fa fa-user" aria-hidden="true" style={styles.fontAwesome}></i>User Profile</Link>
+                    <Link to={'/UserProfile/1'} style={styles.profileLink}><i className="fa fa-user" aria-hidden="true" style={styles.fontAwesome}></i>
+                        <img alt='matched' src={this.props.dbUsers.users && this.props.dbUsers.users[this.props.currentUserID].avatar} style={styles.profileAvatar}/>User Profile
+                    </Link>
                     <h3 style={styles.personalizeText}>Personalize</h3>
                     <h3 style={styles.yourAcctText}>Your Account</h3>
                     <h3 style={styles.andText}>And</h3>
                     <div style={styles.profileSubDiv}>
                         <img alt='' src='https://www.thecitywithnolimits.com/wp-content/uploads/2014/08/icon-outdoors-370x300.png' style={styles.parkImg}/>
-                        <Link to={'UserHomePage/'} style={styles.userLink}><i className="fa fa-info-circle" aria-hidden="true" style={styles.fontAwesome}></i>User Page</Link>
+                        <Link to={'/UserHomePage/'} style={styles.userLink}><i className="fa fa-info-circle" aria-hidden="true" style={styles.fontAwesome}></i>Account</Link>
                         <h3 style={styles.findText}>Find</h3>
                         <h3 style={styles.yourText}>Your</h3>
                         <h3 style={styles.matchText}>Match</h3>

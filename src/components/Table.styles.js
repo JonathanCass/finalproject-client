@@ -18,6 +18,9 @@ const styles = {
         fontFamily:'Verdana',
         color:'#ffa500',
     },
+    row: {
+        fontFamily:'Verdana'
+    },
     tableHead : {
         fontFamily:'Verdana'
     },

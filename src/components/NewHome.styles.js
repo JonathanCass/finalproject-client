@@ -104,8 +104,8 @@ const styles = {
     profileAvatar: {
         borderRadius:'180px',
         width:'150px',
-        marginTop:'-12em',
-        marginLeft:'9em',
+        marginTop:'-8em',
+        marginLeft:'-0.5em',
         position:'absolute'
     },
     personalizeText: {

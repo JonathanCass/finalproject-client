@@ -14,7 +14,8 @@ const styles = {
         fontSize: 20,
         display: 'inline-block',
         lineHeight: '40px',
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily:'Verdana'
     },
     grid:{
         width:630,

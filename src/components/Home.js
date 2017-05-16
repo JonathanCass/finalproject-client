@@ -48,9 +48,7 @@ handleChange = (e) => {
 }
 componentWillMount() {
   getUsers()
-}
-
-                
+}              
   render() {
     // console.log('here', this.props.users)
     return (
@@ -68,33 +66,28 @@ componentWillMount() {
        <h1 className="happening">What People In Your Area Are Up To</h1>
        
           <ul className="matches">
-            {/*{this.props.dbUsers.users.map(user=>(
-              <Link style={styles.link} to={'/UserProfile/' + user.id} >
-                <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[3].avatar}/>
-              </Link>
-            ))}*/}
-              <Link to={'/UserProfile/' + this.props.cuserid}><li id="person" name='match'>
+              <Link to={'/UserProfile/16'}><li id="person" name='match'>
               <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[16].avatar}/>
                 <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[16].fname}</p>
                 <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[16].lname}</p>
                 <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[16].activities_info}</p>
             </li></Link>
     
-            <Link to={'/UserProfile/'}><li id="person" name='match'>
+            <Link to={'/UserProfile/4'}><li id="person" name='match'>
               <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[4].avatar}/>
                 <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[4].fname}</p>
                 <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[4].lname}</p>
                 <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[4].activities_info}</p>
             </li></Link>
 
-            <Link to={'/UserProfile/'}><li id="person" name='match'>
+            <Link to={'/UserProfile/7'}><li id="person" name='match'>
               <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[7].avatar}/>
                 <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[7].fname}</p>
                 <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[7].lname}</p>
                 <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[7].activities_info}</p>
             </li></Link>
 
-            <Link to={'/UserProfile/'}><li id="person" name='match'>
+            <Link to={'/UserProfile/14'}><li id="person" name='match'>
               <img alt='matched' style={styles.matchImg} src={this.props.dbUsers.users && this.props.dbUsers.users[14].avatar}/>
                 <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[14].fname}</p>
                 <p style={styles.p}>{this.props.dbUsers.users && this.props.dbUsers.users[14].lname}</p>
