@@ -94,7 +94,6 @@ class UsersEvents extends React.Component {
     getActivityIds()
   }
   renderCreated(){
-    //   console.log(this.props.events, 'events')
     if((this.props.events) && (this.props.users) && (this.props.parks) && (this.props.activityIds)) {
         return (
             this.props.events.map(event=>(
@@ -114,7 +113,6 @@ class UsersEvents extends React.Component {
     }
   }
   render() {
-      //console.log('user events component this.props', this.props)
     return (
       <div style={styles.GridContainer}>      
         <div style={styles.gridLabel}>Park</div>
