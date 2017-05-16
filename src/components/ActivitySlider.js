@@ -119,7 +119,9 @@ class ActivitySlider extends React.Component {
     if((this.props.parks)&&(this.props.events)&&(this.props.users)&&(this.props.activityIds)) {
       
       var involvedArray = this.props.events.filter(function(event){
+            if( Number(event.user_id2) !== 0){
             return( event.user_id1 === this.props.currentUserID || event.user_id2  === this.props.currentUserID )
+            }
         }.bind(this))
       //console.log('involvedArray', involvedArray)
         return (

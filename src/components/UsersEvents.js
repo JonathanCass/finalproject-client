@@ -115,7 +115,7 @@ class UsersEvents extends React.Component {
                 <div style={styles.gridBox}>{event.park} </div>
                 <div style={styles.gridBox}><span style={styles.time}> {event.time_start_hour} {event.time_start_suffix} <span style={styles.date}>{event.date_month} {this.suffix(Number(event.date_day))}</span></span></div>
                 <div style={styles.gridBox}>{event.activity}</div>
-                <div style={styles.gridBox}><Link style={styles.link} to={'/UserProfile/' + event.user_id2} >{this.props.users[event.user_id2].fname} {this.props.users[event.user_id2].lname}</Link></div>     
+                <div style={Number(event.user_id2) === 0 ? styles.displayNone : styles.gridBox}><Link style={styles.link} to={'/UserProfile/' + event.user_id2} >{this.props.users[event.user_id2].fname} {this.props.users[event.user_id2].lname}</Link></div><div style={Number(event.user_id2) === 0 ?styles.gridBox : styles.displayNone}> Open Position </div>     
                 <div style={styles.removeEntry}><img style={styles.delete} alt="no error" src='http://www.freeiconspng.com/uploads/red-delete-button-png-5.png'/></div>
             </div>
 		))
