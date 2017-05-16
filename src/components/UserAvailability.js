@@ -26,7 +26,7 @@ class UserAvailability extends React.Component {
           user_id: this.props.currentUserID,
       }
       postAvailability(availabilityObj)
-      console.log('avail', availabilityObj)
+      //console.log('avail', availabilityObj)
     this.setState({
       availabilityArray : [...this.state.availabilityArray, availabilityObj],
       area:'',day:'',from:0,to:0,fromAmPm:'',toAmPm:''

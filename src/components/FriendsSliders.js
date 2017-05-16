@@ -125,7 +125,7 @@ class FriendsSliders extends React.Component {
   renderActivity(){
     
     //console.log('Friends Slider this.props', this.props)
-    if(this.props.events && this.props.users && this.props.parks && this.props.activityIds) {
+    if( (this.props.events !== undefined) && (this.props.users !== undefined) && (this.props.parks !== undefined) && (this.props.friends !== undefined) && (this.props.activityIds !== undefined)) {
       
       var friendsArray = []
         for( let i = 0; i < this.props.friends.length ; i++){

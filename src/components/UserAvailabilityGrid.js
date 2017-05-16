@@ -74,8 +74,6 @@ class UserAvailabilityGrid extends React.Component {
   	getAvail()
   }
   renderGrid(){
-    //   console.log(' uaGrid this.props',this.props)
-      console.log( ' this.props.availabilityArray ',this.props.availabilityArray )
     if(this.props.availabilityArray) {
         return (
             this.props.availabilityArray.map(entry=>(

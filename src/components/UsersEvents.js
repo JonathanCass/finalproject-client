@@ -94,7 +94,7 @@ class UsersEvents extends React.Component {
     getActivityIds()
   }
   renderCreated(){
-    if((this.props.events) && (this.props.users) && (this.props.parks) && (this.props.activityIds)) {
+    if((this.props.events !== undefined ) && (this.props.users !== undefined ) && (this.props.parks !== undefined ) && (this.props.activityIds !== undefined )) {
         return (
             this.props.events.map(event=>(
             <div key={"event id" + event.id} style={ Number(event.user_id1) === Number(this.props.currentUserID)  ?  styles.grid : styles.displayNone }>
