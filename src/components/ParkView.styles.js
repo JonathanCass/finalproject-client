@@ -59,7 +59,8 @@ const styles = {
         width:250,
         marginTop:'3em',
         marginLeft:'-12em',
-        position:'absolute'
+        position:'absolute',
+        
     },
     activities: {
         height:40,
@@ -115,7 +116,8 @@ const styles = {
         marginTop:'23.5em',
         marginLeft: '45.5em',
         textDecoration:'underline',
-        position:'absolute'
+        position:'absolute',
+    
     },
     browse: {
         height:40,
@@ -124,6 +126,12 @@ const styles = {
         marginTop:'27em',
         marginLeft:'59em',
         cursor:'pointer'
+    },
+
+    parkUpper: {
+       textTransfrom: 'uppercase', 
+       color: 'red', 
+       background:'green'
     },
 }
 

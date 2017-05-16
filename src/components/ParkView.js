@@ -97,7 +97,7 @@ componentWillMount() {
 }
 
   render() {
-    //  console.log(this.props.activities)
+     console.log(this.props.activities)
     console.log(this.state.controlledDate, 'parkview')
     return (
       <div style={styles.container}>  

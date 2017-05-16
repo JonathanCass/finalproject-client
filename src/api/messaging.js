@@ -4,8 +4,8 @@ import axios from 'axios'
 //const socket = io.connect('http://localhost:3001')
 
 var api = axios.create({
-	baseURL: 'http://10.68.0.58:3001'
-	//baseURL:'http://localhost:3001'
+	// baseURL: 'http://10.68.0.58:3001'
+	baseURL:'http://localhost:3001'
 })
 
 
