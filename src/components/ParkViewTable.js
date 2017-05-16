@@ -14,6 +14,7 @@ class Table extends React.Component {
 //     getParks()
 //   }
 
+
 render() {
     // console.log(this.props.activityArray, 'activityArray')
     return(
@@ -45,11 +46,11 @@ render() {
                     {this.props.activityArray.map(event =>(
                         <tbody key={Math.random()}>
                         <tr>
-                            <td style={styles.tableRow}>{event.play}</td>
-                            <td style={styles.tableRow}>{event.controlledDate}</td>
-                            <td style={styles.tableRow}>{event.start} {event.daynight}</td>
-                            <td style={styles.tableRow}>{event.activities}</td>
-                            <td style={styles.tableRow}>{event.level}</td>
+                            <td style={styles.tableRow}>{event.type_of_play}</td>
+                            <td style={styles.tableRow}>{event.date}</td>
+                            <td style={styles.tableRow}>{event.time_start_hour} {event.time_start_suffix}</td>
+                            <td style={styles.tableRow}>{event.activity}</td>
+                            <td style={styles.tableRow}>{event.skill_level}</td>
                             <td style={styles.tableRow}>{event.notes}</td>
                             <td style={styles.tableRow}>{event.gear}</td>
                             <td style={styles.tableRow}>{event.park}</td>   
@@ -57,6 +58,8 @@ render() {
                         </tbody>               
                     ))}
                 </table> 
+     
+
             </div>
         </div> 
         )
