@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import { getParks } from '../api/messaging'
 import { getParkActivities } from '../api/messaging'
 import { postCreateActivity } from '../api/messaging'
-import moment from 'moment';
+//import moment from 'moment';
 
 class ParkView extends React.Component {
   constructor(props) {
