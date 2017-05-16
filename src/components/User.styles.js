@@ -117,7 +117,9 @@ const styles ={
     background: 'white',
     textAlign: 'center',
     lineHeight: '40px',
-    display: 'inline-block'
+    display: 'inline-block',
+    borderRadius: 3,
+    textTransform: 'capitalize'
   },
   createUser:{
     marginTop: 10,
@@ -148,7 +150,9 @@ const styles ={
     background: 'white',
     textAlign: 'center',
     lineHeight: '38px',
-    display: 'inline-block'
+    display: 'inline-block',
+    borderRadius: 3,
+    textTransform: 'capitalize'
   },
   select:{
     marginTop: 10,
@@ -161,10 +165,13 @@ const styles ={
     height: 38,
     fontSize: 24,
     color: 'white',
-    padding: '0 2px 0 0 ',
     textAlign: 'right',
     display: 'inline-block',
-    fontFamily:'Verdana'
+    fontFamily:'Verdana',
+    lineHeight:'38px',
+    position: 'relative',
+    top: 4,
+    right: 3
   },
   time:{
     marginTop: 10,
@@ -195,8 +202,10 @@ const styles ={
   activitiesDisplay:{
     padding: 5,
     width: 308,
-    height: 102,   
+    height: 100,
+    border: 'solid 1px black',   
     borderWidth: '0 0 1px 0',
+    
     display: 'inline-block',
     background: 'white',
     marginBottom: 4
@@ -219,6 +228,15 @@ const styles ={
     padding: 5,
     width:308,
     height: 82,
+    border: 'solid 1px black',
+    borderWidth: '0 0 2px 0',
+    background: 'white',
+    marginBottom: 5
+  },
+  mediaDisplay:{
+    padding: 5,
+    width:308,
+    height: 84,
     border: 'solid 1px black',
     borderWidth: '0 0 2px 0',
     background: 'white',

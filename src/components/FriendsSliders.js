@@ -55,7 +55,7 @@ const styles={
     },
     gridWith:{
         height: 40,
-        width: 412,
+        width: 410,
         border: 'solid 1px black',
         borderWidth: '0 1px 1px 0',
         display: 'inline-block',
