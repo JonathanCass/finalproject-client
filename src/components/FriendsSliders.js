@@ -122,6 +122,20 @@ class FriendsSliders extends React.Component {
       involvedIndex : this.state.involvedIndex - 1
     })
   }
+  suffix(i) {
+    var j = i % 10,
+        k = i % 100;
+    if (j === 1 && k !== 11) {
+        return i + "st";
+    }
+    if (j === 2 && k !== 12) {
+        return i + "nd";
+    }
+    if (j === 3 && k !== 13) {
+        return i + "rd";
+    }
+    return i + "th";
+}
   renderActivity(){
     
     //console.log('Friends Slider this.props', this.props)
@@ -143,7 +157,7 @@ class FriendsSliders extends React.Component {
             <div style={ i === this.state.involvedIndex ? styles.nextBlock : styles.displayNone } key={event.id}>    
                 <div style={styles.nextLabel}><button onClick={this.handlePrevious} style={ this.state.involvedIndex === 0 ? styles.displayHidden : styles.arrowButton}><i className="fa fa-arrow-left" aria-hidden="true"></i></button><span> <span style={ friendsArray.indexOf(event.user_id1) === -1 ?  styles.displayNone : styles.displayUnderline  }>Your Friend <Link style={styles.link} to={'/UserProfile/' + event.user_id1} >{this.props.users[event.user_id1].fname} {this.props.users[event.user_id1].lname}</Link></span> <span style={ friendsArray.indexOf(event.user_id1) !== -1 && friendsArray.indexOf(event.user_id2) !== -1 ?  styles.displayUnderline : styles.displayNone  } >with</span> <span style={ friendsArray.indexOf(event.user_id2) === -1 ?  styles.displayNone : styles.displayUnderline  } >Your Friend <Link style={styles.link} to={'/UserProfile/' + event.user_id2} >{this.props.users[event.user_id2].fname} {this.props.users[event.user_id2].lname}</Link> </span> </span><button onClick={this.handleNext} style={ this.state.involvedIndex + 1 < involvedArray.length  ? styles.arrowButton : styles.displayHidden}><i className="fa fa-arrow-right" aria-hidden="true"></i></button></div>
                 <div style={styles.nextGrid}>
-                    <div style={styles.gridEntry}>{event.date_month} {event.date_day}</div>
+                    <div style={styles.gridEntry}>{event.date_month} {this.suffix(Number(event.date_day))}</div>
                     <div style={styles.gridEntry}>{event.park}</div>
                     <div style={styles.gridEntry}><span style={styles.time} > {event.time_start_hour} { event.time_start_suffix} </span></div>
                     <div style={styles.gridEntry}>{event.activity}</div>

@@ -101,6 +101,20 @@ class ActivitySlider extends React.Component {
       involvedIndex : this.state.involvedIndex - 1
     })
   }
+  suffix(i) {
+    var j = i % 10,
+        k = i % 100;
+    if (j === 1 && k !== 11) {
+        return i + "st";
+    }
+    if (j === 2 && k !== 12) {
+        return i + "nd";
+    }
+    if (j === 3 && k !== 13) {
+        return i + "rd";
+    }
+    return i + "th";
+}
   renderActivity(){
     if((this.props.parks)&&(this.props.events)&&(this.props.users)&&(this.props.activityIds)) {
       
@@ -113,7 +127,7 @@ class ActivitySlider extends React.Component {
             <div style={ i === this.state.involvedIndex ? styles.nextBlock : styles.displayNone } key={event.id}>    
                 <div style={styles.nextLabel}><button onClick={this.handlePrevious} style={ this.state.involvedIndex === 0 ? styles.displayHidden : styles.arrowButton}><i className="fa fa-arrow-left" aria-hidden="true"></i></button><span style={styles.span}>Your Scheduled Activities</span><button onClick={this.handleNext} style={ this.state.involvedIndex + 1 < involvedArray.length  ? styles.arrowButton : styles.displayHidden}><i className="fa fa-arrow-right" aria-hidden="true"></i></button></div>
                 <div style={styles.nextGrid}>
-                    <div style={styles.gridEntry}>{event.date_month} {event.date_day}</div>
+                    <div style={styles.gridEntry}>{event.date_month} {this.suffix(Number(event.date_day))}</div>
                     <div style={styles.gridEntry}>{event.park}</div>
                     <div style={styles.gridEntry}><span style={styles.time} > {event.time_start_hour} { event.time_start_suffix} </span></div>
                     <div style={styles.gridEntry}>{event.activity}</div>
