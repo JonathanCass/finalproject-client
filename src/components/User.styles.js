@@ -189,7 +189,8 @@ const styles ={
     padding: 5,
     width: 308,
     height: 102, 
-    borderWidth: '0 0 1px 0'
+    borderWidth: '0 0 1px 0',
+    borderRadius:3
   },
   activitiesDisplay:{
     padding: 5,

@@ -140,7 +140,7 @@ class ActivitySlider extends React.Component {
         )
     }else {
         return (
-            <span> No current activities, Go to Park View and find some to join or create. </span>
+            <span> Props Loading. </span>
         )
     }
   }

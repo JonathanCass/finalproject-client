@@ -1,10 +1,11 @@
 
 const styles = {
     container: {
-        height:'auto',
-        width:630,
-        color:'black',
         
+        width:630,
+        marginLeft:'20em',
+        padding:'1em',
+        color:'white',
     },
     h2: {
         textAlign: 'center',
@@ -21,7 +22,8 @@ const styles = {
         cursor:'pointer'
     },
     radioLabel: {
-        fontFamily:'Verdana'
+        fontFamily:'Verdana',
+        fontWeight:'bold'
     },  
     radioPlay: {
         textAlign:'center',
@@ -42,7 +44,8 @@ const styles = {
     },
     levelBoxes: {
         margin: 7,
-        fontFamily:'Verdana'
+        fontFamily:'Verdana',
+        fontWeight:'bold'
     },
     quads: {
         margin:'2em'
@@ -52,66 +55,84 @@ const styles = {
         width:250
     },
     parksBox: {
-        height:40,
-        width:250,
+        height:50,
+        width:300,
         marginTop:'3em',
-        position:'absolute'
+        marginLeft:'-12em',
+        position:'absolute',
+        
     },
-
+    activities: {
+        height:50,
+        width:300,
+        position:'absolute',
+        marginTop:'10em',
+        marginLeft:'-12em'
+    },
     calendar: {
         position:'absolute',
-        marginTop:170,
-        textAlign:'center',
-        fontWeight:'bold'
+        marginTop:183,
+        marginLeft:'-7.3em',
+        height:'40px',
+        width:'256px',
+        fontSize:'18px'
     },
     gear: {
-        marginLeft:312,
+        marginLeft:'42em',
         marginTop:'2.9em',
-        height:120,
-        width:250,
+        height:140,
+        width:285,
         position:'absolute'
     },
     startTime: {
         marginTop: 245,
+        marginLeft:'-8.3em',
         position:'absolute'
     }, 
     start: {
-        width:190,
-        height:40
+        width:200,
+        height:50
     },
     daynight: {
         width:60,
-        height:40
+        height:50
     },
     notes: {
         position:'absolute',
-        width:250,
-        height:120,
-        marginTop:'15em',
-        marginLeft:312,
-        flexWrap:'wrap',
+        width:285,
+        height:140,
+        marginTop:'17em',
+        marginLeft:'42em',
+        flexWrap:'wrap'
     },
     create: {
         height:40,
         width:100,
-        marginTop:'27em',
-        marginLeft:'28.5em',
+        marginTop:'32em',
+        marginLeft:'43.5em',
         cursor:'pointer',
         position:'absolute'
     },
      or: {
-        marginTop:'23.5em',
-        marginLeft: '32.3em',
+        marginTop:'27.5em',
+        marginLeft: '45.6em',
         textDecoration:'underline',
-        position:'absolute'
+        position:'absolute',
+    
     },
     browse: {
         height:40,
         width:100,
         position:'absolute',
-        marginTop:'27em',
-        marginLeft:'42em',
+        marginTop:'32em',
+        marginLeft:'59em',
         cursor:'pointer'
+    },
+
+    parkUpper: {
+       textTransfrom: 'uppercase', 
+       color: 'red', 
+       background:'green'
     },
 }
 

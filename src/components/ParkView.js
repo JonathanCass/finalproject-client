@@ -1,54 +1,52 @@
-
 import React from 'react'
 import styles from './ParkView.styles'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import DatePicker from 'material-ui/DatePicker'
 import Table from './ParkViewTable'
 // import {postCreateActivity} from '../api/messaging'
 import '../assets/home.css'
 import { connect } from 'react-redux'
 import { getParks } from '../api/messaging'
 import { getParkActivities } from '../api/messaging'
-
-
+import { postCreateActivity } from '../api/messaging'
+//import moment from 'moment';
 
 class ParkView extends React.Component {
-  constructor() {
-   super()
+  constructor(props) {
+   super(props)
    this.state = {
         id:'',
         play:'',
         level:'',
         activities:'',
-        // date:'',
         notes:'',
         start:'',
+        daynight:'',
         gear:'',
         park:'',
-        date:'',
-        activityArray:[], 
-       
+        activityArray:[]   
+
    }
 }
-createActivity = (e) => {
-  // console.log(createActivityObj)
+createActivity = (e) => { 
   e.preventDefault()
   var createActivityObj ={
-      play:this.state.play,
-      level:this.state.level,
-      activities:this.state.activities,
-      // date:this.state.date,
+      user_id1:this.props.currentUserID,
+      user_id2:0,
+      type_of_play:this.state.play,
+      skill_level:this.state.level,
+      activity:this.state.activities,
+      date_day: this.state.controlledDate.substr(8,9),
+      date_month: "May",
       notes:this.state.notes,
-      start:this.state.start,
+      time_start_hour:this.state.start,
+      time_start_suffix:this.state.daynight,
       gear:this.state.gear,
       park:this.state.park,
-      date:this.state.date
-    
+
   }
-  // add(createActivityObj)
+  postCreateActivity(createActivityObj)
   this.setState({
     activityArray : [...this.state.activityArray, createActivityObj],
-    play:'', level:'', activities:'', notes:'', start:'', gear:'', park:''
+    play:'', level:'', activities:'', controlledDate:'', notes:'', start:'', daynight:'', gear:'', park:''
   })
 }
 
@@ -65,23 +63,25 @@ handleButton = (e) => { // handle for quadrants/parks
   })
 }
 
-handleLevel = (e) => { // for Type of Play/Experience
+handleLevel = (e) => { // for Type of Experience
   this.setState({
     level: e.target.value,
   })
 }
 
-handleDate = (e, date) =>{ //MUI Cal
-  this.setState({
-   [e.target.name]:e.target.value
-  })
-}
+
+handleChangeDate = (e) => {
+    this.setState({
+      controlledDate: e.target.value,
+    })
+  }
 
 handleRadButton = (e) => { // handle for play
  this.setState({
     play:e.target.value
  })
 }
+
 
 componentWillMount() {
   getParks()
@@ -90,8 +90,9 @@ componentWillMount() {
 }
 
   render() {
-    //  console.log(this.props.activities)
-    console.log(this.state.date)
+    console.log(this.state.controlledDate,'controlled date')
+    //  console.log(this.createActivityObj)
+
     return (
       <div style={styles.container}>  
 
@@ -131,20 +132,17 @@ componentWillMount() {
                     return <option key={park.id}>{park.name}</option>         
                })}
              </select>
-             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+             <select  onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
                <option>Activity Type</option>
                {this.props.activities.filter((activity, i)=>{
                    return activity.park_name === this.state.park
                }).map(activity =>{
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
-
                })}            
              </select>
-             <MuiThemeProvider>
-                <DatePicker hintText="Choose Day" container="inline" mode="landscape" value={this.state.date} style={styles.calendar}/>
-             </MuiThemeProvider>
 
-             
+             <input type="date" onChange={this.handleChangeDate} name="controlledDate" value={this.state.controlledDate} style={styles.calendar}/>
+
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>
               <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.start}>
@@ -163,7 +161,7 @@ componentWillMount() {
                 <option value={11}>11</option>
                 <option value={12}>12</option>
               </select>
-              <select style={styles.daynight}>
+              <select onChange={this.handleChange} name='daynight' value={this.state.daynight} style={styles.daynight}>
                 <option value=''>AM/PM</option>
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>
@@ -174,6 +172,7 @@ componentWillMount() {
              </div>
              <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
              <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
+             <Table activityArray={[...this.state.activityArray] }/> 
            </div>
 
            <div id='southwest'>
@@ -185,18 +184,15 @@ componentWillMount() {
                     return <option key={park + park.id}>{park.name}</option>
                 })} 
              </select>
-             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+             <select onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
                <option>Activity Type</option>
                {this.props.activities.filter((activity, i)=>{
                    return activity.park_name === this.state.park
                }).map(activity =>{
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
-
                })}            
              </select>
-             <MuiThemeProvider>
-                <DatePicker hintText="Choose Day" container="inline" mode="landscape" style={styles.calendar}/>
-             </MuiThemeProvider>
+             <input type="date" onChange={this.handleChangeDate} name="controlledDate" value={this.state.controlledDate} style={styles.calendar}/>
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>
               <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.start}>
@@ -215,7 +211,7 @@ componentWillMount() {
                 <option value={11}>11</option>
                 <option value={12}>12</option>
               </select>
-              <select style={styles.daynight}>
+              <select onChange={this.handleChange} name='daynight' value={this.state.daynight} style={styles.daynight}>
                 <option value=''>AM/PM</option>
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>
@@ -226,6 +222,7 @@ componentWillMount() {
              </div>
              <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
              <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
+             <Table activityArray={[...this.state.activityArray] }/> 
            </div>
 
            <div id='southeast'>
@@ -237,18 +234,15 @@ componentWillMount() {
                     return <option key={park + park.id}>{park.name}</option>
                 })} 
              </select>
-             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+             <select  onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
                <option>Activity Type</option>
                {this.props.activities.filter((activity, i)=>{
                    return activity.park_name === this.state.park
                }).map(activity =>{
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
-
                })}            
              </select>
-             <MuiThemeProvider>
-                <DatePicker hintText="Choose Day" container="inline" mode="landscape" style={styles.calendar}/>
-             </MuiThemeProvider>
+             <input type="date" onChange={this.handleChangeDate} name="controlledDate" value={this.state.controlledDate} style={styles.calendar}/>
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>
               <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.start}>
@@ -267,7 +261,7 @@ componentWillMount() {
                 <option value={11}>11</option>
                 <option value={12}>12</option>
               </select>
-              <select style={styles.daynight}>
+              <select onChange={this.handleChange} name='daynight' value={this.state.daynight} style={styles.daynight}>
                 <option value=''>AM/PM</option>
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>
@@ -278,6 +272,7 @@ componentWillMount() {
              </div>
              <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
              <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
+              <Table activityArray={[...this.state.activityArray] }/> 
            </div>
 
            <div id='northeast'>
@@ -290,18 +285,15 @@ componentWillMount() {
                 })} 
              </select>
 
-             <select id='activities' onChange={this.handleChange} name='activities' value={this.state.activities}>
+             <select  onChange={this.handleChange} name='activities' value={this.state.activities} style={styles.activities}>
                <option>Activity Type</option>
                {this.props.activities.filter((activity, i)=>{
                    return activity.park_name === this.state.park
                }).map(activity =>{
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
-
                })}            
              </select>
-             <MuiThemeProvider>
-                <DatePicker hintText="Choose Day" container="inline" mode="landscape" name='date' style={styles.calendar}/>
-             </MuiThemeProvider>
+             <input type="date" onChange={this.handleChangeDate} name="controlledDate" value={this.state.controlledDate} style={styles.calendar}/>
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>
               <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.start}>
@@ -320,7 +312,7 @@ componentWillMount() {
                 <option value={11}>11</option>
                 <option value={12}>12</option>
               </select>
-              <select style={styles.daynight}>
+              <select onChange={this.handleChange} name='daynight' value={this.state.daynight} style={styles.daynight}>
                 <option value=''>AM/PM</option>
                 <option value="AM">AM</option>
                 <option value="PM">PM</option>
@@ -331,9 +323,11 @@ componentWillMount() {
              </div>
              <button onClick={this.createActivity} style={styles.create}>Create</button><h5 style={styles.or}>Or</h5>
              <button onClick={this.handleBrowse} style={styles.browse}>Browse</button>
+             <Table activityArray={[...this.state.activityArray] }/> 
            </div>
-          </div>       
-          <Table activityArray={[...this.state.activityArray] }/>
+            
+          </div>    
+           
       </div> // end of container
       
     )

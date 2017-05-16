@@ -1,15 +1,17 @@
+
 html {
 	box-sizing: border-box;
 }
 *, *:before, *:after {
 	box-sizing: inherit;
 }
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+
 body {
 	margin: 0;
-	/*background-color:#eeeeee;*/
-	background-image: url('http://vegashelicam.us/wp-content/uploads/2013/11/007131129193b_Craig_Ranch_Regional_Park-Panorama.jpg');
-	background-size: 115%;
-	
+	/*background-color:#333333;*/
+	background:radial-gradient(circle, #414345, #232526);
+	 background-position: center center;
 }
 /*.headerImage {
 	background-image: url("squishedHeader.jpeg");
