@@ -1,7 +1,6 @@
 import React from 'react'
 import '../assets/home.css'
 import AutoCarousel from './Carousel'
-import UserMatches from './UserMatches'
 import { Link } from 'react-router-dom'
 import {getUsers} from '../api/messaging'
 import {connect} from 'react-redux'
@@ -53,7 +52,7 @@ componentWillMount() {
 
                 
   render() {
-    console.log('here', this.props.users)
+    // console.log('here', this.props.users)
     return (
       <div style={styles.homeContainer} className="beginningContainer">
         <section style={styles.carousel} className="carouselContainer">

@@ -108,16 +108,27 @@ const styles = {
         marginLeft:'9em',
         position:'absolute'
     },
-    profileText: {
-        border:'1px solid white',
-        background:'rgb(248,152,29)',
+    personalizeText: {
         position:'absolute',
-        marginLeft:'16em',
-        padding:'20px',
+        marginTop:'-21%',
+        marginLeft:'8.2em',
         fontFamily:'Open Sans Condensed',
-        fontSize:'35px',
-        width:'200px',
-        opacity:0.9
+        fontSize:'55px',
+        // opacity:0.9
+    },
+    yourAcctText: {
+        position:'absolute',
+        marginLeft:'7.7em',
+        marginTop:'-3.7em',
+        fontFamily:'Open Sans Condensed',
+        fontSize:'55px'
+    },
+    andText: {
+        position:'absolute',
+        marginLeft:'10.6em',
+        marginTop:'-2.5em',
+        fontFamily:'Open Sans Condensed',
+        fontSize:'55px'
     },
     profileSubDiv: {
         width:'630px',
@@ -135,10 +146,36 @@ const styles = {
         fontFamily:'Verdana',
         border:'1px solid gray',
         borderRadius:'50px',
-        marginLeft:'10em',
+        marginLeft:'9em',
         marginTop:'2%',
         position:'absolute',
         padding:'5px 20px 5px 20px'
+    },
+    parkImg: {
+        height:'285px',
+        width:'330px',
+        position:'absolute',
+        marginLeft:'21em',
+        marginTop:'-4em'
+    },
+    findText: {
+        position:'absolute',
+        fontFamily:'Open Sans Condensed',
+        fontSize:'55px',
+        marginTop:'-3%'
+    },
+    yourText: {
+        posotion:'absolute',
+        fontFamily:'Open Sans Condensed',
+        fontSize:'55px',
+        marginTop:'2%',
+        marginLeft:'0.2%'
+    },
+    matchText: {
+        position:'absolute',
+        fontFamily:'Open Sans Condensed',
+        fontSize:'55px',
+        marginTop:'7%'
     },
     parkLink:{
         textDecoration:'none',
