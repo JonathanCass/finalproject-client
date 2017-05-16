@@ -26,7 +26,7 @@ class UserAvailability extends React.Component {
           user_id: this.props.currentUserID,
       }
       postAvailability(availabilityObj)
-      console.log('avail', availabilityObj)
+      //console.log('avail', availabilityObj)
     this.setState({
       availabilityArray : [...this.state.availabilityArray, availabilityObj],
       area:'',day:'',from:0,to:0,fromAmPm:'',toAmPm:''
@@ -139,7 +139,7 @@ class UserAvailability extends React.Component {
       
       </div>
 
-      <UserAvailabilityGrid availabilityArray={this.props.dbAvail.availability}/>
+      <UserAvailabilityGrid userid={this.props.userid} availabilityArray={this.props.dbAvail.availability}/>
 
       <div style={ Number(this.props.userid) === Number(this.props.currentUserID) ? styles.displayNone : styles.displayNormal} >
         <button style={ friendsCheck === false ? styles.addFriend : styles.displayNone} name={this.props.userid} onClick={this.addFriends} > Add {this.props.dbUsers.users && this.props.dbUsers.users[Number(this.props.userid)].fname} To Friends </button>

@@ -1,7 +1,6 @@
 import React from 'react'
 import '../assets/home.css'
 import AutoCarousel from './Carousel'
-import UserMatches from './UserMatches'
 import { Link } from 'react-router-dom'
 import {getUsers} from '../api/messaging'
 import {connect} from 'react-redux'
