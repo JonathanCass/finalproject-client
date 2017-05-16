@@ -94,13 +94,14 @@ class UsersEvents extends React.Component {
     getActivityIds()
   }
   renderCreated(){
+    //   console.log(this.props.events, 'events')
     if((this.props.events) && (this.props.users) && (this.props.parks) && (this.props.activityIds)) {
         return (
             this.props.events.map(event=>(
             <div key={"event id" + event.id} style={ Number(event.user_id1) === Number(this.props.currentUserID)  ?  styles.grid : styles.displayNone }>
-                <div style={styles.gridBox}>{this.props.parks[event.park_id].name} </div>
+                <div style={styles.gridBox}>{event.park} </div>
                 <div style={styles.gridBox}><span style={styles.time}> {event.time_start_hour} {event.time_start_suffix} <span style={styles.date}>{event.date_month} {event.date_day}</span></span></div>
-                <div style={styles.gridBox}>{this.props.activityIds[event.activity_id-1].name}</div>
+                <div style={styles.gridBox}>{event.activity}</div>
                 <div style={styles.gridBox}><Link style={styles.link} to={'/UserProfile/' + event.user_id2} >{this.props.users[event.user_id2].fname} {this.props.users[event.user_id2].lname}</Link></div>     
                 <div style={styles.removeEntry}><img style={styles.delete} alt="no error" src='http://www.freeiconspng.com/uploads/red-delete-button-png-5.png'/></div>
             </div>

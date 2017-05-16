@@ -6,6 +6,8 @@ import '../assets/home.css'
 import { connect } from 'react-redux'
 import { getParks } from '../api/messaging'
 import { getParkActivities } from '../api/messaging'
+import { postCreateActivity } from '../api/messaging'
+import moment from 'moment';
 
 class ParkView extends React.Component {
   constructor(props) {
@@ -15,30 +17,38 @@ class ParkView extends React.Component {
         play:'',
         level:'',
         activities:'',
-        controlledDate:'',
         notes:'',
         start:'',
         daynight:'',
         gear:'',
         park:'',
         activityArray:[]   
+
    }
 }
+<<<<<<< HEAD
 createActivity = (e) => {
   // console.log(createActivityObj)
+=======
+createActivity = (e) => { 
+>>>>>>> master
   e.preventDefault()
   var createActivityObj ={
-      play:this.state.play,
-      level:this.state.level,
-      activities:this.state.activities,
-      controlledDate:this.state.controlledDate,
+      user_id1:this.props.currentUserID,
+      user_id2:0,
+      type_of_play:this.state.play,
+      skill_level:this.state.level,
+      activity:this.state.activities,
+      date_day: this.state.controlledDate.substr(8,9),
+      date_month: "May",
       notes:this.state.notes,
-      start:this.state.start,
-      daynight:this.state.daynight,
+      time_start_hour:this.state.start,
+      time_start_suffix:this.state.daynight,
       gear:this.state.gear,
       park:this.state.park,
+
   }
-  // add(createActivityObj)
+  postCreateActivity(createActivityObj)
   this.setState({
     activityArray : [...this.state.activityArray, createActivityObj],
     play:'', level:'', activities:'', controlledDate:'', notes:'', start:'', daynight:'', gear:'', park:''
@@ -64,16 +74,20 @@ handleLevel = (e) => { // for Type of Experience
   })
 }
 
+
 handleChangeDate = (e) => {
     this.setState({
       controlledDate: e.target.value,
     })
   }
+
 handleRadButton = (e) => { // handle for play
  this.setState({
     play:e.target.value
  })
 }
+
+
 componentWillMount() {
   getParks()
   getParkActivities()
@@ -81,7 +95,13 @@ componentWillMount() {
 }
 
   render() {
+<<<<<<< HEAD
     //  console.log(this.createActivityObj)
+=======
+    console.log(this.state.controlledDate,'controlled date')
+    //  console.log(this.createActivityObj)
+
+>>>>>>> master
     return (
       <div style={styles.container}>  
 
@@ -129,7 +149,9 @@ componentWillMount() {
                     return <option key={'activity' + Math.random()}>{activity.activity_name}</option>
                })}            
              </select>
+
              <input type="date" onChange={this.handleChangeDate} name="controlledDate" value={this.state.controlledDate} style={styles.calendar}/>
+
              <textarea placeholder='Gear Required If Applicable' onChange={this.handleChange} name='gear' value={this.state.gear} style={styles.gear}></textarea>
              <div style={styles.startTime}>
               <select className='start' onChange={this.handleChange} name='start' value={this.state.start} style={styles.start}>
