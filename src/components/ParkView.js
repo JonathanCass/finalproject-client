@@ -25,7 +25,7 @@ class ParkView extends React.Component {
    }
 }
 createActivity = (e) => {
-  console.log(createActivityObj)
+  // console.log(createActivityObj)
   e.preventDefault()
   var createActivityObj ={
       play:this.state.play,
@@ -81,7 +81,7 @@ componentWillMount() {
 }
 
   render() {
-     console.log(this.createActivityObj)
+    //  console.log(this.createActivityObj)
     return (
       <div style={styles.container}>  
 

@@ -20,6 +20,10 @@ render() {
                 <div style={styles.homeDiv}>
                     <img alt='' src={require('../assets/images/avatar1.svg')} style={styles.avt1}/>
                     <img alt='' src={require('../assets/images/avatar2.svg')} style={styles.avt2}/>
+                    <img alt='' src={require('../assets/images/avatar3.svg')} style={styles.avt3}/>
+                    <img alt='' src={require('../assets/images/avatar4.svg')} style={styles.avt4}/>
+                    <img alt='' src={require('../assets/images/avatar5.svg')} style={styles.avt5}/>
+                    <img alt='' src={require('../assets/images/avatar6.svg')} style={styles.avt6}/>
                     <h2 style={styles.homeText}>See what's happening</h2>
                     <h3 style={styles.homeSubText}>Stay updated with users in your area and go !</h3>
                     <Link to={'/Home'} style={styles.homeLink}><i className="fa fa-home" aria-hidden="true" style={styles.fontAwesome}></i>Activities</Link>

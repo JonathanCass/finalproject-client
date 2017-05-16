@@ -11,7 +11,6 @@ const styles = {
         paddingTop:'15em',
         borderRadius:'5px',
         backgroundColor:'rgb(0,185,136)'
-        // backgroundColor:'rgb(47,209,173)'
     },
     homeLink: {
         textDecoration:'none',
@@ -47,8 +46,41 @@ const styles = {
     },
     avt2: {
         borderRadius:'180px',
-        width:'80px',
+        width:'60px',
+        float:'right',
+        marginRight:'20%',
+        marginTop:'3%',
+        opacity:0.7
+    },
+    avt3: {
+        borderRadius:'180px',
+        width:'100px',
+        marginLeft:'5%',
+        marginTop:'-1%',
         position:'absolute',
+        opacity:0.7
+    },
+    avt4: {
+        borderRadius:'180px',
+        width:'50px',
+        float:'right',
+        marginRight:'5%',
+        opacity:0.7
+    },
+    avt5: {
+        borderRadius:'180px',
+        position:'absolute',
+        width:'65px',
+        marginTop:'-4%',
+        marginLeft:'25%',
+        opacity:0.7
+    },
+    avt6: {
+        borderRadius:'180px',
+        float:'right',
+        marginRight:'-20%',
+        marginTop:'-9%',
+        width:'80px',
         opacity:0.7
     },
     profileLink: {
@@ -104,7 +136,8 @@ const styles = {
         border:'1px solid gray',
         borderRadius:'50px',
         marginLeft:'10em',
-        // marginBottom:'-5em',
+        marginTop:'2%',
+        position:'absolute',
         padding:'5px 20px 5px 20px'
     },
     parkLink:{
