@@ -20,7 +20,7 @@ class ParkView extends React.Component {
         start:'',
         daynight:'',
         gear:'',
-        park:'',
+        parkName:'',
         activityArray:[]   
 
    }
@@ -47,7 +47,7 @@ createActivity = (e) => {
   postCreateActivity(createActivityObj)
   this.setState({
     activityArray : [...this.state.activityArray, createActivityObj],
-    play:'', level:'', activities:'', controlledDate:'', notes:'', start:'', daynight:'', gear:'', park:''
+    play:'', level:'', activities:'', controlledDate:'', notes:'', start:'', daynight:'', gear:'', parkName:''
   })
 }
 
