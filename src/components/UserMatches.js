@@ -83,7 +83,7 @@ class UserMatches extends React.Component {
                     if(this.props.availabilityArray[i].from_num === 12 && this.props.availabilityArray[i].from_suffix === 'PM'){
                         fromTime = 12
                     }
-                    else if(this.props.availabilityArray[i].from_num === 12 && this.props.availabilityArray[i].from_suffix === 'AM'){
+                    else if(this.props.availabilityArray[i].from_num === 12 && this.props.availabilityArray[i].from_suffix === ''){
                         fromTime = 24
                     }
                     else if(this.props.availabilityArray[i].from_suffix === 'AM'){
@@ -115,7 +115,7 @@ class UserMatches extends React.Component {
                     else if(currentUserArray[j].from_suffix === 'AM'){
                         cUserFrom = currentUserArray[j].from_num
                     }
-                    else if(currentUserArray[j].from_suffix === 'AM'){
+                    else if(currentUserArray[j].from_suffix === 'PM'){
                         cUserFrom = currentUserArray[j].from_num + 12
                     }
                     //console.log('Current Users Time from adjusted ', cUserFrom)
@@ -153,7 +153,7 @@ class UserMatches extends React.Component {
                 <Link style={styles.link} to={'/UserProfile/' + user.id} >
                     <div style={styles.matchAvatar}><img style={styles.matchImage} src={user.avatar} alt="no error"/></div>
                 
-                <div style={styles.matchLine}>{user.fname} {user.lname}</div>
+                <div style={styles.matchLine}>{user.fnAMe} {user.lnAMe}</div>
                 </Link>
                 <div style={styles.matchLine}><a style={styles.anchor} href={"mailto:" + user.email}>{user.email}</a></div>
             </div>
