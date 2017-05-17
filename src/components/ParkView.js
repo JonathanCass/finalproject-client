@@ -40,8 +40,9 @@ createActivity = (e) => {
       time_start_hour:this.state.start,
       time_start_suffix:this.state.daynight,
       gear:this.state.gear,
-      park:this.state.park,
+      park:this.state.parkName,
       date:this.state.controlledDate
+
 
   }
   postCreateActivity(createActivityObj)

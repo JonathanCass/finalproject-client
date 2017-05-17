@@ -124,7 +124,9 @@ h3 {
     color:red; 
     text-transform: uppercase; 
 }
-
+.avatarImg {
+    text-decoration:none;
+}
 
 
 

@@ -146,7 +146,7 @@ const styles = {
         fontFamily:'Verdana',
         border:'1px solid gray',
         borderRadius:'50px',
-        marginLeft:'9em',
+        marginLeft:'8em',
         marginTop:'2%',
         position:'absolute',
         padding:'5px 20px 5px 20px'
