@@ -26,7 +26,7 @@ const styles ={
         display: 'flex',
         height: 50,
         justifyContent: 'space-between',  
-        marginLeft:'-2em'
+        marginLeft:'1em'
     },
     social:{
         height: 50,
@@ -67,7 +67,7 @@ const styles ={
     link:{
         marginTop: 10,
         marginLeft: '2em',
-        width: 120,
+        width: 121,
         height: 30,
         fontSize: 20,
         fontFamily:'Verdana',
@@ -152,8 +152,8 @@ class Header extends React.Component {
                 </div>
                 <div style={styles.bottomBar}>
                     <Link style={styles.link} to={'/Home'}>Activities</Link>
-                    <Link style={styles.link} to={'/UserProfile/' + this.props.cuserid} >User Profile</Link>  
-                    <Link style={styles.link} to={'/UserHomePage/'} >User Home</Link>
+                    <Link style={styles.link} to={'/UserProfile/' + this.props.cuserid} >Profile</Link>  
+                    <Link style={styles.link} to={'/UserHomePage/'} >My Logbook</Link>
                     <Link style={styles.link} to={'/ParkView/'} >Parks</Link>
                     <div style={styles.social}>
                         <a href="https://www.facebook.com/profile.php?id=100017026063125"><i style={styles.facebook} className="fa fa-facebook" aria-hidden="true"></i></a>

@@ -40,13 +40,13 @@ createActivity = (e) => {
       time_start_hour:this.state.start,
       time_start_suffix:this.state.daynight,
       gear:this.state.gear,
-      park:this.state.park,
+      park:this.state.parkName,
 
   }
   postCreateActivity(createActivityObj)
   this.setState({
     activityArray : [...this.state.activityArray, createActivityObj],
-    play:'', level:'', activities:'', controlledDate:'', notes:'', start:'', daynight:'', gear:'', park:''
+    play:'', level:'', activities:'', controlledDate:'', notes:'', start:'', daynight:'', gear:'', parkName:''
   })
 }
 
