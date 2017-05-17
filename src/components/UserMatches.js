@@ -80,55 +80,55 @@ class UserMatches extends React.Component {
         for( let i = 0; i < this.props.availabilityArray.length ; i++ ){
             for( let j = 0; j < currentUserArray.length ; j++ ){
                 if(currentUserArray[j].quadrant === this.props.availabilityArray[i].quadrant && currentUserArray[j].day_of_week === this.props.availabilityArray[i].day_of_week && currentUserArray[j].user_id !== this.props.availabilityArray[i].user_id){
-                    if(this.props.availabilityArray[i].from_num === 12 && this.props.availabilityArray[i].from_suffix === 'pm'){
+                    if(this.props.availabilityArray[i].from_num === 12 && this.props.availabilityArray[i].from_suffix === 'PM'){
                         fromTime = 12
                     }
-                    else if(this.props.availabilityArray[i].from_num === 12 && this.props.availabilityArray[i].from_suffix === 'am'){
+                    else if(this.props.availabilityArray[i].from_num === 12 && this.props.availabilityArray[i].from_suffix === ''){
                         fromTime = 24
                     }
-                    else if(this.props.availabilityArray[i].from_suffix === 'am'){
+                    else if(this.props.availabilityArray[i].from_suffix === 'AM'){
                         fromTime = this.props.availabilityArray[i].from_num
                     }
-                    else if(this.props.availabilityArray[i].from_suffix === 'pm'){
+                    else if(this.props.availabilityArray[i].from_suffix === 'PM'){
                         fromTime = this.props.availabilityArray[i].from_num + 12
                     }
                     //console.log('UserMatches adjusted fromTime', fromTime)
-                    if(this.props.availabilityArray[i].to_num === 12 && this.props.availabilityArray[i].to_suffix === 'pm'){
+                    if(this.props.availabilityArray[i].to_num === 12 && this.props.availabilityArray[i].to_suffix === 'PM'){
                         toTime = 12
                     }
-                    else if(this.props.availabilityArray[i].to_num === 12 && this.props.availabilityArray[i].to_suffix === 'am'){
+                    else if(this.props.availabilityArray[i].to_num === 12 && this.props.availabilityArray[i].to_suffix === 'AM'){
                         toTime = 24
                     }
-                    else if(this.props.availabilityArray[i].to_suffix === 'am'){
+                    else if(this.props.availabilityArray[i].to_suffix === 'AM'){
                         toTime = this.props.availabilityArray[i].to_num
                     }
-                    else if(this.props.availabilityArray[i].to_suffix === 'pm'){
+                    else if(this.props.availabilityArray[i].to_suffix === 'PM'){
                         toTime = this.props.availabilityArray[i].to_num + 12
                     }
                     //console.log('UserMatches adjusted toTime', toTime)
-                    if(currentUserArray[j].from_num === 12 && currentUserArray[j].from_suffix === 'pm'){
+                    if(currentUserArray[j].from_num === 12 && currentUserArray[j].from_suffix === 'PM'){
                         cUserFrom = 12
                     }
-                    else if(currentUserArray[j].from_num === 12 && currentUserArray[j].from_suffix === 'am'){
+                    else if(currentUserArray[j].from_num === 12 && currentUserArray[j].from_suffix === 'AM'){
                         cUserFrom = 24
                     }
-                    else if(currentUserArray[j].from_suffix === 'am'){
+                    else if(currentUserArray[j].from_suffix === 'AM'){
                         cUserFrom = currentUserArray[j].from_num
                     }
-                    else if(currentUserArray[j].from_suffix === 'pm'){
+                    else if(currentUserArray[j].from_suffix === 'PM'){
                         cUserFrom = currentUserArray[j].from_num + 12
                     }
                     //console.log('Current Users Time from adjusted ', cUserFrom)
-                    if(currentUserArray[j].to_num === 12 && currentUserArray[j].to_suffix === 'pm'){
+                    if(currentUserArray[j].to_num === 12 && currentUserArray[j].to_suffix === 'PM'){
                         cUserTo = 12
                     }
-                    else if(currentUserArray[j].to_num === 12 && currentUserArray[j].to_suffix === 'am'){
+                    else if(currentUserArray[j].to_num === 12 && currentUserArray[j].to_suffix === 'AM'){
                         cUserTo = 24
                     }
-                    else if(currentUserArray[j].to_suffix === 'am'){
+                    else if(currentUserArray[j].to_suffix === 'AM'){
                         cUserTo = currentUserArray[j].to_num
                     }
-                    else if(currentUserArray[j].to_suffix === 'pm'){
+                    else if(currentUserArray[j].to_suffix === 'PM'){
                         cUserTo = currentUserArray[j].to_num + 12
                     }
                     //console.log('Current Users Time To Adjusted', cUserTo)
@@ -153,7 +153,7 @@ class UserMatches extends React.Component {
                 <Link style={styles.link} to={'/UserProfile/' + user.id} >
                     <div style={styles.matchAvatar}><img style={styles.matchImage} src={user.avatar} alt="no error"/></div>
                 
-                <div style={styles.matchLine}>{user.fname} {user.lname}</div>
+                <div style={styles.matchLine}>{user.fnAMe} {user.lnAMe}</div>
                 </Link>
                 <div style={styles.matchLine}><a style={styles.anchor} href={"mailto:" + user.email}>{user.email}</a></div>
             </div>
