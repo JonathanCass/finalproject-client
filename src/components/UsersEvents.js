@@ -108,7 +108,6 @@ class UsersEvents extends React.Component {
     return i + "th";
 }
   renderCreated(){
-
     if((this.props.events !== undefined ) && (this.props.users !== undefined ) && (this.props.parks !== undefined ) && (this.props.activityIds !== undefined )) {
 //    if((this.props.events) && (this.props.users) && (this.props.parks) && (this.props.activityIds)) {
         return (
@@ -129,6 +128,7 @@ class UsersEvents extends React.Component {
     }
   }
   render() {
+      //console.log('user events component this.props', this.props)
     return (
       <div style={styles.GridContainer}>      
         <div style={styles.gridLabel}>Park</div>
