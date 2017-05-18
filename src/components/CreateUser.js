@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './User.styles.js'
 import {addUser} from '../api/messaging'
+import {changeUser} from '../api/messaging'
 
 class User extends React.Component {
   constructor() {
@@ -28,7 +29,8 @@ class User extends React.Component {
       }
       // console.log(userObj)
       addUser(userObj)
-      this.props.history.push('/UserProfile/1')
+      changeUser(22)
+      this.props.history.push('/UserProfile/' + 22)
   }
   handleChange = (e) => {
     this.setState({

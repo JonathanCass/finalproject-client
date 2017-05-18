@@ -25,6 +25,8 @@ export default function messageReducer(state=initialState, action) {
              return{...state, friends: action.friends}
         case 'ADD_USER':
             return {...state, userToAdd: action.user}
+        case 'CHANGE_USER':
+            return {...state, currentUserId: action.newUser}
         case 'ADD_MATCH':
             return {...state, currentUserMatches: [...state.currentUserMatches, action.addMatch] }
          case 'ADD_AVAILABILITY':

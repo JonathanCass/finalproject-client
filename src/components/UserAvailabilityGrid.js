@@ -86,10 +86,6 @@ class UserAvailabilityGrid extends React.Component {
             </div>	
 		))
         )
-    }else {
-        return (
-            <span> Loading Props. </span>
-        )
     }
   }
   render() {

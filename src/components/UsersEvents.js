@@ -121,10 +121,6 @@ class UsersEvents extends React.Component {
             </div>
 		))
         )
-    }else {
-        return (
-            <span> Props Loading. </span>
-        )
     }
   }
   render() {

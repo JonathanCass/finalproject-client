@@ -45,7 +45,12 @@ export function getEvents() {
          })
     })
 }
-
+export function changeUser(user) {
+         store.dispatch({
+          type: 'CHANGE_USER',
+          newUser : user
+         })
+}
 export function getActivityIds() {
     api.get('/activities').then(res=>{
          store.dispatch({
